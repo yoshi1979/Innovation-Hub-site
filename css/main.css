@@ -2100,14 +2100,6 @@ blockquote {
   font-size: 15px;
 }
 
-/* ── Table ─────────────────────────────────────────────────── */
-.table-wrap {
-  overflow-x: auto;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(0,0,0,0.06);
-}
-
 table {
   width: 100%;
   border-collapse: collapse;
@@ -2872,16 +2864,6 @@ tbody tr:last-child {
   font-weight: 500;
 }
 .announcement-bar a { color: var(--ms-blue-light); font-weight: 700; text-decoration: underline; }
-
-/* ── Value Differentiator vs AWS / GCP ─────────────────────── */
-.vs-table { width: 100%; border-collapse: collapse; font-size: .875rem; }
-.vs-table th { background: var(--ms-navy); color: #fff; padding: 12px 16px; text-align: left; font-size: .78rem; text-transform: uppercase; letter-spacing: .5px; }
-.vs-table td { padding: 12px 16px; border-bottom: 1px solid #F0F0F0; color: var(--ms-dark); vertical-align: top; }
-.vs-table tr:last-child td { border-bottom: none; }
-.vs-table tr:nth-child(even) td { background: var(--ms-light); }
-.vs-check { color: var(--ms-green); font-weight: 700; }
-.vs-partial { color: var(--ms-orange); font-weight: 700; }
-.vs-no { color: #C8C6C4; }
 
 /* ── Breadcrumb override for dark bg ────────────────────────── */
 .breadcrumb-light .breadcrumb a,
