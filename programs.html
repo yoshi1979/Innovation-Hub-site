@@ -4,8 +4,178 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Programs &amp; Tracks | Microsoft Israel Innovation Hub</title>
-  <meta name="description" content="Explore the Microsoft Israel Innovation Hub's 8 programs — from LaunchPad for seed-stage startups to ISV Excellence and the CTO Circle. Every stage, every ambition.">
+  <meta name="description" content="19 programs across 4 tracks — Seed to Series B, Series C/D, Mature ISV, and Partners. Microsoft Israel Innovation Hub has a program for every stage.">
   <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* ── Programs page — page-scoped styles ── */
+    .track-section { margin-bottom: 56px; }
+    .track-section:last-child { margin-bottom: 0; }
+    .track-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid rgba(0,0,0,.07);
+    }
+    .track-label-block { flex-shrink: 0; }
+    .track-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--ms-blue);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .track-meta { flex: 1; }
+    .track-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      color: var(--ms-blue);
+      margin-bottom: 4px;
+    }
+    .track-title-text {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--ms-navy);
+      margin: 0 0 4px;
+    }
+    .track-desc-text {
+      font-size: .85rem;
+      color: var(--ms-gray);
+      margin: 0;
+    }
+    .program-meta-row {
+      font-size: 12px;
+      color: var(--ms-gray);
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .program-meta-row strong { color: var(--ms-navy); }
+    .duration-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      background: rgba(0,54,112,.08);
+      color: var(--ms-navy);
+      border-radius: 20px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .3px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .modal-section-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ms-navy);
+      margin: 0 0 8px;
+      text-transform: uppercase;
+      letter-spacing: .4px;
+    }
+    .modal-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .modal-tag {
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--ms-light);
+      color: var(--ms-gray);
+    }
+    .modal-deliverables {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .modal-deliverables li {
+      font-size: 13px;
+      color: var(--ms-gray);
+      display: flex;
+      gap: 8px;
+      line-height: 1.5;
+    }
+    .modal-deliverables li::before {
+      content: '📄';
+      flex-shrink: 0;
+      font-size: 12px;
+    }
+    .modal-outcomes {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .modal-outcomes li {
+      font-size: 13px;
+      color: var(--ms-gray);
+      display: flex;
+      gap: 8px;
+      line-height: 1.5;
+    }
+    .modal-outcomes li::before {
+      content: '✓';
+      color: var(--ms-green);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .modal-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 580px) {
+      .modal-two-col { grid-template-columns: 1fr; }
+    }
+    .modal-info-box {
+      background: var(--ms-light);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .modal-highlight-box {
+      background: var(--ms-light);
+      border-radius: 8px;
+      padding: 14px 16px;
+      border-left: 4px solid var(--ms-blue);
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--ms-gray);
+      font-style: italic;
+      line-height: 1.6;
+    }
+    .program-card-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ms-navy);
+      margin: 0;
+    }
+    .card-header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+  </style>
 </head>
 <body id="page-programs">
 
@@ -24,6 +194,7 @@
         <li><a href="events.html" class="nav-link">Events</a></li>
         <li><a href="collaborate.html" class="nav-link">Collaborate</a></li>
         <li><a href="success.html" class="nav-link">Success Stories</a></li>
+        <li><a href="experts.html" class="nav-link">Experts</a></li>
         <li><a href="about.html" class="nav-link">About</a></li>
         <li><a href="apply.html" class="nav-link nav-cta btn btn-primary btn-sm">Apply Now</a></li>
       </ul>
@@ -33,178 +204,572 @@
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="container">
-      <p class="hero-eyebrow">8 Programs · Every Stage</p>
+      <p class="hero-eyebrow">19 Programs · 4 Tracks · Every Stage</p>
       <h1 class="hero-title">Programs &amp; Tracks</h1>
-      <p class="hero-sub">From seed-stage moonshots to mature ISVs — we have a program tailored for your stage, your needs, and your ambition.</p>
+      <p class="hero-sub">From AWS-to-Azure migrations for seed startups to executive AI strategy sessions for mature ISVs — every program is designed to deliver tangible outcomes, not slide decks.</p>
     </div>
   </section>
 
   <!-- FILTER TABS + PROGRAMS GRID -->
   <section class="section section-alt" id="programs-grid">
     <div class="container">
+
       <div class="filter-tabs" role="tablist" aria-label="Filter programs by stage">
         <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">All</button>
-        <button class="filter-tab" data-filter="early-stage" role="tab" aria-selected="false">Early Stage</button>
-        <button class="filter-tab" data-filter="scaleup" role="tab" aria-selected="false">Scaleup</button>
-        <button class="filter-tab" data-filter="isv-partner" role="tab" aria-selected="false">ISV &amp; Partner</button>
+        <button class="filter-tab" data-filter="seed-b" role="tab" aria-selected="false">Seed–B</button>
+        <button class="filter-tab" data-filter="series-cd" role="tab" aria-selected="false">Series C/D</button>
+        <button class="filter-tab" data-filter="mature-isv" role="tab" aria-selected="false">Mature ISV</button>
+        <button class="filter-tab" data-filter="partners" role="tab" aria-selected="false">Partners</button>
         <button class="filter-tab" data-filter="executive" role="tab" aria-selected="false">Executive</button>
       </div>
 
-      <div class="card-grid">
-
-        <!-- 1. LaunchPad -->
-        <div class="program-card filterable" id="launchpad" data-category="early-stage">
-          <div class="program-card-header">
-            <span class="program-icon" aria-hidden="true" style="font-size:28px;">🚀</span>
-            <span class="badge badge-green">Early Stage</span>
+      <!-- ── TRACK 1: Seed to Series B ─────────────────────── -->
+      <div class="track-section">
+        <div class="track-header">
+          <div class="track-label-block">
+            <span class="track-num" aria-hidden="true">1</span>
           </div>
-          <h3 class="program-card-title" style="font-size:18px;font-weight:700;color:var(--ms-navy);">LaunchPad</h3>
-          <ul class="benefit-list">
-            <li>Up to $150K Azure credits &amp; developer tools</li>
-            <li>Weekly 1:1 CTO mentorship sessions</li>
-            <li>Access to Microsoft AI APIs: OpenAI, Copilot, AI Studio</li>
-          </ul>
-          <p style="font-size:12px;color:var(--ms-gray);font-weight:600;">⏱ Duration: 6 months</p>
-          <div class="card-actions">
-            <button class="btn btn-secondary btn-sm" data-modal="modal-launchpad" aria-haspopup="dialog">Learn More</button>
-            <a href="apply.html?program=launchpad" class="btn btn-primary btn-sm">Apply</a>
+          <div class="track-meta">
+            <p class="track-eyebrow">Track 1</p>
+            <h2 class="track-title-text">Seed to Series B</h2>
+            <p class="track-desc-text">Fast-moving engagements to help early-stage startups land on Azure, ship AI features, and build investor-credible architectures.</p>
           </div>
         </div>
 
-        <!-- 2. Scale360 -->
-        <div class="program-card filterable" id="scale360" data-category="scaleup">
-          <div class="program-card-header">
-            <span class="program-icon" aria-hidden="true" style="font-size:28px;">📈</span>
-            <span class="badge badge-blue">Series A &amp; B</span>
+        <div class="card-grid">
+
+          <!-- 1. AWS-to-Azure Startup Assessment -->
+          <div class="program-card filterable" id="aws-azure-assessment" data-category="seed-b">
+            <div class="program-card-header">
+              <span class="program-icon" aria-hidden="true" style="font-size:26px;">☁️</span>
+              <div class="card-header-right">
+                <span class="badge badge-green">Seed–B</span>
+                <span class="duration-chip">⏱ 2 weeks</span>
+              </div>
+            </div>
+            <h3 class="program-card-title">AWS-to-Azure Startup Assessment</h3>
+            <div class="program-meta-row">
+              <p><strong>For:</strong> Seed–B startups currently on AWS</p>
+              <p><strong>Teams:</strong> STU, ISE</p>
+            </div>
+            <ul class="benefit-list">
+              <li>Target-state Azure architecture diagram</li>
+              <li>Azure landing zone blueprint</li>
+              <li>90-day migration roadmap</li>
+            </ul>
+            <div class="card-actions">
+              <button class="btn btn-secondary btn-sm" data-modal="modal-aws-azure-assessment" aria-haspopup="dialog">Details</button>
+              <a href="apply.html?program=aws-azure-assessment" class="btn btn-primary btn-sm">Apply</a>
+            </div>
           </div>
-          <h3 class="program-card-title" style="font-size:18px;font-weight:700;color:var(--ms-navy);">Scale360</h3>
-          <ul class="benefit-list">
-            <li>Co-sell readiness with Microsoft field sales team</li>
-            <li>Azure Marketplace listing &amp; ISV incentives program</li>
-            <li>ISE collaboration for deep technical co-building</li>
-          </ul>
-          <p style="font-size:12px;color:var(--ms-gray);font-weight:600;">⏱ Duration: 9 months</p>
-          <div class="card-actions">
-            <button class="btn btn-secondary btn-sm" data-modal="modal-scale360" aria-haspopup="dialog">Learn More</button>
-            <a href="apply.html?program=scale360" class="btn btn-primary btn-sm">Apply</a>
+
+          <!-- 2. First Landing Zone Sprint -->
+          <div class="program-card filterable" id="landing-zone-sprint" data-category="seed-b">
+            <div class="program-card-header">
+              <span class="program-icon" aria-hidden="true" style="font-size:26px;">🏗️</span>
+              <div class="card-header-right">
+                <span class="badge badge-green">Seed–B</span>
+                <span class="duration-chip">⏱ 4 weeks</span>
+              </div>
+            </div>
+            <h3 class="program-card-title">First Landing Zone Sprint</h3>
+            <div class="program-meta-row">
+              <p><strong>For:</strong> Seed–B startups beginning Azure journey</p>
+              <p><strong>Teams:</strong> STU, ISE</p>
+            </div>
+            <ul class="benefit-list">
+              <li>Production-ready Azure landing zone</li>
+              <li>IaC templates &amp; CI/CD pipelines</li>
+              <li>Security baseline established</li>
+            </ul>
+            <div class="card-actions">
+              <button class="btn btn-secondary btn-sm" data-modal="modal-landing-zone-sprint" aria-haspopup="dialog">Details</button>
+              <a href="apply.html?program=landing-zone-sprint" class="btn btn-primary btn-sm">Apply</a>
+            </div>
+          </div>
+
+          <!-- 3. AI Feature Sprint -->
+          <div class="program-card filterable" id="ai-feature-sprint" data-category="seed-b">
+            <div class="program-card-header">
+              <span class="program-icon" aria-hidden="true" style="font-size:26px;">🤖</span>
+              <div class="card-header-right">
+                <span class="badge badge-green">Seed–B</span>
+                <span class="duration-chip">⏱ 3 weeks</span>
+              </div>
+            </div>
+            <h3 class="program-card-title">AI Feature Sprint</h3>
+            <div class="program-meta-row">
+              <p><strong>For:</strong> Seed–B startups with product-market fit wanting to add AI</p>
+              <p><strong>Teams:</strong> STU, ISE</p>
+            </div>
+            <ul class="benefit-list">
+              <li>Working AI prototype on Azure OpenAI</li>
+              <li>Integration blueprint for your product</li>
+              <li>AI backlog &amp; monetization hypothesis</li>
+            </ul>
+            <div class="card-actions">
+              <button class="btn btn-secondary btn-sm" data-modal="modal-ai-feature-sprint" aria-haspopup="dialog">Details</button>
+              <a href="apply.html?program=ai-feature-sprint" class="btn btn-primary btn-sm">Apply</a>
+            </div>
+          </div>
+
+          <!-- 4. Founder Office Hours -->
+          <div class="program-card filterable" id="founder-office-hours" data-category="seed-b">
+            <div class="program-card-header">
+              <span class="program-icon" aria-hidden="true" style="font-size:26px;">💬</span>
+              <div class="card-header-right">
+                <span class="badge badge-green">Seed–B</span>
+                <span class="duration-chip">⏱ Ongoing monthly</span>
+              </div>
+            </div>
+            <h3 class="program-card-title">Founder Office Hours</h3>
+            <div class="program-meta-row">
+              <p><strong>For:</strong> Seed–B founders</p>
+              <p><strong>Teams:</strong> Hub team, CTO Group</p>
+            </div>
+            <ul class="benefit-list">
+              <li>Architecture direction from Microsoft experts</li>
+              <li>Investor-credible technical decisions</li>
+              <li>Expert referrals &amp; next-action plans</li>
+            </ul>
+            <div class="card-actions">
+              <a href="apply.html?program=founder-office-hours" class="btn btn-secondary btn-sm">Details</a>
+              <a href="apply.html?program=founder-office-hours" class="btn btn-primary btn-sm">Apply</a>
+            </div>
+          </div>
+
+          <!-- 5. Investor-Ready Architecture Review -->
+          <div class="program-card filterable" id="investor-arch-review" data-category="seed-b executive">
+            <div class="program-card-header">
+              <span class="program-icon" aria-hidden="true" style="font-size:26px;">📊</span>
+              <div class="card-header-right">
+                <span class="badge badge-green">Seed–B</span>
+                <span class="duration-chip">⏱ 1 week</span>
+              </div>
+            </div>
+            <h3 class="program-card-title">Investor-Ready Architecture Review</h3>
+            <div class="program-meta-row">
+              <p><strong>For:</strong> Seed–B companies preparing for fundraising</p>
+              <p><strong>Teams:</strong> STU, CTO Group</p>
+            </div>
+            <ul class="benefit-list">
+              <li>Investor-grade architecture narrative</li>
+              <li>Scalability proof points</li>
+              <li>CTO recommendation memo</li>
+            </ul>
+            <div class="card-actions">
+              <a href="apply.html?program=investor-arch-review" class="btn btn-secondary btn-sm">Details</a>
+              <a href="apply.html?program=investor-arch-review" class="btn btn-primary btn-sm">Apply</a>
+            </div>
+          </div>
+
+        </div><!-- /.card-grid track 1 -->
+      </div><!-- /.track-section -->
+
+      <!-- ── TRACK 2: Series C/D ────────────────────────────── -->
+      <div class="track-section">
+        <div class="track-header">
+          <div class="track-label-block">
+            <span class="track-num" aria-hidden="true" style="background:var(--ms-blue-dark);">2</span>
+          </div>
+          <div class="track-meta">
+            <p class="track-eyebrow">Track 2</p>
+            <h2 class="track-title-text">Series C/D</h2>
+            <p class="track-desc-text">Strategic engagements for scaling companies committed to Azure expansion, AI at scale, and executive alignment with Microsoft.</p>
           </div>
         </div>
 
-        <!-- 3. Enterprise Bridge -->
-        <div class="program-card filterable" id="enterprise-bridge" data-category="scaleup">
-          <div class="program-card-header">
-            <span class="program-icon" aria-hidden="true" style="font-size:28px;">🏢</span>
-            <span class="badge badge-purple">Series C/D</span>
+        <div class="card-grid">
+
+          <!-- 6. Multi-Cloud SaaS Assessment -->
+          <div class="program-card filterable" id="multi-cloud-assessment" data-category="series-cd">
+            <div class="program-card-header">
+              <span class="program-icon" aria-hidden="true" style="font-size:26px;">🔍</span>
+              <div class="card-header-right">
+                <span class="badge badge-blue">Series C/D</span>
+                <span class="duration-chip">⏱ 3 weeks</span>
+              </div>
+            </div>
+            <h3 class="program-card-title">Multi-Cloud SaaS Assessment</h3>
+            <div class="program-meta-row">
+              <p><strong>For:</strong> Series C/D companies primarily on AWS</p>
+              <p><strong>Teams:</strong> STU, ISE</p>
+            </div>
+            <ul class="benefit-list">
+              <li>Multi-cloud posture strategy</li>
+              <li>Azure expansion hypothesis</li>
+              <li>Risk assessment &amp; 90-day roadmap</li>
+            </ul>
+            <div class="card-actions">
+              <button class="btn btn-secondary btn-sm" data-modal="modal-multi-cloud-assessment" aria-haspopup="dialog">Details</button>
+              <a href="apply.html?program=multi-cloud-assessment" class="btn btn-primary btn-sm">Apply</a>
+            </div>
           </div>
-          <h3 class="program-card-title" style="font-size:18px;font-weight:700;color:var(--ms-navy);">Enterprise Bridge</h3>
-          <ul class="benefit-list">
-            <li>Co-product exploration with Microsoft Product Groups</li>
-            <li>BD collaboration with Microsoft enterprise field teams</li>
-            <li>Enterprise GTM strategy &amp; executive sponsorship</li>
-          </ul>
-          <p style="font-size:12px;color:var(--ms-gray);font-weight:600;">⏱ Duration: 12 months</p>
-          <div class="card-actions">
-            <button class="btn btn-secondary btn-sm" data-modal="modal-enterprise-bridge" aria-haspopup="dialog">Learn More</button>
-            <a href="apply.html?program=enterprise-bridge" class="btn btn-primary btn-sm">Apply</a>
+
+          <!-- 7. Azure Expansion Roadmap -->
+          <div class="program-card filterable" id="azure-expansion-roadmap" data-category="series-cd">
+            <div class="program-card-header">
+              <span class="program-icon" aria-hidden="true" style="font-size:26px;">🗺️</span>
+              <div class="card-header-right">
+                <span class="badge badge-blue">Series C/D</span>
+                <span class="duration-chip">⏱ 4 weeks</span>
+              </div>
+            </div>
+            <h3 class="program-card-title">Azure Expansion Roadmap</h3>
+            <div class="program-meta-row">
+              <p><strong>For:</strong> Series C/D companies committed to Azure expansion</p>
+              <p><strong>Teams:</strong> STU, ISE, CSU</p>
+            </div>
+            <ul class="benefit-list">
+              <li>Phased migration plan with milestones</li>
+              <li>Azure architecture patterns</li>
+              <li>Team enablement &amp; governance plan</li>
+            </ul>
+            <div class="card-actions">
+              <a href="apply.html?program=azure-expansion-roadmap" class="btn btn-secondary btn-sm">Details</a>
+              <a href="apply.html?program=azure-expansion-roadmap" class="btn btn-primary btn-sm">Apply</a>
+            </div>
+          </div>
+
+          <!-- 8. AI Production Sprint -->
+          <div class="program-card filterable" id="ai-production-sprint" data-category="series-cd">
+            <div class="program-card-header">
+              <span class="program-icon" aria-hidden="true" style="font-size:26px;">⚙️</span>
+              <div class="card-header-right">
+                <span class="badge badge-blue">Series C/D</span>
+                <span class="duration-chip">⏱ 6 weeks</span>
+              </div>
+            </div>
+            <h3 class="program-card-title">AI Production Sprint</h3>
+            <div class="program-meta-row">
+              <p><strong>For:</strong> Series C/D companies scaling AI features</p>
+              <p><strong>Teams:</strong> ISE, STU</p>
+            </div>
+            <ul class="benefit-list">
+              <li>Production-ready AI pipeline</li>
+              <li>MLOps framework on Azure AI Platform</li>
+              <li>AI governance baseline</li>
+            </ul>
+            <div class="card-actions">
+              <button class="btn btn-secondary btn-sm" data-modal="modal-ai-production-sprint" aria-haspopup="dialog">Details</button>
+              <a href="apply.html?program=ai-production-sprint" class="btn btn-primary btn-sm">Apply</a>
+            </div>
+          </div>
+
+          <!-- 9. Executive Architecture Review -->
+          <div class="program-card filterable" id="executive-arch-review" data-category="series-cd executive">
+            <div class="program-card-header">
+              <span class="program-icon" aria-hidden="true" style="font-size:26px;">🧠</span>
+              <div class="card-header-right">
+                <span class="badge badge-purple">Executive</span>
+                <span class="duration-chip">⏱ 2 weeks</span>
+              </div>
+            </div>
+            <h3 class="program-card-title">Executive Architecture Review</h3>
+            <div class="program-meta-row">
+              <p><strong>For:</strong> CTOs &amp; technical executives at Series C/D</p>
+              <p><strong>Teams:</strong> CTO Group, STU</p>
+            </div>
+            <ul class="benefit-list">
+              <li>Strategic technical direction</li>
+              <li>Architecture risk mitigation</li>
+              <li>CTO alignment &amp; executive briefing</li>
+            </ul>
+            <div class="card-actions">
+              <a href="apply.html?program=executive-arch-review" class="btn btn-secondary btn-sm">Details</a>
+              <a href="apply.html?program=executive-arch-review" class="btn btn-primary btn-sm">Apply</a>
+            </div>
+          </div>
+
+          <!-- 10. AI Monetization Strategy Session -->
+          <div class="program-card filterable" id="ai-monetization-session" data-category="series-cd executive">
+            <div class="program-card-header">
+              <span class="program-icon" aria-hidden="true" style="font-size:26px;">💰</span>
+              <div class="card-header-right">
+                <span class="badge badge-purple">Executive</span>
+                <span class="duration-chip">⏱ 1 week</span>
+              </div>
+            </div>
+            <h3 class="program-card-title">AI Monetization Strategy Session</h3>
+            <div class="program-meta-row">
+              <p><strong>For:</strong> CPOs, CFOs, CTOs at Series C/D</p>
+              <p><strong>Teams:</strong> Hub team, Business Development</p>
+            </div>
+            <ul class="benefit-list">
+              <li>AI monetization framework</li>
+              <li>Pricing hypothesis &amp; packaging options</li>
+              <li>Go-to-market brief</li>
+            </ul>
+            <div class="card-actions">
+              <a href="apply.html?program=ai-monetization-session" class="btn btn-secondary btn-sm">Details</a>
+              <a href="apply.html?program=ai-monetization-session" class="btn btn-primary btn-sm">Apply</a>
+            </div>
+          </div>
+
+        </div><!-- /.card-grid track 2 -->
+      </div><!-- /.track-section -->
+
+      <!-- ── TRACK 3: Mature ISV ────────────────────────────── -->
+      <div class="track-section">
+        <div class="track-header">
+          <div class="track-label-block">
+            <span class="track-num" aria-hidden="true" style="background:var(--ms-orange);">3</span>
+          </div>
+          <div class="track-meta">
+            <p class="track-eyebrow">Track 3</p>
+            <h2 class="track-title-text">Mature ISV</h2>
+            <p class="track-desc-text">Modernization, Marketplace commercialization, co-sell acceleration, and co-product exploration for established software companies.</p>
           </div>
         </div>
 
-        <!-- 4. ISV Excellence -->
-        <div class="program-card filterable" id="isv-excellence" data-category="isv-partner">
-          <div class="program-card-header">
-            <span class="program-icon" aria-hidden="true" style="font-size:28px;">🏭</span>
-            <span class="badge badge-orange">Mature ISV</span>
+        <div class="card-grid">
+
+          <!-- 11. SaaS Modernization Studio -->
+          <div class="program-card filterable" id="saas-modernization" data-category="mature-isv">
+            <div class="program-card-header">
+              <span class="program-icon" aria-hidden="true" style="font-size:26px;">🏭</span>
+              <div class="card-header-right">
+                <span class="badge badge-orange">Mature ISV</span>
+                <span class="duration-chip">⏱ 8 weeks</span>
+              </div>
+            </div>
+            <h3 class="program-card-title">SaaS Modernization Studio</h3>
+            <div class="program-meta-row">
+              <p><strong>For:</strong> Mature ISVs with legacy SaaS architectures</p>
+              <p><strong>Teams:</strong> ISE, STU, CSU</p>
+            </div>
+            <ul class="benefit-list">
+              <li>Modernization scorecard &amp; target architecture</li>
+              <li>Phased transformation roadmap</li>
+              <li>Modernization report with milestones</li>
+            </ul>
+            <div class="card-actions">
+              <button class="btn btn-secondary btn-sm" data-modal="modal-saas-modernization" aria-haspopup="dialog">Details</button>
+              <a href="apply.html?program=saas-modernization" class="btn btn-primary btn-sm">Apply</a>
+            </div>
           </div>
-          <h3 class="program-card-title" style="font-size:18px;font-weight:700;color:var(--ms-navy);">ISV Excellence</h3>
-          <ul class="benefit-list">
-            <li>Azure migration assessment &amp; technical modernization</li>
-            <li>Azure Marketplace listing &amp; optimization</li>
-            <li>Multi-cloud support and Azure differentiation strategy</li>
-          </ul>
-          <p style="font-size:12px;color:var(--ms-gray);font-weight:600;">⏱ Duration: Ongoing</p>
-          <div class="card-actions">
-            <button class="btn btn-secondary btn-sm" data-modal="modal-isv-excellence" aria-haspopup="dialog">Learn More</button>
-            <a href="apply.html?program=isv-excellence" class="btn btn-primary btn-sm">Apply</a>
+
+          <!-- 12. Marketplace Packaging Sprint -->
+          <div class="program-card filterable" id="marketplace-packaging" data-category="mature-isv">
+            <div class="program-card-header">
+              <span class="program-icon" aria-hidden="true" style="font-size:26px;">🛍️</span>
+              <div class="card-header-right">
+                <span class="badge badge-orange">Mature ISV</span>
+                <span class="duration-chip">⏱ 3 weeks</span>
+              </div>
+            </div>
+            <h3 class="program-card-title">Marketplace Packaging Sprint</h3>
+            <div class="program-meta-row">
+              <p><strong>For:</strong> ISVs ready to list on Azure Marketplace</p>
+              <p><strong>Teams:</strong> GPS, STU</p>
+            </div>
+            <ul class="benefit-list">
+              <li>Publish-ready Marketplace listing</li>
+              <li>Pricing strategy &amp; co-sell readiness</li>
+              <li>Offer pricing model &amp; co-sell brief</li>
+            </ul>
+            <div class="card-actions">
+              <a href="apply.html?program=marketplace-packaging" class="btn btn-secondary btn-sm">Details</a>
+              <a href="apply.html?program=marketplace-packaging" class="btn btn-primary btn-sm">Apply</a>
+            </div>
+          </div>
+
+          <!-- 13. Co-Sell Acceleration with GPS -->
+          <div class="program-card filterable" id="co-sell-acceleration" data-category="mature-isv">
+            <div class="program-card-header">
+              <span class="program-icon" aria-hidden="true" style="font-size:26px;">🤝</span>
+              <div class="card-header-right">
+                <span class="badge badge-orange">Mature ISV</span>
+                <span class="duration-chip">⏱ 6 weeks</span>
+              </div>
+            </div>
+            <h3 class="program-card-title">Co-Sell Acceleration with GPS</h3>
+            <div class="program-meta-row">
+              <p><strong>For:</strong> ISVs &amp; partners with Marketplace listings</p>
+              <p><strong>Teams:</strong> GPS</p>
+            </div>
+            <ul class="benefit-list">
+              <li>Active co-sell pipeline established</li>
+              <li>Field sales engagement</li>
+              <li>Co-sell readiness plan &amp; account map</li>
+            </ul>
+            <div class="card-actions">
+              <button class="btn btn-secondary btn-sm" data-modal="modal-co-sell-acceleration" aria-haspopup="dialog">Details</button>
+              <a href="apply.html?program=co-sell-acceleration" class="btn btn-primary btn-sm">Apply</a>
+            </div>
+          </div>
+
+          <!-- 14. Co-Product Exploration Path -->
+          <div class="program-card filterable" id="co-product-exploration" data-category="mature-isv">
+            <div class="program-card-header">
+              <span class="program-icon" aria-hidden="true" style="font-size:26px;">🔬</span>
+              <div class="card-header-right">
+                <span class="badge badge-orange">Mature ISV</span>
+                <span class="duration-chip">⏱ 8 weeks</span>
+              </div>
+            </div>
+            <h3 class="program-card-title">Co-Product Exploration Path</h3>
+            <div class="program-meta-row">
+              <p><strong>For:</strong> Mature ISVs with strong Microsoft alignment potential</p>
+              <p><strong>Teams:</strong> Product Groups, BD, ISE</p>
+            </div>
+            <ul class="benefit-list">
+              <li>Co-product discovery brief</li>
+              <li>Joint opportunity assessment</li>
+              <li>Pilot proposal &amp; sponsorship recommendation</li>
+            </ul>
+            <div class="card-actions">
+              <a href="apply.html?program=co-product-exploration" class="btn btn-secondary btn-sm">Details</a>
+              <a href="apply.html?program=co-product-exploration" class="btn btn-primary btn-sm">Apply</a>
+            </div>
+          </div>
+
+          <!-- 15. Executive AI Value Realization Session -->
+          <div class="program-card filterable" id="executive-ai-realization" data-category="mature-isv executive">
+            <div class="program-card-header">
+              <span class="program-icon" aria-hidden="true" style="font-size:26px;">💎</span>
+              <div class="card-header-right">
+                <span class="badge badge-purple">Executive</span>
+                <span class="duration-chip">⏱ 2 days</span>
+              </div>
+            </div>
+            <h3 class="program-card-title">Executive AI Value Realization Session</h3>
+            <div class="program-meta-row">
+              <p><strong>For:</strong> C-suite at mature ISVs</p>
+              <p><strong>Teams:</strong> Hub team, CTO Group, Business Development</p>
+            </div>
+            <ul class="benefit-list">
+              <li>AI value framework &amp; ROI measurement model</li>
+              <li>Executive AI narrative</li>
+              <li>Board presentation template</li>
+            </ul>
+            <div class="card-actions">
+              <a href="apply.html?program=executive-ai-realization" class="btn btn-secondary btn-sm">Details</a>
+              <a href="apply.html?program=executive-ai-realization" class="btn btn-primary btn-sm">Apply</a>
+            </div>
+          </div>
+
+        </div><!-- /.card-grid track 3 -->
+      </div><!-- /.track-section -->
+
+      <!-- ── TRACK 4: Partners ──────────────────────────────── -->
+      <div class="track-section">
+        <div class="track-header">
+          <div class="track-label-block">
+            <span class="track-num" aria-hidden="true" style="background:var(--ms-navy);">4</span>
+          </div>
+          <div class="track-meta">
+            <p class="track-eyebrow">Track 4</p>
+            <h2 class="track-title-text">Partners</h2>
+            <p class="track-desc-text">Structured programs for Microsoft partners to align on hub offerings, build Marketplace presence, and activate co-sell motions.</p>
           </div>
         </div>
 
-        <!-- 5. Partner FastTrack -->
-        <div class="program-card filterable" id="partner-fasttrack" data-category="isv-partner">
-          <div class="program-card-header">
-            <span class="program-icon" aria-hidden="true" style="font-size:28px;">⚡</span>
-            <span class="badge badge-navy">Microsoft Partner</span>
-          </div>
-          <h3 class="program-card-title" style="font-size:18px;font-weight:700;color:var(--ms-navy);">Partner FastTrack</h3>
-          <ul class="benefit-list">
-            <li>GPS co-sell activation and deal registration</li>
-            <li>Azure Marketplace listing acceleration (30-day listing)</li>
-            <li>Partner Center optimization &amp; incentive enrollment</li>
-          </ul>
-          <p style="font-size:12px;color:var(--ms-gray);font-weight:600;">⏱ Duration: 3 months</p>
-          <div class="card-actions">
-            <button class="btn btn-secondary btn-sm" data-modal="modal-partner-fasttrack" aria-haspopup="dialog">Learn More</button>
-            <a href="apply.html?program=partner-fasttrack" class="btn btn-primary btn-sm">Apply</a>
-          </div>
-        </div>
+        <div class="card-grid">
 
-        <!-- 6. CTO Circle -->
-        <div class="program-card filterable" id="cto-circle" data-category="executive">
-          <div class="program-card-header">
-            <span class="program-icon" aria-hidden="true" style="font-size:28px;">🧠</span>
-            <span class="badge badge-purple">Executive</span>
+          <!-- 16. Partner Solution Alignment Session -->
+          <div class="program-card filterable" id="partner-alignment" data-category="partners">
+            <div class="program-card-header">
+              <span class="program-icon" aria-hidden="true" style="font-size:26px;">🎯</span>
+              <div class="card-header-right">
+                <span class="badge badge-navy">Partners</span>
+                <span class="duration-chip">⏱ 1 week</span>
+              </div>
+            </div>
+            <h3 class="program-card-title">Partner Solution Alignment Session</h3>
+            <div class="program-meta-row">
+              <p><strong>For:</strong> Microsoft partners exploring hub programs</p>
+              <p><strong>Teams:</strong> GPS, Hub team</p>
+            </div>
+            <ul class="benefit-list">
+              <li>Partner-hub alignment plan</li>
+              <li>Program roadmap &amp; engagement model</li>
+              <li>Alignment brief &amp; account map</li>
+            </ul>
+            <div class="card-actions">
+              <a href="apply.html?program=partner-alignment" class="btn btn-secondary btn-sm">Details</a>
+              <a href="apply.html?program=partner-alignment" class="btn btn-primary btn-sm">Apply</a>
+            </div>
           </div>
-          <h3 class="program-card-title" style="font-size:18px;font-weight:700;color:var(--ms-navy);">CTO Circle</h3>
-          <ul class="benefit-list">
-            <li>Monthly peer dinners with Israel's top CTOs and VPs of Eng</li>
-            <li>Direct access to Microsoft CTO Group Israel for technical strategy</li>
-            <li>Exclusive Microsoft product roadmap briefings</li>
-          </ul>
-          <p style="font-size:12px;color:var(--ms-gray);font-weight:600;">⏱ Duration: Ongoing membership</p>
-          <div class="card-actions">
-            <button class="btn btn-secondary btn-sm" data-modal="modal-cto-circle" aria-haspopup="dialog">Learn More</button>
-            <a href="apply.html?program=cto-circle" class="btn btn-primary btn-sm">Apply</a>
-          </div>
-        </div>
 
-        <!-- 7. AI Innovation Lab -->
-        <div class="program-card filterable" id="ai-lab" data-category="early-stage">
-          <div class="program-card-header">
-            <span class="program-icon" aria-hidden="true" style="font-size:28px;">🤖</span>
-            <span class="badge badge-blue">All Stages</span>
+          <!-- 17. Marketplace GTM Workshop -->
+          <div class="program-card filterable" id="marketplace-gtm" data-category="partners">
+            <div class="program-card-header">
+              <span class="program-icon" aria-hidden="true" style="font-size:26px;">🛒</span>
+              <div class="card-header-right">
+                <span class="badge badge-navy">Partners</span>
+                <span class="duration-chip">⏱ 2 days</span>
+              </div>
+            </div>
+            <h3 class="program-card-title">Marketplace GTM Workshop</h3>
+            <div class="program-meta-row">
+              <p><strong>For:</strong> Partners building Marketplace presence</p>
+              <p><strong>Teams:</strong> GPS</p>
+            </div>
+            <ul class="benefit-list">
+              <li>GTM plan &amp; Marketplace launch strategy</li>
+              <li>Pipeline targets</li>
+              <li>GTM playbook &amp; KPI framework</li>
+            </ul>
+            <div class="card-actions">
+              <a href="apply.html?program=marketplace-gtm" class="btn btn-secondary btn-sm">Details</a>
+              <a href="apply.html?program=marketplace-gtm" class="btn btn-primary btn-sm">Apply</a>
+            </div>
           </div>
-          <h3 class="program-card-title" style="font-size:18px;font-weight:700;color:var(--ms-navy);">AI Innovation Lab</h3>
-          <ul class="benefit-list">
-            <li>Hands-on Azure OpenAI, AI Studio &amp; Copilot workshops</li>
-            <li>Build and deploy AI features in dedicated lab environment</li>
-            <li>Access to Microsoft AI engineers and research team</li>
-          </ul>
-          <p style="font-size:12px;color:var(--ms-gray);font-weight:600;">⏱ Duration: 4-week intensive</p>
-          <div class="card-actions">
-            <button class="btn btn-secondary btn-sm" data-modal="modal-ai-lab" aria-haspopup="dialog">Learn More</button>
-            <a href="apply.html?program=ai-lab" class="btn btn-primary btn-sm">Apply</a>
-          </div>
-        </div>
 
-        <!-- 8. Co-Build Program -->
-        <div class="program-card filterable" id="co-build" data-category="scaleup">
-          <div class="program-card-header">
-            <span class="program-icon" aria-hidden="true" style="font-size:28px;">🔨</span>
-            <span class="badge badge-orange">Invitation Only</span>
+          <!-- 18. Co-Sell Activation Sprint -->
+          <div class="program-card filterable" id="co-sell-activation" data-category="partners">
+            <div class="program-card-header">
+              <span class="program-icon" aria-hidden="true" style="font-size:26px;">⚡</span>
+              <div class="card-header-right">
+                <span class="badge badge-navy">Partners</span>
+                <span class="duration-chip">⏱ 4 weeks</span>
+              </div>
+            </div>
+            <h3 class="program-card-title">Co-Sell Activation Sprint</h3>
+            <div class="program-meta-row">
+              <p><strong>For:</strong> Partners with co-sell eligibility</p>
+              <p><strong>Teams:</strong> GPS</p>
+            </div>
+            <ul class="benefit-list">
+              <li>Activated co-sell motion</li>
+              <li>Field team enablement</li>
+              <li>Co-sell activation plan &amp; deal framework</li>
+            </ul>
+            <div class="card-actions">
+              <a href="apply.html?program=co-sell-activation" class="btn btn-secondary btn-sm">Details</a>
+              <a href="apply.html?program=co-sell-activation" class="btn btn-primary btn-sm">Apply</a>
+            </div>
           </div>
-          <h3 class="program-card-title" style="font-size:18px;font-weight:700;color:var(--ms-navy);">Co-Build Program</h3>
-          <ul class="benefit-list">
-            <li>Co-product exploration with Microsoft Product Groups</li>
-            <li>Dedicated Microsoft engineering time and resources</li>
-            <li>Joint IP and commercialization pathways</li>
-          </ul>
-          <p style="font-size:12px;color:var(--ms-gray);font-weight:600;">⏱ Duration: 6–18 months (varies)</p>
-          <div class="card-actions">
-            <button class="btn btn-secondary btn-sm" data-modal="modal-co-build" aria-haspopup="dialog">Learn More</button>
-            <a href="apply.html?program=co-build" class="btn btn-primary btn-sm">Apply</a>
-          </div>
-        </div>
 
-      </div><!-- /.card-grid -->
+          <!-- 19. Joint Offer Design Session -->
+          <div class="program-card filterable" id="joint-offer-design" data-category="partners">
+            <div class="program-card-header">
+              <span class="program-icon" aria-hidden="true" style="font-size:26px;">🎨</span>
+              <div class="card-header-right">
+                <span class="badge badge-navy">Partners</span>
+                <span class="duration-chip">⏱ 3 days</span>
+              </div>
+            </div>
+            <h3 class="program-card-title">Joint Offer Design Session</h3>
+            <div class="program-meta-row">
+              <p><strong>For:</strong> Partners exploring joint solution offers</p>
+              <p><strong>Teams:</strong> GPS, Product Groups</p>
+            </div>
+            <ul class="benefit-list">
+              <li>Joint offer definition &amp; pricing model</li>
+              <li>Go-to-market approach</li>
+              <li>Joint offer brief &amp; GTM plan</li>
+            </ul>
+            <div class="card-actions">
+              <a href="apply.html?program=joint-offer-design" class="btn btn-secondary btn-sm">Details</a>
+              <a href="apply.html?program=joint-offer-design" class="btn btn-primary btn-sm">Apply</a>
+            </div>
+          </div>
+
+        </div><!-- /.card-grid track 4 -->
+      </div><!-- /.track-section -->
+
     </div>
   </section>
 
@@ -347,11 +912,11 @@
         <div class="footer-col">
           <h4 class="footer-heading">Programs</h4>
           <ul class="footer-links">
-            <li><a href="programs.html#launchpad">LaunchPad</a></li>
-            <li><a href="programs.html#scale360">Scale360</a></li>
-            <li><a href="programs.html#enterprise-bridge">Enterprise Bridge</a></li>
-            <li><a href="programs.html#isv-excellence">ISV Excellence</a></li>
-            <li><a href="programs.html#ai-lab">AI Innovation Lab</a></li>
+            <li><a href="programs.html#aws-azure-assessment">AWS-to-Azure Assessment</a></li>
+            <li><a href="programs.html#ai-feature-sprint">AI Feature Sprint</a></li>
+            <li><a href="programs.html#saas-modernization">SaaS Modernization Studio</a></li>
+            <li><a href="programs.html#co-sell-acceleration">Co-Sell Acceleration</a></li>
+            <li><a href="programs.html#co-product-exploration">Co-Product Exploration</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -388,415 +953,407 @@
   </footer>
 
   <!-- ============================================================
-       PROGRAM MODALS
+       PROGRAM MODALS — 7 full-detail modals
        ============================================================ -->
 
-  <!-- Modal: LaunchPad -->
-  <div class="modal-overlay" id="modal-launchpad" role="dialog" aria-modal="true" aria-labelledby="modal-launchpad-title">
+  <!-- Modal: AWS-to-Azure Startup Assessment -->
+  <div class="modal-overlay" id="modal-aws-azure-assessment" role="dialog" aria-modal="true" aria-labelledby="modal-aws-azure-title">
     <div class="modal">
       <div class="modal-header">
-        <h2 class="modal-title" id="modal-launchpad-title">🚀 LaunchPad</h2>
-        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-launchpad')">✕</button>
+        <h2 class="modal-title" id="modal-aws-azure-title">☁️ AWS-to-Azure Startup Assessment</h2>
+        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-aws-azure-assessment')">✕</button>
       </div>
       <div class="modal-body">
-        <p style="color:var(--ms-gray);margin-bottom:24px;line-height:1.7;">LaunchPad is designed for Israel's most ambitious seed and pre-seed startups. If you're building on Azure (or planning to), we provide the infrastructure, guidance, and technical access to move from prototype to production in record time.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;">
+          <span class="badge badge-green">Seed–B</span>
+          <span class="duration-chip">⏱ 2 weeks</span>
+          <span class="modal-tag">STU · ISE</span>
+        </div>
 
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Eligibility</h3>
-        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
-          <li>Seed or pre-seed stage</li>
-          <li>Israeli-registered company or Israeli founding team</li>
-          <li>Building a technology product (software, hardware+software, or AI)</li>
-          <li>Annual recurring revenue under $1M</li>
-          <li>Committed to building on Microsoft Azure</li>
+        <p style="color:var(--ms-gray);margin-bottom:20px;line-height:1.7;font-size:14px;">A structured 2-week deep-dive into your current AWS architecture, identifying Azure readiness gaps, risks, and migration opportunities. You leave with a concrete plan — not a generic slide deck.</p>
+
+        <div class="modal-two-col">
+          <div class="modal-info-box">
+            <p class="modal-section-title">Customer Outcomes</p>
+            <ul class="modal-outcomes">
+              <li>Target-state Azure architecture diagram</li>
+              <li>Azure landing zone blueprint</li>
+              <li>90-day migration roadmap</li>
+            </ul>
+          </div>
+          <div class="modal-info-box">
+            <p class="modal-section-title">Deliverables</p>
+            <ul class="modal-deliverables">
+              <li>Architecture assessment report</li>
+              <li>Azure landing zone blueprint</li>
+              <li>Cost comparison (AWS vs Azure)</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="modal-section-title">What Happens</p>
+        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:13px;line-height:1.8;margin-bottom:16px;">
+          <li>Week 1: Architecture discovery sessions with your engineering team</li>
+          <li>Week 1: Multi-cloud gap analysis — compute, data, networking, security, IAM</li>
+          <li>Week 2: Azure readiness assessment &amp; target architecture design</li>
+          <li>Week 2: 90-day migration roadmap with prioritised workloads</li>
+          <li>Readout: Presentation to founders &amp; engineering leadership</li>
         </ul>
 
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">What You Get</h3>
-        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
-          <li>$150K in Azure credits over 6 months</li>
-          <li>Weekly 30-min CTO mentorship with Avi Shapiro or hub advisors</li>
-          <li>Access to Azure OpenAI Service, AI Studio, and Copilot APIs</li>
-          <li>Co-working space at Microsoft Israel HQ</li>
-          <li>Invitation to LaunchPad demo day</li>
-          <li>Introduction to Microsoft's early-stage investor network</li>
-          <li>Access to CTO Circle events</li>
-        </ul>
+        <p class="modal-section-title">Who Should Apply</p>
+        <p style="color:var(--ms-gray);font-size:13px;line-height:1.7;margin-bottom:16px;">Seed to Series B startups currently running on AWS who are exploring Azure as their primary or secondary cloud. Most useful before a major infrastructure decision or fundraise.</p>
 
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Program Journey</h3>
-        <ol style="list-style:decimal;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
-          <li>Application &amp; Screening</li>
-          <li>Onboarding &amp; Azure Setup</li>
-          <li>Build &amp; Mentor Phase</li>
-          <li>Demo Day &amp; Graduation</li>
-        </ol>
-
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Microsoft Team</h3>
-        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;margin-bottom:20px;">Maya Levi (Startup Programs Lead), Avi Shapiro (CTO Advisor), Yael Ben-David (Azure AI Technical Lead)</p>
-
-        <div style="background:var(--ms-light);border-radius:8px;padding:16px 20px;border-left:4px solid var(--ms-blue);">
-          <p style="font-size:13px;color:var(--ms-gray);line-height:1.7;font-style:italic;">"CyberSentry joined LaunchPad at seed stage and graduated to Series A within 18 months, closing 40 enterprise deals via Microsoft co-sell."</p>
+        <div class="modal-highlight-box">
+          "After the assessment, we had a clear picture of what it would take to move to Azure — and the confidence to present it to investors as a strategic advantage."
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-launchpad')">Close</button>
-        <a href="apply.html?program=launchpad" class="btn btn-primary">Apply for This Program</a>
+        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-aws-azure-assessment')">Close</button>
+        <a href="apply.html?program=aws-azure-assessment" class="btn btn-primary">Apply for This Program</a>
       </div>
     </div>
   </div>
 
-  <!-- Modal: Scale360 -->
-  <div class="modal-overlay" id="modal-scale360" role="dialog" aria-modal="true" aria-labelledby="modal-scale360-title">
+  <!-- Modal: First Landing Zone Sprint -->
+  <div class="modal-overlay" id="modal-landing-zone-sprint" role="dialog" aria-modal="true" aria-labelledby="modal-landing-zone-title">
     <div class="modal">
       <div class="modal-header">
-        <h2 class="modal-title" id="modal-scale360-title">📈 Scale360</h2>
-        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-scale360')">✕</button>
+        <h2 class="modal-title" id="modal-landing-zone-title">🏗️ First Landing Zone Sprint</h2>
+        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-landing-zone-sprint')">✕</button>
       </div>
       <div class="modal-body">
-        <p style="color:var(--ms-gray);margin-bottom:24px;line-height:1.7;">Scale360 bridges the gap between product-market fit and enterprise scale. If you're Series A or B with revenue traction, we help you turn Microsoft into your most powerful sales channel.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;">
+          <span class="badge badge-green">Seed–B</span>
+          <span class="duration-chip">⏱ 4 weeks</span>
+          <span class="modal-tag">STU · ISE</span>
+        </div>
 
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Eligibility</h3>
-        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
-          <li>Series A or B with at least $2M ARR</li>
-          <li>Product built on or migrating to Azure</li>
-          <li>Israeli-registered or headquartered company</li>
-          <li>Dedicated technical team (5+ engineers)</li>
+        <p style="color:var(--ms-gray);margin-bottom:20px;line-height:1.7;font-size:14px;">A 4-week hands-on sprint with Microsoft ISE engineers to set up your first production-ready Azure landing zone — with security, CI/CD, and infrastructure-as-code from day one.</p>
+
+        <div class="modal-two-col">
+          <div class="modal-info-box">
+            <p class="modal-section-title">Customer Outcomes</p>
+            <ul class="modal-outcomes">
+              <li>Production-ready Azure landing zone</li>
+              <li>IaC templates (Bicep / Terraform)</li>
+              <li>Security baseline &amp; CI/CD pipelines</li>
+            </ul>
+          </div>
+          <div class="modal-info-box">
+            <p class="modal-section-title">Deliverables</p>
+            <ul class="modal-deliverables">
+              <li>Landing zone code repository</li>
+              <li>Architecture diagram</li>
+              <li>Runbook for operations team</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="modal-section-title">Sprint Phases</p>
+        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:13px;line-height:1.8;margin-bottom:16px;">
+          <li>Week 1: Requirements &amp; design — networking, identity, policies</li>
+          <li>Week 2: Core landing zone deployment with ISE engineers</li>
+          <li>Week 3: Security baseline, monitoring, CI/CD integration</li>
+          <li>Week 4: Testing, runbook creation, team knowledge transfer</li>
         </ul>
 
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">What You Get</h3>
-        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
-          <li>Co-sell activation with Microsoft's GPS field team</li>
-          <li>Azure Marketplace listing support + ISV incentives</li>
-          <li>ISE (Industry Solutions Engineering) co-building sprints</li>
-          <li>Monthly Scale360 cohort roundtables</li>
-          <li>BD introductions to Microsoft enterprise customers</li>
-          <li>Azure credits extension</li>
-          <li>Access to Microsoft's global Partner Center</li>
-        </ul>
+        <p class="modal-section-title">Who Should Apply</p>
+        <p style="color:var(--ms-gray);font-size:13px;line-height:1.7;margin-bottom:16px;">Seed to Series B startups at the beginning of their Azure journey — whether migrating from AWS, another cloud, or greenfield. You need at least one engineer who can participate in the sprint.</p>
 
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Program Journey</h3>
-        <ol style="list-style:decimal;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
-          <li>Intake &amp; Assessment</li>
-          <li>Co-sell Activation</li>
-          <li>Marketplace Listing</li>
-          <li>ISE Collaboration</li>
-          <li>GTM Acceleration</li>
-        </ol>
-
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Microsoft Team</h3>
-        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;margin-bottom:20px;">Ron Katz (Head of Business Development), Maya Levi (Startup Programs Lead), ISE Team</p>
-
-        <div style="background:var(--ms-light);border-radius:8px;padding:16px 20px;border-left:4px solid var(--ms-blue);">
-          <p style="font-size:13px;color:var(--ms-gray);line-height:1.7;font-style:italic;">"CloudBridge raised $12M post-Scale360 participation and listed on Azure Marketplace within 3 months."</p>
+        <div class="modal-highlight-box">
+          "We went from zero Azure infrastructure to a production-ready landing zone with IaC in four weeks. The ISE team treated it like their own project."
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-scale360')">Close</button>
-        <a href="apply.html?program=scale360" class="btn btn-primary">Apply for This Program</a>
+        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-landing-zone-sprint')">Close</button>
+        <a href="apply.html?program=landing-zone-sprint" class="btn btn-primary">Apply for This Program</a>
       </div>
     </div>
   </div>
 
-  <!-- Modal: Enterprise Bridge -->
-  <div class="modal-overlay" id="modal-enterprise-bridge" role="dialog" aria-modal="true" aria-labelledby="modal-enterprise-bridge-title">
+  <!-- Modal: AI Feature Sprint -->
+  <div class="modal-overlay" id="modal-ai-feature-sprint" role="dialog" aria-modal="true" aria-labelledby="modal-ai-feature-title">
     <div class="modal">
       <div class="modal-header">
-        <h2 class="modal-title" id="modal-enterprise-bridge-title">🏢 Enterprise Bridge</h2>
-        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-enterprise-bridge')">✕</button>
+        <h2 class="modal-title" id="modal-ai-feature-title">🤖 AI Feature Sprint</h2>
+        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-ai-feature-sprint')">✕</button>
       </div>
       <div class="modal-body">
-        <p style="color:var(--ms-gray);margin-bottom:24px;line-height:1.7;">Enterprise Bridge is for companies that have achieved significant scale and are ready to build something larger — a joint product, a deep integration, or a co-go-to-market motion with Microsoft's global enterprise sales engine.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;">
+          <span class="badge badge-green">Seed–B</span>
+          <span class="duration-chip">⏱ 3 weeks</span>
+          <span class="modal-tag">STU · ISE</span>
+        </div>
 
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Eligibility</h3>
-        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
-          <li>Series C, D or post-Series D</li>
-          <li>$10M+ ARR</li>
-          <li>Product complementary to Microsoft's portfolio (Azure, M365, Dynamics, Security)</li>
-          <li>Dedicated executive sponsor</li>
+        <p style="color:var(--ms-gray);margin-bottom:20px;line-height:1.7;font-size:14px;">A rapid AI feature design and build sprint using Azure OpenAI Service. In 3 weeks, you go from AI feature idea to a working prototype integrated into your product — with a clear path to production.</p>
+
+        <div class="modal-two-col">
+          <div class="modal-info-box">
+            <p class="modal-section-title">Customer Outcomes</p>
+            <ul class="modal-outcomes">
+              <li>Working AI prototype on Azure OpenAI</li>
+              <li>Integration blueprint for your product</li>
+              <li>AI backlog prioritisation</li>
+            </ul>
+          </div>
+          <div class="modal-info-box">
+            <p class="modal-section-title">Deliverables</p>
+            <ul class="modal-deliverables">
+              <li>Prototype codebase (GitHub repo)</li>
+              <li>AI feature backlog document</li>
+              <li>Monetization hypothesis</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="modal-section-title">Sprint Structure</p>
+        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:13px;line-height:1.8;margin-bottom:16px;">
+          <li>Week 1: AI feature design workshop — use-cases, data, user flows</li>
+          <li>Week 2: Prototype development with ISE engineers on Azure OpenAI</li>
+          <li>Week 3: Integration into product, evaluation, backlog creation</li>
+          <li>Final demo to Microsoft AI team + monetization strategy session</li>
         </ul>
 
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">What You Get</h3>
-        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
-          <li>Co-product scoping sessions with Microsoft Product Groups</li>
-          <li>Named BD sponsor from Microsoft Israel commercial team</li>
-          <li>Access to Microsoft's global enterprise customer base</li>
-          <li>Executive co-sell with Microsoft field leadership</li>
-          <li>Joint PR and marketing opportunities</li>
-          <li>NovaMed-style Health &amp; Life Sciences collaboration</li>
-          <li>Microsoft for Startups Founders Hub extension</li>
-        </ul>
+        <p class="modal-section-title">Who Should Apply</p>
+        <p style="color:var(--ms-gray);font-size:13px;line-height:1.7;margin-bottom:16px;">Seed to Series B startups that have found product-market fit and want to differentiate with AI. You should have a product already in use and at least one engineer available for the sprint.</p>
 
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Program Journey</h3>
-        <ol style="list-style:decimal;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
-          <li>Executive Alignment</li>
-          <li>Product Scoping</li>
-          <li>Co-sell Design</li>
-          <li>Joint GTM Plan</li>
-          <li>Customer Pilots</li>
-          <li>Scale &amp; Expand</li>
-        </ol>
-
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Microsoft Team</h3>
-        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;margin-bottom:20px;">Tamar Cohen (Hub Director), Ron Katz (BD Lead), Microsoft Product Group contacts</p>
-
-        <div style="background:var(--ms-light);border-radius:8px;padding:16px 20px;border-left:4px solid var(--ms-blue);">
-          <p style="font-size:13px;color:var(--ms-gray);line-height:1.7;font-style:italic;">"NovaMed co-developed a healthcare AI module with Microsoft Health &amp; Life Sciences, deployed across 3 hospital networks."</p>
+        <div class="modal-highlight-box">
+          "We shipped our AI assistant feature to beta users within two weeks of the sprint ending. The prototype the ISE team helped us build was almost production-ready."
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-enterprise-bridge')">Close</button>
-        <a href="apply.html?program=enterprise-bridge" class="btn btn-primary">Apply for This Program</a>
+        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-ai-feature-sprint')">Close</button>
+        <a href="apply.html?program=ai-feature-sprint" class="btn btn-primary">Apply for This Program</a>
       </div>
     </div>
   </div>
 
-  <!-- Modal: ISV Excellence -->
-  <div class="modal-overlay" id="modal-isv-excellence" role="dialog" aria-modal="true" aria-labelledby="modal-isv-excellence-title">
+  <!-- Modal: Multi-Cloud SaaS Assessment -->
+  <div class="modal-overlay" id="modal-multi-cloud-assessment" role="dialog" aria-modal="true" aria-labelledby="modal-multi-cloud-title">
     <div class="modal">
       <div class="modal-header">
-        <h2 class="modal-title" id="modal-isv-excellence-title">🏭 ISV Excellence</h2>
-        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-isv-excellence')">✕</button>
+        <h2 class="modal-title" id="modal-multi-cloud-title">🔍 Multi-Cloud SaaS Assessment</h2>
+        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-multi-cloud-assessment')">✕</button>
       </div>
       <div class="modal-body">
-        <p style="color:var(--ms-gray);margin-bottom:24px;line-height:1.7;">ISV Excellence is for mature independent software vendors who are ready to modernize, re-platform, or deeply integrate with Azure — and want to leverage Microsoft's commercial network to grow.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;">
+          <span class="badge badge-blue">Series C/D</span>
+          <span class="duration-chip">⏱ 3 weeks</span>
+          <span class="modal-tag">STU · ISE</span>
+        </div>
 
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Eligibility</h3>
-        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
-          <li>Established ISV with 3+ years of commercial product</li>
-          <li>Significant customer base</li>
-          <li>Interest in Azure migration, modernization, or Marketplace listing</li>
-          <li>Dedicated technical and business development teams</li>
+        <p style="color:var(--ms-gray);margin-bottom:20px;line-height:1.7;font-size:14px;">A comprehensive 3-week assessment of your multi-cloud readiness and SaaS architecture maturity. Designed for Series C/D companies on AWS who need a rigorous basis for an Azure expansion decision.</p>
+
+        <div class="modal-two-col">
+          <div class="modal-info-box">
+            <p class="modal-section-title">Customer Outcomes</p>
+            <ul class="modal-outcomes">
+              <li>Multi-cloud posture strategy</li>
+              <li>Azure expansion hypothesis</li>
+              <li>Risk assessment &amp; 90-day roadmap</li>
+            </ul>
+          </div>
+          <div class="modal-info-box">
+            <p class="modal-section-title">Deliverables</p>
+            <ul class="modal-deliverables">
+              <li>Assessment report (exec + technical)</li>
+              <li>Multi-cloud decision framework</li>
+              <li>90-day expansion roadmap</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="modal-section-title">Assessment Scope</p>
+        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:13px;line-height:1.8;margin-bottom:16px;">
+          <li>SaaS architecture maturity scoring across 8 dimensions</li>
+          <li>Azure service mapping for your current AWS workloads</li>
+          <li>Compliance &amp; data sovereignty requirements analysis</li>
+          <li>Customer demand signals for Azure (enterprise buyer survey)</li>
+          <li>Total cost of ownership modelling</li>
+          <li>Executive readout with board-ready narrative</li>
         </ul>
 
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">What You Get</h3>
-        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
-          <li>Azure migration assessment and architecture review</li>
-          <li>Technical modernization sprints with Azure engineering team</li>
-          <li>Azure Marketplace Gold listing support</li>
-          <li>ISV incentive program enrollment</li>
-          <li>Access to Microsoft's global enterprise sales channels</li>
-          <li>Multi-cloud strategy support</li>
-          <li>Yael Ben-David's Azure AI integration workshops</li>
-        </ul>
+        <p class="modal-section-title">Who Should Apply</p>
+        <p style="color:var(--ms-gray);font-size:13px;line-height:1.7;margin-bottom:16px;">Series C/D companies primarily on AWS with $5M+ ARR, enterprise customers, and a CTO or VP Engineering able to commit 3 days per week for the assessment period.</p>
 
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Program Journey</h3>
-        <ol style="list-style:decimal;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
-          <li>Assessment</li>
-          <li>Architecture Design</li>
-          <li>Migration / Modernization</li>
-          <li>Marketplace Listing</li>
-          <li>Commercial Scale</li>
-        </ol>
-
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Microsoft Team</h3>
-        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;margin-bottom:20px;">Noa Friedman (ISV &amp; Partner Success Lead), Yael Ben-David (Azure AI Technical Lead), Azure Migration Team</p>
-
-        <div style="background:var(--ms-light);border-radius:8px;padding:16px 20px;border-left:4px solid var(--ms-blue);">
-          <p style="font-size:13px;color:var(--ms-gray);line-height:1.7;font-style:italic;">"DataFlow Systems modernized their entire platform on Azure in 6 months and listed on Azure Marketplace, opening access to 50,000+ enterprise customers."</p>
+        <div class="modal-highlight-box">
+          "The assessment gave us the data to make an Azure expansion decision at board level — not just an engineering preference. That's what changed the conversation."
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-isv-excellence')">Close</button>
-        <a href="apply.html?program=isv-excellence" class="btn btn-primary">Apply for This Program</a>
+        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-multi-cloud-assessment')">Close</button>
+        <a href="apply.html?program=multi-cloud-assessment" class="btn btn-primary">Apply for This Program</a>
       </div>
     </div>
   </div>
 
-  <!-- Modal: Partner FastTrack -->
-  <div class="modal-overlay" id="modal-partner-fasttrack" role="dialog" aria-modal="true" aria-labelledby="modal-partner-fasttrack-title">
+  <!-- Modal: AI Production Sprint -->
+  <div class="modal-overlay" id="modal-ai-production-sprint" role="dialog" aria-modal="true" aria-labelledby="modal-ai-production-title">
     <div class="modal">
       <div class="modal-header">
-        <h2 class="modal-title" id="modal-partner-fasttrack-title">⚡ Partner FastTrack</h2>
-        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-partner-fasttrack')">✕</button>
+        <h2 class="modal-title" id="modal-ai-production-title">⚙️ AI Production Sprint</h2>
+        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-ai-production-sprint')">✕</button>
       </div>
       <div class="modal-body">
-        <p style="color:var(--ms-gray);margin-bottom:24px;line-height:1.7;">Partner FastTrack is for Microsoft partners who want to accelerate their commercial relationship — getting listed on Marketplace faster, activating co-sell, and maximizing Partner Center incentives.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;">
+          <span class="badge badge-blue">Series C/D</span>
+          <span class="duration-chip">⏱ 6 weeks</span>
+          <span class="modal-tag">ISE · STU</span>
+        </div>
 
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Eligibility</h3>
-        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
-          <li>Active Microsoft Partner Network member</li>
-          <li>Existing or planned solution on Azure</li>
-          <li>Committed to co-sell activation</li>
-          <li>Dedicated Microsoft partnership contact</li>
+        <p style="color:var(--ms-gray);margin-bottom:20px;line-height:1.7;font-size:14px;">A 6-week intensive sprint to take your AI features from demo-quality to production-ready — with MLOps, observability, evaluation frameworks, and AI governance on Azure AI Platform.</p>
+
+        <div class="modal-two-col">
+          <div class="modal-info-box">
+            <p class="modal-section-title">Customer Outcomes</p>
+            <ul class="modal-outcomes">
+              <li>Production-ready AI pipeline</li>
+              <li>MLOps framework on Azure AI Platform</li>
+              <li>AI governance baseline</li>
+            </ul>
+          </div>
+          <div class="modal-info-box">
+            <p class="modal-section-title">Deliverables</p>
+            <ul class="modal-deliverables">
+              <li>MLOps codebase &amp; pipeline</li>
+              <li>Production architecture diagram</li>
+              <li>AI ops runbook</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="modal-section-title">Sprint Phases</p>
+        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:13px;line-height:1.8;margin-bottom:16px;">
+          <li>Weeks 1–2: Current AI architecture review &amp; production readiness gap analysis</li>
+          <li>Weeks 2–3: MLOps pipeline setup — training, evaluation, deployment automation</li>
+          <li>Weeks 3–4: Azure AI Platform integration (monitoring, safety, evaluation)</li>
+          <li>Weeks 5–6: Load testing, governance framework, ops runbook creation</li>
         </ul>
 
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">What You Get</h3>
-        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
-          <li>30-day Marketplace listing sprint</li>
-          <li>Co-sell deal registration support</li>
-          <li>Partner Center audit and optimization</li>
-          <li>GPS co-sell activation</li>
-          <li>ISV incentive program review</li>
-          <li>Access to hub events and CTO Circle</li>
-        </ul>
+        <p class="modal-section-title">Who Should Apply</p>
+        <p style="color:var(--ms-gray);font-size:13px;line-height:1.7;margin-bottom:16px;">Series C/D companies that have AI features in production or near-production and are experiencing scale, reliability, or governance challenges. Requires a dedicated ML engineer for the sprint duration.</p>
 
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Program Journey</h3>
-        <ol style="list-style:decimal;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
-          <li>Partner Assessment</li>
-          <li>Marketplace Sprint</li>
-          <li>Co-sell Activation</li>
-          <li>Ongoing Optimization</li>
-        </ol>
-
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Microsoft Team</h3>
-        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;margin-bottom:20px;">Noa Friedman (ISV &amp; Partner Success Lead), Ron Katz (BD Lead)</p>
-
-        <div style="background:var(--ms-light);border-radius:8px;padding:16px 20px;border-left:4px solid var(--ms-blue);">
-          <p style="font-size:13px;color:var(--ms-gray);line-height:1.7;font-style:italic;">"3 Partner FastTrack cohorts have achieved 100% Marketplace listing completion within 30 days."</p>
+        <div class="modal-highlight-box">
+          "We went from a fragile AI pipeline that broke twice a week to a fully automated MLOps setup. The AI Production Sprint compressed 6 months of engineering into 6 weeks."
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-partner-fasttrack')">Close</button>
-        <a href="apply.html?program=partner-fasttrack" class="btn btn-primary">Apply for This Program</a>
+        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-ai-production-sprint')">Close</button>
+        <a href="apply.html?program=ai-production-sprint" class="btn btn-primary">Apply for This Program</a>
       </div>
     </div>
   </div>
 
-  <!-- Modal: CTO Circle -->
-  <div class="modal-overlay" id="modal-cto-circle" role="dialog" aria-modal="true" aria-labelledby="modal-cto-circle-title">
+  <!-- Modal: SaaS Modernization Studio -->
+  <div class="modal-overlay" id="modal-saas-modernization" role="dialog" aria-modal="true" aria-labelledby="modal-saas-mod-title">
     <div class="modal">
       <div class="modal-header">
-        <h2 class="modal-title" id="modal-cto-circle-title">🧠 CTO Circle</h2>
-        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-cto-circle')">✕</button>
+        <h2 class="modal-title" id="modal-saas-mod-title">🏭 SaaS Modernization Studio</h2>
+        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-saas-modernization')">✕</button>
       </div>
       <div class="modal-body">
-        <p style="color:var(--ms-gray);margin-bottom:24px;line-height:1.7;">The CTO Circle is a curated peer community for Israel's most senior technical leaders — CTOs, VPs of Engineering, and Chief Architects. It's a place for candid conversation, peer support, and exclusive Microsoft access.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;">
+          <span class="badge badge-orange">Mature ISV</span>
+          <span class="duration-chip">⏱ 8 weeks</span>
+          <span class="modal-tag">ISE · STU · CSU</span>
+        </div>
 
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Eligibility</h3>
-        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
-          <li>CTO, VP of Engineering, Chief Architect, or equivalent</li>
-          <li>Company with 20+ engineers</li>
-          <li>By invitation or hub referral</li>
+        <p style="color:var(--ms-gray);margin-bottom:20px;line-height:1.7;font-size:14px;">The most comprehensive modernization engagement in the hub portfolio. An 8-week studio combining assessment, architecture design, and a phased transformation plan — with Microsoft ISE, STU, and CSU working alongside your engineering team.</p>
+
+        <div class="modal-two-col">
+          <div class="modal-info-box">
+            <p class="modal-section-title">Customer Outcomes</p>
+            <ul class="modal-outcomes">
+              <li>Modernization scorecard across 12 dimensions</li>
+              <li>Target architecture on Azure</li>
+              <li>Phased transformation roadmap</li>
+            </ul>
+          </div>
+          <div class="modal-info-box">
+            <p class="modal-section-title">Deliverables</p>
+            <ul class="modal-deliverables">
+              <li>Modernization report (exec + technical)</li>
+              <li>Architecture blueprints (current + target)</li>
+              <li>Roadmap with milestones &amp; owner assignments</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="modal-section-title">Studio Structure</p>
+        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:13px;line-height:1.8;margin-bottom:16px;">
+          <li>Weeks 1–2: Technical discovery — architecture interviews, code &amp; infra review</li>
+          <li>Weeks 3–4: Modernization scoring — 12-dimension maturity assessment</li>
+          <li>Weeks 5–6: Target architecture design workshops with ISE team</li>
+          <li>Weeks 7–8: Transformation roadmap, milestone planning, exec readout</li>
         </ul>
 
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">What You Get</h3>
-        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
-          <li>Monthly CTO Circle dinners at Microsoft Israel HQ</li>
-          <li>Annual CTO Summit at Microsoft Herzliya</li>
-          <li>Direct Slack channel with Microsoft CTO Group Israel</li>
-          <li>Quarterly Microsoft product roadmap briefings</li>
-          <li>Executive coaching sessions</li>
-          <li>International CTO Circle introductions (London, NYC, Singapore)</li>
-        </ul>
+        <p class="modal-section-title">Who Should Apply</p>
+        <p style="color:var(--ms-gray);font-size:13px;line-height:1.7;margin-bottom:16px;">Mature ISVs with legacy SaaS architectures (typically 5+ years old) experiencing scale limitations, technical debt, or competitive pressure. Best suited for companies with $10M+ ARR and a CTO willing to commit to the full 8-week engagement.</p>
 
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Program Journey</h3>
-        <ol style="list-style:decimal;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
-          <li>Application &amp; Vetting</li>
-          <li>Welcome Dinner &amp; Onboarding</li>
-          <li>Ongoing Membership</li>
-        </ol>
-
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Microsoft Team</h3>
-        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;margin-bottom:20px;">Avi Shapiro (CTO Advisor), Tamar Cohen (Hub Director)</p>
-
-        <div style="background:var(--ms-light);border-radius:8px;padding:16px 20px;border-left:4px solid var(--ms-blue);">
-          <p style="font-size:13px;color:var(--ms-gray);line-height:1.7;font-style:italic;">"92% of CTO Circle members report measurably improved technical decisions and access to Microsoft roadmap insights within 3 months."</p>
+        <div class="modal-highlight-box">
+          "The Modernization Studio gave us something we'd tried to build internally for two years — a credible, prioritised transformation plan that our board could fund and our engineers could execute."
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-cto-circle')">Close</button>
-        <a href="apply.html?program=cto-circle" class="btn btn-primary">Apply for This Program</a>
+        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-saas-modernization')">Close</button>
+        <a href="apply.html?program=saas-modernization" class="btn btn-primary">Apply for This Program</a>
       </div>
     </div>
   </div>
 
-  <!-- Modal: AI Innovation Lab -->
-  <div class="modal-overlay" id="modal-ai-lab" role="dialog" aria-modal="true" aria-labelledby="modal-ai-lab-title">
+  <!-- Modal: Co-Sell Acceleration with GPS -->
+  <div class="modal-overlay" id="modal-co-sell-acceleration" role="dialog" aria-modal="true" aria-labelledby="modal-co-sell-title">
     <div class="modal">
       <div class="modal-header">
-        <h2 class="modal-title" id="modal-ai-lab-title">🤖 AI Innovation Lab</h2>
-        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-ai-lab')">✕</button>
+        <h2 class="modal-title" id="modal-co-sell-title">🤝 Co-Sell Acceleration with GPS</h2>
+        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-co-sell-acceleration')">✕</button>
       </div>
       <div class="modal-body">
-        <p style="color:var(--ms-gray);margin-bottom:24px;line-height:1.7;">The AI Innovation Lab is a 4-week intensive program where hub companies get hands-on access to Microsoft's AI stack — Azure OpenAI Service, AI Studio, Copilot extensibility, and more — with direct guidance from Microsoft AI engineers.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;">
+          <span class="badge badge-orange">Mature ISV</span>
+          <span class="duration-chip">⏱ 6 weeks</span>
+          <span class="modal-tag">GPS</span>
+        </div>
 
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Eligibility</h3>
-        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
-          <li>Any hub company</li>
-          <li>Technical team member must attend</li>
-          <li>Pre-work: Azure account set up and basic AI familiarity preferred</li>
+        <p style="color:var(--ms-gray);margin-bottom:20px;line-height:1.7;font-size:14px;">A structured 6-week co-sell activation program with Microsoft's Global Partner Solutions (GPS) team. Designed to go beyond "co-sell ready" to active pipeline — with specific field sales engagements and named account maps.</p>
+
+        <div class="modal-two-col">
+          <div class="modal-info-box">
+            <p class="modal-section-title">Customer Outcomes</p>
+            <ul class="modal-outcomes">
+              <li>Active co-sell pipeline established</li>
+              <li>Field sales engagement initiated</li>
+              <li>Deal acceleration underway</li>
+            </ul>
+          </div>
+          <div class="modal-info-box">
+            <p class="modal-section-title">Deliverables</p>
+            <ul class="modal-deliverables">
+              <li>Co-sell readiness plan</li>
+              <li>Account mapping document</li>
+              <li>Field activation playbook</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="modal-section-title">Program Structure</p>
+        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:13px;line-height:1.8;margin-bottom:16px;">
+          <li>Week 1: Co-sell readiness audit — Partner Center, listing, battlecard</li>
+          <li>Week 2: GPS alignment session — target segments, ideal customer profile</li>
+          <li>Weeks 3–4: Account mapping with Microsoft field sales teams</li>
+          <li>Weeks 5–6: Joint pipeline reviews, deal registration, field enablement</li>
         </ul>
 
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">What You Get</h3>
-        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
-          <li>Week 1: Azure OpenAI foundations and API integration workshop</li>
-          <li>Week 2: AI Studio — fine-tuning, RAG, and evaluation</li>
-          <li>Week 3: Copilot extensibility and agents</li>
-          <li>Week 4: Build sprint + demo to Microsoft AI team</li>
-          <li>$25K Azure AI credits</li>
-          <li>Office hours with Microsoft AI researchers</li>
-          <li>Post-lab: ongoing AI architecture support</li>
-        </ul>
+        <p class="modal-section-title">Who Should Apply</p>
+        <p style="color:var(--ms-gray);font-size:13px;line-height:1.7;margin-bottom:16px;">ISVs and partners with a live Azure Marketplace listing and co-sell eligibility (IP Co-sell Ready or Azure IP Co-sell status). A dedicated partner sales or BD contact is required to participate.</p>
 
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Program Journey</h3>
-        <ol style="list-style:decimal;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
-          <li>Application</li>
-          <li>Pre-work &amp; Setup</li>
-          <li>4-Week Lab</li>
-          <li>Build Sprint &amp; Demo</li>
-        </ol>
-
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Microsoft Team</h3>
-        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;margin-bottom:20px;">Yael Ben-David (Azure AI Technical Lead), Microsoft AI Research Team</p>
-
-        <div style="background:var(--ms-light);border-radius:8px;padding:16px 20px;border-left:4px solid var(--ms-blue);">
-          <p style="font-size:13px;color:var(--ms-gray);line-height:1.7;font-style:italic;">"Lumina AI's engineering team completed the AI Innovation Lab and shipped their core AI feature within 6 weeks of graduation."</p>
+        <div class="modal-highlight-box">
+          "Within 6 weeks we had three joint customer meetings with Microsoft field reps and two deals in active co-sell registration. The GPS team opened doors we'd been knocking on for two years."
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-ai-lab')">Close</button>
-        <a href="apply.html?program=ai-lab" class="btn btn-primary">Apply for This Program</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal: Co-Build Program -->
-  <div class="modal-overlay" id="modal-co-build" role="dialog" aria-modal="true" aria-labelledby="modal-co-build-title">
-    <div class="modal">
-      <div class="modal-header">
-        <h2 class="modal-title" id="modal-co-build-title">🔨 Co-Build Program</h2>
-        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-co-build')">✕</button>
-      </div>
-      <div class="modal-body">
-        <p style="color:var(--ms-gray);margin-bottom:24px;line-height:1.7;">The Co-Build Program is Microsoft's most exclusive offering for hub companies. Selected companies work directly with Microsoft Product Groups to explore, design, and sometimes build joint products or deep integrations.</p>
-
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Eligibility</h3>
-        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
-          <li>Proven product with strong market traction</li>
-          <li>Technology that complements or extends Microsoft's product portfolio</li>
-          <li>By invitation only from Microsoft Product Group</li>
-          <li>Executive commitment from both sides</li>
-        </ul>
-
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">What You Get</h3>
-        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
-          <li>Dedicated Product Group sponsor at VP level</li>
-          <li>Engineering collaboration time</li>
-          <li>Joint product design sessions</li>
-          <li>Roadmap alignment and co-announcement opportunities</li>
-          <li>Access to Microsoft's design and UX teams</li>
-          <li>Beta program access</li>
-          <li>Co-marketing and co-PR opportunities</li>
-        </ul>
-
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Program Journey</h3>
-        <ol style="list-style:decimal;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
-          <li>Executive Introduction</li>
-          <li>Product Fit Assessment</li>
-          <li>Scoping Sprint</li>
-          <li>Co-Build Phase</li>
-          <li>Joint Launch</li>
-          <li>Scale</li>
-        </ol>
-
-        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Microsoft Team</h3>
-        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;margin-bottom:20px;">Tamar Cohen (Hub Director), Microsoft Product Group VPs, ISE Team</p>
-
-        <div style="background:var(--ms-light);border-radius:8px;padding:16px 20px;border-left:4px solid var(--ms-blue);">
-          <p style="font-size:13px;color:var(--ms-gray);line-height:1.7;font-style:italic;">"NovaMed's Co-Build resulted in a joint product listed on Azure Marketplace and deployed in 12 hospitals across Israel and the UAE."</p>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-co-build')">Close</button>
-        <a href="apply.html?program=co-build" class="btn btn-primary">Apply for This Program</a>
+        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-co-sell-acceleration')">Close</button>
+        <a href="apply.html?program=co-sell-acceleration" class="btn btn-primary">Apply for This Program</a>
       </div>
     </div>
   </div>
