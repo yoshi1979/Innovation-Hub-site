@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nominate a Company | Microsoft Israel Innovation Hub (Internal)</title>
+  <meta name="description" content="Microsoft employees: nominate a company for the Israel Innovation Hub. Submit referrals, flag high-potential opportunities, and connect your customers to the Hub team.">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body id="page-nominate">
+
+  <!-- INTERNAL BANNER -->
+  <div class="internal-banner">
+    <span>🔒 Internal Use · Microsoft Employees Only</span>
+    <strong>This page is for Microsoft employees to nominate external companies to the Innovation Hub.</strong>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav" id="main-nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-main">Microsoft Innovation Hub</span>
+        <span class="nav-logo-sub">Israel · FY27 · Internal</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="programs.html" class="nav-link">Programs</a></li>
+        <li><a href="collaborate.html" class="nav-link">Collaborate</a></li>
+        <li><a href="events.html" class="nav-link">Events</a></li>
+        <li><a href="success.html" class="nav-link">Success Stories</a></li>
+        <li><a href="nominate.html" class="nav-link active">Nominate</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section style="background:linear-gradient(135deg,#1B1B1B 0%,#003670 60%,#0078D4 100%);color:#fff;padding:72px 24px 60px;text-align:center;">
+    <div class="container">
+      <p style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;opacity:.6;margin-bottom:10px;">Microsoft Internal · Confidential</p>
+      <h1 style="font-size:clamp(2rem,4vw,3rem);font-weight:700;margin-bottom:14px;line-height:1.2;">Nominate a Company</h1>
+      <p style="font-size:1.1rem;opacity:.85;max-width:560px;margin:0 auto;">Help us find Israel's next breakthrough tech companies. Submit your referral — our Hub team reviews every nomination within 3 business days.</p>
+      <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:28px;">
+        <div style="text-align:center;">
+          <div style="font-size:1.8rem;font-weight:800;color:var(--ms-blue-light);">48h</div>
+          <div style="font-size:.75rem;opacity:.7;text-transform:uppercase;letter-spacing:.5px;">Avg. response time</div>
+        </div>
+        <div style="text-align:center;border-left:1px solid rgba(255,255,255,.15);border-right:1px solid rgba(255,255,255,.15);padding:0 28px;">
+          <div style="font-size:1.8rem;font-weight:800;color:var(--ms-blue-light);">92%</div>
+          <div style="font-size:.75rem;opacity:.7;text-transform:uppercase;letter-spacing:.5px;">Nomination follow-up rate</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:1.8rem;font-weight:800;color:var(--ms-blue-light);">50+</div>
+          <div style="font-size:.75rem;opacity:.7;text-transform:uppercase;letter-spacing:.5px;">Active Hub companies</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN LAYOUT -->
+  <div class="container" style="padding-top:56px;padding-bottom:80px;">
+    <div class="reg-layout">
+
+      <!-- FORM -->
+      <div>
+        <!-- WHY NOMINATE -->
+        <div style="background:rgba(0,120,212,.05);border:1.5px solid rgba(0,120,212,.15);border-radius:12px;padding:22px 24px;margin-bottom:32px;">
+          <h3 style="font-size:1rem;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Why nominations matter</h3>
+          <p style="font-size:.875rem;color:var(--ms-gray);line-height:1.6;margin-bottom:10px;">You're often the first to spot high-potential companies — through your accounts, field conversations, partner network, or investor contacts. Your nomination puts a company on our radar before they find us.</p>
+          <p style="font-size:.875rem;color:var(--ms-gray);line-height:1.6;">Every nomination is reviewed by Tamar Cohen and routed to the right Hub program lead. The company doesn't need to know you nominated them unless you want them to.</p>
+        </div>
+
+        <div class="reg-form-wrap">
+          <h2 class="reg-form-title">Company nomination</h2>
+          <p class="reg-form-sub">Fill in what you know. We'll gather additional information directly from the company. Incomplete nominations are still valuable.</p>
+
+          <form id="nominate-form" novalidate>
+
+            <!-- SECTION 1: COMPANY -->
+            <div style="border-bottom:1px solid #EBEBEB;padding-bottom:28px;margin-bottom:28px;">
+              <h3 style="font-size:.875rem;font-weight:700;color:var(--ms-navy);text-transform:uppercase;letter-spacing:.5px;margin-bottom:18px;">Company information</h3>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+                <div class="form-group" id="nfg-company">
+                  <label for="n-company">Company Name <span style="color:#d83b01;">*</span></label>
+                  <input type="text" id="n-company" name="company" placeholder="e.g. CyberSentry" autocomplete="off">
+                  <span class="field-error" style="font-size:.78rem;color:#d83b01;display:none;">Required.</span>
+                </div>
+                <div class="form-group">
+                  <label for="n-website">Website</label>
+                  <input type="url" id="n-website" name="website" placeholder="https://company.com">
+                </div>
+              </div>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+                <div class="form-group" id="nfg-stage">
+                  <label for="n-stage">Funding Stage <span style="color:#d83b01;">*</span></label>
+                  <select id="n-stage" name="stage">
+                    <option value="">Select stage...</option>
+                    <option>Pre-Seed / Bootstrap</option>
+                    <option>Seed</option>
+                    <option>Series A</option>
+                    <option>Series B</option>
+                    <option>Series C</option>
+                    <option>Series D+</option>
+                    <option>Mature ISV (no VC)</option>
+                    <option>Microsoft Partner</option>
+                    <option>Unknown</option>
+                  </select>
+                  <span class="field-error" style="font-size:.78rem;color:#d83b01;display:none;">Required.</span>
+                </div>
+                <div class="form-group">
+                  <label for="n-industry">Industry</label>
+                  <select id="n-industry" name="industry">
+                    <option value="">Select...</option>
+                    <option>AI / Machine Learning</option>
+                    <option>Cybersecurity</option>
+                    <option>Cloud Infrastructure / DevOps</option>
+                    <option>FinTech</option>
+                    <option>HealthTech / Digital Health</option>
+                    <option>Enterprise SaaS</option>
+                    <option>Data &amp; Analytics</option>
+                    <option>IoT / Edge Computing</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+                <div class="form-group">
+                  <label for="n-cloud">Primary Cloud</label>
+                  <select id="n-cloud" name="cloud">
+                    <option value="">Select...</option>
+                    <option>Microsoft Azure (primary)</option>
+                    <option>AWS (primary)</option>
+                    <option>Google Cloud (primary)</option>
+                    <option>Multi-cloud</option>
+                    <option>On-premise</option>
+                    <option>Unknown</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="n-employees">Estimated Team Size</label>
+                  <select id="n-employees" name="employees">
+                    <option value="">Select...</option>
+                    <option>1–10</option>
+                    <option>11–50</option>
+                    <option>51–200</option>
+                    <option>201–500</option>
+                    <option>500+</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-bottom:16px;">
+                <label for="n-reason">Why are you nominating this company? <span style="color:#d83b01;">*</span></label>
+                <textarea id="n-reason" name="reason" rows="4" placeholder="Describe what makes this company a strong candidate — their product, traction, Azure relevance, technical differentiation, or strategic fit with Microsoft's ecosystem..." style="min-height:110px;resize:vertical;"></textarea>
+                <span style="font-size:.78rem;color:#d83b01;display:none;" id="n-reason-error">Please provide a reason (min. 30 characters).</span>
+              </div>
+
+              <div class="form-group">
+                <label for="n-programs">Suggested Hub Programs</label>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;">
+                  <label style="display:flex;align-items:center;gap:8px;font-size:.875rem;cursor:pointer;font-weight:400;">
+                    <input type="checkbox" name="n-programs" value="launchpad" style="accent-color:var(--ms-blue);"> LaunchPad (Seed/Pre-seed)</label>
+                  <label style="display:flex;align-items:center;gap:8px;font-size:.875rem;cursor:pointer;font-weight:400;">
+                    <input type="checkbox" name="n-programs" value="scale360" style="accent-color:var(--ms-blue);"> Scale360 (Series A/B)</label>
+                  <label style="display:flex;align-items:center;gap:8px;font-size:.875rem;cursor:pointer;font-weight:400;">
+                    <input type="checkbox" name="n-programs" value="enterprise-bridge" style="accent-color:var(--ms-blue);"> Enterprise Bridge (C/D)</label>
+                  <label style="display:flex;align-items:center;gap:8px;font-size:.875rem;cursor:pointer;font-weight:400;">
+                    <input type="checkbox" name="n-programs" value="isv-excellence" style="accent-color:var(--ms-blue);"> ISV Excellence</label>
+                  <label style="display:flex;align-items:center;gap:8px;font-size:.875rem;cursor:pointer;font-weight:400;">
+                    <input type="checkbox" name="n-programs" value="ai-lab" style="accent-color:var(--ms-blue);"> AI Innovation Lab</label>
+                  <label style="display:flex;align-items:center;gap:8px;font-size:.875rem;cursor:pointer;font-weight:400;">
+                    <input type="checkbox" name="n-programs" value="co-build" style="accent-color:var(--ms-blue);"> Co-Build Program</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- SECTION 2: CONTACT -->
+            <div style="border-bottom:1px solid #EBEBEB;padding-bottom:28px;margin-bottom:28px;">
+              <h3 style="font-size:.875rem;font-weight:700;color:var(--ms-navy);text-transform:uppercase;letter-spacing:.5px;margin-bottom:18px;">Company contact (if known)</h3>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+                <div class="form-group">
+                  <label for="n-contact-name">Contact Name</label>
+                  <input type="text" id="n-contact-name" name="contact_name" placeholder="Amir Cohen">
+                </div>
+                <div class="form-group">
+                  <label for="n-contact-title">Title / Role</label>
+                  <input type="text" id="n-contact-title" name="contact_title" placeholder="CEO / CTO / Founder">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="n-contact-email">Contact Email</label>
+                <input type="email" id="n-contact-email" name="contact_email" placeholder="amir@company.com">
+                <span style="font-size:.75rem;color:var(--ms-gray);margin-top:4px;display:block;">If provided, we'll reach out directly. Leave blank to have the Hub team make a warm introduction through you.</span>
+              </div>
+            </div>
+
+            <!-- SECTION 3: NOMINATOR -->
+            <div style="margin-bottom:28px;">
+              <h3 style="font-size:.875rem;font-weight:700;color:var(--ms-navy);text-transform:uppercase;letter-spacing:.5px;margin-bottom:18px;">Your information</h3>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+                <div class="form-group" id="nfg-your-name">
+                  <label for="n-your-name">Your Name <span style="color:#d83b01;">*</span></label>
+                  <input type="text" id="n-your-name" name="your_name" placeholder="Dana Levi" autocomplete="name">
+                  <span class="field-error" style="font-size:.78rem;color:#d83b01;display:none;">Required.</span>
+                </div>
+                <div class="form-group">
+                  <label for="n-your-team">Your Team / Function</label>
+                  <select id="n-your-team" name="your_team">
+                    <option value="">Select your team...</option>
+                    <option>GPS (Global Partner Solutions)</option>
+                    <option>STU (Solution Technical Unit)</option>
+                    <option>CSU (Customer Success Unit)</option>
+                    <option>ISE (Industry Solutions Engineering)</option>
+                    <option>CTO Group</option>
+                    <option>Business Development</option>
+                    <option>Account Team (ATU)</option>
+                    <option>Product Group</option>
+                    <option>Marketing</option>
+                    <option>Azure Engineering</option>
+                    <option>Other Microsoft team</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group" id="nfg-your-email" style="margin-bottom:16px;">
+                <label for="n-your-email">Your Microsoft Email <span style="color:#d83b01;">*</span></label>
+                <input type="email" id="n-your-email" name="your_email" placeholder="dana@microsoft.com" autocomplete="email">
+                <span class="field-error" style="font-size:.78rem;color:#d83b01;display:none;">Please enter a valid @microsoft.com email.</span>
+              </div>
+              <div class="form-group" style="margin-bottom:16px;">
+                <label for="n-relationship">Your relationship to this company</label>
+                <select id="n-relationship" name="relationship">
+                  <option value="">Select...</option>
+                  <option>I'm their Microsoft Account Executive</option>
+                  <option>I met them at a Microsoft event</option>
+                  <option>Referred by a shared VC / investor contact</option>
+                  <option>I'm aware of them through industry / community</option>
+                  <option>They reached out to me directly</option>
+                  <option>Internal Microsoft collaboration opportunity</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label style="display:flex;align-items:flex-start;gap:10px;font-size:.875rem;cursor:pointer;font-weight:400;">
+                  <input type="checkbox" id="n-notify" name="notify" style="margin-top:3px;accent-color:var(--ms-blue);width:16px;height:16px;flex-shrink:0;" checked>
+                  Notify me when the Hub team reviews this nomination and makes contact with the company
+                </label>
+              </div>
+            </div>
+
+            <div style="background:rgba(16,124,16,.06);border:1.5px solid rgba(16,124,16,.2);border-radius:8px;padding:14px 16px;margin-bottom:24px;font-size:.82rem;color:var(--ms-dark);">
+              🔒 <strong>Confidentiality:</strong> This nomination is visible only to the Hub team. The nominated company will not be contacted until Tamar Cohen has reviewed and approved the nomination.
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:14px 24px;">
+              Submit Nomination →
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="reg-sidebar">
+
+        <!-- Hub Team Contact -->
+        <div class="reg-event-card">
+          <div class="reg-event-band" style="background:linear-gradient(135deg,#1B1B1B,#003670);">
+            <h3>Hub Team</h3>
+            <p>Nominations reviewed personally by the Hub Director</p>
+          </div>
+          <div class="reg-event-details">
+            <div style="display:flex;align-items:center;gap:12px;padding:4px 0;">
+              <div class="contact-avatar" style="width:40px;height:40px;border-radius:50%;background:var(--hero-gradient);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;flex-shrink:0;">TC</div>
+              <div>
+                <div style="font-size:.9rem;font-weight:700;color:var(--ms-navy);">Tamar Cohen</div>
+                <div style="font-size:.75rem;color:var(--ms-gray);">Director, Innovation Hub</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:4px 0;">
+              <div class="contact-avatar" style="width:40px;height:40px;border-radius:50%;background:var(--hero-gradient);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;flex-shrink:0;">ML</div>
+              <div>
+                <div style="font-size:.9rem;font-weight:700;color:var(--ms-navy);">Maya Levi</div>
+                <div style="font-size:.75rem;color:var(--ms-gray);">Startup Programs Lead</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- What makes a good nomination -->
+        <div class="trust-box">
+          <h4>What makes a strong nomination</h4>
+          <ul>
+            <li>Clear Azure relevance or migration potential</li>
+            <li>Strong technical team (CTO / VP Eng background)</li>
+            <li>Validated product with real customers or traction</li>
+            <li>Strategic fit with Microsoft's commercial priorities</li>
+            <li>Openness to co-sell or Marketplace collaboration</li>
+            <li>Founder/CTO availability for Hub engagement</li>
+          </ul>
+        </div>
+
+        <!-- Process overview -->
+        <div style="background:var(--ms-white);border-radius:12px;padding:22px;border:1.5px solid #E8E8E8;">
+          <h4 style="font-size:.875rem;font-weight:700;color:var(--ms-navy);margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px;">What happens after you submit</h4>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <div style="width:24px;height:24px;border-radius:50%;background:var(--ms-blue);color:#fff;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</div>
+              <div style="font-size:.82rem;color:var(--ms-dark);"><strong>Hub team reviews</strong> within 3 business days and assesses program fit</div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <div style="width:24px;height:24px;border-radius:50%;background:var(--ms-blue);color:#fff;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</div>
+              <div style="font-size:.82rem;color:var(--ms-dark);"><strong>Tamar or Maya reaches out</strong> to the company for a 30-min discovery call</div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <div style="width:24px;height:24px;border-radius:50%;background:var(--ms-blue);color:#fff;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</div>
+              <div style="font-size:.82rem;color:var(--ms-dark);"><strong>You're notified</strong> of the outcome and whether the company joins the Hub</div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <div style="width:24px;height:24px;border-radius:50%;background:var(--ms-green);color:#fff;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">✓</div>
+              <div style="font-size:.82rem;color:var(--ms-dark);">If enrolled, you're introduced as the referring Microsoft contact — giving you credit and visibility on the account</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FY incentive note -->
+        <div style="background:linear-gradient(135deg,var(--ms-navy),#5C2D91);color:#fff;border-radius:12px;padding:22px;">
+          <h4 style="font-size:.875rem;font-weight:700;color:var(--ms-blue-light);margin-bottom:10px;">FY27 Nomination Goal</h4>
+          <p style="font-size:.82rem;color:rgba(255,255,255,.8);line-height:1.6;">Hub nominations are tracked against each team's FY27 ecosystem contribution targets. GPS, STU, ATU, and CTO Group referrals are credited in the Hub's quarterly attribution reporting shared with IL field leadership.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- SUCCESS SCREEN -->
+  <div id="nominate-success" style="display:none;max-width:600px;margin:0 auto;padding:80px 24px;text-align:center;">
+    <div style="font-size:3.5rem;margin-bottom:16px;">✅</div>
+    <h2 style="font-size:2rem;font-weight:700;color:var(--ms-navy);margin-bottom:14px;">Nomination Submitted</h2>
+    <p style="color:var(--ms-gray);max-width:460px;margin:0 auto 24px;">Thank you. Tamar Cohen will personally review this nomination within 3 business days. You'll receive an update at your Microsoft email.</p>
+    <div style="display:inline-block;background:var(--ms-blue);color:#fff;padding:6px 18px;border-radius:20px;font-weight:700;font-size:.9rem;margin-bottom:28px;letter-spacing:.5px;" id="nom-ref">NOM-2026-IL-0000</div>
+    <div style="background:var(--ms-light);border-radius:12px;padding:24px;text-align:left;margin-bottom:32px;">
+      <h4 style="font-size:.95rem;font-weight:700;color:var(--ms-navy);margin-bottom:12px;">What happens next</h4>
+      <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:8px;">
+        <li style="font-size:.875rem;color:var(--ms-dark);display:flex;gap:8px;"><span style="color:var(--ms-blue);font-weight:700;">→</span> Hub team reviews within 3 business days</li>
+        <li style="font-size:.875rem;color:var(--ms-dark);display:flex;gap:8px;"><span style="color:var(--ms-blue);font-weight:700;">→</span> You'll be notified of the review outcome via email</li>
+        <li style="font-size:.875rem;color:var(--ms-dark);display:flex;gap:8px;"><span style="color:var(--ms-blue);font-weight:700;">→</span> If accepted, you're credited as the referring contact</li>
+        <li style="font-size:.875rem;color:var(--ms-dark);display:flex;gap:8px;"><span style="color:var(--ms-blue);font-weight:700;">→</span> FY27 attribution tracking updated in the Hub dashboard</li>
+      </ul>
+    </div>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="collaborate.html" class="btn btn-ghost">Collaboration Overview</a>
+      <button onclick="resetNominate()" class="btn btn-primary">Submit Another Nomination</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">Microsoft<br>Innovation Hub<br><span>Israel · FY27 · Internal</span></div>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="programs.html">Programs Catalog</a></li>
+            <li><a href="collaborate.html">Collaboration Overview</a></li>
+            <li><a href="events.html">Upcoming Events</a></li>
+            <li><a href="success.html">Success Stories</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Hub Team</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">Meet the Team</a></li>
+            <li><a href="about.html#contact">Contact Hub Directly</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Microsoft Internal</h4>
+          <ul class="footer-links">
+            <li><a href="#" target="_blank">Hub SharePoint (Internal)</a></li>
+            <li><a href="#" target="_blank">Partner Center</a></li>
+            <li><a href="#" target="_blank">GPS Partner Portal</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Microsoft Corporation. For internal Microsoft use only. Confidential.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('nominate-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      let ok = true;
+      // Validate company name
+      const company = document.getElementById('n-company');
+      const companyGrp = document.getElementById('nfg-company');
+      if (!company.value.trim()) { companyGrp.classList.add('has-error'); companyGrp.querySelector('.field-error').style.display='block'; ok=false; }
+      else { companyGrp.classList.remove('has-error'); companyGrp.querySelector('.field-error').style.display='none'; }
+      // Validate stage
+      const stage = document.getElementById('n-stage');
+      const stageGrp = document.getElementById('nfg-stage');
+      if (!stage.value) { stageGrp.classList.add('has-error'); stageGrp.querySelector('.field-error').style.display='block'; ok=false; }
+      else { stageGrp.classList.remove('has-error'); stageGrp.querySelector('.field-error').style.display='none'; }
+      // Validate reason
+      const reason = document.getElementById('n-reason');
+      const reasonErr = document.getElementById('n-reason-error');
+      if (reason.value.trim().length < 30) { reasonErr.style.display='block'; reason.style.borderColor='#d83b01'; ok=false; }
+      else { reasonErr.style.display='none'; reason.style.borderColor=''; }
+      // Validate your name
+      const yourName = document.getElementById('n-your-name');
+      const yourNameGrp = document.getElementById('nfg-your-name');
+      if (!yourName.value.trim()) { yourNameGrp.classList.add('has-error'); yourNameGrp.querySelector('.field-error').style.display='block'; ok=false; }
+      else { yourNameGrp.classList.remove('has-error'); yourNameGrp.querySelector('.field-error').style.display='none'; }
+      // Validate Microsoft email
+      const yourEmail = document.getElementById('n-your-email');
+      const yourEmailGrp = document.getElementById('nfg-your-email');
+      if (!yourEmail.value.includes('@microsoft.com') || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(yourEmail.value)) {
+        yourEmailGrp.classList.add('has-error'); yourEmailGrp.querySelector('.field-error').style.display='block'; ok=false;
+      } else { yourEmailGrp.classList.remove('has-error'); yourEmailGrp.querySelector('.field-error').style.display='none'; }
+
+      if (!ok) return;
+      // Show success
+      const ref = 'NOM-2026-IL-' + String(Math.floor(Math.random() * 9000) + 1000);
+      document.getElementById('nom-ref').textContent = ref;
+      document.querySelector('.container').style.display = 'none';
+      document.querySelector('[style*="gradient(135deg,#1B1B1B"]').style.display = 'none';
+      document.getElementById('nominate-success').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    function resetNominate() {
+      document.getElementById('nominate-form').reset();
+      document.getElementById('nominate-success').style.display = 'none';
+      document.querySelector('.container').style.display = '';
+      document.querySelector('[style*="gradient(135deg,#1B1B1B"]').style.display = '';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

@@ -842,9 +842,8 @@ function initCopyToClipboard() {
         document.body.appendChild(textarea);
         textarea.select();
         try {
-          // execCommand is deprecated but retained as a last-resort fallback
-        // for legacy browsers that do not support the Clipboard API.
-        document.execCommand('copy');
+          // execCommand is deprecated but retained as a last-resort fallback for legacy browsers.
+          document.execCommand('copy');
           showToast('Copied to clipboard!', 'success', 2500);
         } catch {
           showToast('Unable to copy — please copy manually.', 'error');
