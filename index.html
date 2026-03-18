@@ -4,8 +4,269 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Microsoft Israel Innovation Hub | FY27</title>
-  <meta name="description" content="The Microsoft Israel Innovation Hub connects startups, scaleups, ISVs and partners with Microsoft's full platform, experts, and go-to-market engine.">
+  <meta name="description" content="Where AWS-born Israeli companies build their Azure future. The Microsoft Israel Innovation Hub accelerates multi-cloud architecture, co-sell, and Marketplace listings.">
   <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* ── Hero badge row ──────────────────────────────────────── */
+    .hero-audience-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .hero-audience-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.35);
+      color: var(--ms-white);
+      white-space: nowrap;
+    }
+
+    /* ── AWS-to-Azure section ──────────────────────────────── */
+    .aws-azure-section {
+      background: var(--ms-white);
+    }
+    .aws-azure-intro {
+      font-size: 17px;
+      color: var(--ms-gray);
+      max-width: 620px;
+      margin: 0 auto 56px;
+      text-align: center;
+      line-height: 1.7;
+    }
+    .aws-azure-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .aws-azure-card {
+      background: var(--ms-white);
+      border: 1.5px solid rgba(0,120,212,0.18);
+      border-radius: var(--radius-md);
+      padding: 32px 28px;
+      text-align: center;
+      transition: var(--transition);
+    }
+    .aws-azure-card:hover {
+      border-color: var(--ms-blue);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+    }
+    .aws-azure-step {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--ms-blue);
+      color: var(--ms-white);
+      font-size: 16px;
+      font-weight: 700;
+      margin: 0 auto 18px;
+    }
+    .aws-azure-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ms-navy);
+      margin-bottom: 12px;
+    }
+    .aws-azure-card p {
+      font-size: 14px;
+      color: var(--ms-gray);
+      line-height: 1.7;
+    }
+    .aws-azure-connector {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: rgba(0,120,212,0.3);
+      margin-top: 8px;
+    }
+
+    /* ── Expert profiles strip ──────────────────────────────── */
+    .experts-strip {
+      background: var(--ms-light);
+    }
+    .experts-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+    }
+    .expert-card {
+      background: var(--ms-white);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      text-align: center;
+      width: 180px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,0.06);
+      transition: var(--transition);
+    }
+    .expert-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--ms-blue);
+    }
+    .expert-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--ms-navy), var(--ms-blue));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ms-white);
+      margin: 0 auto 14px;
+      letter-spacing: 0.5px;
+    }
+    .expert-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ms-navy);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+    .expert-role {
+      font-size: 12px;
+      color: var(--ms-gray);
+      line-height: 1.4;
+    }
+    .experts-cta {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    /* ── CFO/Executive sessions callout ─────────────────────── */
+    .exec-sessions-section {
+      background: linear-gradient(135deg, var(--ms-navy) 0%, #0a4a8c 100%);
+      color: var(--ms-white);
+    }
+    .exec-sessions-section .section-title {
+      color: var(--ms-white);
+    }
+    .exec-sessions-section .section-sub {
+      color: rgba(255,255,255,0.8);
+    }
+    .exec-sessions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .exec-session-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      transition: var(--transition);
+    }
+    .exec-session-card:hover {
+      background: rgba(255,255,255,0.13);
+      border-color: rgba(255,255,255,0.3);
+      transform: translateY(-3px);
+    }
+    .exec-session-icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
+    .exec-session-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ms-white);
+      margin-bottom: 8px;
+    }
+    .exec-session-card p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+    }
+    .exec-audience-tag {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      background: rgba(80,230,255,0.15);
+      color: var(--ms-blue-light);
+      letter-spacing: 0.3px;
+    }
+
+    /* ── CTA section (inline since no .cta-section in CSS) ─── */
+    .cta-band {
+      background: var(--ms-blue);
+      padding: 80px 0;
+      text-align: center;
+      color: var(--ms-white);
+    }
+    .cta-band h2 {
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 700;
+      color: var(--ms-white);
+      margin-bottom: 14px;
+    }
+    .cta-band p {
+      font-size: 18px;
+      opacity: 0.9;
+      max-width: 560px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+    .cta-band-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-white {
+      background: var(--ms-white);
+      color: var(--ms-blue);
+      border-color: var(--ms-white);
+    }
+    .btn-white:hover {
+      background: rgba(255,255,255,0.9);
+      color: var(--ms-blue-dark);
+      border-color: rgba(255,255,255,0.9);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* ── Responsive tweaks ──────────────────────────────────── */
+    @media (max-width: 768px) {
+      .aws-azure-grid,
+      .exec-sessions-grid {
+        grid-template-columns: 1fr;
+      }
+      .experts-row {
+        gap: 16px;
+      }
+      .expert-card {
+        width: 150px;
+        padding: 22px 18px;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero-audience-row {
+        gap: 8px;
+      }
+      .hero-audience-chip {
+        font-size: 11px;
+        padding: 5px 11px;
+      }
+    }
+  </style>
 </head>
 <body id="page-home">
 
@@ -23,6 +284,7 @@
         <li><a href="programs.html" class="nav-link">Programs</a></li>
         <li><a href="events.html" class="nav-link">Events</a></li>
         <li><a href="collaborate.html" class="nav-link">Collaborate</a></li>
+        <li><a href="experts.html" class="nav-link">Experts</a></li>
         <li><a href="success.html" class="nav-link">Success Stories</a></li>
         <li><a href="about.html" class="nav-link">About</a></li>
         <li><a href="apply.html" class="nav-link nav-cta btn btn-primary btn-sm">Apply Now</a></li>
@@ -30,53 +292,97 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- ══════════════════════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════════════════════ -->
   <section class="hero">
-    <div class="container hero-inner">
-      <p class="hero-label">Microsoft Israel · FY27</p>
-      <h1 class="hero-title">Where Israeli Innovation<br>Meets Microsoft at Scale</h1>
-      <p class="hero-sub">The Microsoft Israel Innovation Hub connects the most ambitious startups, scaleups, ISVs and partners with Azure's full platform, Microsoft's global go-to-market engine, and an unparalleled network of technical experts.</p>
-      <div class="hero-ctas">
-        <a href="programs.html" class="btn btn-ghost">Explore Programs</a>
-        <a href="events.html" class="btn btn-ghost">View Upcoming Events</a>
+    <div class="container">
+      <p class="hero-eyebrow">Microsoft Israel Innovation Hub · FY27</p>
+      <h1 class="hero-title">Where AWS-Born Companies<br><span>Build Their Azure Future</span></h1>
+      <p class="hero-sub">Israel's tech ecosystem runs on AWS. We meet you there — and help you expand to Azure, accelerate Marketplace listings, and unlock Microsoft's global enterprise engine.</p>
+      <div class="hero-actions">
+        <a href="programs.html" class="btn btn-primary">Explore Programs</a>
+        <a href="about.html" class="btn btn-ghost">Watch the Hub Story</a>
       </div>
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <span class="hero-stat-num">50+</span>
-          <span class="hero-stat-label">Active Companies</span>
+      <!-- Audience badge row -->
+      <div class="hero-audience-row">
+        <span class="hero-audience-chip">🌱 Seed &amp; Series B Founders</span>
+        <span class="hero-audience-chip">🏗️ Series C/D Scaleups</span>
+        <span class="hero-audience-chip">🏭 Mature ISVs</span>
+        <span class="hero-audience-chip">🤝 Microsoft Partners</span>
+        <span class="hero-audience-chip">👔 C-Suite &amp; Executives</span>
+      </div>
+    </div>
+    <!-- Stat chips bar -->
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num">50+</span>
+        <span class="hero-stat-label">Active Companies</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">$2B+</span>
+        <span class="hero-stat-label">Raised by Alumni</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">200+</span>
+        <span class="hero-stat-label">Microsoft Experts</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">85+</span>
+        <span class="hero-stat-label">Marketplace Listings</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       AWS-TO-AZURE POSITIONING (NEW)
+  ══════════════════════════════════════════════════════════ -->
+  <section class="section aws-azure-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Israel Builds on AWS. We Help You Expand to Azure.</h2>
+        <p class="section-sub">Most Israeli startups start on AWS — and that's fine. We're not here to replace your infrastructure. We're here to open new markets, new buyers, and new possibilities on Azure alongside what you already have.</p>
+      </div>
+      <p class="aws-azure-intro">Multi-cloud isn't a future state — it's Israel's present reality. The Hub gives you a structured, expert-led path from AWS-native to Azure-ready, without disrupting what's working.</p>
+      <div class="aws-azure-grid">
+        <div class="aws-azure-card">
+          <div class="aws-azure-step">1</div>
+          <h3>Assess Your Architecture</h3>
+          <p>Our Azure Solutions Architects review your existing AWS footprint and identify the fastest, lowest-risk path to Azure parity — or complementary deployment.</p>
         </div>
-        <div class="hero-stat">
-          <span class="hero-stat-num">8</span>
-          <span class="hero-stat-label">Programs</span>
+        <div class="aws-azure-card">
+          <div class="aws-azure-step">2</div>
+          <h3>Build Multi-Cloud Posture</h3>
+          <p>Unlock Azure OpenAI, Microsoft Sentinel, and Defender integrations. Add Azure as a first-class cloud without a full rewrite — and qualify for co-sell motions.</p>
         </div>
-        <div class="hero-stat">
-          <span class="hero-stat-num">$2B+</span>
-          <span class="hero-stat-label">Raised by Alumni</span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat-num">200+</span>
-          <span class="hero-stat-label">Microsoft Experts</span>
+        <div class="aws-azure-card">
+          <div class="aws-azure-step">3</div>
+          <h3>Go to Marketplace</h3>
+          <p>Get listed on Azure Marketplace, activate co-sell with Microsoft's global field team, and reach Fortune 500 enterprise buyers through Microsoft's commercial engine.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- VALUE PROPOSITIONS -->
-  <section class="section value-props">
+  <!-- ══════════════════════════════════════════════════════════
+       VALUE PROPOSITIONS
+  ══════════════════════════════════════════════════════════ -->
+  <section class="section value-props section-alt">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Why Microsoft Innovation Hub?</h2>
+        <p class="section-sub">Four pillars that take you from ambitious to unstoppable.</p>
       </div>
       <div class="cards-grid cards-grid-4">
         <div class="card value-card">
           <div class="card-icon">☁️</div>
-          <h3 class="card-title">Azure &amp; AI Access</h3>
+          <h3 class="card-title">Azure Platform</h3>
           <p class="card-text">Direct access to Azure credits, OpenAI models, Copilot integrations, and AI Studio. Build on the same infrastructure as Microsoft's own products.</p>
         </div>
         <div class="card value-card">
           <div class="card-icon">🚀</div>
-          <h3 class="card-title">Co-Sell &amp; Marketplace</h3>
-          <p class="card-text">List on Azure Marketplace, unlock co-sell motions with Microsoft's global field sales team, and reach enterprise buyers faster.</p>
+          <h3 class="card-title">Co-Sell &amp; GTM</h3>
+          <p class="card-text">List on Azure Marketplace, unlock co-sell motions with Microsoft's global field sales team, and reach enterprise buyers faster than any other path.</p>
         </div>
         <div class="card value-card">
           <div class="card-icon">🧠</div>
@@ -85,15 +391,17 @@
         </div>
         <div class="card value-card">
           <div class="card-icon">🔨</div>
-          <h3 class="card-title">Co-Build with Microsoft</h3>
+          <h3 class="card-title">Co-Product</h3>
           <p class="card-text">Explore co-product opportunities with Microsoft Product Groups. Build integrations and joint solutions with teams behind Azure, Microsoft 365, and Dynamics.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FEATURED PROGRAMS -->
-  <section class="section programs-section section-alt">
+  <!-- ══════════════════════════════════════════════════════════
+       PROGRAMS PREVIEW
+  ══════════════════════════════════════════════════════════ -->
+  <section class="section programs-section">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">8 Programs. Every Stage. Every Need.</h2>
@@ -101,127 +409,210 @@
       </div>
       <div class="cards-grid cards-grid-4">
         <div class="card program-card">
-          <div class="card-icon">🚀</div>
-          <div class="card-badge badge-early">Early Stage</div>
+          <div class="program-card-header">
+            <div class="card-icon">🚀</div>
+            <span class="badge badge-green">Early Stage</span>
+          </div>
           <h3 class="card-title">LaunchPad</h3>
-          <p class="card-stage">Seed &amp; Pre-Seed</p>
-          <p class="card-text">Azure credits up to $150K, weekly CTO mentorship, and the infrastructure to build fast. For the boldest early-stage ideas in Israel.</p>
+          <p class="card-desc">Seed &amp; Pre-Seed</p>
+          <p class="card-desc">Azure credits up to $150K, weekly CTO mentorship, and the infrastructure to build fast.</p>
+          <ul class="benefit-list">
+            <li>$150K Azure credits</li>
+            <li>Weekly CTO office hours</li>
+            <li>Co-working at Microsoft HQ</li>
+          </ul>
           <div class="card-actions">
-            <a href="programs.html" class="btn btn-sm btn-outline">Learn More</a>
+            <a href="programs.html#launchpad" class="btn btn-sm btn-outline">Learn More</a>
             <a href="apply.html" class="btn btn-sm btn-primary">Apply</a>
           </div>
         </div>
         <div class="card program-card">
-          <div class="card-icon">📈</div>
-          <div class="card-badge badge-scaleup">Scaleup</div>
+          <div class="program-card-header">
+            <div class="card-icon">📈</div>
+            <span class="badge badge-blue">Scaleup</span>
+          </div>
           <h3 class="card-title">Scale360</h3>
-          <p class="card-stage">Series A &amp; B</p>
-          <p class="card-text">Co-sell readiness, Azure Marketplace onboarding, and ISE collaboration to scale your product and your go-to-market in parallel.</p>
+          <p class="card-desc">Series A &amp; B</p>
+          <p class="card-desc">Co-sell readiness, Azure Marketplace onboarding, and ISE collaboration to scale product and GTM in parallel.</p>
+          <ul class="benefit-list">
+            <li>Marketplace listing in 90 days</li>
+            <li>ISE engineering sprint</li>
+            <li>Co-sell activation</li>
+          </ul>
           <div class="card-actions">
-            <a href="programs.html" class="btn btn-sm btn-outline">Learn More</a>
+            <a href="programs.html#scale360" class="btn btn-sm btn-outline">Learn More</a>
             <a href="apply.html" class="btn btn-sm btn-primary">Apply</a>
           </div>
         </div>
         <div class="card program-card">
-          <div class="card-icon">🏢</div>
-          <div class="card-badge badge-scaleup">Scaleup</div>
+          <div class="program-card-header">
+            <div class="card-icon">🏢</div>
+            <span class="badge badge-navy">Series C/D</span>
+          </div>
           <h3 class="card-title">Enterprise Bridge</h3>
-          <p class="card-stage">Series C/D</p>
-          <p class="card-text">Co-product exploration, BD collaboration with Microsoft field teams, and enterprise GTM strategies for companies ready for global scale.</p>
+          <p class="card-desc">Series C/D Scaleups</p>
+          <p class="card-desc">Co-product exploration, BD collaboration, and enterprise GTM for companies ready for global scale.</p>
+          <ul class="benefit-list">
+            <li>Co-product exploration</li>
+            <li>Executive field introductions</li>
+            <li>Global GTM playbook</li>
+          </ul>
           <div class="card-actions">
-            <a href="programs.html" class="btn btn-sm btn-outline">Learn More</a>
+            <a href="programs.html#enterprise-bridge" class="btn btn-sm btn-outline">Learn More</a>
             <a href="apply.html" class="btn btn-sm btn-primary">Apply</a>
           </div>
         </div>
         <div class="card program-card">
-          <div class="card-icon">🤖</div>
-          <div class="card-badge badge-all">All Stages</div>
+          <div class="program-card-header">
+            <div class="card-icon">🤖</div>
+            <span class="badge badge-purple">All Stages</span>
+          </div>
           <h3 class="card-title">AI Innovation Lab</h3>
-          <p class="card-stage">All Stages</p>
-          <p class="card-text">Hands-on workshops with Azure OpenAI Service, Copilot extensibility, and AI Studio. Build, test and deploy AI features in days, not months.</p>
+          <p class="card-desc">All Stages</p>
+          <p class="card-desc">Hands-on workshops with Azure OpenAI, Copilot extensibility, and AI Studio. Ship AI features in weeks, not months.</p>
+          <ul class="benefit-list">
+            <li>Azure OpenAI hands-on access</li>
+            <li>Copilot extensibility builds</li>
+            <li>AI Studio deployment labs</li>
+          </ul>
           <div class="card-actions">
-            <a href="programs.html" class="btn btn-sm btn-outline">Learn More</a>
+            <a href="programs.html#ai-lab" class="btn btn-sm btn-outline">Learn More</a>
             <a href="apply.html" class="btn btn-sm btn-primary">Apply</a>
           </div>
         </div>
       </div>
+      <div style="text-align:center; margin-top:40px;">
+        <a href="programs.html" class="btn btn-primary">See All 8 Programs →</a>
+      </div>
     </div>
   </section>
 
-  <!-- WHO WE SERVE -->
-  <section class="section audience-section">
+  <!-- ══════════════════════════════════════════════════════════
+       EXPERT PROFILES STRIP (NEW)
+  ══════════════════════════════════════════════════════════ -->
+  <section class="section experts-strip">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Who We Serve</h2>
+        <h2 class="section-title">Meet the Experts Behind the Hub</h2>
+        <p class="section-sub">Real people. Deep expertise. Always accessible to Hub companies.</p>
       </div>
-      <div class="cards-grid cards-grid-4">
-        <div class="card audience-card">
-          <div class="card-icon">🌱</div>
-          <h3 class="card-title">Seed &amp; Series B</h3>
-          <p class="card-text">Early-stage founders with product-market fit momentum who need infrastructure, capital efficiency, and technical mentors to grow 10x.</p>
+      <div class="experts-row">
+        <div class="expert-card">
+          <div class="expert-avatar">ML</div>
+          <div class="expert-name">Maya Levi</div>
+          <div class="expert-role">Hub Director</div>
         </div>
-        <div class="card audience-card">
-          <div class="card-icon">🏗️</div>
-          <h3 class="card-title">Series C/D Scaleups</h3>
-          <p class="card-text">Growth-stage companies ready to build enterprise sales motions, explore co-product opportunities, and expand globally with Microsoft behind them.</p>
+        <div class="expert-card">
+          <div class="expert-avatar">RK</div>
+          <div class="expert-name">Ron Katz</div>
+          <div class="expert-role">Azure Solutions Architect</div>
         </div>
-        <div class="card audience-card">
-          <div class="card-icon">🏭</div>
-          <h3 class="card-title">Mature ISVs</h3>
-          <p class="card-text">Established software vendors looking to modernize on Azure, reach new enterprise customers via Marketplace, and leverage AI to differentiate their products.</p>
+        <div class="expert-card">
+          <div class="expert-avatar">AS</div>
+          <div class="expert-name">Dr. Avi Shapiro</div>
+          <div class="expert-role">AI Lead</div>
         </div>
-        <div class="card audience-card">
-          <div class="card-icon">🤝</div>
-          <h3 class="card-title">Microsoft Partners</h3>
-          <p class="card-text">GPS partners looking to accelerate co-sell, improve Marketplace listings, and deepen technical integration with Microsoft's commercial ecosystem.</p>
+        <div class="expert-card">
+          <div class="expert-avatar">NB</div>
+          <div class="expert-name">Noa Ben-David</div>
+          <div class="expert-role">GTM &amp; Marketplace</div>
+        </div>
+        <div class="expert-card">
+          <div class="expert-avatar">YM</div>
+          <div class="expert-name">Yoav Mizrahi</div>
+          <div class="expert-role">ISV &amp; Partner Lead</div>
+        </div>
+      </div>
+      <div class="experts-cta">
+        <a href="experts.html" class="btn btn-primary">Meet the Full Team →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       CFO / EXECUTIVE SESSIONS CALLOUT (NEW)
+  ══════════════════════════════════════════════════════════ -->
+  <section class="section exec-sessions-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Not Just Technical. Built for Every Leader.</h2>
+        <p class="section-sub">The Innovation Hub runs dedicated sessions for CFOs, commercial leaders, and board-level executives — because growth decisions aren't made only in engineering.</p>
+      </div>
+      <div class="exec-sessions-grid">
+        <div class="exec-session-card">
+          <div class="exec-session-icon">💰</div>
+          <h3>AI Monetization Roundtable</h3>
+          <p>Quarterly CFO roundtables exploring Azure AI ROI, cloud cost optimization, and revenue models for AI-native products. Moderated by Microsoft finance and product leaders.</p>
+          <span class="exec-audience-tag">For CFOs &amp; Finance Leaders</span>
+        </div>
+        <div class="exec-session-card">
+          <div class="exec-session-icon">🏷️</div>
+          <h3>Pricing Labs</h3>
+          <p>Workshop series on consumption-based pricing, Marketplace billing models, and enterprise packaging. Real benchmarks from 50+ Hub companies to guide your pricing strategy.</p>
+          <span class="exec-audience-tag">For CPOs &amp; Revenue Leaders</span>
+        </div>
+        <div class="exec-session-card">
+          <div class="exec-session-icon">🏛️</div>
+          <h3>Executive Architecture Reviews</h3>
+          <p>Board-ready technical briefings co-delivered by Hub experts and Microsoft engineering. Translate your cloud architecture into investor and customer narratives that land.</p>
+          <span class="exec-audience-tag">For CEOs, CTOs &amp; Boards</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- UPCOMING EVENTS -->
+  <!-- ══════════════════════════════════════════════════════════
+       UPCOMING EVENTS
+  ══════════════════════════════════════════════════════════ -->
   <section class="section events-section section-alt">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Upcoming Events</h2>
+        <p class="section-sub">In-person and virtual gatherings that connect Hub companies with Microsoft's people, customers, and knowledge.</p>
       </div>
       <div class="cards-grid cards-grid-3">
-        <div class="card event-card">
-          <div class="event-badge badge-conference">Conference</div>
-          <h3 class="card-title">Azure AI Summit Israel 2026</h3>
-          <p class="event-date">June 15, 2026</p>
-          <p class="card-text">The premier AI conference for Israel's tech ecosystem. 500 attendees, 30+ speakers, hands-on labs with Azure OpenAI.</p>
-          <p class="event-location">📍 Tel Aviv Convention Center</p>
-          <a href="register.html" class="btn btn-sm btn-primary">Register</a>
+        <div class="card event-card" style="flex-direction:column; gap:0;">
+          <div style="margin-bottom:12px;">
+            <span class="event-badge" style="background:rgba(0,120,212,0.1); color:var(--ms-blue);">Conference</span>
+          </div>
+          <h3 class="card-title" style="font-size:17px;">Azure AI Summit Israel 2026</h3>
+          <p style="font-size:13px; color:var(--ms-gray); margin:6px 0;">June 15, 2026 · Tel Aviv Convention Center</p>
+          <p class="card-desc">The premier AI conference for Israel's tech ecosystem. 500 attendees, 30+ speakers, and hands-on labs with Azure OpenAI Service.</p>
+          <a href="register.html" class="btn btn-sm btn-primary" style="margin-top:16px; align-self:flex-start;">Register</a>
         </div>
-        <div class="card event-card">
-          <div class="event-badge badge-executive">Executive</div>
-          <h3 class="card-title">CTO Circle Dinner Q2</h3>
-          <p class="event-date">May 22, 2026</p>
-          <p class="card-text">Intimate dinner for CTOs and VPs of Engineering. Guest speakers from Microsoft CTO Group. Invitation-based.</p>
-          <p class="event-location">📍 Microsoft Israel HQ, Ra'anana</p>
-          <a href="register.html" class="btn btn-sm btn-primary">Register</a>
+        <div class="card event-card" style="flex-direction:column; gap:0;">
+          <div style="margin-bottom:12px;">
+            <span class="event-badge" style="background:rgba(92,45,145,0.1); color:var(--ms-purple);">Executive</span>
+          </div>
+          <h3 class="card-title" style="font-size:17px;">CTO Circle Dinner Q2</h3>
+          <p style="font-size:13px; color:var(--ms-gray); margin:6px 0;">May 22, 2026 · Microsoft Israel HQ, Ra'anana</p>
+          <p class="card-desc">Intimate dinner for CTOs and VPs of Engineering with guest speakers from Microsoft CTO Group. Invitation-only.</p>
+          <a href="register.html" class="btn btn-sm btn-primary" style="margin-top:16px; align-self:flex-start;">Register</a>
         </div>
-        <div class="card event-card">
-          <div class="event-badge badge-demoday">Demo Day</div>
-          <h3 class="card-title">Spring Demo Day 2026</h3>
-          <p class="event-date">April 30, 2026</p>
-          <p class="card-text">Hub companies pitch to Microsoft executives, investors, and enterprise buyers. The stage for Israel's next breakout companies.</p>
-          <p class="event-location">📍 Peres Center for Peace &amp; Innovation</p>
-          <a href="register.html" class="btn btn-sm btn-primary">Register</a>
+        <div class="card event-card" style="flex-direction:column; gap:0;">
+          <div style="margin-bottom:12px;">
+            <span class="event-badge" style="background:rgba(16,124,16,0.1); color:var(--ms-green);">Demo Day</span>
+          </div>
+          <h3 class="card-title" style="font-size:17px;">Spring Demo Day 2026</h3>
+          <p style="font-size:13px; color:var(--ms-gray); margin:6px 0;">April 30, 2026 · Peres Center for Peace &amp; Innovation</p>
+          <p class="card-desc">Hub companies pitch to Microsoft executives, investors, and enterprise buyers. The stage for Israel's next breakout companies.</p>
+          <a href="register.html" class="btn btn-sm btn-primary" style="margin-top:16px; align-self:flex-start;">Register</a>
         </div>
       </div>
-      <div class="section-footer">
-        <a href="events.html" class="link-more">View All Events →</a>
+      <div style="text-align:center; margin-top:40px;">
+        <a href="events.html" class="btn btn-outline" style="border:2px solid var(--ms-blue); color:var(--ms-blue); background:transparent; padding:10px 28px; border-radius:4px; font-weight:600; font-size:15px; display:inline-flex; align-items:center; gap:6px; transition:all 0.25s ease; text-decoration:none;">View All Events →</a>
       </div>
     </div>
   </section>
 
-  <!-- IMPACT NUMBERS -->
+  <!-- ══════════════════════════════════════════════════════════
+       IMPACT STATS (ANIMATED)
+  ══════════════════════════════════════════════════════════ -->
   <section class="stats-section">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Our Impact in Numbers</h2>
+      <div class="section-header" style="margin-bottom:48px;">
+        <h2 class="section-title" style="color:var(--ms-white);">Our Impact in Numbers</h2>
+        <p class="section-sub" style="color:rgba(255,255,255,0.75);">Measurable outcomes from the companies who've been through the Hub.</p>
       </div>
       <div class="stats-grid">
         <div class="stat-item">
@@ -244,11 +635,14 @@
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
+  <!-- ══════════════════════════════════════════════════════════
+       TESTIMONIALS
+  ══════════════════════════════════════════════════════════ -->
   <section class="section testimonials-section">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">What Founders Say</h2>
+        <p class="section-sub">Straight from the companies that have been through the journey.</p>
       </div>
       <div class="cards-grid cards-grid-3">
         <div class="card testimonial-card">
@@ -262,7 +656,7 @@
           </div>
         </div>
         <div class="card testimonial-card">
-          <p class="testimonial-quote">"The AI Innovation Lab compressed what would have been 18 months of AI R&amp;D into 6 weeks. Working directly with Azure AI engineers gave us an unfair advantage."</p>
+          <p class="testimonial-quote">"The AI Innovation Lab compressed what would have been 18 months of AI R&amp;D into 6 weeks. Working directly with Azure AI engineers gave us an unfair advantage — and we shipped to production before any of our competitors."</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">SO</div>
             <div class="testimonial-info">
@@ -272,7 +666,7 @@
           </div>
         </div>
         <div class="card testimonial-card">
-          <p class="testimonial-quote">"The CTO Circle is unlike any other network in Israel. The depth of conversation, the caliber of peers, and the Microsoft access — it's the thing I tell every technical founder to prioritize."</p>
+          <p class="testimonial-quote">"The CTO Circle is unlike any other network in Israel. The depth of conversation, the caliber of peers, and the Microsoft access — it's the thing I tell every technical founder to prioritize above everything else."</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">AB</div>
             <div class="testimonial-info">
@@ -285,42 +679,50 @@
     </div>
   </section>
 
-  <!-- ALUMNI LOGO STRIP -->
+  <!-- ══════════════════════════════════════════════════════════
+       ALUMNI LOGO STRIP
+  ══════════════════════════════════════════════════════════ -->
   <section class="section alumni-section section-alt">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Hub Alumni</h2>
-        <p class="section-sub">Companies that have grown through Microsoft Israel Innovation Hub programs</p>
+        <p class="section-sub">Companies that have grown through Microsoft Israel Innovation Hub programs.</p>
       </div>
       <div class="logo-strip">
-        <div class="logo-item">Lumina AI</div>
-        <div class="logo-item">CloudBridge</div>
-        <div class="logo-item">CyberSentry</div>
-        <div class="logo-item">DataFlow Systems</div>
-        <div class="logo-item">NovaMed</div>
+        <div class="company-logo">Lumina AI</div>
+        <div class="company-logo">CloudBridge</div>
+        <div class="company-logo">CyberSentry</div>
+        <div class="company-logo">DataFlow Systems</div>
+        <div class="company-logo">NovaMed</div>
+        <div class="company-logo">ShieldOps</div>
+        <div class="company-logo">Nexus Labs</div>
       </div>
     </div>
   </section>
 
-  <!-- CTA SECTION -->
-  <section class="cta-section">
-    <div class="container cta-inner">
-      <h2 class="cta-title">Ready to Accelerate Your Growth?</h2>
-      <p class="cta-sub">Join 50+ companies already leveraging Microsoft's platform, people and go-to-market power.</p>
-      <div class="cta-actions">
-        <a href="apply.html" class="btn btn-primary">Apply to the Hub</a>
+  <!-- ══════════════════════════════════════════════════════════
+       CTA BAND
+  ══════════════════════════════════════════════════════════ -->
+  <section class="cta-band">
+    <div class="container">
+      <h2>Ready to Accelerate Your Growth?</h2>
+      <p>Join 50+ companies already leveraging Microsoft's platform, people and go-to-market power. Applications are reviewed on a rolling basis.</p>
+      <div class="cta-band-actions">
+        <a href="apply.html" class="btn btn-white">Apply to the Hub</a>
         <a href="about.html#contact" class="btn btn-ghost">Talk to Our Team</a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ══════════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════════ -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
           <div class="footer-logo">Microsoft<br>Innovation Hub<br><span>Israel · FY27</span></div>
-          <p class="footer-tagline">Where Israeli Innovation<br>Meets Microsoft at Scale</p>
+          <p class="footer-tagline">Where AWS-Born Companies<br>Build Their Azure Future</p>
         </div>
         <div class="footer-col">
           <h4 class="footer-heading">Programs</h4>
@@ -336,6 +738,7 @@
           <h4 class="footer-heading">Hub</h4>
           <ul class="footer-links">
             <li><a href="events.html">Events &amp; Workshops</a></li>
+            <li><a href="experts.html">Meet the Experts</a></li>
             <li><a href="success.html">Success Stories</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="apply.html">Apply Now</a></li>
