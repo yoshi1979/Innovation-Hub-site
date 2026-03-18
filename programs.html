@@ -175,6 +175,142 @@
       gap: 6px;
       flex-shrink: 0;
     }
+    /* ── Delivery team members in program cards ── */
+    .delivery-team {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(0,0,0,.06);
+    }
+    .delivery-team-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      color: var(--ms-gray);
+      margin-bottom: 10px;
+    }
+    .team-members {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .team-member {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .team-member-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--ms-blue), var(--ms-blue-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      flex-shrink: 0;
+      border: 2px solid rgba(0,120,212,.1);
+    }
+    .team-member-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .team-member-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ms-navy);
+      margin: 0 0 2px;
+      line-height: 1.2;
+    }
+    .team-member-title {
+      font-size: 11px;
+      color: var(--ms-gray);
+      margin: 0 0 4px;
+      line-height: 1.3;
+    }
+    .team-member-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .skill-tag {
+      padding: 2px 6px;
+      border-radius: 10px;
+      font-size: 9px;
+      font-weight: 600;
+      background: rgba(0,120,212,.08);
+      color: var(--ms-blue-dark);
+      white-space: nowrap;
+    }
+    /* ── Meet the Team section in modals ── */
+    .modal-team-section {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 2px solid rgba(0,0,0,.06);
+    }
+    .modal-team-member {
+      display: flex;
+      gap: 14px;
+      padding: 14px;
+      background: var(--ms-light);
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+    .modal-team-member:last-child {
+      margin-bottom: 0;
+    }
+    .modal-team-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--ms-blue), var(--ms-blue-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 700;
+      flex-shrink: 0;
+      border: 3px solid rgba(0,120,212,.15);
+    }
+    .modal-team-info {
+      flex: 1;
+    }
+    .modal-team-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ms-navy);
+      margin: 0 0 3px;
+    }
+    .modal-team-title {
+      font-size: 12px;
+      color: var(--ms-gray);
+      margin: 0 0 8px;
+      line-height: 1.4;
+    }
+    .modal-team-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .modal-skill-tag {
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 10px;
+      font-weight: 600;
+      background: var(--ms-white);
+      color: var(--ms-blue-dark);
+      border: 1px solid rgba(0,120,212,.15);
+    }
+    .modal-team-role {
+      font-size: 12px;
+      color: var(--ms-gray);
+      margin-top: 6px;
+      font-style: italic;
+      line-height: 1.5;
+    }
   </style>
 </head>
 <body id="page-programs">
@@ -257,6 +393,34 @@
               <li>Azure landing zone blueprint</li>
               <li>90-day migration roadmap</li>
             </ul>
+            <div class="delivery-team">
+              <p class="delivery-team-label">Delivery Team</p>
+              <div class="team-members">
+                <div class="team-member">
+                  <div class="team-member-avatar">MC</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Maya Cohen</p>
+                    <p class="team-member-title">Principal Azure Architect</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">Landing Zones</span>
+                      <span class="skill-tag">DevOps</span>
+                      <span class="skill-tag">IaC</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="team-member">
+                  <div class="team-member-avatar">AL</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Amit Levi</p>
+                    <p class="team-member-title">Cloud Platform Specialist</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">Multi-Cloud</span>
+                      <span class="skill-tag">Migration</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="card-actions">
               <button class="btn btn-secondary btn-sm" data-modal="modal-aws-azure-assessment" aria-haspopup="dialog">Details</button>
               <a href="apply.html?program=aws-azure-assessment" class="btn btn-primary btn-sm">Apply</a>
@@ -282,6 +446,33 @@
               <li>IaC templates &amp; CI/CD pipelines</li>
               <li>Security baseline established</li>
             </ul>
+            <div class="delivery-team">
+              <p class="delivery-team-label">Delivery Team</p>
+              <div class="team-members">
+                <div class="team-member">
+                  <div class="team-member-avatar">MC</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Maya Cohen</p>
+                    <p class="team-member-title">Principal Azure Architect</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">Landing Zones</span>
+                      <span class="skill-tag">IaC</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="team-member">
+                  <div class="team-member-avatar">RS</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Ron Shapira</p>
+                    <p class="team-member-title">DevOps Platform Lead</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">CI/CD</span>
+                      <span class="skill-tag">Security</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="card-actions">
               <button class="btn btn-secondary btn-sm" data-modal="modal-landing-zone-sprint" aria-haspopup="dialog">Details</button>
               <a href="apply.html?program=landing-zone-sprint" class="btn btn-primary btn-sm">Apply</a>
@@ -307,6 +498,23 @@
               <li>Integration blueprint for your product</li>
               <li>AI backlog &amp; monetization hypothesis</li>
             </ul>
+            <div class="delivery-team">
+              <p class="delivery-team-label">Delivery Team</p>
+              <div class="team-members">
+                <div class="team-member">
+                  <div class="team-member-avatar">DL</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Daniel Levy</p>
+                    <p class="team-member-title">AI Solution Specialist</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">Azure OpenAI</span>
+                      <span class="skill-tag">RAG</span>
+                      <span class="skill-tag">Product AI</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="card-actions">
               <button class="btn btn-secondary btn-sm" data-modal="modal-ai-feature-sprint" aria-haspopup="dialog">Details</button>
               <a href="apply.html?program=ai-feature-sprint" class="btn btn-primary btn-sm">Apply</a>
@@ -332,6 +540,22 @@
               <li>Investor-credible technical decisions</li>
               <li>Expert referrals &amp; next-action plans</li>
             </ul>
+            <div class="delivery-team">
+              <p class="delivery-team-label">Delivery Team</p>
+              <div class="team-members">
+                <div class="team-member">
+                  <div class="team-member-avatar">TS</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Tamar Stern</p>
+                    <p class="team-member-title">CTO Advisor</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">Strategy</span>
+                      <span class="skill-tag">Architecture</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="card-actions">
               <a href="apply.html?program=founder-office-hours" class="btn btn-secondary btn-sm">Details</a>
               <a href="apply.html?program=founder-office-hours" class="btn btn-primary btn-sm">Apply</a>
@@ -357,6 +581,33 @@
               <li>Scalability proof points</li>
               <li>CTO recommendation memo</li>
             </ul>
+            <div class="delivery-team">
+              <p class="delivery-team-label">Delivery Team</p>
+              <div class="team-members">
+                <div class="team-member">
+                  <div class="team-member-avatar">TS</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Tamar Stern</p>
+                    <p class="team-member-title">CTO Advisor</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">Strategy</span>
+                      <span class="skill-tag">Fundraising</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="team-member">
+                  <div class="team-member-avatar">MC</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Maya Cohen</p>
+                    <p class="team-member-title">Principal Azure Architect</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">Architecture</span>
+                      <span class="skill-tag">Scalability</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="card-actions">
               <a href="apply.html?program=investor-arch-review" class="btn btn-secondary btn-sm">Details</a>
               <a href="apply.html?program=investor-arch-review" class="btn btn-primary btn-sm">Apply</a>
@@ -400,6 +651,23 @@
               <li>Azure expansion hypothesis</li>
               <li>Risk assessment &amp; 90-day roadmap</li>
             </ul>
+            <div class="delivery-team">
+              <p class="delivery-team-label">Delivery Team</p>
+              <div class="team-members">
+                <div class="team-member">
+                  <div class="team-member-avatar">YB</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Yael Bar-On</p>
+                    <p class="team-member-title">Senior SaaS Architect</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">Multi-Cloud</span>
+                      <span class="skill-tag">SaaS</span>
+                      <span class="skill-tag">Strategy</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="card-actions">
               <button class="btn btn-secondary btn-sm" data-modal="modal-multi-cloud-assessment" aria-haspopup="dialog">Details</button>
               <a href="apply.html?program=multi-cloud-assessment" class="btn btn-primary btn-sm">Apply</a>
@@ -425,6 +693,33 @@
               <li>Azure architecture patterns</li>
               <li>Team enablement &amp; governance plan</li>
             </ul>
+            <div class="delivery-team">
+              <p class="delivery-team-label">Delivery Team</p>
+              <div class="team-members">
+                <div class="team-member">
+                  <div class="team-member-avatar">YB</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Yael Bar-On</p>
+                    <p class="team-member-title">Senior SaaS Architect</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">Migration</span>
+                      <span class="skill-tag">Governance</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="team-member">
+                  <div class="team-member-avatar">AL</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Amit Levi</p>
+                    <p class="team-member-title">Cloud Platform Specialist</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">Azure</span>
+                      <span class="skill-tag">Enablement</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="card-actions">
               <a href="apply.html?program=azure-expansion-roadmap" class="btn btn-secondary btn-sm">Details</a>
               <a href="apply.html?program=azure-expansion-roadmap" class="btn btn-primary btn-sm">Apply</a>
@@ -450,6 +745,33 @@
               <li>MLOps framework on Azure AI Platform</li>
               <li>AI governance baseline</li>
             </ul>
+            <div class="delivery-team">
+              <p class="delivery-team-label">Delivery Team</p>
+              <div class="team-members">
+                <div class="team-member">
+                  <div class="team-member-avatar">DL</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Daniel Levy</p>
+                    <p class="team-member-title">AI Solution Specialist</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">MLOps</span>
+                      <span class="skill-tag">AI Platform</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="team-member">
+                  <div class="team-member-avatar">SK</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Sarah Katz</p>
+                    <p class="team-member-title">Data &amp; AI Architect</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">Production AI</span>
+                      <span class="skill-tag">Governance</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="card-actions">
               <button class="btn btn-secondary btn-sm" data-modal="modal-ai-production-sprint" aria-haspopup="dialog">Details</button>
               <a href="apply.html?program=ai-production-sprint" class="btn btn-primary btn-sm">Apply</a>
@@ -475,6 +797,22 @@
               <li>Architecture risk mitigation</li>
               <li>CTO alignment &amp; executive briefing</li>
             </ul>
+            <div class="delivery-team">
+              <p class="delivery-team-label">Delivery Team</p>
+              <div class="team-members">
+                <div class="team-member">
+                  <div class="team-member-avatar">TS</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Tamar Stern</p>
+                    <p class="team-member-title">CTO Advisor</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">Strategy</span>
+                      <span class="skill-tag">Leadership</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="card-actions">
               <a href="apply.html?program=executive-arch-review" class="btn btn-secondary btn-sm">Details</a>
               <a href="apply.html?program=executive-arch-review" class="btn btn-primary btn-sm">Apply</a>
@@ -500,6 +838,23 @@
               <li>Pricing hypothesis &amp; packaging options</li>
               <li>Go-to-market brief</li>
             </ul>
+            <div class="delivery-team">
+              <p class="delivery-team-label">Delivery Team</p>
+              <div class="team-members">
+                <div class="team-member">
+                  <div class="team-member-avatar">OR</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Or Rosenfeld</p>
+                    <p class="team-member-title">Product Strategy Lead</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">AI Monetization</span>
+                      <span class="skill-tag">Pricing</span>
+                      <span class="skill-tag">GTM</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="card-actions">
               <a href="apply.html?program=ai-monetization-session" class="btn btn-secondary btn-sm">Details</a>
               <a href="apply.html?program=ai-monetization-session" class="btn btn-primary btn-sm">Apply</a>
@@ -543,6 +898,33 @@
               <li>Phased transformation roadmap</li>
               <li>Modernization report with milestones</li>
             </ul>
+            <div class="delivery-team">
+              <p class="delivery-team-label">Delivery Team</p>
+              <div class="team-members">
+                <div class="team-member">
+                  <div class="team-member-avatar">YB</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Yael Bar-On</p>
+                    <p class="team-member-title">Senior SaaS Architect</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">SaaS Modernization</span>
+                      <span class="skill-tag">Architecture</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="team-member">
+                  <div class="team-member-avatar">MC</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Maya Cohen</p>
+                    <p class="team-member-title">Principal Azure Architect</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">Platform</span>
+                      <span class="skill-tag">IaC</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="card-actions">
               <button class="btn btn-secondary btn-sm" data-modal="modal-saas-modernization" aria-haspopup="dialog">Details</button>
               <a href="apply.html?program=saas-modernization" class="btn btn-primary btn-sm">Apply</a>
@@ -568,6 +950,23 @@
               <li>Pricing strategy &amp; co-sell readiness</li>
               <li>Offer pricing model &amp; co-sell brief</li>
             </ul>
+            <div class="delivery-team">
+              <p class="delivery-team-label">Delivery Team</p>
+              <div class="team-members">
+                <div class="team-member">
+                  <div class="team-member-avatar">NB</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Noa Ben-David</p>
+                    <p class="team-member-title">Marketplace GTM Lead</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">Marketplace</span>
+                      <span class="skill-tag">Co-Sell</span>
+                      <span class="skill-tag">Packaging</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="card-actions">
               <a href="apply.html?program=marketplace-packaging" class="btn btn-secondary btn-sm">Details</a>
               <a href="apply.html?program=marketplace-packaging" class="btn btn-primary btn-sm">Apply</a>
@@ -593,6 +992,33 @@
               <li>Field sales engagement</li>
               <li>Co-sell readiness plan &amp; account map</li>
             </ul>
+            <div class="delivery-team">
+              <p class="delivery-team-label">Delivery Team</p>
+              <div class="team-members">
+                <div class="team-member">
+                  <div class="team-member-avatar">NB</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Noa Ben-David</p>
+                    <p class="team-member-title">Marketplace GTM Lead</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">Co-Sell</span>
+                      <span class="skill-tag">GPS</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="team-member">
+                  <div class="team-member-avatar">EG</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Eitan Gold</p>
+                    <p class="team-member-title">Partner Sales Specialist</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">Field Enablement</span>
+                      <span class="skill-tag">Pipeline</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="card-actions">
               <button class="btn btn-secondary btn-sm" data-modal="modal-co-sell-acceleration" aria-haspopup="dialog">Details</button>
               <a href="apply.html?program=co-sell-acceleration" class="btn btn-primary btn-sm">Apply</a>
@@ -618,6 +1044,22 @@
               <li>Joint opportunity assessment</li>
               <li>Pilot proposal &amp; sponsorship recommendation</li>
             </ul>
+            <div class="delivery-team">
+              <p class="delivery-team-label">Delivery Team</p>
+              <div class="team-members">
+                <div class="team-member">
+                  <div class="team-member-avatar">LM</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Liora Mizrahi</p>
+                    <p class="team-member-title">Director, Co-Product Programs</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">Product Strategy</span>
+                      <span class="skill-tag">Partnerships</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="card-actions">
               <a href="apply.html?program=co-product-exploration" class="btn btn-secondary btn-sm">Details</a>
               <a href="apply.html?program=co-product-exploration" class="btn btn-primary btn-sm">Apply</a>
@@ -643,6 +1085,33 @@
               <li>Executive AI narrative</li>
               <li>Board presentation template</li>
             </ul>
+            <div class="delivery-team">
+              <p class="delivery-team-label">Delivery Team</p>
+              <div class="team-members">
+                <div class="team-member">
+                  <div class="team-member-avatar">TS</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Tamar Stern</p>
+                    <p class="team-member-title">CTO Advisor</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">AI Strategy</span>
+                      <span class="skill-tag">Executive Advisory</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="team-member">
+                  <div class="team-member-avatar">OR</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Or Rosenfeld</p>
+                    <p class="team-member-title">Product Strategy Lead</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">Value Realization</span>
+                      <span class="skill-tag">ROI</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="card-actions">
               <a href="apply.html?program=executive-ai-realization" class="btn btn-secondary btn-sm">Details</a>
               <a href="apply.html?program=executive-ai-realization" class="btn btn-primary btn-sm">Apply</a>
@@ -686,6 +1155,22 @@
               <li>Program roadmap &amp; engagement model</li>
               <li>Alignment brief &amp; account map</li>
             </ul>
+            <div class="delivery-team">
+              <p class="delivery-team-label">Delivery Team</p>
+              <div class="team-members">
+                <div class="team-member">
+                  <div class="team-member-avatar">EG</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Eitan Gold</p>
+                    <p class="team-member-title">Partner Sales Specialist</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">Partnerships</span>
+                      <span class="skill-tag">Strategy</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="card-actions">
               <a href="apply.html?program=partner-alignment" class="btn btn-secondary btn-sm">Details</a>
               <a href="apply.html?program=partner-alignment" class="btn btn-primary btn-sm">Apply</a>
@@ -711,6 +1196,22 @@
               <li>Pipeline targets</li>
               <li>GTM playbook &amp; KPI framework</li>
             </ul>
+            <div class="delivery-team">
+              <p class="delivery-team-label">Delivery Team</p>
+              <div class="team-members">
+                <div class="team-member">
+                  <div class="team-member-avatar">NB</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Noa Ben-David</p>
+                    <p class="team-member-title">Marketplace GTM Lead</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">Marketplace</span>
+                      <span class="skill-tag">GTM Design</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="card-actions">
               <a href="apply.html?program=marketplace-gtm" class="btn btn-secondary btn-sm">Details</a>
               <a href="apply.html?program=marketplace-gtm" class="btn btn-primary btn-sm">Apply</a>
@@ -736,6 +1237,31 @@
               <li>Field team enablement</li>
               <li>Co-sell activation plan &amp; deal framework</li>
             </ul>
+            <div class="delivery-team">
+              <p class="delivery-team-label">Delivery Team</p>
+              <div class="team-members">
+                <div class="team-member">
+                  <div class="team-member-avatar">NB</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Noa Ben-David</p>
+                    <p class="team-member-title">Marketplace GTM Lead</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">Co-Sell</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="team-member">
+                  <div class="team-member-avatar">EG</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Eitan Gold</p>
+                    <p class="team-member-title">Partner Sales Specialist</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">Field Activation</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="card-actions">
               <a href="apply.html?program=co-sell-activation" class="btn btn-secondary btn-sm">Details</a>
               <a href="apply.html?program=co-sell-activation" class="btn btn-primary btn-sm">Apply</a>
@@ -761,6 +1287,22 @@
               <li>Go-to-market approach</li>
               <li>Joint offer brief &amp; GTM plan</li>
             </ul>
+            <div class="delivery-team">
+              <p class="delivery-team-label">Delivery Team</p>
+              <div class="team-members">
+                <div class="team-member">
+                  <div class="team-member-avatar">LM</div>
+                  <div class="team-member-info">
+                    <p class="team-member-name">Liora Mizrahi</p>
+                    <p class="team-member-title">Director, Co-Product Programs</p>
+                    <div class="team-member-skills">
+                      <span class="skill-tag">Offer Design</span>
+                      <span class="skill-tag">Partnerships</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="card-actions">
               <a href="apply.html?program=joint-offer-design" class="btn btn-secondary btn-sm">Details</a>
               <a href="apply.html?program=joint-offer-design" class="btn btn-primary btn-sm">Apply</a>
@@ -1006,6 +1548,37 @@
         <div class="modal-highlight-box">
           "After the assessment, we had a clear picture of what it would take to move to Azure — and the confidence to present it to investors as a strategic advantage."
         </div>
+
+        <div class="modal-team-section">
+          <p class="modal-section-title">Meet the Team</p>
+          <div class="modal-team-member">
+            <div class="modal-team-avatar">MC</div>
+            <div class="modal-team-info">
+              <p class="modal-team-name">Maya Cohen</p>
+              <p class="modal-team-title">Principal Azure Architect</p>
+              <div class="modal-team-skills">
+                <span class="modal-skill-tag">Landing Zones</span>
+                <span class="modal-skill-tag">DevOps</span>
+                <span class="modal-skill-tag">IaC</span>
+                <span class="modal-skill-tag">Multi-Cloud</span>
+              </div>
+              <p class="modal-team-role">Maya leads the architecture assessment and designs your target-state Azure blueprint. She brings 12 years of experience helping startups migrate to Azure from AWS and other clouds.</p>
+            </div>
+          </div>
+          <div class="modal-team-member">
+            <div class="modal-team-avatar">AL</div>
+            <div class="modal-team-info">
+              <p class="modal-team-name">Amit Levi</p>
+              <p class="modal-team-title">Cloud Platform Specialist</p>
+              <div class="modal-team-skills">
+                <span class="modal-skill-tag">Multi-Cloud</span>
+                <span class="modal-skill-tag">Migration</span>
+                <span class="modal-skill-tag">Cost Optimization</span>
+              </div>
+              <p class="modal-team-role">Amit performs the technical gap analysis and creates your migration roadmap. He specializes in cost modeling and multi-cloud strategy for growth-stage companies.</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-aws-azure-assessment')">Close</button>
@@ -1063,6 +1636,36 @@
         <div class="modal-highlight-box">
           "We went from zero Azure infrastructure to a production-ready landing zone with IaC in four weeks. The ISE team treated it like their own project."
         </div>
+
+        <div class="modal-team-section">
+          <p class="modal-section-title">Meet the Team</p>
+          <div class="modal-team-member">
+            <div class="modal-team-avatar">MC</div>
+            <div class="modal-team-info">
+              <p class="modal-team-name">Maya Cohen</p>
+              <p class="modal-team-title">Principal Azure Architect</p>
+              <div class="modal-team-skills">
+                <span class="modal-skill-tag">Landing Zones</span>
+                <span class="modal-skill-tag">IaC</span>
+                <span class="modal-skill-tag">Security</span>
+              </div>
+              <p class="modal-team-role">Maya designs your landing zone architecture and ensures it follows Azure best practices. She pairs with your team throughout the sprint to transfer knowledge and build confidence.</p>
+            </div>
+          </div>
+          <div class="modal-team-member">
+            <div class="modal-team-avatar">RS</div>
+            <div class="modal-team-info">
+              <p class="modal-team-name">Ron Shapira</p>
+              <p class="modal-team-title">DevOps Platform Lead</p>
+              <div class="modal-team-skills">
+                <span class="modal-skill-tag">CI/CD</span>
+                <span class="modal-skill-tag">Security Baseline</span>
+                <span class="modal-skill-tag">Automation</span>
+              </div>
+              <p class="modal-team-role">Ron builds the CI/CD pipelines and security baseline for your landing zone. He ensures your infrastructure is deployable, maintainable, and follows DevOps best practices from day one.</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-landing-zone-sprint')">Close</button>
@@ -1119,6 +1722,24 @@
 
         <div class="modal-highlight-box">
           "We shipped our AI assistant feature to beta users within two weeks of the sprint ending. The prototype the ISE team helped us build was almost production-ready."
+        </div>
+
+        <div class="modal-team-section">
+          <p class="modal-section-title">Meet the Team</p>
+          <div class="modal-team-member">
+            <div class="modal-team-avatar">DL</div>
+            <div class="modal-team-info">
+              <p class="modal-team-name">Daniel Levy</p>
+              <p class="modal-team-title">AI Solution Specialist</p>
+              <div class="modal-team-skills">
+                <span class="modal-skill-tag">Azure OpenAI</span>
+                <span class="modal-skill-tag">RAG</span>
+                <span class="modal-skill-tag">Product AI</span>
+                <span class="modal-skill-tag">Prompt Engineering</span>
+              </div>
+              <p class="modal-team-role">Daniel leads the AI feature design and prototype development. He works directly with your product team to translate AI capabilities into features that users will love and that drive business value.</p>
+            </div>
+          </div>
         </div>
       </div>
       <div class="modal-footer">
@@ -1179,6 +1800,24 @@
         <div class="modal-highlight-box">
           "The assessment gave us the data to make an Azure expansion decision at board level — not just an engineering preference. That's what changed the conversation."
         </div>
+
+        <div class="modal-team-section">
+          <p class="modal-section-title">Meet the Team</p>
+          <div class="modal-team-member">
+            <div class="modal-team-avatar">YB</div>
+            <div class="modal-team-info">
+              <p class="modal-team-name">Yael Bar-On</p>
+              <p class="modal-team-title">Senior SaaS Architect</p>
+              <div class="modal-team-skills">
+                <span class="modal-skill-tag">Multi-Cloud</span>
+                <span class="modal-skill-tag">SaaS</span>
+                <span class="modal-skill-tag">Strategy</span>
+                <span class="modal-skill-tag">Enterprise Architecture</span>
+              </div>
+              <p class="modal-team-role">Yael leads the assessment and creates your multi-cloud strategy framework. She has guided dozens of Series C/D companies through Azure expansion decisions, ensuring technical rigor and executive-level clarity.</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-multi-cloud-assessment')">Close</button>
@@ -1235,6 +1874,36 @@
 
         <div class="modal-highlight-box">
           "We went from a fragile AI pipeline that broke twice a week to a fully automated MLOps setup. The AI Production Sprint compressed 6 months of engineering into 6 weeks."
+        </div>
+
+        <div class="modal-team-section">
+          <p class="modal-section-title">Meet the Team</p>
+          <div class="modal-team-member">
+            <div class="modal-team-avatar">DL</div>
+            <div class="modal-team-info">
+              <p class="modal-team-name">Daniel Levy</p>
+              <p class="modal-team-title">AI Solution Specialist</p>
+              <div class="modal-team-skills">
+                <span class="modal-skill-tag">MLOps</span>
+                <span class="modal-skill-tag">AI Platform</span>
+                <span class="modal-skill-tag">Azure AI</span>
+              </div>
+              <p class="modal-team-role">Daniel architects your production AI pipeline and ensures it's observable, reliable, and scalable. He helps you move from prototype AI to production-grade systems that can handle real user load.</p>
+            </div>
+          </div>
+          <div class="modal-team-member">
+            <div class="modal-team-avatar">SK</div>
+            <div class="modal-team-info">
+              <p class="modal-team-name">Sarah Katz</p>
+              <p class="modal-team-title">Data &amp; AI Architect</p>
+              <div class="modal-team-skills">
+                <span class="modal-skill-tag">Production AI</span>
+                <span class="modal-skill-tag">Governance</span>
+                <span class="modal-skill-tag">Evaluation</span>
+              </div>
+              <p class="modal-team-role">Sarah builds the evaluation framework and governance baseline for your AI systems. She specializes in AI safety, responsible AI practices, and ensuring your AI features are trustworthy at scale.</p>
+            </div>
+          </div>
         </div>
       </div>
       <div class="modal-footer">
@@ -1293,6 +1962,36 @@
         <div class="modal-highlight-box">
           "The Modernization Studio gave us something we'd tried to build internally for two years — a credible, prioritised transformation plan that our board could fund and our engineers could execute."
         </div>
+
+        <div class="modal-team-section">
+          <p class="modal-section-title">Meet the Team</p>
+          <div class="modal-team-member">
+            <div class="modal-team-avatar">YB</div>
+            <div class="modal-team-info">
+              <p class="modal-team-name">Yael Bar-On</p>
+              <p class="modal-team-title">Senior SaaS Architect</p>
+              <div class="modal-team-skills">
+                <span class="modal-skill-tag">SaaS Modernization</span>
+                <span class="modal-skill-tag">Architecture</span>
+                <span class="modal-skill-tag">Transformation</span>
+              </div>
+              <p class="modal-team-role">Yael leads the modernization assessment and target architecture design. She has helped over 20 mature ISVs navigate complex platform transformations, balancing technical debt reduction with ongoing feature delivery.</p>
+            </div>
+          </div>
+          <div class="modal-team-member">
+            <div class="modal-team-avatar">MC</div>
+            <div class="modal-team-info">
+              <p class="modal-team-name">Maya Cohen</p>
+              <p class="modal-team-title">Principal Azure Architect</p>
+              <div class="modal-team-skills">
+                <span class="modal-skill-tag">Platform</span>
+                <span class="modal-skill-tag">IaC</span>
+                <span class="modal-skill-tag">Best Practices</span>
+              </div>
+              <p class="modal-team-role">Maya designs the Azure-native target architecture and ensures your modernization roadmap follows cloud-native patterns. She helps you avoid common pitfalls when moving legacy systems to modern platforms.</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-saas-modernization')">Close</button>
@@ -1349,6 +2048,36 @@
 
         <div class="modal-highlight-box">
           "Within 6 weeks we had three joint customer meetings with Microsoft field reps and two deals in active co-sell registration. The GPS team opened doors we'd been knocking on for two years."
+        </div>
+
+        <div class="modal-team-section">
+          <p class="modal-section-title">Meet the Team</p>
+          <div class="modal-team-member">
+            <div class="modal-team-avatar">NB</div>
+            <div class="modal-team-info">
+              <p class="modal-team-name">Noa Ben-David</p>
+              <p class="modal-team-title">Marketplace GTM Lead</p>
+              <div class="modal-team-skills">
+                <span class="modal-skill-tag">Co-Sell</span>
+                <span class="modal-skill-tag">GPS</span>
+                <span class="modal-skill-tag">Field Enablement</span>
+              </div>
+              <p class="modal-team-role">Noa leads your co-sell activation and manages relationships with Microsoft GPS teams. She knows how to position ISV solutions to field sellers and creates co-sell motions that actually generate pipeline.</p>
+            </div>
+          </div>
+          <div class="modal-team-member">
+            <div class="modal-team-avatar">EG</div>
+            <div class="modal-team-info">
+              <p class="modal-team-name">Eitan Gold</p>
+              <p class="modal-team-title">Partner Sales Specialist</p>
+              <div class="modal-team-skills">
+                <span class="modal-skill-tag">Field Activation</span>
+                <span class="modal-skill-tag">Pipeline</span>
+                <span class="modal-skill-tag">Account Mapping</span>
+              </div>
+              <p class="modal-team-role">Eitan builds the account maps and deal frameworks that make co-sell work. He has deep relationships across Microsoft field sales teams and helps you identify the right opportunities to pursue together.</p>
+            </div>
+          </div>
         </div>
       </div>
       <div class="modal-footer">
