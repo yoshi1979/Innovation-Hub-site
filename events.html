@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events &amp; Activities | Microsoft Israel Innovation Hub</title>
+  <meta name="description" content="Hub events, workshops, labs, CTO dinners, and demo days — the Microsoft Israel Innovation Hub 2026 calendar.">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body id="page-events">
+
+  <!-- NAV -->
+  <nav class="nav" id="main-nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-main">Microsoft Innovation Hub</span>
+        <span class="nav-logo-sub">Israel · FY27</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="programs.html" class="nav-link">Programs</a></li>
+        <li><a href="events.html" class="nav-link active">Events</a></li>
+        <li><a href="success.html" class="nav-link">Success Stories</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="apply.html" class="nav-link nav-cta btn btn-primary btn-sm">Apply Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="hero-eyebrow">2026 Calendar</p>
+      <h1 class="hero-title">Events, Workshops &amp; Labs</h1>
+      <p class="hero-sub">From intimate CTO dinners to 500-person summits — the hub's event calendar keeps you connected to Microsoft's people, technology, and ecosystem.</p>
+    </div>
+  </section>
+
+  <!-- FILTER TABS + EVENTS GRID -->
+  <section class="section section-alt" id="events-grid">
+    <div class="container">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:40px;">
+        <div class="filter-tabs" role="tablist" aria-label="Filter events by type" style="margin-bottom:0;">
+          <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="filter-tab" data-filter="conferences" role="tab" aria-selected="false">Conferences</button>
+          <button class="filter-tab" data-filter="workshops" role="tab" aria-selected="false">Workshops</button>
+          <button class="filter-tab" data-filter="office-hours" role="tab" aria-selected="false">Office Hours</button>
+          <button class="filter-tab" data-filter="cto-circle" role="tab" aria-selected="false">CTO Circle</button>
+          <button class="filter-tab" data-filter="labs" role="tab" aria-selected="false">Labs</button>
+          <button class="filter-tab" data-filter="demo-days" role="tab" aria-selected="false">Demo Days</button>
+        </div>
+        <button class="btn btn-secondary btn-sm" aria-label="Toggle calendar view" style="white-space:nowrap;">📅 Calendar View</button>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:20px;">
+
+        <!-- Event 1: Azure AI Summit -->
+        <div class="event-card filterable" data-category="conferences" data-modal="modal-event1">
+          <div class="event-date">
+            <span class="event-day">15</span>
+            <span class="event-month">Jun</span>
+          </div>
+          <div class="event-body">
+            <span class="event-badge" style="background:rgba(0,120,212,0.1);color:var(--ms-blue);">Conference</span>
+            <h3 class="event-title">Azure AI Summit Israel 2026</h3>
+            <p class="event-desc">The premier AI and cloud conference for Israel's tech ecosystem. 500+ attendees, 30+ speakers including Microsoft Azure leadership, hands-on AI labs, and networking.</p>
+            <div class="event-meta">
+              <span class="event-meta-item">📍 Tel Aviv Convention Center (In-Person)</span>
+              <span class="event-meta-item">🪑 412 / 500 registered</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;flex-shrink:0;">
+            <button class="btn btn-secondary btn-sm" data-modal="modal-event1" aria-haspopup="dialog">Details</button>
+            <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+          </div>
+        </div>
+
+        <!-- Event 2: Founder Office Hours -->
+        <div class="event-card filterable" data-category="office-hours" data-modal="modal-event2">
+          <div class="event-date">
+            <span class="event-day">29</span>
+            <span class="event-month">May</span>
+          </div>
+          <div class="event-body">
+            <span class="event-badge" style="background:rgba(16,124,16,0.1);color:var(--ms-green);">Office Hours</span>
+            <h3 class="event-title">Founder Office Hours</h3>
+            <p class="event-desc">Monthly open office hours with the hub team. Book a 30-minute slot with Maya Levi, Ron Katz, or Avi Shapiro. Virtual + in-person options available.</p>
+            <div class="event-meta">
+              <span class="event-meta-item">🌐 Virtual + Microsoft Israel HQ</span>
+              <span class="event-meta-item">🪑 Slots available</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;flex-shrink:0;">
+            <button class="btn btn-secondary btn-sm" data-modal="modal-event2" aria-haspopup="dialog">Details</button>
+            <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+          </div>
+        </div>
+
+        <!-- Event 3: CTO Circle Dinner Q2 -->
+        <div class="event-card filterable" data-category="cto-circle" data-modal="modal-event3">
+          <div class="event-date">
+            <span class="event-day">22</span>
+            <span class="event-month">May</span>
+          </div>
+          <div class="event-body">
+            <span class="event-badge" style="background:rgba(92,45,145,0.1);color:var(--ms-purple);">CTO Circle</span>
+            <h3 class="event-title">CTO Circle Dinner Q2</h3>
+            <p class="event-desc">Intimate dinner for CTOs and VPs of Engineering. Guest speaker from Microsoft's global CTO Group. Invitation-based event. Apply to CTO Circle for access.</p>
+            <div class="event-meta">
+              <span class="event-meta-item">📍 Microsoft Israel HQ, Ra'anana</span>
+              <span class="event-meta-item">🪑 22 / 30 registered (Invitation-based)</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;flex-shrink:0;">
+            <button class="btn btn-secondary btn-sm" data-modal="modal-event3" aria-haspopup="dialog">Details</button>
+            <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+          </div>
+        </div>
+
+        <!-- Event 4: Spring Demo Day 2026 -->
+        <div class="event-card filterable" data-category="demo-days" data-modal="modal-event4">
+          <div class="event-date">
+            <span class="event-day">30</span>
+            <span class="event-month">Apr</span>
+          </div>
+          <div class="event-body">
+            <span class="event-badge" style="background:rgba(216,59,1,0.1);color:var(--ms-orange);">Demo Day</span>
+            <h3 class="event-title">Spring Demo Day 2026</h3>
+            <p class="event-desc">Hub companies pitch to Microsoft executives, top-tier investors, and enterprise buyers. The biggest stage in the Israeli Microsoft ecosystem. Applying companies selected by hub team.</p>
+            <div class="event-meta">
+              <span class="event-meta-item">📍 Peres Center for Peace &amp; Innovation, Tel Aviv</span>
+              <span class="event-meta-item">🪑 340 / 400 registered</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;flex-shrink:0;">
+            <button class="btn btn-secondary btn-sm" data-modal="modal-event4" aria-haspopup="dialog">Details</button>
+            <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+          </div>
+        </div>
+
+        <!-- Event 5: ISV Deep Dive: AI Integration -->
+        <div class="event-card filterable" data-category="workshops" data-modal="modal-event5">
+          <div class="event-date">
+            <span class="event-day">25</span>
+            <span class="event-month">Mar</span>
+          </div>
+          <div class="event-body">
+            <span class="event-badge" style="background:rgba(0,120,212,0.1);color:var(--ms-blue);">Workshop</span>
+            <h3 class="event-title">ISV Deep Dive: AI Integration</h3>
+            <p class="event-desc">Full-day technical workshop for ISVs looking to integrate Azure AI into their products. Hands-on labs with Azure OpenAI API, AI Studio fine-tuning, and Copilot extensibility.</p>
+            <div class="event-meta">
+              <span class="event-meta-item">📍 Microsoft Israel HQ, Ra'anana</span>
+              <span class="event-meta-item">🪑 28 / 40 registered</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;flex-shrink:0;">
+            <button class="btn btn-secondary btn-sm" data-modal="modal-event5" aria-haspopup="dialog">Details</button>
+            <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+          </div>
+        </div>
+
+        <!-- Event 6: Marketplace GTM Bootcamp -->
+        <div class="event-card filterable" data-category="workshops" data-modal="modal-event6">
+          <div class="event-date">
+            <span class="event-day">10</span>
+            <span class="event-month">Apr</span>
+          </div>
+          <div class="event-body">
+            <span class="event-badge" style="background:rgba(0,120,212,0.1);color:var(--ms-blue);">Workshop</span>
+            <h3 class="event-title">Marketplace GTM Bootcamp</h3>
+            <p class="event-desc">Virtual 3-hour bootcamp on Azure Marketplace listing, co-sell activation, and ISV incentive programs. For Scale360 and ISV Excellence participants — and any partner ready to list.</p>
+            <div class="event-meta">
+              <span class="event-meta-item">🌐 Virtual (Microsoft Teams)</span>
+              <span class="event-meta-item">🪑 55 / 100 registered</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;flex-shrink:0;">
+            <button class="btn btn-secondary btn-sm" data-modal="modal-event6" aria-haspopup="dialog">Details</button>
+            <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+          </div>
+        </div>
+
+        <!-- Event 7: HealthTech Innovation Session -->
+        <div class="event-card filterable" data-category="workshops" data-modal="modal-event7">
+          <div class="event-date">
+            <span class="event-day">8</span>
+            <span class="event-month">May</span>
+          </div>
+          <div class="event-body">
+            <span class="event-badge" style="background:rgba(16,124,16,0.1);color:var(--ms-green);">Workshop</span>
+            <h3 class="event-title">HealthTech Innovation Session</h3>
+            <p class="event-desc">Joint session with Sheba Medical Center and Microsoft Health &amp; Life Sciences team. For healthcare AI startups: regulatory AI, clinical data on Azure, and co-innovation opportunities.</p>
+            <div class="event-meta">
+              <span class="event-meta-item">📍 Sheba Medical Center, Tel HaShomer</span>
+              <span class="event-meta-item">🪑 18 / 25 registered</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;flex-shrink:0;">
+            <button class="btn btn-secondary btn-sm" data-modal="modal-event7" aria-haspopup="dialog">Details</button>
+            <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+          </div>
+        </div>
+
+        <!-- Event 8: Partner Showcase Q2 -->
+        <div class="event-card filterable" data-category="workshops" data-modal="modal-event8">
+          <div class="event-date">
+            <span class="event-day">5</span>
+            <span class="event-month">Jun</span>
+          </div>
+          <div class="event-body">
+            <span class="event-badge" style="background:rgba(216,59,1,0.1);color:var(--ms-orange);">Showcase</span>
+            <h3 class="event-title">Partner Showcase Q2</h3>
+            <p class="event-desc">Hub partner companies showcase their Azure-powered solutions to Microsoft's enterprise sales team and invited customers. For Partner FastTrack and ISV Excellence participants.</p>
+            <div class="event-meta">
+              <span class="event-meta-item">📍 Microsoft Israel HQ, Ra'anana</span>
+              <span class="event-meta-item">🪑 62 / 80 registered</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;flex-shrink:0;">
+            <button class="btn btn-secondary btn-sm" data-modal="modal-event8" aria-haspopup="dialog">Details</button>
+            <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+          </div>
+        </div>
+
+      </div><!-- /.events list -->
+    </div>
+  </section>
+
+  <!-- SUGGEST AN EVENT CTA -->
+  <section class="section section-dark">
+    <div class="container" style="text-align:center;max-width:680px;">
+      <h2 class="section-title" style="color:var(--ms-white);margin-bottom:12px;">Have an idea for a workshop, roundtable, or panel?</h2>
+      <p style="color:rgba(255,255,255,0.75);font-size:17px;line-height:1.7;margin-bottom:32px;">We're always looking for new ways to connect our community. Suggest an event topic and we'll make it happen.</p>
+      <a href="about.html#contact" class="btn btn-primary">Suggest an Event</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">Microsoft<br>Innovation Hub<br><span>Israel · FY27</span></div>
+          <p class="footer-tagline">Where Israeli Innovation<br>Meets Microsoft at Scale</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Programs</h4>
+          <ul class="footer-links">
+            <li><a href="programs.html#launchpad">LaunchPad</a></li>
+            <li><a href="programs.html#scale360">Scale360</a></li>
+            <li><a href="programs.html#enterprise-bridge">Enterprise Bridge</a></li>
+            <li><a href="programs.html#isv-excellence">ISV Excellence</a></li>
+            <li><a href="programs.html#ai-lab">AI Innovation Lab</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Hub</h4>
+          <ul class="footer-links">
+            <li><a href="events.html">Events &amp; Workshops</a></li>
+            <li><a href="success.html">Success Stories</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="apply.html">Apply Now</a></li>
+            <li><a href="about.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Microsoft</h4>
+          <ul class="footer-links">
+            <li><a href="#" target="_blank" rel="noopener noreferrer">Azure</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">Marketplace</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">ISE</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">CTO Group</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">GPS Partners</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Microsoft Corporation. Microsoft Israel Innovation Hub. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Accessibility</a>
+          <a href="#">Trademarks</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       EVENT MODALS
+       ============================================================ -->
+
+  <!-- Modal: Event 1 – Azure AI Summit -->
+  <div class="modal-overlay" id="modal-event1" role="dialog" aria-modal="true" aria-labelledby="modal-event1-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-event1-title">Azure AI Summit Israel 2026</h2>
+        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-event1')">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="color:var(--ms-gray);margin-bottom:24px;line-height:1.7;">Azure AI Summit Israel 2026 is Microsoft's flagship technology conference for the Israeli market. A full-day event bringing together Israel's top founders, CTOs, enterprise tech leaders, and Microsoft executives for a deep dive into AI, cloud architecture, and the future of enterprise software.</p>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Agenda</h3>
+        <ul style="list-style:none;padding:0;color:var(--ms-gray);font-size:14px;line-height:2;margin-bottom:20px;">
+          <li>08:30 — Registration &amp; Networking</li>
+          <li>09:15 — Opening Keynote: Azure AI — The Next Wave (Tamar Cohen + Microsoft Azure CVP)</li>
+          <li>10:15 — Track Sessions: Azure OpenAI Deep Dive / Copilot for Enterprise / Azure Security</li>
+          <li>12:00 — Lunch &amp; Expo</li>
+          <li>13:00 — CTO Panel: Building AI-Native Products at Scale</li>
+          <li>14:30 — Breakout Workshops (6 tracks)</li>
+          <li>16:00 — Hub Company Showcase</li>
+          <li>17:00 — Evening Networking &amp; Drinks</li>
+        </ul>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Speakers</h3>
+        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;margin-bottom:20px;">Tamar Cohen (Hub Director), Avi Shapiro (CTO Advisor), Yael Ben-David (Azure AI Technical Lead), Microsoft Azure CVP (Guest), 3 Israel unicorn CTOs</p>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Location</h3>
+        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;">Tel Aviv Convention Center, Kaufmann 2, Tel Aviv Port</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-event1')">Close</button>
+        <a href="register.html" class="btn btn-primary">Register Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Event 2 – Founder Office Hours -->
+  <div class="modal-overlay" id="modal-event2" role="dialog" aria-modal="true" aria-labelledby="modal-event2-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-event2-title">Founder Office Hours</h2>
+        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-event2')">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="color:var(--ms-gray);margin-bottom:24px;line-height:1.7;">Founder Office Hours is a monthly open-door session where any hub company or applicant can book a 30-minute meeting with the hub leadership team. No agenda required — bring your challenges, questions, and ideas.</p>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Agenda</h3>
+        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;margin-bottom:20px;">14:00–17:00: 30-minute slots available. Book via hub portal or email hubteam@microsoft.com</p>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Available With</h3>
+        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;margin-bottom:20px;">Maya Levi, Ron Katz, Avi Shapiro (rotating)</p>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Location</h3>
+        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;">Virtual (Teams link provided) or Microsoft Israel HQ, Ra'anana (Room booking required)</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-event2')">Close</button>
+        <a href="register.html" class="btn btn-primary">Register Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Event 3 – CTO Circle Dinner Q2 -->
+  <div class="modal-overlay" id="modal-event3" role="dialog" aria-modal="true" aria-labelledby="modal-event3-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-event3-title">CTO Circle Dinner Q2</h2>
+        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-event3')">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="color:var(--ms-gray);margin-bottom:24px;line-height:1.7;">The Q2 CTO Circle Dinner is a signature event for Israel's top engineering leaders. A curated evening of candid conversation, peer connection, and exclusive Microsoft access. Guest speaker TBA — previous guests have included Microsoft's Global CTO, Azure Chief Architect, and M365 Head of Engineering.</p>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Agenda</h3>
+        <ul style="list-style:none;padding:0;color:var(--ms-gray);font-size:14px;line-height:2;margin-bottom:20px;">
+          <li>18:30 — Arrival &amp; Networking</li>
+          <li>19:00 — Welcome &amp; Introductions</li>
+          <li>19:15 — Guest Speaker &amp; Fireside Chat</li>
+          <li>20:15 — Dinner &amp; Open Discussion</li>
+          <li>22:00 — Closing</li>
+        </ul>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Speakers</h3>
+        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;margin-bottom:20px;">Avi Shapiro (CTO Advisor, host), Guest speaker from Microsoft CTO Group (TBA)</p>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Location</h3>
+        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;">Microsoft Israel HQ, HaHarash 6, Ra'anana. Executive dining room, 7th floor.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-event3')">Close</button>
+        <a href="register.html" class="btn btn-primary">Register Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Event 4 – Spring Demo Day 2026 -->
+  <div class="modal-overlay" id="modal-event4" role="dialog" aria-modal="true" aria-labelledby="modal-event4-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-event4-title">Spring Demo Day 2026</h2>
+        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-event4')">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="color:var(--ms-gray);margin-bottom:24px;line-height:1.7;">Spring Demo Day 2026 brings together Microsoft Innovation Hub portfolio companies for their biggest pitch moment of the year. 12 selected companies will present to an audience of Microsoft executives, leading Israeli and international VCs, and enterprise buyers.</p>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Agenda</h3>
+        <ul style="list-style:none;padding:0;color:var(--ms-gray);font-size:14px;line-height:2;margin-bottom:20px;">
+          <li>09:00 — Registration</li>
+          <li>09:30 — Opening by Tamar Cohen</li>
+          <li>10:00 — Company Pitches (6 companies, 7 min each)</li>
+          <li>12:00 — Lunch &amp; Networking</li>
+          <li>13:00 — Company Pitches (6 companies)</li>
+          <li>15:00 — Awards &amp; Announcements</li>
+          <li>15:30 — Investor &amp; Enterprise Networking</li>
+          <li>17:00 — Closing Reception</li>
+        </ul>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Speakers</h3>
+        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;margin-bottom:20px;">Tamar Cohen (Hub Director, host), Microsoft Israel GM (Guest), Selected hub company founders</p>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Location</h3>
+        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;">Peres Center for Peace &amp; Innovation, Kedem 2, Jaffa, Tel Aviv</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-event4')">Close</button>
+        <a href="register.html" class="btn btn-primary">Register Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Event 5 – ISV Deep Dive -->
+  <div class="modal-overlay" id="modal-event5" role="dialog" aria-modal="true" aria-labelledby="modal-event5-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-event5-title">ISV Deep Dive: AI Integration</h2>
+        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-event5')">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="color:var(--ms-gray);margin-bottom:24px;line-height:1.7;">A full-day, hands-on technical workshop designed for ISV engineering teams ready to build AI into their products. This is a working session — bring your laptop, your use case, and your questions.</p>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Agenda</h3>
+        <ul style="list-style:none;padding:0;color:var(--ms-gray);font-size:14px;line-height:2;margin-bottom:20px;">
+          <li>09:00 — Intro &amp; Azure AI Stack Overview</li>
+          <li>09:45 — Lab 1: Azure OpenAI API Integration</li>
+          <li>11:15 — Lab 2: RAG with AI Search</li>
+          <li>13:00 — Lunch</li>
+          <li>14:00 — Lab 3: Fine-tuning in AI Studio</li>
+          <li>15:30 — Lab 4: Copilot Plugin Development</li>
+          <li>17:00 — Showcase &amp; Feedback</li>
+        </ul>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Speakers</h3>
+        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;margin-bottom:20px;">Yael Ben-David (Azure AI Technical Lead), Microsoft AI Engineering Team</p>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Location</h3>
+        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;">Microsoft Israel HQ, Ra'anana. Innovation Lab, 4th floor. Parking available.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-event5')">Close</button>
+        <a href="register.html" class="btn btn-primary">Register Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Event 6 – Marketplace GTM Bootcamp -->
+  <div class="modal-overlay" id="modal-event6" role="dialog" aria-modal="true" aria-labelledby="modal-event6-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-event6-title">Marketplace GTM Bootcamp</h2>
+        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-event6')">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="color:var(--ms-gray);margin-bottom:24px;line-height:1.7;">The Marketplace GTM Bootcamp is a focused 3-hour virtual workshop covering everything you need to know to list on Azure Marketplace, activate co-sell, and maximize ISV incentives. Led by Microsoft's GPS and Marketplace team.</p>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Agenda</h3>
+        <ul style="list-style:none;padding:0;color:var(--ms-gray);font-size:14px;line-height:2;margin-bottom:20px;">
+          <li>10:00 — Azure Marketplace Overview &amp; Business Case</li>
+          <li>10:45 — Technical Listing Requirements &amp; Demo</li>
+          <li>11:30 — Co-sell Activation: Deal Registration &amp; Field Engagement</li>
+          <li>12:15 — ISV Incentive Program: What You Qualify For</li>
+          <li>12:45 — Q&amp;A</li>
+        </ul>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Speakers</h3>
+        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;margin-bottom:20px;">Ron Katz (BD Lead), Noa Friedman (ISV &amp; Partner Success Lead), Microsoft Marketplace PM</p>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Location</h3>
+        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;">Virtual — Microsoft Teams. Link sent upon registration.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-event6')">Close</button>
+        <a href="register.html" class="btn btn-primary">Register Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Event 7 – HealthTech Innovation Session -->
+  <div class="modal-overlay" id="modal-event7" role="dialog" aria-modal="true" aria-labelledby="modal-event7-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-event7-title">HealthTech Innovation Session</h2>
+        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-event7')">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="color:var(--ms-gray);margin-bottom:24px;line-height:1.7;">A joint innovation session between Microsoft, Sheba Medical Center (one of the world's top-ranked hospitals), and hub HealthTech companies. A rare opportunity to discuss real clinical challenges and explore Azure Health Data Services, Azure AI for health, and regulatory AI compliance.</p>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Agenda</h3>
+        <ul style="list-style:none;padding:0;color:var(--ms-gray);font-size:14px;line-height:2;margin-bottom:20px;">
+          <li>09:00 — Welcome (Sheba Innovation Center)</li>
+          <li>09:30 — Sheba's Digital Health Vision</li>
+          <li>10:15 — Azure Health Data Services Workshop</li>
+          <li>12:00 — Working Lunch — CTO Roundtable</li>
+          <li>13:30 — Company Showcase (3 hub HealthTech companies)</li>
+          <li>14:30 — Networking &amp; Hospital Tour</li>
+          <li>16:00 — Close</li>
+        </ul>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Speakers</h3>
+        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;margin-bottom:20px;">Tamar Cohen, Yael Ben-David, Sheba Medical Center Innovation Director, Microsoft Health &amp; Life Sciences Lead</p>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Location</h3>
+        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;">Sheba Medical Center, Tel HaShomer. Sheba Innovation Center building.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-event7')">Close</button>
+        <a href="register.html" class="btn btn-primary">Register Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Event 8 – Partner Showcase Q2 -->
+  <div class="modal-overlay" id="modal-event8" role="dialog" aria-modal="true" aria-labelledby="modal-event8-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-event8-title">Partner Showcase Q2</h2>
+        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-event8')">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="color:var(--ms-gray);margin-bottom:24px;line-height:1.7;">Partner Showcase Q2 is an exclusive event where hub partner and ISV companies demonstrate their solutions to Microsoft's enterprise sales team, field specialists, and invited enterprise customers. The goal: identify co-sell opportunities and close deals.</p>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Agenda</h3>
+        <ul style="list-style:none;padding:0;color:var(--ms-gray);font-size:14px;line-height:2;margin-bottom:20px;">
+          <li>14:00 — Registration</li>
+          <li>14:30 — Welcome &amp; Hub Updates (Noa Friedman)</li>
+          <li>15:00 — Company Showcases (8 companies, 10 min each)</li>
+          <li>17:00 — 1:1 Meetings with Microsoft Field Team</li>
+          <li>18:30 — Networking Reception</li>
+        </ul>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Speakers</h3>
+        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;margin-bottom:20px;">Noa Friedman (ISV &amp; Partner Success Lead), Ron Katz (BD Lead), Microsoft Enterprise Sales Team</p>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Location</h3>
+        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;">Microsoft Israel HQ, HaHarash 6, Ra'anana. Auditorium + Meeting Rooms.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-event8')">Close</button>
+        <a href="register.html" class="btn btn-primary">Register Now</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
