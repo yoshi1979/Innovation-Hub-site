@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experts | Microsoft Israel Innovation Hub</title>
+  <meta name="description" content="Meet the 200+ Microsoft experts available to Innovation Hub companies — cloud architects, AI engineers, security specialists, and business strategists.">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* Expert directory specific styles */
+    .expert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 28px;
+    }
+    .expert-card-detailed {
+      background: var(--ms-white);
+      border-radius: var(--radius-md);
+      padding: 32px 28px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,0.06);
+      transition: var(--transition);
+    }
+    .expert-card-detailed:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--ms-blue);
+    }
+    .expert-avatar-large {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--ms-navy), var(--ms-blue));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--ms-white);
+      margin: 0 auto 18px;
+      letter-spacing: 0.5px;
+    }
+    .expert-name-large {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ms-navy);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .expert-role-large {
+      font-size: 13px;
+      color: var(--ms-blue);
+      font-weight: 600;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .expert-bio {
+      font-size: 13px;
+      color: var(--ms-gray);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      text-align: left;
+    }
+    .expert-specialties {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+      margin-top: 14px;
+    }
+    .specialty-tag {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      background: rgba(0,120,212,0.08);
+      color: var(--ms-blue);
+      letter-spacing: 0.2px;
+    }
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+      padding: 20px;
+      background: rgba(0,120,212,0.04);
+      border-radius: var(--radius-md);
+    }
+    .filter-btn {
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      background: var(--ms-white);
+      color: var(--ms-gray);
+      border: 1px solid rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .filter-btn:hover {
+      border-color: var(--ms-blue);
+      color: var(--ms-blue);
+    }
+    .filter-btn.active {
+      background: var(--ms-blue);
+      color: var(--ms-white);
+      border-color: var(--ms-blue);
+    }
+  </style>
+</head>
+<body id="page-experts">
+
+  <!-- NAV -->
+  <nav class="nav" id="main-nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-main">Microsoft Innovation Hub</span>
+        <span class="nav-logo-sub">Israel · FY27</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="programs.html" class="nav-link">Programs</a></li>
+        <li><a href="events.html" class="nav-link">Events</a></li>
+        <li><a href="collaborate.html" class="nav-link">Collaborate</a></li>
+        <li><a href="experts.html" class="nav-link active">Experts</a></li>
+        <li><a href="success.html" class="nav-link">Success Stories</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="apply.html" class="nav-link nav-cta btn btn-primary btn-sm">Apply Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container page-hero-inner">
+      <p class="hero-label">Expert Network</p>
+      <h1 class="page-hero-title">200+ Microsoft Experts<br>Available to Hub Companies</h1>
+      <p class="page-hero-sub">Deep technical expertise and business guidance from cloud architects, AI engineers, security specialists, GTM strategists, and product leaders — all accessible to Innovation Hub members.</p>
+    </div>
+  </section>
+
+  <!-- CORE TEAM -->
+  <section class="section core-team-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Core Hub Team</h2>
+        <p class="section-sub">Your primary contacts and program leaders</p>
+      </div>
+      <div class="expert-grid">
+        <div class="expert-card-detailed">
+          <div class="expert-avatar-large">ML</div>
+          <h3 class="expert-name-large">Maya Levi</h3>
+          <p class="expert-role-large">Hub Director</p>
+          <p class="expert-bio">Leads the Microsoft Israel Innovation Hub strategy, overseeing all programs and partnerships. Primary contact for Hub companies and new applications.</p>
+          <div class="expert-specialties">
+            <span class="specialty-tag">Strategy</span>
+            <span class="specialty-tag">Programs</span>
+            <span class="specialty-tag">Partnerships</span>
+          </div>
+        </div>
+        <div class="expert-card-detailed">
+          <div class="expert-avatar-large">RK</div>
+          <h3 class="expert-name-large">Ron Katz</h3>
+          <p class="expert-role-large">Azure Solutions Architect</p>
+          <p class="expert-bio">Provides deep technical architecture guidance for cloud migrations, SaaS modernization, and Azure best practices. Leads architecture reviews and technical workshops.</p>
+          <div class="expert-specialties">
+            <span class="specialty-tag">Azure Architecture</span>
+            <span class="specialty-tag">Cloud Migration</span>
+            <span class="specialty-tag">SaaS</span>
+          </div>
+        </div>
+        <div class="expert-card-detailed">
+          <div class="expert-avatar-large">AS</div>
+          <h3 class="expert-name-large">Dr. Avi Shapiro</h3>
+          <p class="expert-role-large">AI Lead</p>
+          <p class="expert-bio">Leads AI Innovation Lab workshops, Azure OpenAI integration guidance, and Copilot extensibility projects. Connects Hub companies with Microsoft AI research teams.</p>
+          <div class="expert-specialties">
+            <span class="specialty-tag">Azure OpenAI</span>
+            <span class="specialty-tag">AI Studio</span>
+            <span class="specialty-tag">Copilot</span>
+          </div>
+        </div>
+        <div class="expert-card-detailed">
+          <div class="expert-avatar-large">NB</div>
+          <h3 class="expert-name-large">Noa Ben-David</h3>
+          <p class="expert-role-large">GTM & Marketplace Lead</p>
+          <p class="expert-bio">Drives Azure Marketplace onboarding, co-sell enablement, and go-to-market strategy. Partners with Microsoft field sales teams to accelerate enterprise deals.</p>
+          <div class="expert-specialties">
+            <span class="specialty-tag">Marketplace</span>
+            <span class="specialty-tag">Co-Sell</span>
+            <span class="specialty-tag">GTM Strategy</span>
+          </div>
+        </div>
+        <div class="expert-card-detailed">
+          <div class="expert-avatar-large">YM</div>
+          <h3 class="expert-name-large">Yoav Mizrahi</h3>
+          <p class="expert-role-large">ISV & Partner Lead</p>
+          <p class="expert-bio">Manages ISV Excellence and Partner programs, helping mature software vendors maximize their Microsoft partnership and modernize on Azure.</p>
+          <div class="expert-specialties">
+            <span class="specialty-tag">ISV Programs</span>
+            <span class="specialty-tag">Partner Success</span>
+            <span class="specialty-tag">Modernization</span>
+          </div>
+        </div>
+        <div class="expert-card-detailed">
+          <div class="expert-avatar-large">TC</div>
+          <h3 class="expert-name-large">Tamar Cohen</h3>
+          <p class="expert-role-large">Startup Programs Lead</p>
+          <p class="expert-bio">Manages LaunchPad and Scale360 programs, working directly with seed-stage and growth-stage founders on Azure adoption and product acceleration.</p>
+          <div class="expert-specialties">
+            <span class="specialty-tag">Early Stage</span>
+            <span class="specialty-tag">Scaleup</span>
+            <span class="specialty-tag">Credits</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERT CATEGORIES -->
+  <section class="section expert-categories-section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Extended Expert Network</h2>
+        <p class="section-sub">200+ Microsoft specialists available to Hub companies by area of expertise</p>
+      </div>
+
+      <div class="cards-grid cards-grid-4">
+        <div class="card">
+          <div class="card-icon">☁️</div>
+          <h3 class="card-title">Cloud & Infrastructure</h3>
+          <p class="card-text"><strong>50+ experts</strong> covering Azure architecture, Kubernetes, networking, security, DevOps, and infrastructure automation.</p>
+          <ul class="benefit-list" style="margin-top:12px; text-align:left;">
+            <li>Azure Solutions Architects</li>
+            <li>Cloud Infrastructure Engineers</li>
+            <li>DevOps Specialists</li>
+            <li>Networking & Security</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-icon">🤖</div>
+          <h3 class="card-title">AI & Machine Learning</h3>
+          <p class="card-text"><strong>40+ experts</strong> specializing in Azure OpenAI, AI Studio, Copilot extensibility, ML engineering, and responsible AI.</p>
+          <ul class="benefit-list" style="margin-top:12px; text-align:left;">
+            <li>Azure OpenAI Engineers</li>
+            <li>AI Studio Specialists</li>
+            <li>ML Platform Architects</li>
+            <li>Copilot Extensibility</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔒</div>
+          <h3 class="card-title">Security & Compliance</h3>
+          <p class="card-text"><strong>35+ experts</strong> in Microsoft Sentinel, Defender, Zero Trust, compliance frameworks, and enterprise security architecture.</p>
+          <ul class="benefit-list" style="margin-top:12px; text-align:left;">
+            <li>Security Architects</li>
+            <li>Sentinel & Defender Experts</li>
+            <li>Compliance Specialists</li>
+            <li>Zero Trust Engineers</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-icon">💼</div>
+          <h3 class="card-title">Go-to-Market & Sales</h3>
+          <p class="card-text"><strong>30+ experts</strong> covering Marketplace, co-sell motions, field sales collaboration, and enterprise GTM strategy.</p>
+          <ul class="benefit-list" style="margin-top:12px; text-align:left;">
+            <li>Marketplace Specialists</li>
+            <li>Co-Sell Managers</li>
+            <li>Field Sales Partners</li>
+            <li>GTM Strategists</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-icon">🏗️</div>
+          <h3 class="card-title">SaaS & Modernization</h3>
+          <p class="card-text"><strong>25+ experts</strong> in SaaS architecture, multi-tenancy, consumption models, billing, and Azure-native design patterns.</p>
+          <ul class="benefit-list" style="margin-top:12px; text-align:left;">
+            <li>SaaS Architects</li>
+            <li>Multi-Tenancy Experts</li>
+            <li>Azure Native Patterns</li>
+            <li>Modernization Leads</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-icon">📊</div>
+          <h3 class="card-title">Data & Analytics</h3>
+          <p class="card-text"><strong>20+ experts</strong> covering Azure Synapse, Data Lake, Databricks, Power BI, and data engineering best practices.</p>
+          <ul class="benefit-list" style="margin-top:12px; text-align:left;">
+            <li>Data Architects</li>
+            <li>Synapse Specialists</li>
+            <li>Data Engineers</li>
+            <li>Analytics Experts</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO ACCESS -->
+  <section class="section access-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">How to Access Experts</h2>
+        <p class="section-sub">Multiple pathways to get the expertise you need</p>
+      </div>
+      <div class="cards-grid cards-grid-3">
+        <div class="card">
+          <div class="card-icon">📅</div>
+          <h3 class="card-title">Office Hours</h3>
+          <p class="card-text">Weekly drop-in office hours with core Hub team members. Book 30-minute slots for specific questions or guidance.</p>
+          <a href="events.html" class="btn btn-sm btn-outline" style="margin-top:16px;">See Schedule</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">🎯</div>
+          <h3 class="card-title">Dedicated Sessions</h3>
+          <p class="card-text">Request deep-dive sessions with specialized experts for architecture reviews, security audits, or GTM planning.</p>
+          <a href="about.html#contact" class="btn btn-sm btn-outline" style="margin-top:16px;">Request Session</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">🎓</div>
+          <h3 class="card-title">Workshops & Labs</h3>
+          <p class="card-text">Attend hands-on workshops and labs led by Microsoft experts on Azure AI, Marketplace, security, and more.</p>
+          <a href="events.html" class="btn btn-sm btn-outline" style="margin-top:16px;">View Workshops</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section" style="background:var(--ms-blue); color:var(--ms-white); padding:80px 0; text-align:center;">
+    <div class="container">
+      <h2 style="font-size:clamp(26px,3.5vw,38px); font-weight:700; color:var(--ms-white); margin-bottom:14px;">Get Access to the Expert Network</h2>
+      <p style="font-size:18px; opacity:0.9; max-width:560px; margin:0 auto 36px; line-height:1.6;">Hub members get direct access to 200+ Microsoft experts. Apply to join and start building with Microsoft's best.</p>
+      <a href="apply.html" class="btn btn-white">Apply to the Hub</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">Microsoft<br>Innovation Hub<br><span>Israel · FY27</span></div>
+          <p class="footer-tagline">Build, Scale, and Monetize<br>on Azure and AI</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Programs</h4>
+          <ul class="footer-links">
+            <li><a href="programs.html#launchpad">LaunchPad</a></li>
+            <li><a href="programs.html#scale360">Scale360</a></li>
+            <li><a href="programs.html#enterprise-bridge">Enterprise Bridge</a></li>
+            <li><a href="programs.html#isv-excellence">ISV Excellence</a></li>
+            <li><a href="programs.html#ai-lab">AI Innovation Lab</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Hub</h4>
+          <ul class="footer-links">
+            <li><a href="events.html">Events & Workshops</a></li>
+            <li><a href="experts.html">Meet the Experts</a></li>
+            <li><a href="success.html">Success Stories</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="apply.html">Apply Now</a></li>
+            <li><a href="about.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Microsoft</h4>
+          <ul class="footer-links">
+            <li><a href="https://azure.microsoft.com" target="_blank" rel="noopener noreferrer">Azure</a></li>
+            <li><a href="https://azuremarketplace.microsoft.com" target="_blank" rel="noopener noreferrer">Marketplace</a></li>
+            <li><a href="https://www.microsoft.com/en-us/industry-solutions-engineering" target="_blank" rel="noopener noreferrer">ISE</a></li>
+            <li><a href="https://www.microsoft.com/en-us/microsoftteams/across-devices/cto" target="_blank" rel="noopener noreferrer">CTO Group</a></li>
+            <li><a href="https://partner.microsoft.com" target="_blank" rel="noopener noreferrer">Partner Network</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Microsoft Corporation. Microsoft Israel Innovation Hub. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="https://privacy.microsoft.com" target="_blank" rel="noopener noreferrer">Privacy</a>
+          <a href="https://www.microsoft.com/en-us/legal/terms-of-use" target="_blank" rel="noopener noreferrer">Terms</a>
+          <a href="https://www.microsoft.com/en-us/accessibility" target="_blank" rel="noopener noreferrer">Accessibility</a>
+          <a href="https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks" target="_blank" rel="noopener noreferrer">Trademarks</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
