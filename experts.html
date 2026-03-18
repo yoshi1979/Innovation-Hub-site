@@ -40,6 +40,14 @@
       color: var(--ms-white);
       margin: 0 auto 18px;
       letter-spacing: 0.5px;
+      overflow: hidden;
+    }
+    .expert-avatar-large img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
     }
     .expert-name-large {
       font-size: 18px;
@@ -117,8 +125,16 @@
   <nav class="nav" id="main-nav">
     <div class="container nav-inner">
       <a href="index.html" class="nav-logo">
-        <span class="nav-logo-main">Microsoft Innovation Hub</span>
-        <span class="nav-logo-sub">Israel · FY27</span>
+        <svg class="ms-logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" width="30" height="30" aria-hidden="true" focusable="false">
+          <path fill="#F25022" d="M1 1h10v10H1z"/>
+          <path fill="#7FBA00" d="M12 1h10v10H12z"/>
+          <path fill="#00A4EF" d="M1 12h10v10H1z"/>
+          <path fill="#FFB900" d="M12 12h10v10H12z"/>
+        </svg>
+        <span class="nav-logo-text">
+          <span class="nav-logo-main">Microsoft Israel Innovation Hub</span>
+          <span class="nav-logo-sub">FY27</span>
+        </span>
       </a>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -138,6 +154,15 @@
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="container page-hero-inner">
+      <div class="ms-brand-badge">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" width="18" height="18" aria-hidden="true" focusable="false">
+          <path fill="#F25022" d="M1 1h10v10H1z"/>
+          <path fill="#7FBA00" d="M12 1h10v10H12z"/>
+          <path fill="#00A4EF" d="M1 12h10v10H1z"/>
+          <path fill="#FFB900" d="M12 12h10v10H12z"/>
+        </svg>
+        Microsoft Israel Innovation Hub
+      </div>
       <p class="hero-label">Expert Network</p>
       <h1 class="page-hero-title">200+ Microsoft Experts<br>Available to Hub Companies</h1>
       <p class="page-hero-sub">Deep technical expertise and business guidance from cloud architects, AI engineers, security specialists, GTM strategists, and product leaders — all accessible to Innovation Hub members.</p>
@@ -153,7 +178,9 @@
       </div>
       <div class="expert-grid">
         <div class="expert-card-detailed">
-          <div class="expert-avatar-large">ML</div>
+          <div class="expert-avatar-large">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop&crop=faces" alt="Maya Levi" loading="lazy">
+          </div>
           <h3 class="expert-name-large">Maya Levi</h3>
           <p class="expert-role-large">Hub Director</p>
           <p class="expert-bio">Leads the Microsoft Israel Innovation Hub strategy, overseeing all programs and partnerships. Primary contact for Hub companies and new applications.</p>
@@ -164,7 +191,9 @@
           </div>
         </div>
         <div class="expert-card-detailed">
-          <div class="expert-avatar-large">RK</div>
+          <div class="expert-avatar-large">
+            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&h=200&fit=crop&crop=faces" alt="Ron Katz" loading="lazy">
+          </div>
           <h3 class="expert-name-large">Ron Katz</h3>
           <p class="expert-role-large">Azure Solutions Architect</p>
           <p class="expert-bio">Provides deep technical architecture guidance for cloud migrations, SaaS modernization, and Azure best practices. Leads architecture reviews and technical workshops.</p>
@@ -175,7 +204,9 @@
           </div>
         </div>
         <div class="expert-card-detailed">
-          <div class="expert-avatar-large">AS</div>
+          <div class="expert-avatar-large">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=faces" alt="Dr. Avi Shapiro" loading="lazy">
+          </div>
           <h3 class="expert-name-large">Dr. Avi Shapiro</h3>
           <p class="expert-role-large">AI Lead</p>
           <p class="expert-bio">Leads AI Innovation Lab workshops, Azure OpenAI integration guidance, and Copilot extensibility projects. Connects Hub companies with Microsoft AI research teams.</p>
@@ -186,9 +217,11 @@
           </div>
         </div>
         <div class="expert-card-detailed">
-          <div class="expert-avatar-large">NB</div>
+          <div class="expert-avatar-large">
+            <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=200&h=200&fit=crop&crop=faces" alt="Noa Ben-David" loading="lazy">
+          </div>
           <h3 class="expert-name-large">Noa Ben-David</h3>
-          <p class="expert-role-large">GTM & Marketplace Lead</p>
+          <p class="expert-role-large">GTM &amp; Marketplace Lead</p>
           <p class="expert-bio">Drives Azure Marketplace onboarding, co-sell enablement, and go-to-market strategy. Partners with Microsoft field sales teams to accelerate enterprise deals.</p>
           <div class="expert-specialties">
             <span class="specialty-tag">Marketplace</span>
@@ -197,9 +230,11 @@
           </div>
         </div>
         <div class="expert-card-detailed">
-          <div class="expert-avatar-large">YM</div>
+          <div class="expert-avatar-large">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=faces" alt="Yoav Mizrahi" loading="lazy">
+          </div>
           <h3 class="expert-name-large">Yoav Mizrahi</h3>
-          <p class="expert-role-large">ISV & Partner Lead</p>
+          <p class="expert-role-large">ISV &amp; Partner Lead</p>
           <p class="expert-bio">Manages ISV Excellence and Partner programs, helping mature software vendors maximize their Microsoft partnership and modernize on Azure.</p>
           <div class="expert-specialties">
             <span class="specialty-tag">ISV Programs</span>
@@ -208,7 +243,9 @@
           </div>
         </div>
         <div class="expert-card-detailed">
-          <div class="expert-avatar-large">TC</div>
+          <div class="expert-avatar-large">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop&crop=faces" alt="Tamar Cohen" loading="lazy">
+          </div>
           <h3 class="expert-name-large">Tamar Cohen</h3>
           <p class="expert-role-large">Startup Programs Lead</p>
           <p class="expert-bio">Manages LaunchPad and Scale360 programs, working directly with seed-stage and growth-stage founders on Azure adoption and product acceleration.</p>
@@ -345,7 +382,19 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <div class="footer-logo">Microsoft<br>Innovation Hub<br><span>Israel · FY27</span></div>
+          <div class="footer-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" width="36" height="36" aria-hidden="true" focusable="false">
+              <path fill="#F25022" d="M1 1h10v10H1z"/>
+              <path fill="#7FBA00" d="M12 1h10v10H12z"/>
+              <path fill="#00A4EF" d="M1 12h10v10H1z"/>
+              <path fill="#FFB900" d="M12 12h10v10H12z"/>
+            </svg>
+            <div class="footer-logo-text">
+              <span>Microsoft Israel</span>
+              <span>Innovation Hub</span>
+              <span class="footer-logo-sub">FY27</span>
+            </div>
+          </div>
           <p class="footer-tagline">Build, Scale, and Monetize<br>on Azure and AI</p>
         </div>
         <div class="footer-col">
