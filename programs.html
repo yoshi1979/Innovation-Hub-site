@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programs &amp; Tracks | Microsoft Israel Innovation Hub</title>
+  <meta name="description" content="Explore the Microsoft Israel Innovation Hub's 8 programs — from LaunchPad for seed-stage startups to ISV Excellence and the CTO Circle. Every stage, every ambition.">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body id="page-programs">
+
+  <!-- NAV -->
+  <nav class="nav" id="main-nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-main">Microsoft Innovation Hub</span>
+        <span class="nav-logo-sub">Israel · FY27</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="programs.html" class="nav-link active">Programs</a></li>
+        <li><a href="events.html" class="nav-link">Events</a></li>
+        <li><a href="collaborate.html" class="nav-link">Collaborate</a></li>
+        <li><a href="success.html" class="nav-link">Success Stories</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="apply.html" class="nav-link nav-cta btn btn-primary btn-sm">Apply Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="hero-eyebrow">8 Programs · Every Stage</p>
+      <h1 class="hero-title">Programs &amp; Tracks</h1>
+      <p class="hero-sub">From seed-stage moonshots to mature ISVs — we have a program tailored for your stage, your needs, and your ambition.</p>
+    </div>
+  </section>
+
+  <!-- FILTER TABS + PROGRAMS GRID -->
+  <section class="section section-alt" id="programs-grid">
+    <div class="container">
+      <div class="filter-tabs" role="tablist" aria-label="Filter programs by stage">
+        <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="filter-tab" data-filter="early-stage" role="tab" aria-selected="false">Early Stage</button>
+        <button class="filter-tab" data-filter="scaleup" role="tab" aria-selected="false">Scaleup</button>
+        <button class="filter-tab" data-filter="isv-partner" role="tab" aria-selected="false">ISV &amp; Partner</button>
+        <button class="filter-tab" data-filter="executive" role="tab" aria-selected="false">Executive</button>
+      </div>
+
+      <div class="card-grid">
+
+        <!-- 1. LaunchPad -->
+        <div class="program-card filterable" id="launchpad" data-category="early-stage">
+          <div class="program-card-header">
+            <span class="program-icon" aria-hidden="true" style="font-size:28px;">🚀</span>
+            <span class="badge badge-green">Early Stage</span>
+          </div>
+          <h3 class="program-card-title" style="font-size:18px;font-weight:700;color:var(--ms-navy);">LaunchPad</h3>
+          <ul class="benefit-list">
+            <li>Up to $150K Azure credits &amp; developer tools</li>
+            <li>Weekly 1:1 CTO mentorship sessions</li>
+            <li>Access to Microsoft AI APIs: OpenAI, Copilot, AI Studio</li>
+          </ul>
+          <p style="font-size:12px;color:var(--ms-gray);font-weight:600;">⏱ Duration: 6 months</p>
+          <div class="card-actions">
+            <button class="btn btn-secondary btn-sm" data-modal="modal-launchpad" aria-haspopup="dialog">Learn More</button>
+            <a href="apply.html?program=launchpad" class="btn btn-primary btn-sm">Apply</a>
+          </div>
+        </div>
+
+        <!-- 2. Scale360 -->
+        <div class="program-card filterable" id="scale360" data-category="scaleup">
+          <div class="program-card-header">
+            <span class="program-icon" aria-hidden="true" style="font-size:28px;">📈</span>
+            <span class="badge badge-blue">Series A &amp; B</span>
+          </div>
+          <h3 class="program-card-title" style="font-size:18px;font-weight:700;color:var(--ms-navy);">Scale360</h3>
+          <ul class="benefit-list">
+            <li>Co-sell readiness with Microsoft field sales team</li>
+            <li>Azure Marketplace listing &amp; ISV incentives program</li>
+            <li>ISE collaboration for deep technical co-building</li>
+          </ul>
+          <p style="font-size:12px;color:var(--ms-gray);font-weight:600;">⏱ Duration: 9 months</p>
+          <div class="card-actions">
+            <button class="btn btn-secondary btn-sm" data-modal="modal-scale360" aria-haspopup="dialog">Learn More</button>
+            <a href="apply.html?program=scale360" class="btn btn-primary btn-sm">Apply</a>
+          </div>
+        </div>
+
+        <!-- 3. Enterprise Bridge -->
+        <div class="program-card filterable" id="enterprise-bridge" data-category="scaleup">
+          <div class="program-card-header">
+            <span class="program-icon" aria-hidden="true" style="font-size:28px;">🏢</span>
+            <span class="badge badge-purple">Series C/D</span>
+          </div>
+          <h3 class="program-card-title" style="font-size:18px;font-weight:700;color:var(--ms-navy);">Enterprise Bridge</h3>
+          <ul class="benefit-list">
+            <li>Co-product exploration with Microsoft Product Groups</li>
+            <li>BD collaboration with Microsoft enterprise field teams</li>
+            <li>Enterprise GTM strategy &amp; executive sponsorship</li>
+          </ul>
+          <p style="font-size:12px;color:var(--ms-gray);font-weight:600;">⏱ Duration: 12 months</p>
+          <div class="card-actions">
+            <button class="btn btn-secondary btn-sm" data-modal="modal-enterprise-bridge" aria-haspopup="dialog">Learn More</button>
+            <a href="apply.html?program=enterprise-bridge" class="btn btn-primary btn-sm">Apply</a>
+          </div>
+        </div>
+
+        <!-- 4. ISV Excellence -->
+        <div class="program-card filterable" id="isv-excellence" data-category="isv-partner">
+          <div class="program-card-header">
+            <span class="program-icon" aria-hidden="true" style="font-size:28px;">🏭</span>
+            <span class="badge badge-orange">Mature ISV</span>
+          </div>
+          <h3 class="program-card-title" style="font-size:18px;font-weight:700;color:var(--ms-navy);">ISV Excellence</h3>
+          <ul class="benefit-list">
+            <li>Azure migration assessment &amp; technical modernization</li>
+            <li>Azure Marketplace listing &amp; optimization</li>
+            <li>Multi-cloud support and Azure differentiation strategy</li>
+          </ul>
+          <p style="font-size:12px;color:var(--ms-gray);font-weight:600;">⏱ Duration: Ongoing</p>
+          <div class="card-actions">
+            <button class="btn btn-secondary btn-sm" data-modal="modal-isv-excellence" aria-haspopup="dialog">Learn More</button>
+            <a href="apply.html?program=isv-excellence" class="btn btn-primary btn-sm">Apply</a>
+          </div>
+        </div>
+
+        <!-- 5. Partner FastTrack -->
+        <div class="program-card filterable" id="partner-fasttrack" data-category="isv-partner">
+          <div class="program-card-header">
+            <span class="program-icon" aria-hidden="true" style="font-size:28px;">⚡</span>
+            <span class="badge badge-navy">Microsoft Partner</span>
+          </div>
+          <h3 class="program-card-title" style="font-size:18px;font-weight:700;color:var(--ms-navy);">Partner FastTrack</h3>
+          <ul class="benefit-list">
+            <li>GPS co-sell activation and deal registration</li>
+            <li>Azure Marketplace listing acceleration (30-day listing)</li>
+            <li>Partner Center optimization &amp; incentive enrollment</li>
+          </ul>
+          <p style="font-size:12px;color:var(--ms-gray);font-weight:600;">⏱ Duration: 3 months</p>
+          <div class="card-actions">
+            <button class="btn btn-secondary btn-sm" data-modal="modal-partner-fasttrack" aria-haspopup="dialog">Learn More</button>
+            <a href="apply.html?program=partner-fasttrack" class="btn btn-primary btn-sm">Apply</a>
+          </div>
+        </div>
+
+        <!-- 6. CTO Circle -->
+        <div class="program-card filterable" id="cto-circle" data-category="executive">
+          <div class="program-card-header">
+            <span class="program-icon" aria-hidden="true" style="font-size:28px;">🧠</span>
+            <span class="badge badge-purple">Executive</span>
+          </div>
+          <h3 class="program-card-title" style="font-size:18px;font-weight:700;color:var(--ms-navy);">CTO Circle</h3>
+          <ul class="benefit-list">
+            <li>Monthly peer dinners with Israel's top CTOs and VPs of Eng</li>
+            <li>Direct access to Microsoft CTO Group Israel for technical strategy</li>
+            <li>Exclusive Microsoft product roadmap briefings</li>
+          </ul>
+          <p style="font-size:12px;color:var(--ms-gray);font-weight:600;">⏱ Duration: Ongoing membership</p>
+          <div class="card-actions">
+            <button class="btn btn-secondary btn-sm" data-modal="modal-cto-circle" aria-haspopup="dialog">Learn More</button>
+            <a href="apply.html?program=cto-circle" class="btn btn-primary btn-sm">Apply</a>
+          </div>
+        </div>
+
+        <!-- 7. AI Innovation Lab -->
+        <div class="program-card filterable" id="ai-lab" data-category="early-stage">
+          <div class="program-card-header">
+            <span class="program-icon" aria-hidden="true" style="font-size:28px;">🤖</span>
+            <span class="badge badge-blue">All Stages</span>
+          </div>
+          <h3 class="program-card-title" style="font-size:18px;font-weight:700;color:var(--ms-navy);">AI Innovation Lab</h3>
+          <ul class="benefit-list">
+            <li>Hands-on Azure OpenAI, AI Studio &amp; Copilot workshops</li>
+            <li>Build and deploy AI features in dedicated lab environment</li>
+            <li>Access to Microsoft AI engineers and research team</li>
+          </ul>
+          <p style="font-size:12px;color:var(--ms-gray);font-weight:600;">⏱ Duration: 4-week intensive</p>
+          <div class="card-actions">
+            <button class="btn btn-secondary btn-sm" data-modal="modal-ai-lab" aria-haspopup="dialog">Learn More</button>
+            <a href="apply.html?program=ai-lab" class="btn btn-primary btn-sm">Apply</a>
+          </div>
+        </div>
+
+        <!-- 8. Co-Build Program -->
+        <div class="program-card filterable" id="co-build" data-category="scaleup">
+          <div class="program-card-header">
+            <span class="program-icon" aria-hidden="true" style="font-size:28px;">🔨</span>
+            <span class="badge badge-orange">Invitation Only</span>
+          </div>
+          <h3 class="program-card-title" style="font-size:18px;font-weight:700;color:var(--ms-navy);">Co-Build Program</h3>
+          <ul class="benefit-list">
+            <li>Co-product exploration with Microsoft Product Groups</li>
+            <li>Dedicated Microsoft engineering time and resources</li>
+            <li>Joint IP and commercialization pathways</li>
+          </ul>
+          <p style="font-size:12px;color:var(--ms-gray);font-weight:600;">⏱ Duration: 6–18 months (varies)</p>
+          <div class="card-actions">
+            <button class="btn btn-secondary btn-sm" data-modal="modal-co-build" aria-haspopup="dialog">Learn More</button>
+            <a href="apply.html?program=co-build" class="btn btn-primary btn-sm">Apply</a>
+          </div>
+        </div>
+
+      </div><!-- /.card-grid -->
+    </div>
+  </section>
+
+  <!-- MICROSOFT DIFFERENTIATORS -->
+  <section class="diff-section" id="why-microsoft">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" style="color:var(--ms-white);">Why Microsoft?</h2>
+      </div>
+      <div class="diff-grid">
+        <div class="diff-item">
+          <span class="diff-icon" aria-hidden="true">☁️</span>
+          <h3 class="diff-title">Azure Platform</h3>
+          <p class="diff-desc">The world's most complete enterprise cloud. 200+ services, 60+ regions, and the infrastructure behind the world's largest companies.</p>
+        </div>
+        <div class="diff-item">
+          <span class="diff-icon" aria-hidden="true">🤖</span>
+          <h3 class="diff-title">AI-First</h3>
+          <p class="diff-desc">Azure OpenAI Service, Copilot, AI Studio, and more — Microsoft's AI stack is the most production-ready AI platform available to enterprise buyers.</p>
+        </div>
+        <div class="diff-item">
+          <span class="diff-icon" aria-hidden="true">🏪</span>
+          <h3 class="diff-title">Azure Marketplace</h3>
+          <p class="diff-desc">50,000+ enterprise customers browse Azure Marketplace. Listing here gives you access to a commercial channel with unmatched enterprise reach.</p>
+        </div>
+        <div class="diff-item">
+          <span class="diff-icon" aria-hidden="true">🔬</span>
+          <h3 class="diff-title">ISE</h3>
+          <p class="diff-desc">Microsoft's Industry Solutions Engineering team partners with select companies for deep technical co-building — the same team that builds solutions for Fortune 500s.</p>
+        </div>
+        <div class="diff-item">
+          <span class="diff-icon" aria-hidden="true">🌍</span>
+          <h3 class="diff-title">Global Reach</h3>
+          <p class="diff-desc">Microsoft's global partner network, 100+ country offices, and enterprise sales force creates unmatched GTM leverage for Israeli companies going global.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ ACCORDION -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+      <ul class="faq-list" role="list">
+
+        <li class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Who is eligible for hub programs?
+            <span class="faq-arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq-answer" role="region">
+            <p>Hub programs are open to technology companies at various stages — from seed-stage startups to mature ISVs and Microsoft partners. Eligibility varies by program; each program page details specific criteria. Generally, companies should be Israeli-registered or have significant Israeli operations.</p>
+          </div>
+        </li>
+
+        <li class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Is there a cost to join the hub?
+            <span class="faq-arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq-answer" role="region">
+            <p>Most hub programs are free of charge. Some intensive programs (like the AI Innovation Lab) may have a nominal fee for resources, but Azure credits provided typically far exceed any cost. Apply and we'll discuss the specifics for your situation.</p>
+          </div>
+        </li>
+
+        <li class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Do I need to be on Azure already?
+            <span class="faq-arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq-answer" role="region">
+            <p>Not necessarily. Several programs (LaunchPad, Scale360, ISV Excellence) are specifically designed to help companies migrate to or expand on Azure. The hub can support you from wherever you are in your cloud journey.</p>
+          </div>
+        </li>
+
+        <li class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            How competitive is the selection process?
+            <span class="faq-arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq-answer" role="region">
+            <p>Acceptance rates vary by program. LaunchPad is selective (top 10–15% of applicants). CTO Circle is by invitation only. Scale360 and ISV Excellence have capacity for multiple cohorts per year. All applications are reviewed by the hub team within 10 business days.</p>
+          </div>
+        </li>
+
+        <li class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Can I join multiple programs?
+            <span class="faq-arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq-answer" role="region">
+            <p>Yes. Many companies participate in multiple programs simultaneously or sequentially. For example, a Scale360 company might also join the AI Innovation Lab. We'll help you create the right program mix for your stage and goals.</p>
+          </div>
+        </li>
+
+        <li class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            What does "co-sell" actually mean for my business?
+            <span class="faq-arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq-answer" role="region">
+            <p>Co-sell means Microsoft's own sales team can include your product in their enterprise deals. When a Microsoft field rep is pitching Azure to a Fortune 500 company and your product is a good fit, they can propose it alongside Azure — at no extra sales cost to you. This is one of the most valuable benefits of the hub.</p>
+          </div>
+        </li>
+
+        <li class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            How long does the application process take?
+            <span class="faq-arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq-answer" role="region">
+            <p>We aim to respond to all applications within 10 business days. Some programs have cohort intake cycles (quarterly or biannual), while others like ISV Excellence accept on a rolling basis.</p>
+          </div>
+        </li>
+
+        <li class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Can international companies apply if they have Israeli operations?
+            <span class="faq-arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq-answer" role="region">
+            <p>Yes. Companies with Israeli R&amp;D centers, founding teams, or significant Israeli operations are welcome to apply. The hub is specifically focused on the Israeli tech ecosystem.</p>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">Microsoft<br>Innovation Hub<br><span>Israel · FY27</span></div>
+          <p class="footer-tagline">Where Israeli Innovation<br>Meets Microsoft at Scale</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Programs</h4>
+          <ul class="footer-links">
+            <li><a href="programs.html#launchpad">LaunchPad</a></li>
+            <li><a href="programs.html#scale360">Scale360</a></li>
+            <li><a href="programs.html#enterprise-bridge">Enterprise Bridge</a></li>
+            <li><a href="programs.html#isv-excellence">ISV Excellence</a></li>
+            <li><a href="programs.html#ai-lab">AI Innovation Lab</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Hub</h4>
+          <ul class="footer-links">
+            <li><a href="events.html">Events &amp; Workshops</a></li>
+            <li><a href="success.html">Success Stories</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="apply.html">Apply Now</a></li>
+            <li><a href="about.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Microsoft</h4>
+          <ul class="footer-links">
+            <li><a href="#" target="_blank" rel="noopener noreferrer">Azure</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">Marketplace</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">ISE</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">CTO Group</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">GPS Partners</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Microsoft Corporation. Microsoft Israel Innovation Hub. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Accessibility</a>
+          <a href="#">Trademarks</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       PROGRAM MODALS
+       ============================================================ -->
+
+  <!-- Modal: LaunchPad -->
+  <div class="modal-overlay" id="modal-launchpad" role="dialog" aria-modal="true" aria-labelledby="modal-launchpad-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-launchpad-title">🚀 LaunchPad</h2>
+        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-launchpad')">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="color:var(--ms-gray);margin-bottom:24px;line-height:1.7;">LaunchPad is designed for Israel's most ambitious seed and pre-seed startups. If you're building on Azure (or planning to), we provide the infrastructure, guidance, and technical access to move from prototype to production in record time.</p>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Eligibility</h3>
+        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
+          <li>Seed or pre-seed stage</li>
+          <li>Israeli-registered company or Israeli founding team</li>
+          <li>Building a technology product (software, hardware+software, or AI)</li>
+          <li>Annual recurring revenue under $1M</li>
+          <li>Committed to building on Microsoft Azure</li>
+        </ul>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">What You Get</h3>
+        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
+          <li>$150K in Azure credits over 6 months</li>
+          <li>Weekly 30-min CTO mentorship with Avi Shapiro or hub advisors</li>
+          <li>Access to Azure OpenAI Service, AI Studio, and Copilot APIs</li>
+          <li>Co-working space at Microsoft Israel HQ</li>
+          <li>Invitation to LaunchPad demo day</li>
+          <li>Introduction to Microsoft's early-stage investor network</li>
+          <li>Access to CTO Circle events</li>
+        </ul>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Program Journey</h3>
+        <ol style="list-style:decimal;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
+          <li>Application &amp; Screening</li>
+          <li>Onboarding &amp; Azure Setup</li>
+          <li>Build &amp; Mentor Phase</li>
+          <li>Demo Day &amp; Graduation</li>
+        </ol>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Microsoft Team</h3>
+        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;margin-bottom:20px;">Maya Levi (Startup Programs Lead), Avi Shapiro (CTO Advisor), Yael Ben-David (Azure AI Technical Lead)</p>
+
+        <div style="background:var(--ms-light);border-radius:8px;padding:16px 20px;border-left:4px solid var(--ms-blue);">
+          <p style="font-size:13px;color:var(--ms-gray);line-height:1.7;font-style:italic;">"CyberSentry joined LaunchPad at seed stage and graduated to Series A within 18 months, closing 40 enterprise deals via Microsoft co-sell."</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-launchpad')">Close</button>
+        <a href="apply.html?program=launchpad" class="btn btn-primary">Apply for This Program</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Scale360 -->
+  <div class="modal-overlay" id="modal-scale360" role="dialog" aria-modal="true" aria-labelledby="modal-scale360-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-scale360-title">📈 Scale360</h2>
+        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-scale360')">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="color:var(--ms-gray);margin-bottom:24px;line-height:1.7;">Scale360 bridges the gap between product-market fit and enterprise scale. If you're Series A or B with revenue traction, we help you turn Microsoft into your most powerful sales channel.</p>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Eligibility</h3>
+        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
+          <li>Series A or B with at least $2M ARR</li>
+          <li>Product built on or migrating to Azure</li>
+          <li>Israeli-registered or headquartered company</li>
+          <li>Dedicated technical team (5+ engineers)</li>
+        </ul>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">What You Get</h3>
+        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
+          <li>Co-sell activation with Microsoft's GPS field team</li>
+          <li>Azure Marketplace listing support + ISV incentives</li>
+          <li>ISE (Industry Solutions Engineering) co-building sprints</li>
+          <li>Monthly Scale360 cohort roundtables</li>
+          <li>BD introductions to Microsoft enterprise customers</li>
+          <li>Azure credits extension</li>
+          <li>Access to Microsoft's global Partner Center</li>
+        </ul>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Program Journey</h3>
+        <ol style="list-style:decimal;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
+          <li>Intake &amp; Assessment</li>
+          <li>Co-sell Activation</li>
+          <li>Marketplace Listing</li>
+          <li>ISE Collaboration</li>
+          <li>GTM Acceleration</li>
+        </ol>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Microsoft Team</h3>
+        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;margin-bottom:20px;">Ron Katz (Head of Business Development), Maya Levi (Startup Programs Lead), ISE Team</p>
+
+        <div style="background:var(--ms-light);border-radius:8px;padding:16px 20px;border-left:4px solid var(--ms-blue);">
+          <p style="font-size:13px;color:var(--ms-gray);line-height:1.7;font-style:italic;">"CloudBridge raised $12M post-Scale360 participation and listed on Azure Marketplace within 3 months."</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-scale360')">Close</button>
+        <a href="apply.html?program=scale360" class="btn btn-primary">Apply for This Program</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Enterprise Bridge -->
+  <div class="modal-overlay" id="modal-enterprise-bridge" role="dialog" aria-modal="true" aria-labelledby="modal-enterprise-bridge-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-enterprise-bridge-title">🏢 Enterprise Bridge</h2>
+        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-enterprise-bridge')">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="color:var(--ms-gray);margin-bottom:24px;line-height:1.7;">Enterprise Bridge is for companies that have achieved significant scale and are ready to build something larger — a joint product, a deep integration, or a co-go-to-market motion with Microsoft's global enterprise sales engine.</p>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Eligibility</h3>
+        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
+          <li>Series C, D or post-Series D</li>
+          <li>$10M+ ARR</li>
+          <li>Product complementary to Microsoft's portfolio (Azure, M365, Dynamics, Security)</li>
+          <li>Dedicated executive sponsor</li>
+        </ul>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">What You Get</h3>
+        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
+          <li>Co-product scoping sessions with Microsoft Product Groups</li>
+          <li>Named BD sponsor from Microsoft Israel commercial team</li>
+          <li>Access to Microsoft's global enterprise customer base</li>
+          <li>Executive co-sell with Microsoft field leadership</li>
+          <li>Joint PR and marketing opportunities</li>
+          <li>NovaMed-style Health &amp; Life Sciences collaboration</li>
+          <li>Microsoft for Startups Founders Hub extension</li>
+        </ul>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Program Journey</h3>
+        <ol style="list-style:decimal;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
+          <li>Executive Alignment</li>
+          <li>Product Scoping</li>
+          <li>Co-sell Design</li>
+          <li>Joint GTM Plan</li>
+          <li>Customer Pilots</li>
+          <li>Scale &amp; Expand</li>
+        </ol>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Microsoft Team</h3>
+        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;margin-bottom:20px;">Tamar Cohen (Hub Director), Ron Katz (BD Lead), Microsoft Product Group contacts</p>
+
+        <div style="background:var(--ms-light);border-radius:8px;padding:16px 20px;border-left:4px solid var(--ms-blue);">
+          <p style="font-size:13px;color:var(--ms-gray);line-height:1.7;font-style:italic;">"NovaMed co-developed a healthcare AI module with Microsoft Health &amp; Life Sciences, deployed across 3 hospital networks."</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-enterprise-bridge')">Close</button>
+        <a href="apply.html?program=enterprise-bridge" class="btn btn-primary">Apply for This Program</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: ISV Excellence -->
+  <div class="modal-overlay" id="modal-isv-excellence" role="dialog" aria-modal="true" aria-labelledby="modal-isv-excellence-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-isv-excellence-title">🏭 ISV Excellence</h2>
+        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-isv-excellence')">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="color:var(--ms-gray);margin-bottom:24px;line-height:1.7;">ISV Excellence is for mature independent software vendors who are ready to modernize, re-platform, or deeply integrate with Azure — and want to leverage Microsoft's commercial network to grow.</p>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Eligibility</h3>
+        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
+          <li>Established ISV with 3+ years of commercial product</li>
+          <li>Significant customer base</li>
+          <li>Interest in Azure migration, modernization, or Marketplace listing</li>
+          <li>Dedicated technical and business development teams</li>
+        </ul>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">What You Get</h3>
+        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
+          <li>Azure migration assessment and architecture review</li>
+          <li>Technical modernization sprints with Azure engineering team</li>
+          <li>Azure Marketplace Gold listing support</li>
+          <li>ISV incentive program enrollment</li>
+          <li>Access to Microsoft's global enterprise sales channels</li>
+          <li>Multi-cloud strategy support</li>
+          <li>Yael Ben-David's Azure AI integration workshops</li>
+        </ul>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Program Journey</h3>
+        <ol style="list-style:decimal;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
+          <li>Assessment</li>
+          <li>Architecture Design</li>
+          <li>Migration / Modernization</li>
+          <li>Marketplace Listing</li>
+          <li>Commercial Scale</li>
+        </ol>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Microsoft Team</h3>
+        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;margin-bottom:20px;">Noa Friedman (ISV &amp; Partner Success Lead), Yael Ben-David (Azure AI Technical Lead), Azure Migration Team</p>
+
+        <div style="background:var(--ms-light);border-radius:8px;padding:16px 20px;border-left:4px solid var(--ms-blue);">
+          <p style="font-size:13px;color:var(--ms-gray);line-height:1.7;font-style:italic;">"DataFlow Systems modernized their entire platform on Azure in 6 months and listed on Azure Marketplace, opening access to 50,000+ enterprise customers."</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-isv-excellence')">Close</button>
+        <a href="apply.html?program=isv-excellence" class="btn btn-primary">Apply for This Program</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Partner FastTrack -->
+  <div class="modal-overlay" id="modal-partner-fasttrack" role="dialog" aria-modal="true" aria-labelledby="modal-partner-fasttrack-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-partner-fasttrack-title">⚡ Partner FastTrack</h2>
+        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-partner-fasttrack')">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="color:var(--ms-gray);margin-bottom:24px;line-height:1.7;">Partner FastTrack is for Microsoft partners who want to accelerate their commercial relationship — getting listed on Marketplace faster, activating co-sell, and maximizing Partner Center incentives.</p>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Eligibility</h3>
+        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
+          <li>Active Microsoft Partner Network member</li>
+          <li>Existing or planned solution on Azure</li>
+          <li>Committed to co-sell activation</li>
+          <li>Dedicated Microsoft partnership contact</li>
+        </ul>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">What You Get</h3>
+        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
+          <li>30-day Marketplace listing sprint</li>
+          <li>Co-sell deal registration support</li>
+          <li>Partner Center audit and optimization</li>
+          <li>GPS co-sell activation</li>
+          <li>ISV incentive program review</li>
+          <li>Access to hub events and CTO Circle</li>
+        </ul>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Program Journey</h3>
+        <ol style="list-style:decimal;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
+          <li>Partner Assessment</li>
+          <li>Marketplace Sprint</li>
+          <li>Co-sell Activation</li>
+          <li>Ongoing Optimization</li>
+        </ol>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Microsoft Team</h3>
+        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;margin-bottom:20px;">Noa Friedman (ISV &amp; Partner Success Lead), Ron Katz (BD Lead)</p>
+
+        <div style="background:var(--ms-light);border-radius:8px;padding:16px 20px;border-left:4px solid var(--ms-blue);">
+          <p style="font-size:13px;color:var(--ms-gray);line-height:1.7;font-style:italic;">"3 Partner FastTrack cohorts have achieved 100% Marketplace listing completion within 30 days."</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-partner-fasttrack')">Close</button>
+        <a href="apply.html?program=partner-fasttrack" class="btn btn-primary">Apply for This Program</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: CTO Circle -->
+  <div class="modal-overlay" id="modal-cto-circle" role="dialog" aria-modal="true" aria-labelledby="modal-cto-circle-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-cto-circle-title">🧠 CTO Circle</h2>
+        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-cto-circle')">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="color:var(--ms-gray);margin-bottom:24px;line-height:1.7;">The CTO Circle is a curated peer community for Israel's most senior technical leaders — CTOs, VPs of Engineering, and Chief Architects. It's a place for candid conversation, peer support, and exclusive Microsoft access.</p>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Eligibility</h3>
+        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
+          <li>CTO, VP of Engineering, Chief Architect, or equivalent</li>
+          <li>Company with 20+ engineers</li>
+          <li>By invitation or hub referral</li>
+        </ul>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">What You Get</h3>
+        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
+          <li>Monthly CTO Circle dinners at Microsoft Israel HQ</li>
+          <li>Annual CTO Summit at Microsoft Herzliya</li>
+          <li>Direct Slack channel with Microsoft CTO Group Israel</li>
+          <li>Quarterly Microsoft product roadmap briefings</li>
+          <li>Executive coaching sessions</li>
+          <li>International CTO Circle introductions (London, NYC, Singapore)</li>
+        </ul>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Program Journey</h3>
+        <ol style="list-style:decimal;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
+          <li>Application &amp; Vetting</li>
+          <li>Welcome Dinner &amp; Onboarding</li>
+          <li>Ongoing Membership</li>
+        </ol>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Microsoft Team</h3>
+        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;margin-bottom:20px;">Avi Shapiro (CTO Advisor), Tamar Cohen (Hub Director)</p>
+
+        <div style="background:var(--ms-light);border-radius:8px;padding:16px 20px;border-left:4px solid var(--ms-blue);">
+          <p style="font-size:13px;color:var(--ms-gray);line-height:1.7;font-style:italic;">"92% of CTO Circle members report measurably improved technical decisions and access to Microsoft roadmap insights within 3 months."</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-cto-circle')">Close</button>
+        <a href="apply.html?program=cto-circle" class="btn btn-primary">Apply for This Program</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: AI Innovation Lab -->
+  <div class="modal-overlay" id="modal-ai-lab" role="dialog" aria-modal="true" aria-labelledby="modal-ai-lab-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-ai-lab-title">🤖 AI Innovation Lab</h2>
+        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-ai-lab')">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="color:var(--ms-gray);margin-bottom:24px;line-height:1.7;">The AI Innovation Lab is a 4-week intensive program where hub companies get hands-on access to Microsoft's AI stack — Azure OpenAI Service, AI Studio, Copilot extensibility, and more — with direct guidance from Microsoft AI engineers.</p>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Eligibility</h3>
+        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
+          <li>Any hub company</li>
+          <li>Technical team member must attend</li>
+          <li>Pre-work: Azure account set up and basic AI familiarity preferred</li>
+        </ul>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">What You Get</h3>
+        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
+          <li>Week 1: Azure OpenAI foundations and API integration workshop</li>
+          <li>Week 2: AI Studio — fine-tuning, RAG, and evaluation</li>
+          <li>Week 3: Copilot extensibility and agents</li>
+          <li>Week 4: Build sprint + demo to Microsoft AI team</li>
+          <li>$25K Azure AI credits</li>
+          <li>Office hours with Microsoft AI researchers</li>
+          <li>Post-lab: ongoing AI architecture support</li>
+        </ul>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Program Journey</h3>
+        <ol style="list-style:decimal;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
+          <li>Application</li>
+          <li>Pre-work &amp; Setup</li>
+          <li>4-Week Lab</li>
+          <li>Build Sprint &amp; Demo</li>
+        </ol>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Microsoft Team</h3>
+        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;margin-bottom:20px;">Yael Ben-David (Azure AI Technical Lead), Microsoft AI Research Team</p>
+
+        <div style="background:var(--ms-light);border-radius:8px;padding:16px 20px;border-left:4px solid var(--ms-blue);">
+          <p style="font-size:13px;color:var(--ms-gray);line-height:1.7;font-style:italic;">"Lumina AI's engineering team completed the AI Innovation Lab and shipped their core AI feature within 6 weeks of graduation."</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-ai-lab')">Close</button>
+        <a href="apply.html?program=ai-lab" class="btn btn-primary">Apply for This Program</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Co-Build Program -->
+  <div class="modal-overlay" id="modal-co-build" role="dialog" aria-modal="true" aria-labelledby="modal-co-build-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-co-build-title">🔨 Co-Build Program</h2>
+        <button class="modal-close" aria-label="Close modal" onclick="closeModal('modal-co-build')">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="color:var(--ms-gray);margin-bottom:24px;line-height:1.7;">The Co-Build Program is Microsoft's most exclusive offering for hub companies. Selected companies work directly with Microsoft Product Groups to explore, design, and sometimes build joint products or deep integrations.</p>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Eligibility</h3>
+        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
+          <li>Proven product with strong market traction</li>
+          <li>Technology that complements or extends Microsoft's product portfolio</li>
+          <li>By invitation only from Microsoft Product Group</li>
+          <li>Executive commitment from both sides</li>
+        </ul>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">What You Get</h3>
+        <ul style="list-style:disc;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
+          <li>Dedicated Product Group sponsor at VP level</li>
+          <li>Engineering collaboration time</li>
+          <li>Joint product design sessions</li>
+          <li>Roadmap alignment and co-announcement opportunities</li>
+          <li>Access to Microsoft's design and UX teams</li>
+          <li>Beta program access</li>
+          <li>Co-marketing and co-PR opportunities</li>
+        </ul>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Program Journey</h3>
+        <ol style="list-style:decimal;padding-left:20px;color:var(--ms-gray);font-size:14px;line-height:1.8;margin-bottom:20px;">
+          <li>Executive Introduction</li>
+          <li>Product Fit Assessment</li>
+          <li>Scoping Sprint</li>
+          <li>Co-Build Phase</li>
+          <li>Joint Launch</li>
+          <li>Scale</li>
+        </ol>
+
+        <h3 style="font-size:15px;font-weight:700;color:var(--ms-navy);margin-bottom:10px;">Microsoft Team</h3>
+        <p style="color:var(--ms-gray);font-size:14px;line-height:1.7;margin-bottom:20px;">Tamar Cohen (Hub Director), Microsoft Product Group VPs, ISE Team</p>
+
+        <div style="background:var(--ms-light);border-radius:8px;padding:16px 20px;border-left:4px solid var(--ms-blue);">
+          <p style="font-size:13px;color:var(--ms-gray);line-height:1.7;font-style:italic;">"NovaMed's Co-Build resulted in a joint product listed on Azure Marketplace and deployed in 12 hospitals across Israel and the UAE."</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-co-build')">Close</button>
+        <a href="apply.html?program=co-build" class="btn btn-primary">Apply for This Program</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

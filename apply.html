@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply – Microsoft Israel Innovation Hub</title>
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .apply-hero { background: var(--ms-gradient); padding: 80px 0 60px; color: #fff; text-align: center; }
+    .apply-hero h1 { font-size: clamp(2rem,4vw,3rem); font-weight: 700; margin-bottom: 16px; }
+    .apply-hero p { font-size: 1.15rem; opacity: .88; max-width: 560px; margin: 0 auto; }
+    .apply-wrap { max-width: 760px; margin: 0 auto; padding: 60px 20px 80px; }
+    /* Progress */
+    .progress-bar { display: flex; align-items: center; justify-content: center; gap: 0; margin-bottom: 48px; }
+    .progress-step { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .step-circle { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--ms-blue); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .9rem; background: #fff; color: var(--ms-blue); transition: all .3s; position: relative; z-index: 1; }
+    .step-circle.active, .step-circle.done { background: var(--ms-blue); color: #fff; }
+    .step-circle.done::after { content: '✓'; }
+    .step-circle.done span { display: none; }
+    .step-label { font-size: .78rem; font-weight: 600; color: var(--ms-gray); white-space: nowrap; }
+    .step-label.active { color: var(--ms-blue); }
+    .progress-line { flex: 1; height: 2px; background: #ddd; min-width: 60px; margin-top: -20px; }
+    .progress-line.done { background: var(--ms-blue); }
+    /* Form steps */
+    .form-step { display: none; }
+    .form-step.active { display: block; animation: fadeSlideIn .35s ease; }
+    @keyframes fadeSlideIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+    .form-step-title { font-size: 1.45rem; font-weight: 700; color: var(--ms-navy); margin-bottom: 8px; }
+    .form-step-sub { color: var(--ms-gray); margin-bottom: 32px; font-size: .97rem; }
+    .form-row { display: grid; gap: 20px; margin-bottom: 20px; }
+    .form-row.cols-2 { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 600px) { .form-row.cols-2 { grid-template-columns: 1fr; } }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label { font-size: .875rem; font-weight: 600; color: var(--ms-dark); }
+    .form-group label .req { color: #d83b01; margin-left: 2px; }
+    .form-group input, .form-group select, .form-group textarea {
+      padding: 12px 14px; border: 1.5px solid #d0d0d0; border-radius: 6px;
+      font-size: .95rem; font-family: inherit; transition: border-color .2s, box-shadow .2s;
+      background: #fafafa;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none; border-color: var(--ms-blue); box-shadow: 0 0 0 3px rgba(0,120,212,.1);
+      background: #fff;
+    }
+    .form-group textarea { min-height: 110px; resize: vertical; }
+    .form-group .field-hint { font-size: .78rem; color: var(--ms-gray); }
+    .form-group .field-error { font-size: .78rem; color: #d83b01; display: none; }
+    .form-group.has-error input, .form-group.has-error select, .form-group.has-error textarea { border-color: #d83b01; }
+    .form-group.has-error .field-error { display: block; }
+    /* Program checkboxes */
+    .program-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 600px) { .program-grid { grid-template-columns: 1fr; } }
+    .program-check { border: 1.5px solid #d0d0d0; border-radius: 8px; padding: 14px 16px; cursor: pointer; transition: all .2s; display: flex; gap: 12px; align-items: flex-start; }
+    .program-check:hover { border-color: var(--ms-blue); background: rgba(0,120,212,.04); }
+    .program-check input[type=checkbox] { margin-top: 3px; accent-color: var(--ms-blue); width: 16px; height: 16px; flex-shrink: 0; cursor: pointer; }
+    .program-check input[type=checkbox]:checked + .pc-content { color: var(--ms-blue); }
+    .program-check:has(input:checked) { border-color: var(--ms-blue); background: rgba(0,120,212,.06); }
+    .pc-content strong { display: block; font-size: .9rem; font-weight: 700; color: var(--ms-navy); }
+    .pc-content span { font-size: .8rem; color: var(--ms-gray); }
+    /* Form nav */
+    .form-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding-top: 24px; border-top: 1px solid #eee; }
+    .step-counter { font-size: .85rem; color: var(--ms-gray); }
+    /* Success screen */
+    .success-screen { display: none; text-align: center; padding: 40px 20px; animation: fadeSlideIn .4s ease; }
+    .success-screen.active { display: block; }
+    .success-icon { font-size: 4rem; margin-bottom: 16px; }
+    .success-screen h2 { font-size: 2rem; font-weight: 700; color: var(--ms-navy); margin-bottom: 12px; }
+    .success-screen p { color: var(--ms-gray); max-width: 500px; margin: 0 auto 24px; }
+    .success-card { background: var(--ms-light); border-radius: 12px; padding: 24px; margin: 24px auto; max-width: 480px; text-align: left; }
+    .success-card h4 { font-size: 1rem; font-weight: 700; color: var(--ms-navy); margin-bottom: 12px; }
+    .success-card ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+    .success-card ul li { font-size: .9rem; color: var(--ms-dark); display: flex; align-items: flex-start; gap: 8px; }
+    .success-card ul li::before { content: '→'; color: var(--ms-blue); font-weight: 700; flex-shrink: 0; }
+    .ref-code { display: inline-block; background: var(--ms-blue); color: #fff; padding: 6px 16px; border-radius: 20px; font-weight: 700; font-size: .9rem; margin-bottom: 20px; letter-spacing: 1px; }
+    .azure-badge { display: inline-flex; align-items: center; gap: 6px; background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 6px 14px; font-size: .82rem; color: var(--ms-navy); font-weight: 600; margin-top: 8px; }
+  </style>
+</head>
+<body id="page-apply">
+
+  <!-- NAV -->
+  <nav class="nav" id="main-nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-main">Microsoft Innovation Hub</span>
+        <span class="nav-logo-sub">Israel · FY27</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="programs.html" class="nav-link">Programs</a></li>
+        <li><a href="events.html" class="nav-link">Events</a></li>
+        <li><a href="collaborate.html" class="nav-link">Collaborate</a></li>
+        <li><a href="success.html" class="nav-link">Success Stories</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="apply.html" class="nav-link nav-cta btn btn-primary btn-sm active">Apply Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="apply-hero">
+    <div class="container">
+      <p style="font-size:.9rem;opacity:.7;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">Applications · FY27</p>
+      <h1>Apply to the Innovation Hub</h1>
+      <p>Tell us about your company and goals. Our team reviews every application within 5 business days and follows up personally.</p>
+    </div>
+  </section>
+
+  <!-- FORM CONTAINER -->
+  <div class="apply-wrap">
+
+    <!-- PROGRESS BAR -->
+    <div class="progress-bar" id="progress-bar">
+      <div class="progress-step">
+        <div class="step-circle active" id="circle-1"><span>1</span></div>
+        <div class="step-label active" id="label-1">Company</div>
+      </div>
+      <div class="progress-line" id="line-1"></div>
+      <div class="progress-step">
+        <div class="step-circle" id="circle-2"><span>2</span></div>
+        <div class="step-label" id="label-2">Your Info</div>
+      </div>
+      <div class="progress-line" id="line-2"></div>
+      <div class="progress-step">
+        <div class="step-circle" id="circle-3"><span>3</span></div>
+        <div class="step-label" id="label-3">Goals &amp; Programs</div>
+      </div>
+    </div>
+
+    <form id="apply-form" novalidate>
+
+      <!-- STEP 1: Company Info -->
+      <div class="form-step active" id="step-1">
+        <h2 class="form-step-title">Tell us about your company</h2>
+        <p class="form-step-sub">Basic information helps us tailor the right program and team to your stage.</p>
+
+        <div class="form-row cols-2">
+          <div class="form-group" id="fg-company-name">
+            <label for="company-name">Company Name <span class="req">*</span></label>
+            <input type="text" id="company-name" name="company_name" placeholder="e.g. Lumina AI" autocomplete="organization">
+            <span class="field-error">Company name is required.</span>
+          </div>
+          <div class="form-group" id="fg-website">
+            <label for="website">Website <span class="req">*</span></label>
+            <input type="url" id="website" name="website" placeholder="https://yourcompany.com">
+            <span class="field-error">Please enter a valid URL.</span>
+          </div>
+        </div>
+
+        <div class="form-row cols-2">
+          <div class="form-group" id="fg-stage">
+            <label for="stage">Funding Stage <span class="req">*</span></label>
+            <select id="stage" name="stage">
+              <option value="">Select stage...</option>
+              <option>Pre-Seed / Bootstrap</option>
+              <option>Seed</option>
+              <option>Series A</option>
+              <option>Series B</option>
+              <option>Series C</option>
+              <option>Series D+</option>
+              <option>Mature ISV (Revenue-generating, no VC)</option>
+              <option>Microsoft Partner</option>
+            </select>
+            <span class="field-error">Please select your funding stage.</span>
+          </div>
+          <div class="form-group" id="fg-industry">
+            <label for="industry">Industry <span class="req">*</span></label>
+            <select id="industry" name="industry">
+              <option value="">Select industry...</option>
+              <option>AI / Machine Learning</option>
+              <option>Cybersecurity</option>
+              <option>Cloud Infrastructure / DevOps</option>
+              <option>FinTech</option>
+              <option>HealthTech / Digital Health</option>
+              <option>Enterprise SaaS</option>
+              <option>Data &amp; Analytics</option>
+              <option>IoT / Edge Computing</option>
+              <option>Retail &amp; Commerce</option>
+              <option>Other</option>
+            </select>
+            <span class="field-error">Please select your industry.</span>
+          </div>
+        </div>
+
+        <div class="form-row cols-2">
+          <div class="form-group" id="fg-employees">
+            <label for="employees">Team Size</label>
+            <select id="employees" name="employees">
+              <option value="">Select...</option>
+              <option>1–10</option>
+              <option>11–50</option>
+              <option>51–200</option>
+              <option>201–500</option>
+              <option>500+</option>
+            </select>
+          </div>
+          <div class="form-group" id="fg-arr">
+            <label for="arr">Annual Recurring Revenue (ARR)</label>
+            <select id="arr" name="arr">
+              <option value="">Select ARR range...</option>
+              <option>Pre-revenue</option>
+              <option>&lt; $500K</option>
+              <option>$500K – $2M</option>
+              <option>$2M – $10M</option>
+              <option>$10M – $50M</option>
+              <option>$50M+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group" id="fg-hq">
+            <label for="hq">Headquarters Location <span class="req">*</span></label>
+            <input type="text" id="hq" name="hq" placeholder="e.g. Tel Aviv, Israel">
+            <span class="field-hint">Primary location of your R&amp;D / founding team.</span>
+            <span class="field-error">Location is required.</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group" id="fg-cloud">
+            <label for="cloud">Primary Cloud / Infrastructure</label>
+            <select id="cloud" name="cloud">
+              <option value="">Select...</option>
+              <option>Microsoft Azure (primary)</option>
+              <option>AWS (primary)</option>
+              <option>Google Cloud (primary)</option>
+              <option>Multi-cloud (Azure + AWS)</option>
+              <option>Multi-cloud (other mix)</option>
+              <option>On-premise / hybrid</option>
+              <option>Not yet decided</option>
+            </select>
+            <span class="field-hint">We support all cloud strategies, including AWS-to-Azure migration.</span>
+          </div>
+        </div>
+
+        <div class="form-nav">
+          <span class="step-counter">Step 1 of 3</span>
+          <button type="button" class="btn btn-primary" onclick="goToStep(2)">Next: Your Info →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: Personal Info -->
+      <div class="form-step" id="step-2">
+        <h2 class="form-step-title">About you</h2>
+        <p class="form-step-sub">We'll use this to connect you with the right Hub team member. All information is handled confidentially.</p>
+
+        <div class="form-row cols-2">
+          <div class="form-group" id="fg-first">
+            <label for="first-name">First Name <span class="req">*</span></label>
+            <input type="text" id="first-name" name="first_name" placeholder="Maya" autocomplete="given-name">
+            <span class="field-error">First name is required.</span>
+          </div>
+          <div class="form-group" id="fg-last">
+            <label for="last-name">Last Name <span class="req">*</span></label>
+            <input type="text" id="last-name" name="last_name" placeholder="Levi" autocomplete="family-name">
+            <span class="field-error">Last name is required.</span>
+          </div>
+        </div>
+
+        <div class="form-row cols-2">
+          <div class="form-group" id="fg-email">
+            <label for="email">Work Email <span class="req">*</span></label>
+            <input type="email" id="email" name="email" placeholder="maya@yourcompany.com" autocomplete="email">
+            <span class="field-error">Please enter a valid email address.</span>
+          </div>
+          <div class="form-group" id="fg-phone">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+972 50 000 0000" autocomplete="tel">
+          </div>
+        </div>
+
+        <div class="form-row cols-2">
+          <div class="form-group" id="fg-role">
+            <label for="role">Your Title / Role <span class="req">*</span></label>
+            <select id="role" name="role">
+              <option value="">Select role...</option>
+              <option>Founder / Co-Founder</option>
+              <option>CEO</option>
+              <option>CTO</option>
+              <option>CPO</option>
+              <option>VP Engineering</option>
+              <option>VP Product</option>
+              <option>VP Business Development</option>
+              <option>Head of Partnerships</option>
+              <option>Enterprise Architect</option>
+              <option>Other Executive</option>
+            </select>
+            <span class="field-error">Please select your role.</span>
+          </div>
+          <div class="form-group" id="fg-linkedin">
+            <label for="linkedin">LinkedIn Profile</label>
+            <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourname">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group" id="fg-ms-contact">
+            <label for="ms-contact">Do you have an existing Microsoft contact?</label>
+            <input type="text" id="ms-contact" name="ms_contact" placeholder="Name and team (optional) — e.g. Ron Katz, Microsoft GPS">
+            <span class="field-hint">If you already work with a Microsoft team member, this helps us coordinate your application.</span>
+          </div>
+        </div>
+
+        <div class="form-nav">
+          <button type="button" class="btn btn-ghost" onclick="goToStep(1)">← Back</button>
+          <span class="step-counter">Step 2 of 3</span>
+          <button type="button" class="btn btn-primary" onclick="goToStep(3)">Next: Goals →</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: Goals & Program Selection -->
+      <div class="form-step" id="step-3">
+        <h2 class="form-step-title">Your goals &amp; program interest</h2>
+        <p class="form-step-sub">Select the programs that best match your priorities. You can apply to multiple tracks — our team will recommend the best fit.</p>
+
+        <div class="form-row" style="margin-bottom:8px;">
+          <label style="font-size:.875rem;font-weight:600;color:var(--ms-dark);">Programs of Interest <span style="color:#d83b01;">*</span></label>
+        </div>
+        <div class="program-grid" style="margin-bottom:24px;" id="fg-programs">
+          <label class="program-check">
+            <input type="checkbox" name="programs" value="launchpad">
+            <div class="pc-content"><strong>🚀 LaunchPad</strong><span>Seed / Pre-Seed — Azure credits, mentorship, CTO access</span></div>
+          </label>
+          <label class="program-check">
+            <input type="checkbox" name="programs" value="scale360">
+            <div class="pc-content"><strong>📈 Scale360</strong><span>Series A/B — Co-sell, Marketplace, ISE collaboration</span></div>
+          </label>
+          <label class="program-check">
+            <input type="checkbox" name="programs" value="enterprise-bridge">
+            <div class="pc-content"><strong>🏢 Enterprise Bridge</strong><span>Series C/D — Co-product, BD collaboration, enterprise GTM</span></div>
+          </label>
+          <label class="program-check">
+            <input type="checkbox" name="programs" value="isv-excellence">
+            <div class="pc-content"><strong>⚙️ ISV Excellence</strong><span>Mature ISVs — Azure migration, SaaS modernization</span></div>
+          </label>
+          <label class="program-check">
+            <input type="checkbox" name="programs" value="partner-fasttrack">
+            <div class="pc-content"><strong>🤝 Partner FastTrack</strong><span>Microsoft Partners — GPS co-sell, Marketplace listing</span></div>
+          </label>
+          <label class="program-check">
+            <input type="checkbox" name="programs" value="cto-circle">
+            <div class="pc-content"><strong>🎯 CTO Circle</strong><span>Executive — Peer learning for CTOs &amp; VPs Engineering</span></div>
+          </label>
+          <label class="program-check">
+            <input type="checkbox" name="programs" value="ai-lab">
+            <div class="pc-content"><strong>🤖 AI Innovation Lab</strong><span>Technical — Azure OpenAI, Copilot, AI Studio workshops</span></div>
+          </label>
+          <label class="program-check">
+            <input type="checkbox" name="programs" value="co-build">
+            <div class="pc-content"><strong>🔬 Co-Build Program</strong><span>Advanced — Co-product exploration with Microsoft PGs</span></div>
+          </label>
+        </div>
+        <div id="programs-error" style="font-size:.78rem;color:#d83b01;display:none;margin-bottom:16px;">Please select at least one program.</div>
+
+        <div class="form-row">
+          <div class="form-group" id="fg-goals">
+            <label for="goals">What are your top 1–3 goals for joining the Hub? <span class="req">*</span></label>
+            <textarea id="goals" name="goals" placeholder="e.g. We want to accelerate our Azure Marketplace listing, get co-sell support from the GPS team, and validate our AI roadmap with Microsoft's CTO group…"></textarea>
+            <span class="field-error">Please describe your goals (at least 30 characters).</span>
+          </div>
+        </div>
+
+        <div class="form-row cols-2">
+          <div class="form-group" id="fg-azure-use">
+            <label for="azure-use">Current Azure Usage Level</label>
+            <select id="azure-use" name="azure_use">
+              <option value="">Select...</option>
+              <option>Not using Azure yet</option>
+              <option>Evaluating / POC stage</option>
+              <option>Early production workloads</option>
+              <option>Significant Azure spend ($10K–$100K/mo)</option>
+              <option>Heavy Azure usage ($100K+/mo)</option>
+            </select>
+          </div>
+          <div class="form-group" id="fg-source">
+            <label for="source">How did you hear about us? <span class="req">*</span></label>
+            <select id="source" name="source">
+              <option value="">Select...</option>
+              <option>Microsoft team member / Account Executive</option>
+              <option>Referred by a Hub alumni company</option>
+              <option>Event or conference</option>
+              <option>LinkedIn / social media</option>
+              <option>VC or investor recommendation</option>
+              <option>Press / media</option>
+              <option>Other</option>
+            </select>
+            <span class="field-error">Please let us know how you found us.</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label style="display:flex;align-items:flex-start;gap:10px;font-size:.875rem;font-weight:400;cursor:pointer;">
+              <input type="checkbox" id="terms" name="terms" style="margin-top:3px;accent-color:var(--ms-blue);width:16px;height:16px;flex-shrink:0;">
+              I agree to the Microsoft Innovation Hub <a href="#" style="color:var(--ms-blue);">Privacy Statement</a> and consent to my information being processed for program evaluation purposes.
+            </label>
+          </div>
+        </div>
+
+        <div class="form-nav">
+          <button type="button" class="btn btn-ghost" onclick="goToStep(2)">← Back</button>
+          <span class="step-counter">Step 3 of 3</span>
+          <button type="submit" class="btn btn-primary">Submit Application ✓</button>
+        </div>
+      </div>
+
+    </form>
+
+    <!-- SUCCESS SCREEN -->
+    <div class="success-screen" id="success-screen">
+      <div class="success-icon">✅</div>
+      <h2>Application Received!</h2>
+      <p>Thank you for applying to the Microsoft Israel Innovation Hub. Our team reviews every submission personally.</p>
+      <div class="ref-code" id="ref-code">REF-2026-IL-0487</div>
+      <div class="success-card">
+        <h4>What happens next</h4>
+        <ul>
+          <li>You'll receive a confirmation email within the next few minutes</li>
+          <li>A Hub team member will review your application within 5 business days</li>
+          <li>If your profile matches a program, we'll schedule a 30-min discovery call</li>
+          <li>Approved companies are onboarded within 2–3 weeks of acceptance</li>
+        </ul>
+      </div>
+      <div class="azure-badge">☁️ Confirmed submission encrypted via Azure</div>
+      <div style="margin-top:32px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a href="programs.html" class="btn btn-ghost">Explore Programs</a>
+        <a href="events.html" class="btn btn-primary">Register for an Event</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">Microsoft<br>Innovation Hub<br><span>Israel · FY27</span></div>
+          <p class="footer-tagline">Where Israeli Innovation<br>Meets Microsoft at Scale</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Programs</h4>
+          <ul class="footer-links">
+            <li><a href="programs.html#launchpad">LaunchPad</a></li>
+            <li><a href="programs.html#scale360">Scale360</a></li>
+            <li><a href="programs.html#enterprise-bridge">Enterprise Bridge</a></li>
+            <li><a href="programs.html#isv-excellence">ISV Excellence</a></li>
+            <li><a href="programs.html#ai-lab">AI Innovation Lab</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Hub</h4>
+          <ul class="footer-links">
+            <li><a href="events.html">Events &amp; Workshops</a></li>
+            <li><a href="success.html">Success Stories</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="apply.html">Apply Now</a></li>
+            <li><a href="about.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Microsoft</h4>
+          <ul class="footer-links">
+            <li><a href="#" target="_blank">Azure</a></li>
+            <li><a href="#" target="_blank">Marketplace</a></li>
+            <li><a href="#" target="_blank">ISE</a></li>
+            <li><a href="#" target="_blank">CTO Group</a></li>
+            <li><a href="#" target="_blank">GPS Partners</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Microsoft Corporation. Microsoft Israel Innovation Hub. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a><a href="#">Trademarks</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Step navigation
+    let currentStep = 1;
+
+    function goToStep(n) {
+      if (n > currentStep && !validateStep(currentStep)) return;
+      document.getElementById('step-' + currentStep).classList.remove('active');
+      updateProgress(currentStep, n);
+      currentStep = n;
+      document.getElementById('step-' + currentStep).classList.add('active');
+      window.scrollTo({ top: 200, behavior: 'smooth' });
+    }
+
+    function updateProgress(from, to) {
+      for (let i = 1; i <= 3; i++) {
+        const circle = document.getElementById('circle-' + i);
+        const label = document.getElementById('label-' + i);
+        circle.classList.remove('active', 'done');
+        label.classList.remove('active');
+        if (i < to) { circle.classList.add('done'); }
+        else if (i === to) { circle.classList.add('active'); label.classList.add('active'); }
+      }
+      for (let i = 1; i <= 2; i++) {
+        const line = document.getElementById('line-' + i);
+        line.classList.toggle('done', i < to);
+      }
+    }
+
+    function validateStep(step) {
+      let valid = true;
+      if (step === 1) {
+        valid = checkRequired('company-name', 'fg-company-name') && valid;
+        valid = checkURL('website', 'fg-website') && valid;
+        valid = checkRequired('stage', 'fg-stage') && valid;
+        valid = checkRequired('industry', 'fg-industry') && valid;
+        valid = checkRequired('hq', 'fg-hq') && valid;
+      } else if (step === 2) {
+        valid = checkRequired('first-name', 'fg-first') && valid;
+        valid = checkRequired('last-name', 'fg-last') && valid;
+        valid = checkEmail('email', 'fg-email') && valid;
+        valid = checkRequired('role', 'fg-role') && valid;
+      } else if (step === 3) {
+        const checked = document.querySelectorAll('input[name="programs"]:checked').length;
+        const err = document.getElementById('programs-error');
+        if (checked === 0) { err.style.display = 'block'; valid = false; } else { err.style.display = 'none'; }
+        valid = checkMinLength('goals', 'fg-goals', 30) && valid;
+        valid = checkRequired('source', 'fg-source') && valid;
+      }
+      return valid;
+    }
+
+    function checkRequired(id, fg) {
+      const el = document.getElementById(id);
+      const grp = document.getElementById(fg);
+      if (!el.value.trim()) { grp.classList.add('has-error'); return false; }
+      grp.classList.remove('has-error'); return true;
+    }
+    function checkURL(id, fg) {
+      const el = document.getElementById(id);
+      const grp = document.getElementById(fg);
+      const val = el.value.trim();
+      if (!val || (!val.startsWith('http://') && !val.startsWith('https://'))) { grp.classList.add('has-error'); return false; }
+      grp.classList.remove('has-error'); return true;
+    }
+    function checkEmail(id, fg) {
+      const el = document.getElementById(id);
+      const grp = document.getElementById(fg);
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value)) { grp.classList.add('has-error'); return false; }
+      grp.classList.remove('has-error'); return true;
+    }
+    function checkMinLength(id, fg, min) {
+      const el = document.getElementById(id);
+      const grp = document.getElementById(fg);
+      if (el.value.trim().length < min) { grp.classList.add('has-error'); return false; }
+      grp.classList.remove('has-error'); return true;
+    }
+
+    document.getElementById('apply-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (!validateStep(3)) return;
+      const terms = document.getElementById('terms');
+      if (!terms.checked) { showToast('Please accept the privacy statement to continue.', 'error'); return; }
+      const ref = 'REF-2026-IL-' + String(Math.floor(Math.random() * 9000) + 1000);
+      document.getElementById('ref-code').textContent = ref;
+      document.getElementById('apply-form').style.display = 'none';
+      document.getElementById('progress-bar').style.display = 'none';
+      document.getElementById('success-screen').classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

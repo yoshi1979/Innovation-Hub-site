@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register for an Event | Microsoft Israel Innovation Hub</title>
+  <meta name="description" content="Register for Microsoft Israel Innovation Hub events — workshops, demo days, CTO circles, labs, and partner sessions.">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body id="page-register">
+
+  <!-- NAV -->
+  <nav class="nav" id="main-nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-main">Microsoft Innovation Hub</span>
+        <span class="nav-logo-sub">Israel · FY27</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="programs.html" class="nav-link">Programs</a></li>
+        <li><a href="events.html" class="nav-link active">Events</a></li>
+        <li><a href="collaborate.html" class="nav-link">Collaborate</a></li>
+        <li><a href="success.html" class="nav-link">Success Stories</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="apply.html" class="nav-link nav-cta btn btn-primary btn-sm">Apply Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero" style="min-height:auto;padding:60px 24px 48px;">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom:12px;">
+        <a href="index.html" style="color:rgba(255,255,255,.7);">Home</a>
+        <span class="breadcrumb-sep" style="color:rgba(255,255,255,.4);">/</span>
+        <a href="events.html" style="color:rgba(255,255,255,.7);">Events</a>
+        <span class="breadcrumb-sep" style="color:rgba(255,255,255,.4);">/</span>
+        <span style="color:#fff;">Register</span>
+      </nav>
+      <h1 class="hero-title" style="font-size:clamp(1.8rem,3.5vw,2.8rem);">Event Registration</h1>
+      <p class="hero-sub" style="max-width:500px;margin:12px auto 0;">Secure your seat at a Microsoft Israel Innovation Hub event. All confirmed registrations receive an agenda, logistics details, and a calendar invite.</p>
+    </div>
+  </section>
+
+  <!-- MAIN LAYOUT -->
+  <div class="container">
+    <div class="reg-layout">
+
+      <!-- FORM SIDE -->
+      <div>
+        <div class="reg-form-wrap">
+
+          <!-- EVENT SELECTOR -->
+          <div id="event-selector-section">
+            <h2 class="reg-form-title">Choose your event</h2>
+            <p class="reg-form-sub">Select an event below or click "Register" on any event card to pre-fill this form.</p>
+
+            <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px;" id="event-picker">
+
+              <label class="event-pick-item" id="ep-ai-summit" style="display:flex;align-items:flex-start;gap:14px;padding:16px 18px;border:1.5px solid #ddd;border-radius:10px;cursor:pointer;transition:all .2s;">
+                <input type="radio" name="event_select" value="ai-summit" style="margin-top:4px;accent-color:var(--ms-blue);" onchange="selectEvent(this)">
+                <div style="flex:1;">
+                  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                    <strong style="font-size:.95rem;color:var(--ms-navy);">Azure AI Summit Israel 2026</strong>
+                    <span class="badge badge-blue" style="font-size:.7rem;">Conference</span>
+                    <span style="font-size:.75rem;background:#fff3f0;color:#d83b01;padding:2px 8px;border-radius:20px;font-weight:600;border:1px solid #ffd4c8;">38 seats left</span>
+                  </div>
+                  <div style="font-size:.82rem;color:var(--ms-gray);margin-top:4px;">June 15, 2026 · Tel Aviv Convention Center · Full day</div>
+                </div>
+              </label>
+
+              <label class="event-pick-item" id="ep-cto-circle" style="display:flex;align-items:flex-start;gap:14px;padding:16px 18px;border:1.5px solid #ddd;border-radius:10px;cursor:pointer;transition:all .2s;">
+                <input type="radio" name="event_select" value="cto-circle" style="margin-top:4px;accent-color:var(--ms-blue);" onchange="selectEvent(this)">
+                <div style="flex:1;">
+                  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                    <strong style="font-size:.95rem;color:var(--ms-navy);">CTO Circle Dinner Q2</strong>
+                    <span class="badge badge-purple" style="font-size:.7rem;">Executive · Invite-only</span>
+                    <span style="font-size:.75rem;background:#fff3f0;color:#d83b01;padding:2px 8px;border-radius:20px;font-weight:600;border:1px solid #ffd4c8;">8 seats left</span>
+                  </div>
+                  <div style="font-size:.82rem;color:var(--ms-gray);margin-top:4px;">May 22, 2026 · Microsoft Israel HQ, Ra'anana · Evening</div>
+                </div>
+              </label>
+
+              <label class="event-pick-item" id="ep-demo-day" style="display:flex;align-items:flex-start;gap:14px;padding:16px 18px;border:1.5px solid #ddd;border-radius:10px;cursor:pointer;transition:all .2s;">
+                <input type="radio" name="event_select" value="demo-day" style="margin-top:4px;accent-color:var(--ms-blue);" onchange="selectEvent(this)">
+                <div style="flex:1;">
+                  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                    <strong style="font-size:.95rem;color:var(--ms-navy);">Spring Demo Day 2026</strong>
+                    <span class="badge badge-orange" style="font-size:.7rem;">Demo Day</span>
+                  </div>
+                  <div style="font-size:.82rem;color:var(--ms-gray);margin-top:4px;">April 30, 2026 · Peres Center for Peace &amp; Innovation · Full day</div>
+                </div>
+              </label>
+
+              <label class="event-pick-item" id="ep-ai-workshop" style="display:flex;align-items:flex-start;gap:14px;padding:16px 18px;border:1.5px solid #ddd;border-radius:10px;cursor:pointer;transition:all .2s;">
+                <input type="radio" name="event_select" value="ai-workshop" style="margin-top:4px;accent-color:var(--ms-blue);" onchange="selectEvent(this)">
+                <div style="flex:1;">
+                  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                    <strong style="font-size:.95rem;color:var(--ms-navy);">ISV Deep Dive: AI Integration Workshop</strong>
+                    <span class="badge badge-green" style="font-size:.7rem;">Workshop · Technical</span>
+                  </div>
+                  <div style="font-size:.82rem;color:var(--ms-gray);margin-top:4px;">March 25, 2026 · Microsoft Israel HQ, Ra'anana · Half day (AM)</div>
+                </div>
+              </label>
+
+              <label class="event-pick-item" id="ep-marketplace" style="display:flex;align-items:flex-start;gap:14px;padding:16px 18px;border:1.5px solid #ddd;border-radius:10px;cursor:pointer;transition:all .2s;">
+                <input type="radio" name="event_select" value="marketplace" style="margin-top:4px;accent-color:var(--ms-blue);" onchange="selectEvent(this)">
+                <div style="flex:1;">
+                  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                    <strong style="font-size:.95rem;color:var(--ms-navy);">Marketplace GTM Bootcamp</strong>
+                    <span class="badge badge-navy" style="font-size:.7rem;">Bootcamp · Virtual</span>
+                  </div>
+                  <div style="font-size:.82rem;color:var(--ms-gray);margin-top:4px;">April 10, 2026 · Online (Zoom + Azure Virtual) · Full day</div>
+                </div>
+              </label>
+
+              <label class="event-pick-item" id="ep-healthtech" style="display:flex;align-items:flex-start;gap:14px;padding:16px 18px;border:1.5px solid #ddd;border-radius:10px;cursor:pointer;transition:all .2s;">
+                <input type="radio" name="event_select" value="healthtech" style="margin-top:4px;accent-color:var(--ms-blue);" onchange="selectEvent(this)">
+                <div style="flex:1;">
+                  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                    <strong style="font-size:.95rem;color:var(--ms-navy);">HealthTech Innovation Session</strong>
+                    <span class="badge badge-green" style="font-size:.7rem;">Industry Session</span>
+                  </div>
+                  <div style="font-size:.82rem;color:var(--ms-gray);margin-top:4px;">May 8, 2026 · Sheba Medical Center, Tel Hashomer · Half day</div>
+                </div>
+              </label>
+
+              <label class="event-pick-item" id="ep-office-hours" style="display:flex;align-items:flex-start;gap:14px;padding:16px 18px;border:1.5px solid #ddd;border-radius:10px;cursor:pointer;transition:all .2s;">
+                <input type="radio" name="event_select" value="office-hours" style="margin-top:4px;accent-color:var(--ms-blue);" onchange="selectEvent(this)">
+                <div style="flex:1;">
+                  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                    <strong style="font-size:.95rem;color:var(--ms-navy);">Founder Office Hours — May</strong>
+                    <span class="badge badge-blue" style="font-size:.7rem;">Office Hours</span>
+                  </div>
+                  <div style="font-size:.82rem;color:var(--ms-gray);margin-top:4px;">May 29, 2026 · Microsoft Israel HQ + Virtual · Morning slots (09:00–13:00)</div>
+                </div>
+              </label>
+
+              <label class="event-pick-item" id="ep-partner" style="display:flex;align-items:flex-start;gap:14px;padding:16px 18px;border:1.5px solid #ddd;border-radius:10px;cursor:pointer;transition:all .2s;">
+                <input type="radio" name="event_select" value="partner" style="margin-top:4px;accent-color:var(--ms-blue);" onchange="selectEvent(this)">
+                <div style="flex:1;">
+                  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                    <strong style="font-size:.95rem;color:var(--ms-navy);">Partner Showcase Q2</strong>
+                    <span class="badge badge-orange" style="font-size:.7rem;">Partner Session</span>
+                  </div>
+                  <div style="font-size:.82rem;color:var(--ms-gray);margin-top:4px;">June 5, 2026 · Microsoft Israel HQ, Ra'anana · Afternoon</div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- REGISTRATION FORM -->
+          <div id="reg-form-section">
+            <hr style="border:none;border-top:1px solid #EBEBEB;margin:0 0 28px;">
+            <h2 class="reg-form-title">Your details</h2>
+            <p class="reg-form-sub">We'll send your confirmation, agenda, and logistics to your email.</p>
+
+            <form id="register-form" novalidate>
+              <div class="form-row cols-2" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+                <div class="form-group" id="rfg-first">
+                  <label for="r-first">First Name <span style="color:#d83b01;">*</span></label>
+                  <input type="text" id="r-first" name="first_name" placeholder="Maya" autocomplete="given-name">
+                  <span class="field-error" style="font-size:.78rem;color:#d83b01;display:none;">Required.</span>
+                </div>
+                <div class="form-group" id="rfg-last">
+                  <label for="r-last">Last Name <span style="color:#d83b01;">*</span></label>
+                  <input type="text" id="r-last" name="last_name" placeholder="Cohen" autocomplete="family-name">
+                  <span class="field-error" style="font-size:.78rem;color:#d83b01;display:none;">Required.</span>
+                </div>
+              </div>
+              <div class="form-row" style="margin-bottom:16px;">
+                <div class="form-group" id="rfg-email">
+                  <label for="r-email">Work Email <span style="color:#d83b01;">*</span></label>
+                  <input type="email" id="r-email" name="email" placeholder="maya@company.com" autocomplete="email">
+                  <span class="field-error" style="font-size:.78rem;color:#d83b01;display:none;">Please enter a valid email.</span>
+                </div>
+              </div>
+              <div class="form-row cols-2" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+                <div class="form-group">
+                  <label for="r-company">Company <span style="color:#d83b01;">*</span></label>
+                  <input type="text" id="r-company" name="company" placeholder="Your company name" autocomplete="organization">
+                </div>
+                <div class="form-group" id="rfg-role">
+                  <label for="r-role">Your Role <span style="color:#d83b01;">*</span></label>
+                  <select id="r-role" name="role">
+                    <option value="">Select role...</option>
+                    <option>Founder / Co-Founder</option>
+                    <option>CEO</option>
+                    <option>CTO</option>
+                    <option>CPO</option>
+                    <option>VP Engineering</option>
+                    <option>VP Product</option>
+                    <option>Business Development</option>
+                    <option>Enterprise Architect</option>
+                    <option>Microsoft Employee</option>
+                    <option>Investor / VC</option>
+                    <option>Other</option>
+                  </select>
+                  <span class="field-error" style="font-size:.78rem;color:#d83b01;display:none;">Required.</span>
+                </div>
+              </div>
+              <div class="form-row" style="margin-bottom:16px;">
+                <div class="form-group">
+                  <label for="r-dietary">Dietary Requirements (for in-person events)</label>
+                  <select id="r-dietary" name="dietary">
+                    <option value="">No special requirements</option>
+                    <option>Vegetarian</option>
+                    <option>Vegan</option>
+                    <option>Kosher</option>
+                    <option>Gluten-free</option>
+                    <option>Nut allergy</option>
+                    <option>Other — please note below</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row" style="margin-bottom:16px;">
+                <div class="form-group">
+                  <label for="r-topic">Topics you're most interested in (optional)</label>
+                  <textarea id="r-topic" name="topics" rows="3" placeholder="e.g. Azure OpenAI integration, co-sell readiness, multi-cloud architecture..." style="min-height:80px;resize:vertical;"></textarea>
+                </div>
+              </div>
+              <div class="form-row" style="margin-bottom:28px;">
+                <label style="display:flex;align-items:flex-start;gap:10px;font-size:.875rem;cursor:pointer;">
+                  <input type="checkbox" id="r-terms" name="terms" style="margin-top:3px;accent-color:var(--ms-blue);width:16px;height:16px;flex-shrink:0;" required>
+                  I agree to Microsoft's <a href="#" style="color:var(--ms-blue);">Event Terms &amp; Privacy Policy</a>. Microsoft may use my contact details to follow up about this event and related Hub programs.
+                </label>
+              </div>
+              <div style="display:none;margin-bottom:16px;" id="event-warn">
+                <div class="alert alert-warning">⚠️ Please select an event above before registering.</div>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:14px 24px;">
+                Confirm Registration →
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="reg-sidebar">
+        <!-- Event detail card (dynamic) -->
+        <div class="reg-event-card" id="event-detail-card">
+          <div class="reg-event-band">
+            <h3 id="ev-title">Select an event</h3>
+            <p id="ev-type">Choose an event from the list to see details</p>
+          </div>
+          <div class="reg-event-details">
+            <div class="reg-detail-row">
+              <span class="reg-detail-icon">📅</span>
+              <span id="ev-date">—</span>
+            </div>
+            <div class="reg-detail-row">
+              <span class="reg-detail-icon">📍</span>
+              <span id="ev-location">—</span>
+            </div>
+            <div class="reg-detail-row">
+              <span class="reg-detail-icon">⏱</span>
+              <span id="ev-duration">—</span>
+            </div>
+            <div class="reg-detail-row">
+              <span class="reg-detail-icon">🎤</span>
+              <span id="ev-speakers">—</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trust box -->
+        <div class="trust-box">
+          <h4>What to expect after registering</h4>
+          <ul>
+            <li>Confirmation email within minutes</li>
+            <li>Full agenda 7 days before the event</li>
+            <li>Calendar invite (.ics) automatically attached</li>
+            <li>Logistics &amp; access details 48 hours prior</li>
+            <li>Post-event resources and recordings (where applicable)</li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="contact-widget">
+          <h4>Questions about this event?</h4>
+          <div class="contact-person">
+            <div class="contact-avatar">ML</div>
+            <div>
+              <div class="contact-name">Maya Levi</div>
+              <div class="contact-role">Startup Programs Lead · Innovation Hub</div>
+            </div>
+          </div>
+          <a href="about.html#contact" class="btn btn-outline btn-sm" style="margin-top:4px;">Send a message</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SUCCESS SCREEN -->
+  <div id="reg-success" style="display:none;max-width:680px;margin:0 auto;padding:60px 24px 80px;text-align:center;">
+    <div style="font-size:3.5rem;margin-bottom:16px;">🎉</div>
+    <h2 style="font-size:2rem;font-weight:700;color:var(--ms-navy);margin-bottom:12px;">You're registered!</h2>
+    <p style="color:var(--ms-gray);max-width:480px;margin:0 auto 24px;">A confirmation email is on its way. Check your inbox — it includes your calendar invite, agenda, and everything you need to prepare.</p>
+    <div style="display:inline-block;background:var(--ms-blue);color:#fff;padding:6px 18px;border-radius:20px;font-weight:700;font-size:.9rem;margin-bottom:24px;letter-spacing:.5px;" id="confirm-code">CONF-2026-IL-0000</div>
+    <div style="background:var(--ms-light);border-radius:12px;padding:24px;margin:0 auto 32px;max-width:460px;text-align:left;">
+      <h4 style="font-size:1rem;font-weight:700;color:var(--ms-navy);margin-bottom:12px;">Your registered event</h4>
+      <p style="font-size:.95rem;font-weight:700;color:var(--ms-dark);" id="success-event-name">—</p>
+      <p style="font-size:.85rem;color:var(--ms-gray);margin-top:6px;" id="success-event-details">—</p>
+    </div>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="events.html" class="btn btn-ghost">Browse More Events</a>
+      <a href="apply.html" class="btn btn-primary">Apply to a Program</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">Microsoft<br>Innovation Hub<br><span>Israel · FY27</span></div>
+          <p class="footer-tagline">Where Israeli Innovation<br>Meets Microsoft at Scale</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Programs</h4>
+          <ul class="footer-links">
+            <li><a href="programs.html#launchpad">LaunchPad</a></li>
+            <li><a href="programs.html#scale360">Scale360</a></li>
+            <li><a href="programs.html#enterprise-bridge">Enterprise Bridge</a></li>
+            <li><a href="programs.html#isv-excellence">ISV Excellence</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Hub</h4>
+          <ul class="footer-links">
+            <li><a href="events.html">Events &amp; Workshops</a></li>
+            <li><a href="collaborate.html">Collaborate</a></li>
+            <li><a href="success.html">Success Stories</a></li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Microsoft</h4>
+          <ul class="footer-links">
+            <li><a href="#" target="_blank">Azure</a></li>
+            <li><a href="#" target="_blank">Marketplace</a></li>
+            <li><a href="#" target="_blank">ISE</a></li>
+            <li><a href="#" target="_blank">CTO Group</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Microsoft Corporation. Microsoft Israel Innovation Hub. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a><a href="#">Trademarks</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Event data
+    const events = {
+      'ai-summit': {
+        title: 'Azure AI Summit Israel 2026',
+        type: 'Conference · Full Day',
+        date: 'June 15, 2026 · 08:30–18:00',
+        location: 'Tel Aviv Convention Center, Tel Aviv',
+        duration: 'Full day with networking evening',
+        speakers: 'Tamar Cohen, Avi Shapiro + 28 speakers'
+      },
+      'cto-circle': {
+        title: 'CTO Circle Dinner Q2',
+        type: 'Executive Dinner · Invitation Only',
+        date: 'May 22, 2026 · 19:00–22:30',
+        location: 'Microsoft Israel HQ, Ra\'anana',
+        duration: 'Evening dinner (3.5 hours)',
+        speakers: 'Avi Shapiro + 2 guest speakers from Microsoft CTO Group'
+      },
+      'demo-day': {
+        title: 'Spring Demo Day 2026',
+        type: 'Demo Day · Full Day',
+        date: 'April 30, 2026 · 09:00–17:30',
+        location: 'Peres Center for Peace & Innovation, Jaffa',
+        duration: 'Full day with investor networking',
+        speakers: 'Tamar Cohen + 12 Hub company presenters'
+      },
+      'ai-workshop': {
+        title: 'ISV Deep Dive: AI Integration Workshop',
+        type: 'Technical Workshop · Half Day',
+        date: 'March 25, 2026 · 09:00–13:00',
+        location: 'Microsoft Israel HQ, Ra\'anana',
+        duration: 'Half day (4 hours, hands-on)',
+        speakers: 'Yael Ben-David, Azure AI Technical Lead'
+      },
+      'marketplace': {
+        title: 'Marketplace GTM Bootcamp',
+        type: 'Bootcamp · Virtual · Full Day',
+        date: 'April 10, 2026 · 09:00–16:00',
+        location: 'Online — Zoom + Azure Virtual Platform',
+        duration: 'Full day (7 hours with breaks)',
+        speakers: 'Ron Katz + Microsoft GPS & Marketplace team'
+      },
+      'healthtech': {
+        title: 'HealthTech Innovation Session',
+        type: 'Industry Session · Half Day',
+        date: 'May 8, 2026 · 10:00–14:00',
+        location: 'Sheba Medical Center, Tel Hashomer',
+        duration: 'Half day with site tour',
+        speakers: 'Noa Friedman + Microsoft H&LS team'
+      },
+      'office-hours': {
+        title: 'Founder Office Hours — May',
+        type: 'Office Hours · Morning Sessions',
+        date: 'May 29, 2026 · 09:00–13:00',
+        location: 'Microsoft Israel HQ + Virtual (your choice)',
+        duration: '30-minute 1:1 slots available',
+        speakers: 'Maya Levi, Tamar Cohen, Ron Katz'
+      },
+      'partner': {
+        title: 'Partner Showcase Q2',
+        type: 'Partner Session · Afternoon',
+        date: 'June 5, 2026 · 13:00–17:30',
+        location: 'Microsoft Israel HQ, Ra\'anana',
+        duration: 'Afternoon (4.5 hours)',
+        speakers: 'Noa Friedman + 6 Partner companies'
+      }
+    };
+
+    let selectedEvent = null;
+
+    // Pre-select from URL hash
+    function init() {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && events[hash]) {
+        const radio = document.querySelector(`input[value="${hash}"]`);
+        if (radio) {
+          radio.checked = true;
+          selectEvent(radio);
+        }
+      }
+    }
+
+    function selectEvent(radio) {
+      selectedEvent = radio.value;
+      const ev = events[selectedEvent];
+      if (!ev) return;
+      document.getElementById('ev-title').textContent = ev.title;
+      document.getElementById('ev-type').textContent = ev.type;
+      document.getElementById('ev-date').textContent = ev.date;
+      document.getElementById('ev-location').textContent = ev.location;
+      document.getElementById('ev-duration').textContent = ev.duration;
+      document.getElementById('ev-speakers').textContent = ev.speakers;
+      // Highlight selected
+      document.querySelectorAll('.event-pick-item').forEach(el => {
+        el.style.borderColor = '#ddd';
+        el.style.background = '';
+      });
+      radio.closest('.event-pick-item').style.borderColor = 'var(--ms-blue)';
+      radio.closest('.event-pick-item').style.background = 'rgba(0,120,212,.04)';
+    }
+
+    function validateReg() {
+      let ok = true;
+      const rq = (id, fg) => {
+        const el = document.getElementById(id);
+        const grp = document.getElementById(fg);
+        if (!grp) return el && !!el.value.trim();
+        if (!el.value.trim()) { grp.classList.add('has-error'); grp.querySelector('.field-error').style.display='block'; ok=false; return false; }
+        grp.classList.remove('has-error'); grp.querySelector('.field-error').style.display='none'; return true;
+      };
+      rq('r-first', 'rfg-first');
+      rq('r-last', 'rfg-last');
+      const emailEl = document.getElementById('r-email');
+      const emailGrp = document.getElementById('rfg-email');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value)) {
+        emailGrp.classList.add('has-error'); emailGrp.querySelector('.field-error').style.display='block'; ok=false;
+      } else { emailGrp.classList.remove('has-error'); emailGrp.querySelector('.field-error').style.display='none'; }
+      rq('r-role', 'rfg-role');
+      return ok;
+    }
+
+    document.getElementById('register-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (!selectedEvent) { document.getElementById('event-warn').style.display='block'; return; }
+      document.getElementById('event-warn').style.display='none';
+      if (!document.getElementById('r-terms').checked) { showToast('Please accept the event terms to continue.', 'error'); return; }
+      if (!validateReg()) return;
+      const code = 'CONF-2026-IL-' + String(Math.floor(Math.random() * 9000) + 1000);
+      document.getElementById('confirm-code').textContent = code;
+      const ev = events[selectedEvent];
+      document.getElementById('success-event-name').textContent = ev.title;
+      document.getElementById('success-event-details').textContent = ev.date + ' · ' + ev.location;
+      // Show success
+      document.querySelector('.container').style.display = 'none';
+      const hero = document.querySelector('.page-hero');
+      if (hero) hero.style.display = 'none';
+      document.getElementById('reg-success').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
