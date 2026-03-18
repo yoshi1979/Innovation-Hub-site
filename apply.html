@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Apply – Microsoft Israel Innovation Hub</title>
+  <meta name="description" content="Apply to join the Microsoft Israel Innovation Hub. Access Azure credits, co-sell opportunities, technical mentorship, and Microsoft's global platform.">
   <link rel="stylesheet" href="css/main.css">
   <style>
     .apply-hero { background: var(--ms-gradient); padding: 80px 0 60px; color: #fff; text-align: center; }
@@ -237,7 +238,7 @@
 
         <div class="form-nav">
           <span class="step-counter">Step 1 of 3</span>
-          <button type="button" class="btn btn-primary" onclick="goToStep(2)">Next: Your Info →</button>
+          <button type="button" class="btn btn-primary" data-next-step="2">Next: Your Info →</button>
         </div>
       </div>
 
@@ -304,9 +305,9 @@
         </div>
 
         <div class="form-nav">
-          <button type="button" class="btn btn-ghost" onclick="goToStep(1)">← Back</button>
+          <button type="button" class="btn btn-ghost" data-prev-step="1">← Back</button>
           <span class="step-counter">Step 2 of 3</span>
-          <button type="button" class="btn btn-primary" onclick="goToStep(3)">Next: Goals →</button>
+          <button type="button" class="btn btn-primary" data-next-step="3">Next: Goals →</button>
         </div>
       </div>
 
@@ -400,7 +401,7 @@
         </div>
 
         <div class="form-nav">
-          <button type="button" class="btn btn-ghost" onclick="goToStep(2)">← Back</button>
+          <button type="button" class="btn btn-ghost" data-prev-step="2">← Back</button>
           <span class="step-counter">Step 3 of 3</span>
           <button type="submit" class="btn btn-primary">Submit Application ✓</button>
         </div>
@@ -463,11 +464,11 @@
         <div class="footer-col">
           <h4 class="footer-heading">Microsoft</h4>
           <ul class="footer-links">
-            <li><a href="#" target="_blank">Azure</a></li>
-            <li><a href="#" target="_blank">Marketplace</a></li>
-            <li><a href="#" target="_blank">ISE</a></li>
-            <li><a href="#" target="_blank">CTO Group</a></li>
-            <li><a href="#" target="_blank">GPS Partners</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">Azure</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">Marketplace</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">ISE</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">CTO Group</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer">GPS Partners</a></li>
           </ul>
         </div>
       </div>
@@ -569,6 +570,21 @@
       document.getElementById('progress-bar').style.display = 'none';
       document.getElementById('success-screen').classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Add event listeners for navigation buttons
+    document.querySelectorAll('[data-next-step]').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const nextStep = parseInt(this.getAttribute('data-next-step'));
+        goToStep(nextStep);
+      });
+    });
+
+    document.querySelectorAll('[data-prev-step]').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const prevStep = parseInt(this.getAttribute('data-prev-step'));
+        goToStep(prevStep);
+      });
     });
   </script>
 </body>
