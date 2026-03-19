@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Copilot &amp; AI Engineering | Microsoft Israel Innovation Hub</title>
+  <meta name="description" content="Hands-on GitHub Copilot sessions, AI-assisted SDLC workshops, and developer productivity programs from the Microsoft Israel Innovation Hub. Covering the full AI software development lifecycle.">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* ── Copilot page-specific styles ─────────────────────── */
+    .copilot-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(92,45,145,0.15);
+      border: 1px solid rgba(92,45,145,0.35);
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #c8a8f0;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .sdlc-coverage-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0;
+    }
+    .sdlc-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 13px;
+      border-radius: 14px;
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(92,45,145,0.08);
+      color: var(--ms-purple);
+      border: 1px solid rgba(92,45,145,0.15);
+    }
+    .session-card {
+      background: var(--ms-white);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(0,0,0,0.07);
+      border-top: 4px solid var(--ms-purple);
+      padding: 28px 24px;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .session-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--ms-purple);
+    }
+    .session-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .session-card-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .session-badge {
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      background: rgba(92,45,145,0.08);
+      color: var(--ms-purple);
+    }
+    .session-badge-green {
+      background: rgba(16,124,16,0.08);
+      color: var(--ms-green);
+    }
+    .session-badge-blue {
+      background: rgba(0,120,212,0.08);
+      color: var(--ms-blue);
+    }
+    .session-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ms-navy);
+      margin: 0;
+      line-height: 1.4;
+    }
+    .session-meta {
+      font-size: 12px;
+      color: var(--ms-gray);
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .session-desc {
+      font-size: 14px;
+      color: var(--ms-gray);
+      line-height: 1.7;
+      margin: 0;
+    }
+    .session-outcomes {
+      background: var(--ms-light);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin: 0;
+    }
+    .session-outcomes-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--ms-gray);
+      margin-bottom: 8px;
+    }
+    .session-outcomes ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .session-outcomes ul li {
+      font-size: 12px;
+      color: var(--ms-gray);
+      line-height: 1.5;
+      padding-left: 16px;
+      position: relative;
+    }
+    .session-outcomes ul li::before {
+      content: '✓';
+      color: var(--ms-green);
+      font-weight: 700;
+      position: absolute;
+      left: 0;
+      font-size: 11px;
+    }
+    .session-host {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+    .session-host-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--ms-purple), #7b5ea7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .session-host-info p {
+      margin: 0;
+      line-height: 1.3;
+    }
+    .session-host-info .host-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ms-navy);
+    }
+    .session-host-info .host-title {
+      font-size: 11px;
+      color: var(--ms-gray);
+    }
+    .session-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: auto;
+    }
+    /* Featured detail section */
+    .detail-section {
+      background: var(--ms-white);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      border: 1px solid rgba(0,0,0,0.07);
+      box-shadow: var(--shadow-sm);
+    }
+    .detail-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    @media (max-width: 768px) {
+      .detail-two-col { grid-template-columns: 1fr; }
+      .detail-section { padding: 28px 20px; }
+    }
+    .detail-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--ms-purple);
+      margin-bottom: 8px;
+    }
+    .program-strip {
+      background: linear-gradient(135deg, var(--ms-navy) 0%, #1a3d6e 100%);
+      border-radius: var(--radius-md);
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .program-strip h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ms-white);
+      margin: 0 0 6px;
+    }
+    .program-strip p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .audience-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .audience-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 12px;
+      border-radius: 14px;
+      font-size: 11px;
+      font-weight: 600;
+      background: rgba(92,45,145,0.08);
+      color: var(--ms-purple);
+      border: 1px solid rgba(92,45,145,0.12);
+    }
+  </style>
+</head>
+<body id="page-copilot">
+
+  <!-- NAV -->
+  <nav class="nav" id="main-nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <svg class="ms-logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" width="30" height="30" aria-hidden="true" focusable="false">
+          <path fill="#F25022" d="M1 1h10v10H1z"/>
+          <path fill="#7FBA00" d="M12 1h10v10H12z"/>
+          <path fill="#00A4EF" d="M1 12h10v10H1z"/>
+          <path fill="#FFB900" d="M12 12h10v10H12z"/>
+        </svg>
+        <span class="nav-logo-text">
+          <span class="nav-logo-main">Microsoft Israel Innovation Hub</span>
+          <span class="nav-logo-sub">FY27</span>
+        </span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="programs.html" class="nav-link">Programs</a></li>
+        <li><a href="events.html" class="nav-link">Events</a></li>
+        <li><a href="collaborate.html" class="nav-link">Collaborate</a></li>
+        <li><a href="experts.html" class="nav-link">Experts</a></li>
+        <li><a href="success.html" class="nav-link">Success Stories</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="apply.html" class="nav-link nav-cta btn btn-primary btn-sm">Apply Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero" style="background:linear-gradient(135deg, #2d1b4e 0%, #3d2472 50%, #5C2D91 100%);">
+    <div class="container">
+      <div class="ms-brand-badge">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" width="18" height="18" aria-hidden="true" focusable="false">
+          <path fill="#F25022" d="M1 1h10v10H1z"/>
+          <path fill="#7FBA00" d="M12 1h10v10H12z"/>
+          <path fill="#00A4EF" d="M1 12h10v10H1z"/>
+          <path fill="#FFB900" d="M12 12h10v10H12z"/>
+        </svg>
+        Microsoft Israel Innovation Hub
+      </div>
+      <div class="copilot-hero-badge">💻 AI Engineering Track</div>
+      <h1 class="hero-title">GitHub Copilot &amp;<br>AI-Assisted Engineering</h1>
+      <p class="hero-sub">Hands-on sessions, coding labs, productivity programs, and executive workshops covering the full AI-assisted software development lifecycle. Not just the IDE — the entire journey from requirements to release.</p>
+      <div class="hero-actions">
+        <a href="events.html" class="btn btn-primary">See Upcoming Sessions</a>
+        <a href="programs.html" class="btn btn-ghost">View Programs</a>
+      </div>
+      <div class="hero-audience-row" style="margin-top:32px;">
+        <span class="hero-audience-chip">👨‍💻 Developers</span>
+        <span class="hero-audience-chip">🧑‍💼 Engineering Managers</span>
+        <span class="hero-audience-chip">🏗️ Architects</span>
+        <span class="hero-audience-chip">👔 CTOs</span>
+        <span class="hero-audience-chip">🏭 Mature ISVs</span>
+        <span class="hero-audience-chip">🚀 Scaleup Teams</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS THIS TRACK -->
+  <section class="section" style="background:var(--ms-white);">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Beyond the IDE. Across the Entire SDLC.</h2>
+        <p class="section-sub">GitHub Copilot sessions at the Innovation Hub are designed to help engineering teams accelerate their entire software delivery process — not just individual coding tasks.</p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&h=300&fit=crop&crop=center" alt="Developers collaborating on code at modern workstations" class="section-image-banner" loading="lazy">
+      <div class="cards-grid cards-grid-3" style="margin-top:40px;">
+        <div class="card">
+          <div class="card-icon" style="background:linear-gradient(135deg, var(--ms-purple), #7b5ea7);">⌨️</div>
+          <h3 class="card-title">Coding &amp; Refactoring</h3>
+          <p class="card-text">Hands-on labs where developers write real code with GitHub Copilot as an AI pair programmer. Learn prompt patterns for faster feature delivery, smarter refactoring, and cleaner code across your existing stack.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:linear-gradient(135deg, var(--ms-blue), var(--ms-blue-light));">🧪</div>
+          <h3 class="card-title">Testing &amp; Documentation</h3>
+          <p class="card-text">Learn how GitHub Copilot generates test suites, improves test coverage, and creates accurate documentation automatically — freeing engineering time for higher-value work without sacrificing quality.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:linear-gradient(135deg, var(--ms-navy), var(--ms-blue));">📋</div>
+          <h3 class="card-title">Full SDLC Acceleration</h3>
+          <p class="card-text">From requirements shaping and architecture design through CI/CD and release preparation — explore how GitHub Copilot supports every phase of your delivery lifecycle, not just writing functions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SDLC COVERAGE STRIP -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">The Full AI SDLC</h2>
+        <p class="section-sub">Every session and program is positioned against a specific set of SDLC stages. Pick what you need most.</p>
+      </div>
+      <div class="sdlc-coverage-grid" style="justify-content:center;">
+        <span class="sdlc-chip">💡 Ideation &amp; Feature Design</span>
+        <span class="sdlc-chip">📋 Requirements Shaping</span>
+        <span class="sdlc-chip">🏗️ Architecture &amp; Solution Design</span>
+        <span class="sdlc-chip">⌨️ Coding &amp; Refactoring</span>
+        <span class="sdlc-chip">🧪 Test Generation</span>
+        <span class="sdlc-chip">📝 Documentation Generation</span>
+        <span class="sdlc-chip">🔍 Code Review Support</span>
+        <span class="sdlc-chip">⚡ Backlog Acceleration</span>
+        <span class="sdlc-chip">🛠️ Developer Workflow Optimization</span>
+        <span class="sdlc-chip">🔄 DevOps &amp; CI/CD</span>
+        <span class="sdlc-chip">🔐 Secure Development</span>
+        <span class="sdlc-chip">🏭 Modernization &amp; Migration</span>
+        <span class="sdlc-chip">📈 Engineering Productivity</span>
+        <span class="sdlc-chip">🤝 Team Enablement</span>
+        <span class="sdlc-chip">⚖️ Governance &amp; Responsible AI</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED SESSIONS GRID -->
+  <section class="section" id="sessions" style="background:var(--ms-white);">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Featured Sessions &amp; Labs</h2>
+        <p class="section-sub">Curated GitHub Copilot sessions for every role and stage — practical, hands-on, and outcome-focused.</p>
+      </div>
+
+      <div class="cards-grid cards-grid-3">
+
+        <!-- Session 1: Coding Lab -->
+        <div class="session-card">
+          <div class="session-card-header">
+            <div>
+              <div class="session-card-badges">
+                <span class="session-badge">Hands-On Lab</span>
+                <span class="session-badge-green session-badge">July 12</span>
+              </div>
+              <h3 style="margin-top:10px;">GitHub Copilot Coding Lab</h3>
+            </div>
+          </div>
+          <div class="session-meta">
+            <span>🧑‍💻 Developers · Startup Engineers · Product Builders</span>
+            <span>⏱ Half-day · Microsoft Israel HQ</span>
+          </div>
+          <p class="session-desc">Hands-on session where you write real code with GitHub Copilot. Covers feature coding, refactoring, test generation, and documentation workflows. Laptop required.</p>
+          <div class="session-outcomes">
+            <p class="session-outcomes-label">What You Leave With</p>
+            <ul>
+              <li>Practical Copilot usage patterns for daily coding</li>
+              <li>Starter prompt pack for your tech stack</li>
+              <li>Faster feature delivery workflows</li>
+            </ul>
+          </div>
+          <div class="sdlc-coverage-grid" style="margin:0;">
+            <span class="sdlc-chip" style="font-size:10px;padding:3px 8px;">Coding</span>
+            <span class="sdlc-chip" style="font-size:10px;padding:3px 8px;">Refactoring</span>
+            <span class="sdlc-chip" style="font-size:10px;padding:3px 8px;">Test Gen</span>
+            <span class="sdlc-chip" style="font-size:10px;padding:3px 8px;">Documentation</span>
+          </div>
+          <div class="session-host">
+            <div class="session-host-avatar">LB</div>
+            <div class="session-host-info">
+              <p class="host-name">Lior Ben-Ami</p>
+              <p class="host-title">Senior GitHub Copilot Specialist</p>
+            </div>
+          </div>
+          <div class="session-actions">
+            <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+            <a href="events.html" class="btn btn-secondary btn-sm">Details</a>
+          </div>
+        </div>
+
+        <!-- Session 2: Engineering Productivity -->
+        <div class="session-card">
+          <div class="session-card-header">
+            <div>
+              <div class="session-card-badges">
+                <span class="session-badge">Virtual Session</span>
+                <span class="session-badge-green session-badge">July 24</span>
+              </div>
+              <h3 style="margin-top:10px;">Engineering Productivity with GitHub Copilot</h3>
+            </div>
+          </div>
+          <div class="session-meta">
+            <span>🧑‍💼 Engineering Managers · CTOs · Team Leads</span>
+            <span>⏱ 2 hours · Virtual</span>
+          </div>
+          <p class="session-desc">For engineering leaders who want to drive team-wide GitHub Copilot adoption. Covers adoption patterns, backlog acceleration, and how to measure and communicate productivity impact.</p>
+          <div class="session-outcomes">
+            <p class="session-outcomes-label">What You Leave With</p>
+            <ul>
+              <li>Team Copilot adoption playbook</li>
+              <li>Engineering productivity framework</li>
+              <li>Governance checklist for responsible AI use</li>
+            </ul>
+          </div>
+          <div class="sdlc-coverage-grid" style="margin:0;">
+            <span class="sdlc-chip" style="font-size:10px;padding:3px 8px;">Team Workflow</span>
+            <span class="sdlc-chip" style="font-size:10px;padding:3px 8px;">Backlog</span>
+            <span class="sdlc-chip" style="font-size:10px;padding:3px 8px;">Code Review</span>
+            <span class="sdlc-chip" style="font-size:10px;padding:3px 8px;">Governance</span>
+          </div>
+          <div class="session-host">
+            <div class="session-host-avatar">RK</div>
+            <div class="session-host-info">
+              <p class="host-name">Roni Karmel</p>
+              <p class="host-title">AI Engineering Lead</p>
+            </div>
+          </div>
+          <div class="session-actions">
+            <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+            <a href="events.html" class="btn btn-secondary btn-sm">Details</a>
+          </div>
+        </div>
+
+        <!-- Session 3: Requirements to Release -->
+        <div class="session-card">
+          <div class="session-card-header">
+            <div>
+              <div class="session-card-badges">
+                <span class="session-badge">Full-Day Workshop</span>
+                <span class="session-badge-green session-badge">Aug 7</span>
+              </div>
+              <h3 style="margin-top:10px;">From Requirements to Release with GitHub Copilot</h3>
+            </div>
+          </div>
+          <div class="session-meta">
+            <span>🏗️ CTOs · Architects · Senior Engineers</span>
+            <span>⏱ Full day · Microsoft Israel HQ</span>
+          </div>
+          <p class="session-desc">Map how GitHub Copilot supports every phase of your SDLC — from ideation through design, coding, testing, CI/CD, and release. Leave with a complete AI-assisted workflow map and 90-day adoption plan.</p>
+          <div class="session-outcomes">
+            <p class="session-outcomes-label">What You Leave With</p>
+            <ul>
+              <li>Your team's AI SDLC workflow map</li>
+              <li>90-day Copilot adoption plan</li>
+              <li>Prompt library for each SDLC phase</li>
+            </ul>
+          </div>
+          <div class="sdlc-coverage-grid" style="margin:0;">
+            <span class="sdlc-chip" style="font-size:10px;padding:3px 8px;">Requirements</span>
+            <span class="sdlc-chip" style="font-size:10px;padding:3px 8px;">Design</span>
+            <span class="sdlc-chip" style="font-size:10px;padding:3px 8px;">Coding</span>
+            <span class="sdlc-chip" style="font-size:10px;padding:3px 8px;">Testing</span>
+            <span class="sdlc-chip" style="font-size:10px;padding:3px 8px;">CI/CD</span>
+          </div>
+          <div class="session-host">
+            <div class="session-host-avatar">DF</div>
+            <div class="session-host-info">
+              <p class="host-name">Dana Friedman</p>
+              <p class="host-title">AI SDLC Strategy Lead</p>
+            </div>
+          </div>
+          <div class="session-actions">
+            <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+            <a href="events.html" class="btn btn-secondary btn-sm">Details</a>
+          </div>
+        </div>
+
+        <!-- Session 4: Secure Dev -->
+        <div class="session-card">
+          <div class="session-card-header">
+            <div>
+              <div class="session-card-badges">
+                <span class="session-badge">Workshop</span>
+                <span class="session-badge-blue session-badge">Aug 21</span>
+              </div>
+              <h3 style="margin-top:10px;">Secure AI-Assisted Development Across the SDLC</h3>
+            </div>
+          </div>
+          <div class="session-meta">
+            <span>🔐 Architects · Security Engineers · Engineering Managers</span>
+            <span>⏱ 3 hours · Virtual + In-person</span>
+          </div>
+          <p class="session-desc">Learn secure coding patterns, governance policies, and risk controls for using GitHub Copilot in enterprise and regulated environments. Covers CI/CD security gates and responsible AI engineering.</p>
+          <div class="session-outcomes">
+            <p class="session-outcomes-label">What You Leave With</p>
+            <ul>
+              <li>Secure Copilot usage guidelines for your team</li>
+              <li>Risk controls and governance framework</li>
+              <li>CI/CD security integration patterns</li>
+            </ul>
+          </div>
+          <div class="sdlc-coverage-grid" style="margin:0;">
+            <span class="sdlc-chip" style="font-size:10px;padding:3px 8px;">Secure Coding</span>
+            <span class="sdlc-chip" style="font-size:10px;padding:3px 8px;">Code Review</span>
+            <span class="sdlc-chip" style="font-size:10px;padding:3px 8px;">CI/CD</span>
+            <span class="sdlc-chip" style="font-size:10px;padding:3px 8px;">Governance</span>
+          </div>
+          <div class="session-host">
+            <div class="session-host-avatar">IM</div>
+            <div class="session-host-info">
+              <p class="host-name">Itay Mor</p>
+              <p class="host-title">Secure Development Lead</p>
+            </div>
+          </div>
+          <div class="session-actions">
+            <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+            <a href="events.html" class="btn btn-secondary btn-sm">Details</a>
+          </div>
+        </div>
+
+        <!-- Session 5: ISV Modernization -->
+        <div class="session-card">
+          <div class="session-card-header">
+            <div>
+              <div class="session-card-badges">
+                <span class="session-badge">ISV Session</span>
+                <span class="session-badge-blue session-badge">Sep 4</span>
+              </div>
+              <h3 style="margin-top:10px;">Copilot for ISV Engineering Modernization</h3>
+            </div>
+          </div>
+          <div class="session-meta">
+            <span>🏭 Mature ISV Engineering &amp; Product Teams</span>
+            <span>⏱ Half-day · Microsoft Israel HQ</span>
+          </div>
+          <p class="session-desc">Explore how GitHub Copilot accelerates legacy refactoring, documentation uplift, test coverage improvement, and migration to modern architectures — without stopping the business.</p>
+          <div class="session-outcomes">
+            <p class="session-outcomes-label">What You Leave With</p>
+            <ul>
+              <li>Top modernization opportunities identified</li>
+              <li>AI-assisted engineering plan for uplift</li>
+              <li>Migration acceleration techniques</li>
+            </ul>
+          </div>
+          <div class="sdlc-coverage-grid" style="margin:0;">
+            <span class="sdlc-chip" style="font-size:10px;padding:3px 8px;">Modernization</span>
+            <span class="sdlc-chip" style="font-size:10px;padding:3px 8px;">Refactoring</span>
+            <span class="sdlc-chip" style="font-size:10px;padding:3px 8px;">Test Coverage</span>
+            <span class="sdlc-chip" style="font-size:10px;padding:3px 8px;">Migration</span>
+          </div>
+          <div class="session-host">
+            <div class="session-host-avatar">TG</div>
+            <div class="session-host-info">
+              <p class="host-name">Tal Greenberg</p>
+              <p class="host-title">Azure Developer Productivity Architect</p>
+            </div>
+          </div>
+          <div class="session-actions">
+            <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+            <a href="events.html" class="btn btn-secondary btn-sm">Details</a>
+          </div>
+        </div>
+
+        <!-- Session 6: CTO Roundtable -->
+        <div class="session-card">
+          <div class="session-card-header">
+            <div>
+              <div class="session-card-badges">
+                <span class="session-badge">Roundtable</span>
+                <span class="session-badge-blue session-badge">Oct 16</span>
+              </div>
+              <h3 style="margin-top:10px;">Copilot for CTOs: Scaling Developer Productivity</h3>
+            </div>
+          </div>
+          <div class="session-meta">
+            <span>👔 CTOs · VP Engineering (Invitation-based)</span>
+            <span>⏱ 2 hours · Microsoft Israel HQ · Max 20 participants</span>
+          </div>
+          <p class="session-desc">Exclusive peer roundtable for CTOs. Discuss GitHub Copilot adoption at organizational scale, developer experience transformation, and making the business case for AI-assisted engineering.</p>
+          <div class="session-outcomes">
+            <p class="session-outcomes-label">What You Leave With</p>
+            <ul>
+              <li>Org-wide Copilot adoption strategy</li>
+              <li>Developer productivity measurement framework</li>
+              <li>Peer network of engineering leaders</li>
+            </ul>
+          </div>
+          <div class="sdlc-coverage-grid" style="margin:0;">
+            <span class="sdlc-chip" style="font-size:10px;padding:3px 8px;">Team Adoption</span>
+            <span class="sdlc-chip" style="font-size:10px;padding:3px 8px;">Productivity</span>
+            <span class="sdlc-chip" style="font-size:10px;padding:3px 8px;">DevEx</span>
+            <span class="sdlc-chip" style="font-size:10px;padding:3px 8px;">Governance</span>
+          </div>
+          <div class="session-host">
+            <div class="session-host-avatar">RK</div>
+            <div class="session-host-info">
+              <p class="host-name">Roni Karmel</p>
+              <p class="host-title">AI Engineering Lead</p>
+            </div>
+          </div>
+          <div class="session-actions">
+            <a href="register.html" class="btn btn-primary btn-sm">Apply to Attend</a>
+            <a href="events.html" class="btn btn-secondary btn-sm">Details</a>
+          </div>
+        </div>
+
+      </div>
+      <div style="text-align:center;margin-top:40px;">
+        <a href="events.html" class="btn btn-primary">View All AI Engineering Events →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED DETAIL: GITHUB COPILOT CODING LAB -->
+  <section class="section section-alt" id="coding-lab-detail">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Featured: GitHub Copilot Coding Lab</h2>
+        <p class="section-sub">A closer look at what a hands-on Copilot lab looks like at the Innovation Hub</p>
+      </div>
+
+      <div class="detail-section">
+        <div class="detail-two-col">
+          <div>
+            <p class="detail-label">Session Overview</p>
+            <h3 style="font-size:22px;font-weight:700;color:var(--ms-navy);margin:0 0 16px;line-height:1.3;">GitHub Copilot Coding Lab</h3>
+            <p style="color:var(--ms-gray);line-height:1.7;font-size:15px;">A practical half-day lab where developers build real features with GitHub Copilot as their AI pair programmer. This is not a demo — you write code, refactor existing code, generate tests, and create documentation in your own environment using Copilot as an active collaborator.</p>
+            <p style="color:var(--ms-gray);line-height:1.7;font-size:15px;margin-top:12px;">The lab is structured around realistic engineering scenarios — the kind of work you're actually doing on your product — not toy examples.</p>
+
+            <div style="margin-top:24px;">
+              <p class="detail-label">Who Should Attend</p>
+              <div class="audience-tag-row">
+                <span class="audience-tag">👨‍💻 Software Developers</span>
+                <span class="audience-tag">🚀 Startup Engineers</span>
+                <span class="audience-tag">📦 Product Builders</span>
+                <span class="audience-tag">🧑‍🎓 Technical Co-founders</span>
+              </div>
+            </div>
+
+            <div style="margin-top:24px;">
+              <p class="detail-label">SDLC Stages Covered</p>
+              <div class="sdlc-coverage-grid" style="margin:0;">
+                <span class="sdlc-chip">⌨️ Coding</span>
+                <span class="sdlc-chip">🔧 Refactoring</span>
+                <span class="sdlc-chip">🧪 Test Generation</span>
+                <span class="sdlc-chip">📝 Documentation</span>
+                <span class="sdlc-chip">🔍 Code Review</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p class="detail-label">Agenda</p>
+            <ul style="list-style:none;padding:0;color:var(--ms-gray);font-size:14px;line-height:2.2;margin-bottom:0;">
+              <li style="display:flex;gap:12px;"><span style="color:var(--ms-blue);font-weight:700;min-width:52px;">09:00</span><span>Welcome &amp; GitHub Copilot overview — beyond the IDE</span></li>
+              <li style="display:flex;gap:12px;"><span style="color:var(--ms-blue);font-weight:700;min-width:52px;">09:30</span><span>Lab 1: Feature coding with Copilot — prompting for speed and quality</span></li>
+              <li style="display:flex;gap:12px;"><span style="color:var(--ms-blue);font-weight:700;min-width:52px;">10:30</span><span>Lab 2: Refactoring and code improvement workflows</span></li>
+              <li style="display:flex;gap:12px;"><span style="color:var(--ms-blue);font-weight:700;min-width:52px;">11:15</span><span>Lab 3: Test generation and documentation with Copilot</span></li>
+              <li style="display:flex;gap:12px;"><span style="color:var(--ms-blue);font-weight:700;min-width:52px;">12:00</span><span>Prompt pack walkthrough and workflow sharing</span></li>
+              <li style="display:flex;gap:12px;"><span style="color:var(--ms-blue);font-weight:700;min-width:52px;">12:30</span><span>Q&amp;A and 1:1 time with Copilot specialists</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top:40px;border-top:1px solid rgba(0,0,0,0.07);padding-top:40px;">
+          <div class="detail-two-col">
+            <div>
+              <p class="detail-label">What You Leave With</p>
+              <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;">
+                <li style="font-size:14px;color:var(--ms-gray);display:flex;gap:8px;"><span style="color:var(--ms-green);font-weight:700;">✓</span>Practical Copilot usage patterns for daily coding workflows</li>
+                <li style="font-size:14px;color:var(--ms-gray);display:flex;gap:8px;"><span style="color:var(--ms-green);font-weight:700;">✓</span>Starter prompt pack tailored to your tech stack</li>
+                <li style="font-size:14px;color:var(--ms-gray);display:flex;gap:8px;"><span style="color:var(--ms-green);font-weight:700;">✓</span>Faster feature development techniques you apply the same day</li>
+                <li style="font-size:14px;color:var(--ms-gray);display:flex;gap:8px;"><span style="color:var(--ms-green);font-weight:700;">✓</span>Refactoring and code quality workflow improvements</li>
+                <li style="font-size:14px;color:var(--ms-gray);display:flex;gap:8px;"><span style="color:var(--ms-green);font-weight:700;">✓</span>Test generation patterns that increase coverage without manual effort</li>
+              </ul>
+            </div>
+            <div>
+              <p class="detail-label">Meet the Hosts</p>
+              <div style="display:flex;flex-direction:column;gap:12px;">
+                <div style="display:flex;gap:14px;padding:14px;background:var(--ms-light);border-radius:8px;">
+                  <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--ms-purple),#7b5ea7);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;font-weight:700;flex-shrink:0;">LB</div>
+                  <div>
+                    <p style="font-size:14px;font-weight:700;color:var(--ms-navy);margin:0 0 2px;">Lior Ben-Ami</p>
+                    <p style="font-size:12px;color:var(--ms-gray);margin:0 0 6px;">Senior GitHub Copilot Specialist</p>
+                    <div style="display:flex;flex-wrap:wrap;gap:4px;">
+                      <span style="padding:2px 7px;border-radius:10px;font-size:10px;font-weight:600;background:rgba(92,45,145,0.08);color:var(--ms-purple);">GitHub Copilot</span>
+                      <span style="padding:2px 7px;border-radius:10px;font-size:10px;font-weight:600;background:rgba(92,45,145,0.08);color:var(--ms-purple);">Prompt Engineering</span>
+                      <span style="padding:2px 7px;border-radius:10px;font-size:10px;font-weight:600;background:rgba(92,45,145,0.08);color:var(--ms-purple);">DevEx</span>
+                    </div>
+                  </div>
+                </div>
+                <div style="display:flex;gap:14px;padding:14px;background:var(--ms-light);border-radius:8px;">
+                  <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--ms-blue),var(--ms-blue-light));display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;font-weight:700;flex-shrink:0;">TG</div>
+                  <div>
+                    <p style="font-size:14px;font-weight:700;color:var(--ms-navy);margin:0 0 2px;">Tal Greenberg</p>
+                    <p style="font-size:12px;color:var(--ms-gray);margin:0 0 6px;">Azure Developer Productivity Architect</p>
+                    <div style="display:flex;flex-wrap:wrap;gap:4px;">
+                      <span style="padding:2px 7px;border-radius:10px;font-size:10px;font-weight:600;background:rgba(0,120,212,0.08);color:var(--ms-blue);">Azure Dev Workflow</span>
+                      <span style="padding:2px 7px;border-radius:10px;font-size:10px;font-weight:600;background:rgba(0,120,212,0.08);color:var(--ms-blue);">App Modernization</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:32px;border-top:1px solid rgba(0,0,0,0.07);padding-top:32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+          <div>
+            <p style="font-size:13px;color:var(--ms-gray);margin:0 0 4px;">📍 Microsoft Israel HQ, Ra'anana · Innovation Lab, 4th Floor</p>
+            <p style="font-size:13px;color:var(--ms-gray);margin:0;">🗓 July 12, 2026 · 09:00–13:00 · Bring your laptop</p>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <a href="register.html" class="btn btn-primary">Register Now</a>
+            <a href="events.html" class="btn btn-secondary">View All Events</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS SECTION -->
+  <section class="section" style="background:var(--ms-white);" id="programs">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Structured Programs for Sustained Impact</h2>
+        <p class="section-sub">Beyond one-off sessions — multi-week programs that build lasting GitHub Copilot capability across your engineering organization.</p>
+      </div>
+      <div class="cards-grid cards-grid-3">
+        <div class="program-strip" style="grid-column:1/-1;background:linear-gradient(135deg,var(--ms-navy) 0%,#1a3d6e 100%);">
+          <div>
+            <h3>Copilot Builder Series</h3>
+            <p>6-week structured program: bi-weekly workshops + labs + coaching. Teams leave with an AI SDLC workflow map, prompt library, and adoption playbook. Available to all stage Hub companies.</p>
+          </div>
+          <a href="apply.html?program=copilot-builder-series" class="btn btn-white" style="flex-shrink:0;">Apply Now</a>
+        </div>
+        <div class="card" style="border-top:3px solid var(--ms-blue);">
+          <div class="card-icon" style="background:linear-gradient(135deg,var(--ms-blue),var(--ms-blue-light));">⚡</div>
+          <h3 class="card-title">Developer Productivity Sprint</h3>
+          <p class="card-text">2-week intensive sprint for seed–Series B teams. Daily labs + coaching. Delivers immediate velocity gains with a starter prompt pack and 30-day adoption plan.</p>
+          <p style="font-size:12px;color:var(--ms-gray);margin-top:8px;">🏷 Seed–Series B · 2 weeks</p>
+          <a href="apply.html?program=dev-productivity-sprint" class="btn btn-sm btn-outline" style="margin-top:16px;">Apply</a>
+        </div>
+        <div class="card" style="border-top:3px solid var(--ms-navy);">
+          <div class="card-icon" style="background:linear-gradient(135deg,var(--ms-navy),var(--ms-blue));">🏭</div>
+          <h3 class="card-title">Copilot for Modern Software Delivery</h3>
+          <p class="card-text">8-week program for mature ISVs. AI-assisted refactoring, documentation uplift, test coverage generation, and legacy migration acceleration.</p>
+          <p style="font-size:12px;color:var(--ms-gray);margin-top:8px;">🏷 Mature ISV · 8 weeks</p>
+          <a href="apply.html?program=copilot-isv-modernization" class="btn btn-sm btn-outline" style="margin-top:16px;">Apply</a>
+        </div>
+        <div class="card" style="border-top:3px solid var(--ms-green);">
+          <div class="card-icon" style="background:linear-gradient(135deg,var(--ms-green),#5cb85c);">🎯</div>
+          <h3 class="card-title">Engineering Copilot Readiness Session</h3>
+          <p class="card-text">One-day assessment that produces a readiness report, SDLC opportunity map, and recommended adoption path for your engineering team.</p>
+          <p style="font-size:12px;color:var(--ms-gray);margin-top:8px;">🏷 All Stages · 1 day</p>
+          <a href="apply.html?program=copilot-readiness" class="btn btn-sm btn-outline" style="margin-top:16px;">Apply</a>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:40px;">
+        <a href="programs.html" class="btn btn-primary">See All AI Engineering Programs →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEET THE SPECIALISTS -->
+  <section class="section section-alt" id="specialists">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Meet the GitHub Copilot Specialists</h2>
+        <p class="section-sub">Real experts who lead every session and program — not generic trainers, but practitioners who work with engineering teams every day.</p>
+      </div>
+      <div class="expert-grid">
+        <div class="expert-card-detailed">
+          <div class="expert-avatar-large">
+            <img src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=200&h=200&fit=crop&crop=faces" alt="Lior Ben-Ami" loading="lazy">
+          </div>
+          <h3 class="expert-name-large">Lior Ben-Ami</h3>
+          <p class="expert-role-large">Senior GitHub Copilot Specialist</p>
+          <p class="expert-bio">Leads Copilot coding labs and adoption programs. Specializes in practical prompt engineering, daily workflow integration, and developer enablement sessions for startup and scaleup teams.</p>
+          <div class="expert-specialties">
+            <span class="specialty-tag">GitHub Copilot</span>
+            <span class="specialty-tag">Prompt Engineering</span>
+            <span class="specialty-tag">Developer Productivity</span>
+            <span class="specialty-tag">DevEx</span>
+          </div>
+        </div>
+        <div class="expert-card-detailed">
+          <div class="expert-avatar-large">
+            <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=200&h=200&fit=crop&crop=faces" alt="Roni Karmel" loading="lazy">
+          </div>
+          <h3 class="expert-name-large">Roni Karmel</h3>
+          <p class="expert-role-large">AI Engineering Lead</p>
+          <p class="expert-bio">Drives the Hub's AI engineering strategy and team adoption programs. Works with engineering managers and CTOs on organization-wide Copilot enablement and productivity transformation.</p>
+          <div class="expert-specialties">
+            <span class="specialty-tag">AI Engineering</span>
+            <span class="specialty-tag">GitHub Copilot</span>
+            <span class="specialty-tag">Team Enablement</span>
+            <span class="specialty-tag">SDLC</span>
+          </div>
+        </div>
+        <div class="expert-card-detailed">
+          <div class="expert-avatar-large">
+            <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=200&h=200&fit=crop&crop=faces" alt="Dana Friedman" loading="lazy">
+          </div>
+          <h3 class="expert-name-large">Dana Friedman</h3>
+          <p class="expert-role-large">AI SDLC Strategy Lead</p>
+          <p class="expert-bio">Specializes in GitHub Copilot across the full SDLC. Leads the Requirements-to-Release workshop series and executive strategy sessions. Helps teams build AI-assisted delivery workflows that last.</p>
+          <div class="expert-specialties">
+            <span class="specialty-tag">AI SDLC</span>
+            <span class="specialty-tag">Architecture Design</span>
+            <span class="specialty-tag">CI/CD</span>
+            <span class="specialty-tag">Testing Automation</span>
+          </div>
+        </div>
+        <div class="expert-card-detailed">
+          <div class="expert-avatar-large">
+            <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=200&h=200&fit=crop&crop=faces" alt="Tal Greenberg" loading="lazy">
+          </div>
+          <h3 class="expert-name-large">Tal Greenberg</h3>
+          <p class="expert-role-large">Azure Developer Productivity Architect</p>
+          <p class="expert-bio">Focuses on Azure-native developer toolchains, GitHub Copilot integration with Azure dev workflows, and modernization acceleration. Leads the Copilot Coding Lab and Azure Dev Workflow Lab series.</p>
+          <div class="expert-specialties">
+            <span class="specialty-tag">Azure Dev Workflow</span>
+            <span class="specialty-tag">App Modernization</span>
+            <span class="specialty-tag">GitHub Copilot</span>
+            <span class="specialty-tag">CI/CD</span>
+          </div>
+        </div>
+        <div class="expert-card-detailed">
+          <div class="expert-avatar-large">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop&crop=faces" alt="Itay Mor" loading="lazy">
+          </div>
+          <h3 class="expert-name-large">Itay Mor</h3>
+          <p class="expert-role-large">Secure Development Lead</p>
+          <p class="expert-bio">Leads secure AI-assisted development sessions. Covers GitHub Copilot governance, secure coding patterns, and responsible AI engineering practices for enterprise and regulated-sector teams.</p>
+          <div class="expert-specialties">
+            <span class="specialty-tag">Secure Development</span>
+            <span class="specialty-tag">Engineering Governance</span>
+            <span class="specialty-tag">Responsible AI</span>
+            <span class="specialty-tag">Security Patterns</span>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:40px;">
+        <a href="experts.html" class="btn btn-primary">Meet the Full Expert Team →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTRATION CTA -->
+  <section class="section cta-section" style="background:linear-gradient(135deg,var(--ms-purple) 0%,#3d1f6e 100%);color:var(--ms-white);padding:80px 0;text-align:center;">
+    <div class="container">
+      <h2 style="font-size:clamp(26px,3.5vw,38px);font-weight:700;color:var(--ms-white);margin-bottom:14px;">Ready to Accelerate Your Engineering with GitHub Copilot?</h2>
+      <p style="font-size:18px;opacity:0.9;max-width:580px;margin:0 auto 36px;line-height:1.6;">Join hundreds of developers, engineering managers, and CTOs who have attended Innovation Hub GitHub Copilot sessions. Register for an upcoming session or apply for a structured program.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a href="register.html" class="btn btn-white">Register for a Session</a>
+        <a href="apply.html" class="btn btn-ghost">Apply for a Program</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" width="36" height="36" aria-hidden="true" focusable="false">
+              <path fill="#F25022" d="M1 1h10v10H1z"/>
+              <path fill="#7FBA00" d="M12 1h10v10H12z"/>
+              <path fill="#00A4EF" d="M1 12h10v10H1z"/>
+              <path fill="#FFB900" d="M12 12h10v10H12z"/>
+            </svg>
+            <div class="footer-logo-text">
+              <span>Microsoft Israel</span>
+              <span>Innovation Hub</span>
+              <span class="footer-logo-sub">FY27</span>
+            </div>
+          </div>
+          <p class="footer-tagline">Where Israeli Innovation<br>Meets Microsoft at Scale</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">AI Engineering</h4>
+          <ul class="footer-links">
+            <li><a href="copilot.html#sessions">Copilot Sessions</a></li>
+            <li><a href="copilot.html#programs">AI Engineering Programs</a></li>
+            <li><a href="copilot.html#specialists">Meet the Specialists</a></li>
+            <li><a href="events.html">All Events</a></li>
+            <li><a href="register.html">Register</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Hub</h4>
+          <ul class="footer-links">
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="events.html">Events &amp; Workshops</a></li>
+            <li><a href="experts.html">Meet the Experts</a></li>
+            <li><a href="success.html">Success Stories</a></li>
+            <li><a href="apply.html">Apply Now</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Microsoft</h4>
+          <ul class="footer-links">
+            <li><a href="https://github.com/features/copilot" target="_blank" rel="noopener noreferrer">GitHub Copilot</a></li>
+            <li><a href="https://azure.microsoft.com" target="_blank" rel="noopener noreferrer">Azure</a></li>
+            <li><a href="https://azuremarketplace.microsoft.com" target="_blank" rel="noopener noreferrer">Marketplace</a></li>
+            <li><a href="https://partner.microsoft.com" target="_blank" rel="noopener noreferrer">Partner Network</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Microsoft Corporation. Microsoft Israel Innovation Hub. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="https://privacy.microsoft.com" target="_blank" rel="noopener noreferrer">Privacy</a>
+          <a href="https://www.microsoft.com/en-us/legal/terms-of-use" target="_blank" rel="noopener noreferrer">Terms</a>
+          <a href="https://www.microsoft.com/en-us/accessibility" target="_blank" rel="noopener noreferrer">Accessibility</a>
+          <a href="https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks" target="_blank" rel="noopener noreferrer">Trademarks</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

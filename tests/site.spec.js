@@ -107,7 +107,7 @@ test.describe('Programs Page', () => {
   test('filter tabs are present and interactive', async ({ page }) => {
     await page.goto('/programs.html');
     const tabs = page.locator('.filter-tab');
-    await expect(tabs).toHaveCount(6);
+    await expect(tabs).toHaveCount(7);
     // Click a filter tab
     await page.locator('.filter-tab[data-filter="seed-b"]').click();
     await expect(page.locator('.filter-tab[data-filter="seed-b"]')).toHaveClass(/active/);
@@ -165,7 +165,7 @@ test.describe('Events Page', () => {
   test('filter tabs are interactive', async ({ page }) => {
     await page.goto('/events.html');
     const tabs = page.locator('.filter-tab');
-    await expect(tabs).toHaveCount(7);
+    await expect(tabs).toHaveCount(8);
     await page.locator('.filter-tab[data-filter="workshops"]').click();
     await expect(page.locator('.filter-tab[data-filter="workshops"]')).toHaveClass(/active/);
   });
@@ -385,6 +385,7 @@ test.describe('Image Accessibility', () => {
     '/success.html',
     '/experts.html',
     '/collaborate.html',
+    '/copilot.html',
   ];
 
   for (const pagePath of pages) {
