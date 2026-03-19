@@ -385,7 +385,7 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   inset: 0;
   background: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1600&h=900&fit=crop&crop=center') center/cover no-repeat;
-  opacity: 0.08;
+  opacity: 0.12;
   pointer-events: none;
   z-index: 0;
 }
@@ -533,7 +533,7 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   inset: 0;
   background: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1400&h=700&fit=crop&crop=center') center/cover no-repeat;
-  opacity: 0.07;
+  opacity: 0.1;
   pointer-events: none;
   z-index: 0;
 }
@@ -4230,4 +4230,178 @@ tbody tr:last-child {
     opacity: 1;
     transform: none;
   }
+}
+
+/* ── Testimonials Section Premium Background ───────────────── */
+.testimonials-section {
+  background: linear-gradient(180deg, #F8F8FA 0%, #FFFFFF 100%);
+  position: relative;
+}
+.testimonials-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(0,120,212,0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+.testimonial-card {
+  position: relative;
+  overflow: hidden;
+}
+.testimonial-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ms-blue), var(--ms-blue-light));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+.testimonial-card:hover::after {
+  transform: scaleX(1);
+}
+.testimonial-avatar {
+  overflow: hidden;
+  border: 2px solid rgba(0,120,212,0.2);
+}
+.testimonial-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ms-navy);
+}
+.testimonial-company {
+  font-size: 12px;
+  color: var(--ms-blue);
+  font-weight: 500;
+}
+
+/* ── Programs Section Enhancement ─────────────────────────── */
+.programs-section {
+  background: var(--ms-white);
+  position: relative;
+}
+
+/* ── Section Image Banner Enhancement ─────────────────────── */
+.section-image-banner {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+.section-image-banner:hover {
+  transform: scale(1.01);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ── Expert Card Image Enhancement ────────────────────────── */
+.expert-avatar img {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.expert-card:hover .expert-avatar img {
+  transform: scale(1.08);
+}
+
+/* ── Hero Stats Bar Enhancement ────────────────────────────── */
+.hero-stats {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(0, 10, 30, 0.35);
+}
+.hero-stat-num {
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 16px rgba(80, 230, 255, 0.25);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-stat-num { text-shadow: none; }
+}
+
+/* ── Nav Logo Animation ─────────────────────────────────────── */
+.nav-logo {
+  transition: var(--transition-smooth);
+}
+.nav-logo:hover {
+  transform: scale(1.02);
+}
+
+/* ── CTA Band Button Enhancement ───────────────────────────── */
+.btn-white {
+  position: relative;
+  overflow: hidden;
+}
+.btn-white::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0,120,212,0.12), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.55s ease;
+  pointer-events: none;
+}
+.btn-white:hover::after {
+  left: 160%;
+}
+
+/* ── Azure Journey Step Enhancement ────────────────────────── */
+.azure-journey-step {
+  box-shadow: 0 4px 16px rgba(0, 120, 212, 0.3);
+  transition: var(--transition-smooth);
+}
+.azure-journey-card:hover .azure-journey-step {
+  box-shadow: 0 6px 24px rgba(0, 120, 212, 0.5);
+  transform: scale(1.1);
+}
+
+/* ── Expert Strip Card Enhancement ─────────────────────────── */
+.expert-card {
+  transition: var(--transition-smooth);
+}
+.experts-row {
+  position: relative;
+}
+
+/* ── Programs Card Badge Glow ───────────────────────────────── */
+.badge-green {
+  box-shadow: 0 2px 8px rgba(16, 124, 16, 0.18);
+}
+.badge-blue {
+  box-shadow: 0 2px 8px rgba(0, 120, 212, 0.18);
+}
+.badge-navy {
+  box-shadow: 0 2px 8px rgba(0, 54, 112, 0.18);
+}
+.badge-purple {
+  box-shadow: 0 2px 8px rgba(92, 45, 145, 0.18);
+}
+
+/* ── Enhanced Section Title Accent ─────────────────────────── */
+.section-header .section-title::after {
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Subtle Focus Glow on Interactive Elements ──────────────── */
+.btn:focus-visible,
+.filter-tab:focus-visible {
+  outline: 3px solid var(--ms-blue-light);
+  outline-offset: 3px;
+}
+
+/* ── Event Badge Glow ──────────────────────────────────────── */
+.event-badge {
+  transition: var(--transition-fast);
+}
+.event-card:hover .event-badge {
+  box-shadow: 0 2px 8px rgba(0,120,212,0.18);
+}
+
+/* ── Benefit List Checkmark Animation ───────────────────────── */
+.benefit-list li::before {
+  transition: transform 0.2s ease;
+}
+.program-card:hover .benefit-list li::before {
+  transform: scale(1.2);
 }

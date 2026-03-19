@@ -1399,7 +1399,7 @@ function initHeroParallax() {
 }
 
 /* ============================================================
-   31. READING PROGRESS BAR
+   36. READING PROGRESS BAR
    ============================================================ */
 
 function initReadingProgressBar() {
@@ -1432,7 +1432,7 @@ function initReadingProgressBar() {
 }
 
 /* ============================================================
-   30. MAIN INIT — DOMContentLoaded
+   37. MAIN INIT — DOMContentLoaded
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
