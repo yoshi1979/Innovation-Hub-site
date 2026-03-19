@@ -3423,6 +3423,10 @@ tbody tr:last-child {
   --glow-blue:    rgba(0, 120, 212, 0.4);
   --glow-cyan:    rgba(80, 230, 255, 0.3);
   --card-hover-gradient: linear-gradient(135deg, rgba(0,120,212,0.03) 0%, rgba(80,230,255,0.02) 100%);
+  /* Animation parameters */
+  --hero-ambient-opacity-start: 0.75;
+  --particle-float-distance-y:  -100px;
+  --particle-float-distance-x:  15px;
 }
 
 /* ── Hero Premium Enhancement ────────────────────────────────── */
@@ -3444,7 +3448,7 @@ tbody tr:last-child {
 }
 
 @keyframes heroAmbient {
-  0%   { opacity: 0.75; }
+  0%   { opacity: var(--hero-ambient-opacity-start); }
   100% { opacity: 1; }
 }
 
@@ -3475,7 +3479,7 @@ tbody tr:last-child {
   0%   { transform: translateY(0) translateX(0); opacity: 0; }
   10%  { opacity: 1; }
   90%  { opacity: 0.5; }
-  100% { transform: translateY(-100px) translateX(15px); opacity: 0; }
+  100% { transform: translateY(var(--particle-float-distance-y)) translateX(var(--particle-float-distance-x)); opacity: 0; }
 }
 
 /* Hero title span gradient */

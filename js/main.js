@@ -1222,7 +1222,7 @@ function initSearch() {
    ============================================================ */
 
 /**
- * Creates subtle floating particles in hero backgrounds for ambiance.
+ * Creates subtle floating particles in hero backgrounds for ambience.
  * Respects prefers-reduced-motion.
  */
 function initHeroParticles() {
@@ -1318,13 +1318,15 @@ function initEnhancedScrollReveal() {
         const idx = allKids.indexOf(el);
         const elW      = el.offsetWidth;
         const parentW  = parent.offsetWidth;
-        const rawCols  = (parentW > 0 && elW > 10)
+        const MIN_ELEMENT_WIDTH = 10; // px threshold to treat element as a grid cell
+        const STAGGER_DELAY_MS  = 90; // ms per grid column for stagger effect
+        const rawCols  = (parentW > 0 && elW > MIN_ELEMENT_WIDTH)
           ? Math.round(parentW / elW)
           : 3;
         const gridCols = Math.max(1, Math.min(rawCols, 6));
         const col      = idx % gridCols;
         if (!el.style.transitionDelay) {
-          el.style.transitionDelay = `${col * 90}ms`;
+          el.style.transitionDelay = `${col * STAGGER_DELAY_MS}ms`;
         }
       }
 
