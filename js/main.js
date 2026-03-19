@@ -1218,6 +1218,177 @@ function initSearch() {
 }
 
 /* ============================================================
+   31. HERO AMBIENT PARTICLE ANIMATION
+   ============================================================ */
+
+/**
+ * Creates subtle floating particles in hero backgrounds for ambiance.
+ * Respects prefers-reduced-motion.
+ */
+function initHeroParticles() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  document.querySelectorAll('.hero, .page-hero').forEach(hero => {
+    const container = document.createElement('div');
+    container.className = 'hero-particles';
+    container.setAttribute('aria-hidden', 'true');
+
+    const PARTICLE_COUNT = 10;
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      const p = document.createElement('span');
+      p.className = 'hero-particle';
+      const size    = (Math.random() * 2.5 + 1).toFixed(1);
+      const left    = (Math.random() * 100).toFixed(1);
+      const bottom  = (Math.random() * 40).toFixed(1);
+      const dur     = (Math.random() * 9 + 7).toFixed(1);
+      const delay   = -(Math.random() * 12).toFixed(1);
+      const opacity = (Math.random() * 0.35 + 0.2).toFixed(2);
+
+      p.style.cssText =
+        `width:${size}px;height:${size}px;left:${left}%;bottom:${bottom}%;` +
+        `animation-duration:${dur}s;animation-delay:${delay}s;opacity:${opacity};`;
+      container.appendChild(p);
+    }
+
+    hero.appendChild(container);
+  });
+}
+
+/* ============================================================
+   32. BUTTON RIPPLE EFFECT
+   ============================================================ */
+
+/**
+ * Adds a CSS ripple effect to .btn elements on pointer-down.
+ */
+function initButtonRipple() {
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('pointerdown', function (e) {
+      const rect  = btn.getBoundingClientRect();
+      const x     = e.clientX - rect.left;
+      const y     = e.clientY - rect.top;
+      const size  = Math.max(rect.width, rect.height) * 1.6;
+
+      const ripple = document.createElement('span');
+      ripple.className = 'btn-ripple';
+      ripple.style.cssText =
+        `width:${size}px;height:${size}px;left:${x - size / 2}px;top:${y - size / 2}px;`;
+      btn.appendChild(ripple);
+      ripple.addEventListener('animationend', () => ripple.remove(), { once: true });
+    });
+  });
+}
+
+/* ============================================================
+   33. ENHANCED DIRECTIONAL SCROLL REVEAL
+   ============================================================ */
+
+/**
+ * Observes additional elements not covered by initScrollAnimations.
+ * Supports .reveal-left, .reveal-right, .reveal-scale and common
+ * section elements. Applies auto-stagger to sibling groups.
+ */
+function initEnhancedScrollReveal() {
+  const SELECTOR = [
+    '.reveal-left', '.reveal-right', '.reveal-scale',
+    '.diff-item', '.diff-strip-item',
+    '.stat-item', '.proof-item',
+    '.segment-card', '.collab-card',
+    '.story-card', '.story-featured',
+    '.testimonial-card', '.person-card',
+    '.journey-track', '.timeline-item',
+    '.reg-event-card', '.trust-box',
+    '.section-header'
+  ].join(', ');
+
+  const elements = document.querySelectorAll(SELECTOR);
+  if (!elements.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      observer.unobserve(entry.target);
+
+      const el     = entry.target;
+      const parent = el.parentElement;
+
+      // Derive stagger delay from sibling position within the same parent
+      if (parent) {
+        const allKids = Array.from(parent.children);
+        const idx = allKids.indexOf(el);
+        const gridCols = parent.offsetWidth > 0
+          ? Math.round(parent.offsetWidth / (el.offsetWidth || 1))
+          : 3;
+        const col      = idx % Math.max(1, Math.min(gridCols, 6));
+        const existing = parseFloat(el.style.transitionDelay) || 0;
+        if (!existing) {
+          el.style.transitionDelay = `${col * 90}ms`;
+        }
+      }
+
+      el.classList.add('animated');
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+
+  elements.forEach(el => {
+    if (!el.classList.contains('animated')) {
+      observer.observe(el);
+    }
+  });
+}
+
+/* ============================================================
+   34. PAGE LOAD ENTRANCE SEQUENCE
+   ============================================================ */
+
+/**
+ * Staggers hero child elements on first page load for a polished entrance.
+ * Respects prefers-reduced-motion.
+ */
+function initPageLoadAnimation() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const heroContent = document.querySelector('.hero-content, .page-hero-inner, .page-hero .container');
+  if (!heroContent) return;
+
+  Array.from(heroContent.children).forEach((child, idx) => {
+    if (child.classList.contains('hero-particles')) return;
+    child.classList.add('hero-child-reveal');
+    child.style.animationDelay = `${0.1 + idx * 0.12}s`;
+  });
+}
+
+/* ============================================================
+   35. SUBTLE HERO PARALLAX ON SCROLL
+   ============================================================ */
+
+/**
+ * Applies a very subtle parallax shift to the hero section content.
+ * Max shift: 28px. Skipped on touch / reduced-motion devices.
+ */
+function initHeroParallax() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (window.matchMedia('(hover: none)').matches) return;
+
+  const hero    = document.querySelector('.hero');
+  if (!hero) return;
+  const content = hero.querySelector('.hero-content, .container');
+  if (!content) return;
+
+  const MAX_SHIFT = 28;
+
+  function onScroll() {
+    const heroH   = hero.offsetHeight;
+    const scrollY = window.scrollY;
+    if (scrollY > heroH) return;
+    const shift = (scrollY / heroH) * MAX_SHIFT;
+    content.style.transform = `translateY(${shift.toFixed(1)}px)`;
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+}
+
+/* ============================================================
    30. MAIN INIT — DOMContentLoaded
    ============================================================ */
 
@@ -1252,6 +1423,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // calendar, hero counters) — it also runs them on every page so they work
   // regardless of body id, while still allowing early-exit optimisations.
   detectPageAndInit();
+
+  // UI Enhancement Layer — premium animations and interactions
+  initHeroParticles();
+  initButtonRipple();
+  initEnhancedScrollReveal();
+  initPageLoadAnimation();
+  initHeroParallax();
 
   console.info('🚀 Microsoft Israel Innovation Hub — JS initialised');
 });
