@@ -2321,6 +2321,20 @@ tbody tr:last-child {
   border-bottom: none;
 }
 
+/* ── Outline button alias ──────────────────────────────────── */
+.btn-outline {
+  background: transparent;
+  color: var(--ms-blue);
+  border: 2px solid var(--ms-blue);
+  border-radius: var(--radius-sm);
+}
+.btn-outline:hover {
+  background: var(--ms-blue);
+  color: var(--ms-white);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
 /* ── Responsive Breakpoints ────────────────────────────────── */
 
 /* 1024px - Tablets / Small desktops */
@@ -2351,10 +2365,15 @@ tbody tr:last-child {
   .stat-number {
     font-size: 48px;
   }
+
+  .section-image-banner {
+    height: 240px;
+  }
 }
 
 /* 768px - Tablets / Mobile */
 @media (max-width: 768px) {
+  /* ── Navigation ── */
   .nav-links {
     display: none;
     position: absolute;
@@ -2367,6 +2386,7 @@ tbody tr:last-child {
     padding: 16px;
     gap: 4px;
     border-top: 1px solid var(--ms-light);
+    z-index: 999;
   }
 
   .nav-links.open {
@@ -2377,6 +2397,7 @@ tbody tr:last-child {
     padding: 11px 14px;
     border-radius: var(--radius-sm);
     width: 100%;
+    font-size: 15px;
   }
 
   .nav-links a::after {
@@ -2393,6 +2414,7 @@ tbody tr:last-child {
     width: 100%;
     text-align: center;
     margin-top: 8px;
+    justify-content: center;
   }
 
   .nav-toggle {
@@ -2412,9 +2434,9 @@ tbody tr:last-child {
     height: 24px;
   }
 
+  /* ── Hero ── */
   .hero {
-    min-height: 60vh;
-    padding: 60px 20px 100px;
+    padding: 56px 20px 200px;
   }
 
   .hero-title {
@@ -2424,6 +2446,7 @@ tbody tr:last-child {
 
   .hero-sub {
     font-size: 16px;
+    margin-bottom: 28px;
   }
 
   .hero-stats {
@@ -2437,6 +2460,7 @@ tbody tr:last-child {
     border-right: none;
     border-bottom: 1px solid rgba(255,255,255,0.15);
     width: 50%;
+    box-sizing: border-box;
   }
 
   /* Remove border from the last two stats in a 2-col mobile layout */
@@ -2448,12 +2472,34 @@ tbody tr:last-child {
     font-size: 22px;
   }
 
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* ── Page Hero ── */
+  .page-hero {
+    min-height: auto;
+    padding: 44px 20px;
+  }
+
+  /* ── Sections ── */
   .section {
-    padding: 56px 0;
+    padding: 48px 0;
   }
 
   .section-header {
-    margin-bottom: 40px;
+    margin-bottom: 36px;
   }
 
   .section-title {
@@ -2464,11 +2510,24 @@ tbody tr:last-child {
     font-size: 15px;
   }
 
+  .section-image-banner {
+    height: 180px;
+    border-radius: var(--radius-md);
+    margin-bottom: 32px;
+  }
+
+  /* ── Cards ── */
   .card-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }
 
+  .card-actions {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* ── Stats ── */
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
@@ -2482,49 +2541,74 @@ tbody tr:last-child {
     font-size: 40px;
   }
 
+  /* ── Forms ── */
   .form-row {
     grid-template-columns: 1fr;
     gap: 0;
   }
 
+  .reg-form-wrap {
+    padding: 28px 24px;
+  }
+
+  /* ── Footer ── */
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 28px;
   }
 
   .footer-bottom {
     flex-direction: column;
     text-align: center;
+    gap: 12px;
   }
 
+  .footer-bottom-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  /* ── Diff Grid ── */
   .diff-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  /* ── Modal / Drawer ── */
   .modal-overlay {
-    padding: 16px;
+    padding: 0;
     align-items: flex-end;
   }
 
   .modal {
-    max-height: 95vh;
+    max-height: 92vh;
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    width: 100%;
   }
 
-  .hero-actions {
-    flex-direction: column;
-    align-items: center;
-  }
-
+  /* ── Filter Tabs — horizontally scrollable on mobile ── */
   .filter-tabs {
     gap: 6px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .filter-tabs::-webkit-scrollbar {
+    display: none;
   }
 
   .filter-tab {
     padding: 7px 14px;
     font-size: 13px;
+    flex-shrink: 0;
   }
 
+  /* ── Form Steps ── */
   .form-steps {
     gap: 0;
   }
@@ -2533,6 +2617,7 @@ tbody tr:last-child {
     display: none;
   }
 
+  /* ── Event Cards ── */
   .event-card {
     flex-direction: column;
     gap: 14px;
@@ -2550,6 +2635,7 @@ tbody tr:last-child {
     font-size: 20px;
   }
 
+  /* ── Toast ── */
   .toast-container {
     right: 12px;
     left: 12px;
@@ -2561,9 +2647,45 @@ tbody tr:last-child {
     max-width: 100%;
   }
 
-  .page-hero {
-    min-height: 40vh;
-    padding: 48px 20px;
+  /* ── Table responsive ── */
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* ── Story featured ── */
+  .story-featured {
+    grid-template-columns: 1fr;
+  }
+
+  .story-featured-left {
+    padding: 32px 24px;
+  }
+
+  .story-featured-right {
+    padding: 28px 24px;
+  }
+
+  .story-featured-metric {
+    font-size: 2.5rem;
+  }
+
+  /* ── Journey track ── */
+  .journey-track-header {
+    padding: 20px;
+  }
+
+  .journey-steps {
+    padding: 16px 20px;
+  }
+
+  .journey-track-footer {
+    padding: 12px 20px;
+  }
+
+  /* ── Collab card ── */
+  .collab-card {
+    padding: 24px 20px;
   }
 }
 
@@ -2574,7 +2696,7 @@ tbody tr:last-child {
   }
 
   .hero {
-    padding: 48px 16px 100px;
+    padding: 44px 16px 200px;
   }
 
   .hero-title {
@@ -2599,7 +2721,17 @@ tbody tr:last-child {
   }
 
   .section {
-    padding: 40px 0;
+    padding: 36px 0;
+  }
+
+  .section-header {
+    margin-bottom: 28px;
+  }
+
+  .section-image-banner {
+    height: 150px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 24px;
   }
 
   .diff-grid {
@@ -2656,6 +2788,46 @@ tbody tr:last-child {
   .company-logo {
     padding: 10px 16px;
     font-size: 13px;
+  }
+
+  .filter-tab {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .card-actions {
+    flex-direction: column;
+  }
+
+  .card-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .reg-form-wrap {
+    padding: 20px 16px;
+  }
+
+  .hero-actions {
+    max-width: 100%;
+  }
+
+  .page-hero {
+    padding: 36px 16px;
+  }
+}
+
+/* ── Events filter row: stack tabs above calendar toggle on mobile ── */
+@media (max-width: 600px) {
+  .events-filter-row.events-filter-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .events-filter-row .filter-tabs {
+    width: 100%;
+  }
+  .events-filter-row.events-filter-row > button {
+    align-self: flex-end;
   }
 }
 
