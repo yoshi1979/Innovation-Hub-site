@@ -30,11 +30,11 @@
       white-space: nowrap;
     }
 
-    /* ── AWS-to-Azure section ──────────────────────────────── */
-    .aws-azure-section {
+    /* ── Azure Journey section ──────────────────────────────── */
+    .azure-journey-section {
       background: var(--ms-white);
     }
-    .aws-azure-intro {
+    .azure-journey-intro {
       font-size: 17px;
       color: var(--ms-gray);
       max-width: 620px;
@@ -42,12 +42,12 @@
       text-align: center;
       line-height: 1.7;
     }
-    .aws-azure-grid {
+    .azure-journey-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 28px;
     }
-    .aws-azure-card {
+    .azure-journey-card {
       background: var(--ms-white);
       border: 1.5px solid rgba(0,120,212,0.18);
       border-radius: var(--radius-md);
@@ -55,12 +55,12 @@
       text-align: center;
       transition: var(--transition);
     }
-    .aws-azure-card:hover {
+    .azure-journey-card:hover {
       border-color: var(--ms-blue);
       box-shadow: var(--shadow-md);
       transform: translateY(-4px);
     }
-    .aws-azure-step {
+    .azure-journey-step {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -73,24 +73,16 @@
       font-weight: 700;
       margin: 0 auto 18px;
     }
-    .aws-azure-card h3 {
+    .azure-journey-card h3 {
       font-size: 18px;
       font-weight: 700;
       color: var(--ms-navy);
       margin-bottom: 12px;
     }
-    .aws-azure-card p {
+    .azure-journey-card p {
       font-size: 14px;
       color: var(--ms-gray);
       line-height: 1.7;
-    }
-    .aws-azure-connector {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      color: rgba(0,120,212,0.3);
-      margin-top: 8px;
     }
 
     /* ── Expert profiles strip ──────────────────────────────── */
@@ -245,7 +237,7 @@
 
     /* ── Responsive tweaks ──────────────────────────────────── */
     @media (max-width: 768px) {
-      .aws-azure-grid,
+      .azure-journey-grid,
       .exec-sessions-grid {
         grid-template-columns: 1fr;
       }
@@ -352,31 +344,31 @@
   </section>
 
   <!-- ══════════════════════════════════════════════════════════
-       MULTI-CLOUD PATH FOR AWS-NATIVE COMPANIES
+       YOUR AZURE JOURNEY WITH THE INNOVATION HUB
   ══════════════════════════════════════════════════════════ -->
-  <section class="section aws-azure-section">
+  <section class="section azure-journey-section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Built on AWS Today? Assess the Right Azure and Multi-Cloud Path.</h2>
-        <p class="section-sub">Many Israeli startups start on AWS—and that's fine. We're not here to replace your infrastructure. We're here to open new markets, new buyers, and new possibilities on Azure alongside what you already have.</p>
+        <h2 class="section-title">Your Azure Journey Starts Here.</h2>
+        <p class="section-sub">The Innovation Hub gives you a structured, expert-led path to building, scaling, and selling on Azure — opening new markets, new buyers, and new possibilities for your startup.</p>
       </div>
-      <img src="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=300&fit=crop&crop=center" alt="Cloud infrastructure and multi-cloud architecture diagram" class="section-image-banner" loading="lazy">
-      <p class="aws-azure-intro">Multi-cloud isn't a future state—it's a present reality for many Israeli companies. The Hub gives you a structured, expert-led path from AWS-native to Azure-ready, without disrupting what's working.</p>
-      <div class="aws-azure-grid">
-        <div class="aws-azure-card">
-          <div class="aws-azure-step">1</div>
-          <h3>Assess Your Architecture</h3>
-          <p>Our Azure Solutions Architects review your existing AWS footprint and identify the fastest, lowest-risk path to Azure parity — or complementary deployment.</p>
+      <img src="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=300&fit=crop&crop=center" alt="Azure cloud infrastructure" class="section-image-banner" loading="lazy">
+      <p class="azure-journey-intro">From your first Azure landing zone to Azure Marketplace and enterprise co-sell — the Hub walks alongside you at every stage of your cloud journey.</p>
+      <div class="azure-journey-grid">
+        <div class="azure-journey-card">
+          <div class="azure-journey-step">1</div>
+          <h3>Build on Azure</h3>
+          <p>Our Azure Solutions Architects design your target-state architecture, set up your landing zone, and help you leverage Azure OpenAI, Sentinel, and Defender from day one.</p>
         </div>
-        <div class="aws-azure-card">
-          <div class="aws-azure-step">2</div>
-          <h3>Build Multi-Cloud Posture</h3>
-          <p>Unlock Azure OpenAI, Microsoft Sentinel, and Defender integrations. Add Azure as a first-class cloud without a full rewrite — and qualify for co-sell motions.</p>
+        <div class="azure-journey-card">
+          <div class="azure-journey-step">2</div>
+          <h3>Go to Market</h3>
+          <p>Get listed on Azure Marketplace, earn co-sell status, and tap Microsoft's global commercial field team to reach enterprise buyers you couldn't access alone.</p>
         </div>
-        <div class="aws-azure-card">
-          <div class="aws-azure-step">3</div>
-          <h3>Go to Marketplace</h3>
-          <p>Get listed on Azure Marketplace, activate co-sell with Microsoft's global field team, and reach Fortune 500 enterprise buyers through Microsoft's commercial engine.</p>
+        <div class="azure-journey-card">
+          <div class="azure-journey-step">3</div>
+          <h3>Scale with Microsoft</h3>
+          <p>Access executive connections, investor introductions, and Hub programs tailored to your stage — from Seed through Series C/D and beyond.</p>
         </div>
       </div>
     </div>
