@@ -1316,12 +1316,14 @@ function initEnhancedScrollReveal() {
       if (parent) {
         const allKids = Array.from(parent.children);
         const idx = allKids.indexOf(el);
-        const gridCols = parent.offsetWidth > 0
-          ? Math.round(parent.offsetWidth / (el.offsetWidth || 1))
+        const elW      = el.offsetWidth;
+        const parentW  = parent.offsetWidth;
+        const rawCols  = (parentW > 0 && elW > 10)
+          ? Math.round(parentW / elW)
           : 3;
-        const col      = idx % Math.max(1, Math.min(gridCols, 6));
-        const existing = parseFloat(el.style.transitionDelay) || 0;
-        if (!existing) {
+        const gridCols = Math.max(1, Math.min(rawCols, 6));
+        const col      = idx % gridCols;
+        if (!el.style.transitionDelay) {
           el.style.transitionDelay = `${col * 90}ms`;
         }
       }
@@ -1380,7 +1382,7 @@ function initHeroParallax() {
   function onScroll() {
     const heroH   = hero.offsetHeight;
     const scrollY = window.scrollY;
-    if (scrollY > heroH) return;
+    if (heroH <= 0 || scrollY > heroH) return;
     const shift = (scrollY / heroH) * MAX_SHIFT;
     content.style.transform = `translateY(${shift.toFixed(1)}px)`;
   }
