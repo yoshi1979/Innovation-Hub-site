@@ -259,10 +259,10 @@ function initCounters() {
 }
 
 function animateSingleCounter(el) {
-  const raw    = el.dataset.target ?? '0';
-  // Extract numeric suffix (e.g. '+', 'B', '%') and parse the first valid number
-  const suffix  = raw.replace(/^[\d.]+/, '');              // everything after the number
-  const numStr  = raw.match(/^[\d.]+/)?.[0] ?? '0';       // leading digits only
+  const raw     = el.dataset.target ?? '0';
+  const suffix  = el.dataset.suffix  ?? raw.replace(/^[\d.]+/, '');
+  const prefix  = el.dataset.prefix  ?? '';
+  const numStr  = raw.match(/^[\d.]+/)?.[0] ?? '0';
   const target  = parseFloat(numStr) || 0;
   const isDecimal = raw.includes('.');
   const duration = 2000;
@@ -276,7 +276,7 @@ function animateSingleCounter(el) {
     const elapsed  = now - start;
     const progress = Math.min(elapsed / duration, 1);
     const easedVal = easeOutQuart(progress) * target;
-    el.textContent = (isDecimal ? easedVal.toFixed(1) : Math.floor(easedVal)) + suffix;
+    el.textContent = prefix + (isDecimal ? easedVal.toFixed(1) : Math.floor(easedVal)) + suffix;
     if (progress < 1) requestAnimationFrame(tick);
   }
 
@@ -1037,8 +1037,14 @@ function initStickyHeaders() {
  * Creates and manages a "back to top" floating button.
  */
 function initBackToTop() {
-  const btn = document.querySelector('#backToTop');
-  if (!btn) return;
+  let btn = document.querySelector('#backToTop');
+  if (!btn) {
+    btn = document.createElement('button');
+    btn.id = 'backToTop';
+    btn.setAttribute('aria-label', 'Back to top');
+    btn.innerHTML = '↑';
+    document.body.appendChild(btn);
+  }
 
   window.addEventListener('scroll', () => {
     btn.classList.toggle('visible', window.scrollY > 600);
@@ -1393,7 +1399,40 @@ function initHeroParallax() {
 }
 
 /* ============================================================
-   30. MAIN INIT — DOMContentLoaded
+   36. READING PROGRESS BAR
+   ============================================================ */
+
+function initReadingProgressBar() {
+  const bar = document.createElement('div');
+  bar.id = 'reading-progress-bar';
+  bar.setAttribute('role', 'progressbar');
+  bar.setAttribute('aria-label', 'Page reading progress');
+  bar.setAttribute('aria-valuenow', '0');
+  bar.setAttribute('aria-valuemin', '0');
+  bar.setAttribute('aria-valuemax', '100');
+  document.body.insertBefore(bar, document.body.firstChild);
+
+  let ticking = false;
+
+  function updateBar() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress  = docHeight > 0 ? Math.round((scrollTop / docHeight) * 100) : 0;
+    bar.style.width = progress + '%';
+    bar.setAttribute('aria-valuenow', progress);
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateBar);
+      ticking = true;
+    }
+  }, { passive: true });
+}
+
+/* ============================================================
+   37. MAIN INIT — DOMContentLoaded
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -1427,6 +1466,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // calendar, hero counters) — it also runs them on every page so they work
   // regardless of body id, while still allowing early-exit optimisations.
   detectPageAndInit();
+
+  initReadingProgressBar();
 
   // UI Enhancement Layer — premium animations and interactions
   initHeroParticles();
