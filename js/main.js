@@ -741,25 +741,25 @@ function initApplyForm() {
  */
 function initActiveNavLink() {
   const currentPath = window.location.pathname;
+  // Derive the current file name (e.g. "programs.html") from the path
+  const currentFile = currentPath.split('/').pop() || 'index.html';
   const navLinks    = document.querySelectorAll('.nav-links a');
 
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
     if (!href) return;
 
-    // Exact match or starts-with for sub-pages
-    if (
+    // Match against absolute path, relative filename, or path suffix
+    const isActive =
       href === currentPath ||
-      (href !== '/' && currentPath.startsWith(href))
-    ) {
-      link.classList.add('active');
-    } else {
-      link.classList.remove('active');
-    }
+      href === currentFile ||
+      (href !== '/' && href !== 'index.html' && currentPath.endsWith('/' + href));
+
+    link.classList.toggle('active', isActive);
   });
 
   // Fallback: highlight "home" when on root
-  if (currentPath === '/' || currentPath === '/index.html') {
+  if (currentPath === '/' || currentPath === '/index.html' || currentFile === 'index.html') {
     const homeLink = document.querySelector('.nav-links a[href="/"], .nav-links a[href="index.html"]');
     if (homeLink) homeLink.classList.add('active');
   }
