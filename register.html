@@ -32,6 +32,7 @@
         <li><a href="events.html" class="nav-link active">Events</a></li>
         <li><a href="collaborate.html" class="nav-link">Collaborate</a></li>
         <li><a href="success.html" class="nav-link">Success Stories</a></li>
+        <li><a href="experts.html" class="nav-link">Experts</a></li>
         <li><a href="about.html" class="nav-link">About</a></li>
         <li><a href="apply.html" class="nav-link nav-cta btn btn-primary btn-sm">Apply Now</a></li>
       </ul>
@@ -123,7 +124,7 @@
                 </div>
               </label>
 
-              <label class="event-pick-item" id="ep-marketplace" style="display:flex;align-items:flex-start;gap:14px;padding:16px 18px;border:1.5px solid #ddd;border-radius:10px;cursor:pointer;transition:all .2s;">
+              <label class="event-pick-item" id="marketplace" style="display:flex;align-items:flex-start;gap:14px;padding:16px 18px;border:1.5px solid #ddd;border-radius:10px;cursor:pointer;transition:all .2s;">
                 <input type="radio" name="event_select" value="marketplace" style="margin-top:4px;accent-color:var(--ms-blue);" onchange="selectEvent(this)">
                 <div style="flex:1;">
                   <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
@@ -242,7 +243,7 @@
               <div class="form-row" style="margin-bottom:28px;">
                 <label style="display:flex;align-items:flex-start;gap:10px;font-size:.875rem;cursor:pointer;">
                   <input type="checkbox" id="r-terms" name="terms" style="margin-top:3px;accent-color:var(--ms-blue);width:16px;height:16px;flex-shrink:0;" required>
-                  I agree to Microsoft's <a href="#" style="color:var(--ms-blue);">Event Terms &amp; Privacy Policy</a>. Microsoft may use my contact details to follow up about this event and related Hub programs.
+                  I agree to Microsoft's <a href="https://privacy.microsoft.com" target="_blank" rel="noopener noreferrer" style="color:var(--ms-blue);">Event Terms &amp; Privacy Policy</a>. Microsoft may use my contact details to follow up about this event and related Hub programs.
                 </label>
               </div>
               <div style="display:none;margin-bottom:16px;" id="event-warn">
@@ -461,9 +462,11 @@
 
     // Pre-select from URL hash
     function init() {
+      const params = new URLSearchParams(window.location.search);
       const hash = window.location.hash.replace('#', '');
-      if (hash && events[hash]) {
-        const radio = document.querySelector(`input[value="${hash}"]`);
+      const requested = (params.get('event') || hash || '').toLowerCase();
+      if (requested && events[requested]) {
+        const radio = document.querySelector(`input[value="${requested}"]`);
         if (radio) {
           radio.checked = true;
           selectEvent(radio);

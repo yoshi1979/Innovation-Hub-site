@@ -4758,3 +4758,58 @@ tbody tr:last-child {
 .program-card:hover .benefit-list li::before {
   transform: scale(1.2);
 }
+
+
+.page-summary-card,
+.event-card,
+.program-card,
+.story-card,
+.card,
+.location-card,
+.reg-event-card,
+.trust-box,
+.contact-widget {
+  position: relative;
+  overflow: hidden;
+}
+
+.page-summary-card::before,
+.event-card::before,
+.program-card::before,
+.story-card::before,
+.card::before,
+.location-card::before,
+.reg-event-card::before,
+.trust-box::before,
+.contact-widget::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ms-blue), var(--ms-blue-light), var(--ms-purple));
+  opacity: .9;
+}
+
+.page-summary-card:hover,
+.event-card:hover,
+.program-card:hover,
+.story-card:hover,
+.card:hover,
+.location-card:hover,
+.reg-event-card:hover,
+.trust-box:hover,
+.contact-widget:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.section-image-banner {
+  border-radius: 18px;
+  box-shadow: var(--shadow-md);
+}
+
+.footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}

@@ -32,6 +32,7 @@
         <li><a href="events.html" class="nav-link active">Events</a></li>
         <li><a href="collaborate.html" class="nav-link">Collaborate</a></li>
         <li><a href="success.html" class="nav-link">Success Stories</a></li>
+        <li><a href="experts.html" class="nav-link">Experts</a></li>
         <li><a href="about.html" class="nav-link">About</a></li>
         <li><a href="apply.html" class="nav-link nav-cta btn btn-primary btn-sm">Apply Now</a></li>
       </ul>
@@ -93,7 +94,7 @@
           <button class="filter-tab" data-filter="demo-days" role="tab" aria-selected="false">Demo Days</button>
           <button class="filter-tab" data-filter="ai-engineering" role="tab" aria-selected="false">AI Engineering</button>
         </div>
-        <button class="btn btn-secondary btn-sm" aria-label="Toggle calendar view" style="white-space:nowrap;flex-shrink:0;">📅 Calendar View</button>
+        <button type="button" class="btn btn-secondary btn-sm" aria-label="Toggle calendar view" style="white-space:nowrap;flex-shrink:0;" onclick="document.getElementById('events-calendar')?.scrollIntoView({ behavior: 'smooth', block: 'start' });">📅 Calendar View</button>
       </div>
 
       <div style="display:flex;flex-direction:column;gap:20px;">
@@ -115,7 +116,7 @@
           </div>
           <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;flex-shrink:0;">
             <button class="btn btn-secondary btn-sm" data-modal="modal-event1" aria-haspopup="dialog">Details</button>
-            <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+            <a href="register.html?event=ai-summit" class="btn btn-primary btn-sm">Register</a>
           </div>
         </div>
 
@@ -136,12 +137,12 @@
           </div>
           <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;flex-shrink:0;">
             <button class="btn btn-secondary btn-sm" data-modal="modal-event2" aria-haspopup="dialog">Details</button>
-            <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+            <a href="register.html?event=office-hours" class="btn btn-primary btn-sm">Register</a>
           </div>
         </div>
 
         <!-- Event 3: CTO Circle Dinner Q2 -->
-        <div class="event-card filterable" data-category="cto-circle" data-modal="modal-event3">
+        <div class="event-card filterable" id="cto-circle" data-category="cto-circle" data-modal="modal-event3">
           <div class="event-date">
             <span class="event-day">22</span>
             <span class="event-month">May</span>
@@ -157,7 +158,7 @@
           </div>
           <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;flex-shrink:0;">
             <button class="btn btn-secondary btn-sm" data-modal="modal-event3" aria-haspopup="dialog">Details</button>
-            <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+            <a href="register.html?event=cto-circle" class="btn btn-primary btn-sm">Request Invite</a>
           </div>
         </div>
 
@@ -178,7 +179,7 @@
           </div>
           <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;flex-shrink:0;">
             <button class="btn btn-secondary btn-sm" data-modal="modal-event4" aria-haspopup="dialog">Details</button>
-            <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+            <a href="register.html?event=demo-day" class="btn btn-primary btn-sm">Register</a>
           </div>
         </div>
 
@@ -199,7 +200,7 @@
           </div>
           <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;flex-shrink:0;">
             <button class="btn btn-secondary btn-sm" data-modal="modal-event5" aria-haspopup="dialog">Details</button>
-            <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+            <a href="register.html?event=ai-workshop" class="btn btn-primary btn-sm">Register</a>
           </div>
         </div>
 
@@ -220,7 +221,7 @@
           </div>
           <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;flex-shrink:0;">
             <button class="btn btn-secondary btn-sm" data-modal="modal-event6" aria-haspopup="dialog">Details</button>
-            <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+            <a href="register.html?event=marketplace" class="btn btn-primary btn-sm">Register</a>
           </div>
         </div>
 
@@ -241,7 +242,7 @@
           </div>
           <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;flex-shrink:0;">
             <button class="btn btn-secondary btn-sm" data-modal="modal-event7" aria-haspopup="dialog">Details</button>
-            <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+            <a href="register.html?event=healthtech" class="btn btn-primary btn-sm">Register</a>
           </div>
         </div>
 
@@ -262,7 +263,7 @@
           </div>
           <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;flex-shrink:0;">
             <button class="btn btn-secondary btn-sm" data-modal="modal-event8" aria-haspopup="dialog">Details</button>
-            <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+            <a href="register.html?event=partner" class="btn btn-primary btn-sm">Register</a>
           </div>
         </div>
 
@@ -430,11 +431,26 @@
           </div>
           <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;flex-shrink:0;">
             <button class="btn btn-secondary btn-sm" data-modal="modal-copilot8" aria-haspopup="dialog">Details</button>
-            <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+            <a href="register.html?event=partner" class="btn btn-primary btn-sm">Register</a>
           </div>
         </div>
 
       </div><!-- /.events list -->
+    </div>
+  </section>
+
+  <section class="section" id="events-calendar">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Quick Calendar View</h2>
+        <p class="section-sub">Use this condensed timeline to jump straight into the right registration flow.</p>
+      </div>
+      <div class="page-summary-grid">
+        <a class="page-summary-card" href="register.html?event=demo-day"><span class="page-summary-label">Apr 30</span><h3>Spring Demo Day</h3><p>Portfolio showcase, investors, and enterprise buyers.</p></a>
+        <a class="page-summary-card" href="register.html?event=healthtech"><span class="page-summary-label">May 8</span><h3>HealthTech Session</h3><p>Clinical AI, Azure health data, and regulatory collaboration.</p></a>
+        <a class="page-summary-card" href="register.html?event=cto-circle"><span class="page-summary-label">May 22</span><h3>CTO Circle Dinner</h3><p>Executive-only roundtable for CTOs and VP Engineering leaders.</p></a>
+        <a class="page-summary-card" href="register.html?event=office-hours"><span class="page-summary-label">May 29</span><h3>Founder Office Hours</h3><p>Book a focused 1:1 session with the hub team.</p></a>
+      </div>
     </div>
   </section>
 
@@ -544,7 +560,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-event1')">Close</button>
-        <a href="register.html" class="btn btn-primary">Register Now</a>
+        <a href="register.html?event=ai-summit" class="btn btn-primary">Register Now</a>
       </div>
     </div>
   </div>
@@ -570,7 +586,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-event2')">Close</button>
-        <a href="register.html" class="btn btn-primary">Register Now</a>
+        <a href="register.html?event=office-hours" class="btn btn-primary">Book a Slot</a>
       </div>
     </div>
   </div>
@@ -602,7 +618,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-event3')">Close</button>
-        <a href="register.html" class="btn btn-primary">Register Now</a>
+        <a href="register.html?event=cto-circle" class="btn btn-primary">Request Invite</a>
       </div>
     </div>
   </div>
@@ -637,7 +653,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-event4')">Close</button>
-        <a href="register.html" class="btn btn-primary">Register Now</a>
+        <a href="register.html?event=demo-day" class="btn btn-primary">Register Now</a>
       </div>
     </div>
   </div>
@@ -671,7 +687,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-event5')">Close</button>
-        <a href="register.html" class="btn btn-primary">Register Now</a>
+        <a href="register.html?event=ai-workshop" class="btn btn-primary">Register Now</a>
       </div>
     </div>
   </div>
@@ -703,7 +719,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-event6')">Close</button>
-        <a href="register.html" class="btn btn-primary">Register Now</a>
+        <a href="register.html?event=marketplace" class="btn btn-primary">Register Now</a>
       </div>
     </div>
   </div>
@@ -737,7 +753,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-event7')">Close</button>
-        <a href="register.html" class="btn btn-primary">Register Now</a>
+        <a href="register.html?event=healthtech" class="btn btn-primary">Register Now</a>
       </div>
     </div>
   </div>
@@ -769,7 +785,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-event8')">Close</button>
-        <a href="register.html" class="btn btn-primary">Register Now</a>
+        <a href="register.html?event=partner" class="btn btn-primary">Register Now</a>
       </div>
     </div>
   </div>
@@ -820,7 +836,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-copilot1')">Close</button>
-        <a href="register.html" class="btn btn-primary">Register Now</a>
+        <a href="register.html?event=ai-workshop" class="btn btn-primary">Register Now</a>
       </div>
     </div>
   </div>
@@ -866,7 +882,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-copilot2')">Close</button>
-        <a href="register.html" class="btn btn-primary">Register Now</a>
+        <a href="register.html?event=marketplace" class="btn btn-primary">Register Now</a>
       </div>
     </div>
   </div>
@@ -917,7 +933,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-copilot3')">Close</button>
-        <a href="register.html" class="btn btn-primary">Register Now</a>
+        <a href="register.html?event=ai-summit" class="btn btn-primary">Register Now</a>
       </div>
     </div>
   </div>
@@ -964,7 +980,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-copilot4')">Close</button>
-        <a href="register.html" class="btn btn-primary">Register Now</a>
+        <a href="register.html?event=ai-workshop" class="btn btn-primary">Register Now</a>
       </div>
     </div>
   </div>
@@ -1046,7 +1062,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-copilot6')">Close</button>
-        <a href="register.html" class="btn btn-primary">Book a Slot</a>
+        <a href="register.html?event=office-hours" class="btn btn-primary">Book a Slot</a>
       </div>
     </div>
   </div>
@@ -1081,7 +1097,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-copilot7')">Close</button>
-        <a href="register.html" class="btn btn-primary">Apply to Attend</a>
+        <a href="register.html?event=cto-circle" class="btn btn-primary">Apply to Attend</a>
       </div>
     </div>
   </div>

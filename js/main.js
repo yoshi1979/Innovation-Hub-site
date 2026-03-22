@@ -101,27 +101,37 @@ function initNavigationEnhancements() {
   const navLists = document.querySelectorAll('.nav-links');
   if (!navLists.length) return;
 
+  const canonicalOrder = [
+    ['index.html', 'Home'],
+    ['programs.html', 'Programs'],
+    ['events.html', 'Events'],
+    ['collaborate.html', 'Collaborate'],
+    ['experts.html', 'Experts'],
+    ['success.html', 'Success Stories'],
+    ['about.html', 'About'],
+    ['apply.html', 'Apply Now']
+  ];
+
   navLists.forEach((list) => {
-    const links = Array.from(list.querySelectorAll('a'));
-    const hasHomeLink = links.some((link) => {
+    const existing = Array.from(list.querySelectorAll('a')).reduce((map, link) => {
       const href = link.getAttribute('href');
-      return href === '/' || href === 'index.html';
-    });
+      if (href) map.set(href, link);
+      return map;
+    }, new Map());
 
-    if (!hasHomeLink) {
-      const firstItem = document.createElement('li');
-      firstItem.innerHTML = '<a href="index.html" class="nav-link">Home</a>';
-      list.insertBefore(firstItem, list.firstChild);
-    }
+    const rebuiltItems = canonicalOrder
+      .filter(([href]) => existing.has(href))
+      .map(([href, label]) => {
+        const link = existing.get(href);
+        const item = document.createElement('li');
+        const isCta = href === 'apply.html';
+        const isActive = link.classList.contains('active');
+        item.innerHTML = `<a href="${href}" class="${isCta ? 'nav-link nav-cta btn btn-primary btn-sm' : 'nav-link'}${isActive ? ' active' : ''}">${label}</a>`;
+        return item;
+      });
 
-    const hasExpertsLink = Array.from(list.querySelectorAll('a')).some((link) => link.getAttribute('href') === 'experts.html');
-    const successLink = list.querySelector('a[href="success.html"]')?.closest('li');
-
-    if (!hasExpertsLink && successLink) {
-      const expertsItem = document.createElement('li');
-      expertsItem.innerHTML = '<a href="experts.html" class="nav-link">Experts</a>';
-      list.insertBefore(expertsItem, successLink);
-    }
+    list.innerHTML = '';
+    rebuiltItems.forEach((item) => list.appendChild(item));
   });
 
   document.querySelectorAll('.nav-links a.active').forEach((link) => {
@@ -718,19 +728,19 @@ function initScrollAnimations() {
  * Pre-selects an event in the register form if `?event=` URL param is present.
  */
 function initRegisterForm() {
-  const form = document.getElementById('registerForm') ?? document.querySelector('[data-form="register"]');
+  const form = document.getElementById('registerForm') ?? document.getElementById('register-form') ?? document.querySelector('[data-form="register"]');
   if (!form) return;
 
-  const params   = new URLSearchParams(window.location.search);
-  const eventParam = params.get('event');
+  const params = new URLSearchParams(window.location.search);
+  const eventParam = params.get('event') || window.location.hash.replace('#', '');
 
   if (eventParam) {
+    const normalizedEvent = decodeURIComponent(eventParam).toLowerCase();
     const eventSelect = form.querySelector('select[name="event"], #eventSelect');
     if (eventSelect) {
-      // Try to find matching option
       const option = Array.from(eventSelect.options).find(opt =>
-        opt.value.toLowerCase().includes(eventParam.toLowerCase()) ||
-        opt.textContent.toLowerCase().includes(eventParam.toLowerCase())
+        opt.value.toLowerCase().includes(normalizedEvent) ||
+        opt.textContent.toLowerCase().includes(normalizedEvent)
       );
       if (option) {
         eventSelect.value = option.value;
@@ -738,9 +748,18 @@ function initRegisterForm() {
       }
     }
 
-    // Pre-fill hidden field
+    const eventRadio = form.querySelector(`input[name="event_select"][value="${normalizedEvent}"]`);
+    if (eventRadio) {
+      eventRadio.checked = true;
+      if (typeof window.selectEvent === 'function') {
+        window.selectEvent(eventRadio);
+      } else {
+        eventRadio.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    }
+
     const hiddenField = form.querySelector('input[name="eventId"]');
-    if (hiddenField) hiddenField.value = eventParam;
+    if (hiddenField) hiddenField.value = normalizedEvent;
   }
 
   // Show/hide conditional sections based on event type selection
