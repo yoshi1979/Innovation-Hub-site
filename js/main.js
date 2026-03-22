@@ -102,7 +102,8 @@ function initNavigationEnhancements() {
   if (!navLists.length) return;
 
   navLists.forEach((list) => {
-    const hasHomeLink = Array.from(list.querySelectorAll('a')).some((link) => {
+    const links = Array.from(list.querySelectorAll('a'));
+    const hasHomeLink = links.some((link) => {
       const href = link.getAttribute('href');
       return href === '/' || href === 'index.html';
     });
@@ -111,6 +112,15 @@ function initNavigationEnhancements() {
       const firstItem = document.createElement('li');
       firstItem.innerHTML = '<a href="index.html" class="nav-link">Home</a>';
       list.insertBefore(firstItem, list.firstChild);
+    }
+
+    const hasExpertsLink = Array.from(list.querySelectorAll('a')).some((link) => link.getAttribute('href') === 'experts.html');
+    const successLink = list.querySelector('a[href="success.html"]')?.closest('li');
+
+    if (!hasExpertsLink && successLink) {
+      const expertsItem = document.createElement('li');
+      expertsItem.innerHTML = '<a href="experts.html" class="nav-link">Experts</a>';
+      list.insertBefore(expertsItem, successLink);
     }
   });
 
@@ -756,31 +766,60 @@ function initRegisterForm() {
  * Pre-checks a program checkbox if `?program=` URL param is present.
  */
 function initApplyForm() {
-  const form = document.getElementById('applyForm') ?? document.querySelector('[data-form="apply"]');
+  const form = document.getElementById('applyForm') ?? document.querySelector('[data-form="apply"]') ?? document.getElementById('apply-form');
   if (!form) return;
 
   const params         = new URLSearchParams(window.location.search);
   const programParam   = params.get('program');
 
   if (programParam) {
-    // Look for a checkbox with matching value
-    const checkbox = form.querySelector(`input[type="checkbox"][value="${programParam}"]`) ??
-                     form.querySelector(`input[type="checkbox"][name="${programParam}"]`);
+    const normalizedParam = decodeURIComponent(programParam).toLowerCase();
+    const programAliases = {
+      'azure-architecture-assessment': 'launchpad',
+      'landing-zone-sprint': 'launchpad',
+      'ai-feature-sprint': 'ai-lab',
+      'founder-office-hours': 'launchpad',
+      'investor-arch-review': 'launchpad',
+      'azure-saas-assessment': 'scale360',
+      'azure-expansion-roadmap': 'scale360',
+      'ai-production-sprint': 'ai-lab',
+      'executive-arch-review': 'enterprise-bridge',
+      'ai-monetization-session': 'ai-lab',
+      'saas-modernization': 'isv-excellence',
+      'marketplace-packaging': 'isv-excellence',
+      'co-sell-acceleration': 'partner-fasttrack',
+      'co-product-exploration': 'co-build',
+      'executive-ai-realization': 'enterprise-bridge',
+      'partner-alignment': 'partner-fasttrack',
+      'marketplace-gtm': 'partner-fasttrack',
+      'co-sell-activation': 'partner-fasttrack',
+      'joint-offer-design': 'partner-fasttrack',
+      'copilot-builder-series': 'ai-lab',
+      'ai-sdlc-enablement': 'ai-lab',
+      'dev-productivity-sprint': 'ai-lab',
+      'copilot-isv-modernization': 'isv-excellence',
+      'copilot-readiness': 'ai-lab',
+      'secure-ai-engineering': 'ai-lab'
+    };
+
+    const resolvedProgram = programAliases[normalizedParam] ?? normalizedParam;
+
+    const checkbox = form.querySelector(`input[type="checkbox"][value="${resolvedProgram}"]`) ??
+                     form.querySelector(`input[type="checkbox"][value="${normalizedParam}"]`) ??
+                     form.querySelector(`input[type="checkbox"][name="${resolvedProgram}"]`);
     if (checkbox) {
       checkbox.checked = true;
     }
 
-    // Also try to pre-select a program dropdown
     const programSelect = form.querySelector('select[name="program"], #programSelect');
     if (programSelect) {
       const option = Array.from(programSelect.options).find(opt =>
-        opt.value.toLowerCase() === programParam.toLowerCase()
+        opt.value.toLowerCase() === normalizedParam || opt.value.toLowerCase() === resolvedProgram
       );
       if (option) programSelect.value = option.value;
     }
 
-    // Show a friendly notification
-    const programName = decodeURIComponent(programParam).replace(/-/g, ' ');
+    const programName = normalizedParam.replace(/-/g, ' ');
     showToast(`Applying for: ${programName}`, 'info', 5000);
   }
 }
@@ -1276,6 +1315,80 @@ function initSearch() {
   });
 }
 
+function initInlineTabs() {
+  document.querySelectorAll('.inline-tabs').forEach(tabBar => {
+    const buttons = Array.from(tabBar.querySelectorAll('.inline-tab'));
+    if (!buttons.length) return;
+
+    const scope = tabBar.parentElement;
+    const panels = scope ? Array.from(scope.querySelectorAll('.inline-tab-panel')) : [];
+
+    function activateTab(tabId) {
+      buttons.forEach((button) => {
+        const isActive = button.dataset.tab === tabId;
+        button.classList.toggle('active', isActive);
+        button.setAttribute('aria-selected', String(isActive));
+      });
+
+      panels.forEach((panel) => {
+        const panelId = panel.id.replace(/^tab-/, '');
+        panel.classList.toggle('active', panelId === tabId);
+      });
+    }
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => activateTab(button.dataset.tab));
+    });
+
+    activateTab(buttons.find((button) => button.classList.contains('active'))?.dataset.tab || buttons[0].dataset.tab);
+  });
+}
+
+function initContextualLinks() {
+  document.querySelectorAll('.event-card').forEach((card) => {
+    const title = card.querySelector('.event-title')?.textContent?.trim();
+    if (!title) return;
+
+    const eventSlug = title
+      .toLowerCase()
+      .replace(/&/g, 'and')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+
+    card.querySelectorAll('a[href="register.html"]').forEach((link) => {
+      link.href = `register.html?event=${encodeURIComponent(eventSlug)}`;
+    });
+  });
+}
+
+function initEditorialImages() {
+  const eventImageMap = {
+    'Azure AI Summit Israel 2026': 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=900&h=400&fit=crop&crop=center',
+    'Founder Office Hours': 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&h=400&fit=crop&crop=center',
+    'CTO Circle Dinner Q2': 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=900&h=400&fit=crop&crop=center',
+    'Spring Demo Day 2026': 'https://images.unsplash.com/photo-1559223607-b4d0555ae227?w=900&h=400&fit=crop&crop=center',
+    'ISV Deep Dive: AI Integration': 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&h=400&fit=crop&crop=center',
+    'Marketplace GTM Bootcamp': 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=900&h=400&fit=crop&crop=center'
+  };
+
+  document.querySelectorAll('.event-card').forEach((card) => {
+    if (card.querySelector('.event-card-img')) return;
+    const title = card.querySelector('.event-title')?.textContent?.trim();
+    const src = eventImageMap[title];
+    if (!src) return;
+
+    const body = card.querySelector('.event-body');
+    if (!body) return;
+
+    const img = document.createElement('img');
+    img.className = 'event-card-img';
+    img.src = src;
+    img.alt = title;
+    img.loading = 'lazy';
+    body.insertBefore(img, body.firstChild);
+  });
+}
+
 /* ============================================================
    31. HERO AMBIENT PARTICLE ANIMATION
    ============================================================ */
@@ -1511,6 +1624,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initTestimonialCarousel();
   initStickyHeaders();
   initReadMore();
+  initInlineTabs();
+  initContextualLinks();
+  initEditorialImages();
 
   // Card effects — only on non-touch devices
   if (!('ontouchstart' in window)) {
