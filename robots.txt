@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+# Concept mockup site: keep out of search results by default.
