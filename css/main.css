@@ -500,7 +500,28 @@ h1, h2, h3, h4, h5, h6 {
   gap: 16px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
+}
+
+.hero-trust-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 0 auto 24px;
+  max-width: 880px;
+}
+
+.hero-trust-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .hero-stats {
@@ -666,6 +687,71 @@ h1, h2, h3, h4, h5, h6 {
   padding: 80px 0;
 }
 
+.quick-start-section {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+}
+
+.quick-start-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 24px;
+}
+
+.quick-start-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.quick-start-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 28px;
+  background: #fff;
+  border: 1px solid rgba(0, 120, 212, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  color: var(--ms-dark);
+  text-decoration: none;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.quick-start-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 120, 212, 0.22);
+  color: var(--ms-dark);
+}
+
+.quick-start-card h3 {
+  color: var(--ms-navy);
+  font-size: 1.25rem;
+}
+
+.quick-start-card p {
+  color: var(--ms-gray);
+}
+
+.quick-start-card-primary {
+  background: linear-gradient(135deg, rgba(0, 120, 212, 0.08), rgba(80, 230, 255, 0.12));
+}
+
+.quick-start-step {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--ms-blue);
+}
+
+.quick-start-link {
+  margin-top: auto;
+  font-weight: 700;
+  color: var(--ms-blue);
+}
+
 .section-alt {
   background: var(--ms-light);
 }
@@ -678,6 +764,23 @@ h1, h2, h3, h4, h5, h6 {
 .section-header {
   text-align: center;
   margin-bottom: 60px;
+}
+
+.section-header.text-left {
+  text-align: left;
+  max-width: 980px;
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--ms-blue);
 }
 
 .section-title {
@@ -2511,6 +2614,32 @@ tbody tr:last-child {
     font-size: 14px;
   }
 
+  .hero-trust-row {
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .hero-trust-pill {
+    font-size: 12px;
+    padding: 7px 12px;
+  }
+
+  .quick-start-header {
+    display: block;
+  }
+
+  .quick-start-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-band-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-band-panel {
+    padding: 20px;
+  }
+
   body {
     padding-bottom: 96px;
   }
@@ -3947,6 +4076,58 @@ tbody tr:last-child {
   inset: 0;
   background: radial-gradient(ellipse 60% 150% at 90% 50%, rgba(80,230,255,0.12) 0%, transparent 70%);
   pointer-events: none;
+}
+
+.cta-band-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(320px, 0.9fr);
+  gap: 32px;
+  align-items: center;
+}
+
+.cta-band-copy h2,
+.cta-band-copy p,
+.cta-band-kicker {
+  color: var(--ms-white);
+}
+
+.cta-band-copy p {
+  opacity: 0.9;
+  max-width: 680px;
+}
+
+.cta-band-panel {
+  padding: 24px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.cta-band-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.cta-band-points span {
+  display: inline-flex;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.cta-band-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 /* ── Enhanced Footer ──────────────────────────────────────────── */
