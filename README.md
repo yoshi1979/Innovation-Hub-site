@@ -17,3 +17,5 @@ Recommended Vercel settings:
 - `vercel.json` enables clean URLs and basic headers.
 - `robots.txt` currently blocks indexing because this is a concept/mockup.
 - Forms are presentation/demo flows, not production lead capture.
+
+<!-- Vercel sync trigger -->
