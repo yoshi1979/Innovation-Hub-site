@@ -54,6 +54,7 @@ body {
   background-color: var(--ms-white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body.menu-open {
@@ -575,7 +576,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   color: var(--ms-white);
   text-align: center;
-  padding: 60px 24px;
+  padding: 80px 24px 72px;
   overflow: hidden;
 }
 
@@ -634,9 +635,10 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 320px;
   object-fit: cover;
-  border-radius: var(--radius-lg);
+  border-radius: 22px;
   margin-bottom: 48px;
   display: block;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.1);
 }
 
 /* Card image thumbnails */
@@ -797,9 +799,13 @@ h1, h2, h3, h4, h5, h6 {
 .section-sub {
   font-size: 18px;
   color: var(--ms-gray);
-  max-width: 600px;
+  max-width: 680px;
   margin: 0 auto;
-  line-height: 1.6;
+  line-height: 1.7;
+}
+
+.section-header.text-left .section-sub {
+  margin-left: 0;
 }
 
 .section-dark .section-sub {
@@ -809,16 +815,17 @@ h1, h2, h3, h4, h5, h6 {
 /* ── Cards ─────────────────────────────────────────────────── */
 .card {
   background: var(--ms-white);
-  border-radius: var(--radius-md);
+  border-radius: 18px;
   box-shadow: var(--shadow-sm);
   padding: 28px;
-  transition: var(--transition);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
   border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
+  border-color: rgba(0, 120, 212, 0.14);
 }
 
 .card-icon {
@@ -867,10 +874,10 @@ h1, h2, h3, h4, h5, h6 {
 /* ── Program Cards ─────────────────────────────────────────── */
 .program-card {
   background: var(--ms-white);
-  border-radius: var(--radius-md);
+  border-radius: 20px;
   box-shadow: var(--shadow-sm);
   padding: 28px;
-  transition: var(--transition);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
   border: 1px solid rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
@@ -878,8 +885,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .program-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-5px);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.12);
   border-color: var(--ms-blue);
 }
 
@@ -924,7 +931,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .benefit-list li::before {
@@ -947,7 +954,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ── Event Cards ───────────────────────────────────────────── */
 .event-card {
   background: var(--ms-white);
-  border-radius: var(--radius-md);
+  border-radius: 18px;
   box-shadow: var(--shadow-sm);
   padding: 24px;
   border: 1px solid rgba(0, 0, 0, 0.06);
@@ -955,12 +962,13 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   gap: 20px;
   align-items: flex-start;
-  transition: var(--transition);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
 }
 
 .event-card:hover {
   box-shadow: var(--shadow-md);
-  transform: translateX(2px);
+  transform: translateY(-3px);
+  border-color: rgba(0, 120, 212, 0.14);
 }
 
 .event-date {
@@ -2506,6 +2514,42 @@ tbody tr:last-child {
 
 /* 768px - Tablets / Mobile */
 @media (max-width: 768px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .page-hero {
+    min-height: auto;
+    padding: 72px 20px 56px;
+  }
+
+  .section-title {
+    line-height: 1.2;
+  }
+
+  .section-sub {
+    font-size: 16px;
+  }
+
+  .event-card {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .event-date {
+    min-width: 0;
+    width: fit-content;
+  }
+
+  .card-actions {
+    flex-direction: column;
+  }
+
+  .card-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
   /* ── Navigation ── */
   .nav-inner {
     height: 64px;
