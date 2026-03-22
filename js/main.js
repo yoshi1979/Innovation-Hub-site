@@ -44,9 +44,18 @@ function initMobileMenu() {
   const navLinks   = document.querySelector('.nav-links');
   if (!nav || !toggle || !navLinks) return;
 
+  let backdrop = document.querySelector('.nav-backdrop');
+  if (!backdrop) {
+    backdrop = document.createElement('div');
+    backdrop.className = 'nav-backdrop';
+    document.body.appendChild(backdrop);
+  }
+
   function openMenu() {
     nav.classList.add('nav-open');
     navLinks.classList.add('open');
+    backdrop.classList.add('open');
+    document.body.classList.add('menu-open');
     toggle.setAttribute('aria-expanded', 'true');
     toggle.setAttribute('aria-label', 'Close menu');
   }
@@ -54,6 +63,8 @@ function initMobileMenu() {
   function closeMenu() {
     nav.classList.remove('nav-open');
     navLinks.classList.remove('open');
+    backdrop.classList.remove('open');
+    document.body.classList.remove('menu-open');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Open menu');
   }
@@ -62,6 +73,8 @@ function initMobileMenu() {
     const isOpen = nav.classList.contains('nav-open');
     isOpen ? closeMenu() : openMenu();
   });
+
+  backdrop.addEventListener('click', closeMenu);
 
   // Close on ESC
   document.addEventListener('keydown', (e) => {
@@ -73,7 +86,7 @@ function initMobileMenu() {
 
   // Close on outside click
   document.addEventListener('click', (e) => {
-    if (nav.classList.contains('nav-open') && !nav.contains(e.target)) {
+    if (nav.classList.contains('nav-open') && !nav.contains(e.target) && !backdrop.contains(e.target)) {
       closeMenu();
     }
   });
@@ -83,6 +96,46 @@ function initMobileMenu() {
     link.addEventListener('click', closeMenu);
   });
 }
+
+function initNavigationEnhancements() {
+  const navLists = document.querySelectorAll('.nav-links');
+  if (!navLists.length) return;
+
+  navLists.forEach((list) => {
+    const hasHomeLink = Array.from(list.querySelectorAll('a')).some((link) => {
+      const href = link.getAttribute('href');
+      return href === '/' || href === 'index.html';
+    });
+
+    if (!hasHomeLink) {
+      const firstItem = document.createElement('li');
+      firstItem.innerHTML = '<a href="index.html" class="nav-link">Home</a>';
+      list.insertBefore(firstItem, list.firstChild);
+    }
+  });
+
+  document.querySelectorAll('.nav-links a.active').forEach((link) => {
+    link.setAttribute('aria-current', 'page');
+  });
+}
+
+function initMobileQuickActions() {
+  if (window.innerWidth > 768 || document.querySelector('.mobile-quick-actions')) return;
+
+  const bodyId = document.body?.id || '';
+  const primaryHref = bodyId === 'page-apply' ? 'programs.html' : 'apply.html';
+  const primaryLabel = bodyId === 'page-apply' ? 'View Programs' : 'Apply Now';
+
+  const bar = document.createElement('div');
+  bar.className = 'mobile-quick-actions';
+  bar.innerHTML = `
+    <a href="programs.html" class="btn btn-secondary">Programs</a>
+    <a href="${primaryHref}" class="btn btn-primary">${primaryLabel}</a>
+  `;
+
+  document.body.appendChild(bar);
+}
+
 
 /* ============================================================
    3. MODAL SYSTEM
@@ -1443,6 +1496,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initModals();
   initSmoothScroll();
   initActiveNavLink();
+  initNavigationEnhancements();
+  initMobileQuickActions();
   initScrollAnimations();
   initFAQ();
   initTabs();

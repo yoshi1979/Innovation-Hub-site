@@ -56,6 +56,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body.menu-open {
+  overflow: hidden;
+}
+
 img,
 video,
 svg {
@@ -284,6 +288,32 @@ h1, h2, h3, h4, h5, h6 {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: var(--shadow-md);
+}
+
+.nav-backdrop {
+  position: fixed;
+  inset: 68px 0 0;
+  background: rgba(0, 0, 0, 0.28);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 998;
+}
+
+.nav-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nav-links a:focus-visible,
+.nav-toggle:focus-visible,
+.mobile-quick-actions a:focus-visible {
+  outline: 3px solid rgba(0, 120, 212, 0.28);
+  outline-offset: 2px;
+}
+
+.mobile-quick-actions {
+  display: none;
 }
 
 /* ── Buttons ───────────────────────────────────────────────── */
@@ -2374,18 +2404,26 @@ tbody tr:last-child {
 /* 768px - Tablets / Mobile */
 @media (max-width: 768px) {
   /* ── Navigation ── */
+  .nav-inner {
+    height: 64px;
+    padding: 0 16px;
+  }
+
   .nav-links {
     display: none;
     position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
+    top: calc(100% + 8px);
+    left: 12px;
+    right: 12px;
+    max-height: calc(100vh - 96px);
+    overflow-y: auto;
     flex-direction: column;
-    background: var(--ms-white);
-    box-shadow: var(--shadow-md);
-    padding: 16px;
-    gap: 4px;
-    border-top: 1px solid var(--ms-light);
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.16);
+    padding: 14px;
+    gap: 6px;
+    border: 1px solid rgba(0, 120, 212, 0.12);
+    border-radius: 18px;
     z-index: 999;
   }
 
@@ -2393,9 +2431,16 @@ tbody tr:last-child {
     display: flex;
   }
 
+  .nav-links li {
+    width: 100%;
+  }
+
   .nav-links a {
-    padding: 11px 14px;
-    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 12px 14px;
+    border-radius: 12px;
     width: 100%;
     font-size: 15px;
   }
@@ -2407,6 +2452,10 @@ tbody tr:last-child {
   .nav-links a.active,
   .nav-links a:hover {
     background: rgba(0, 120, 212, 0.08);
+  }
+
+  .nav-links a.active {
+    border: 1px solid rgba(0, 120, 212, 0.18);
   }
 
   .nav-cta {
@@ -2429,9 +2478,41 @@ tbody tr:last-child {
     font-size: 13px;
   }
 
+  .nav-logo-sub {
+    font-size: 10px;
+  }
+
   .ms-logo-icon {
     width: 24px;
     height: 24px;
+  }
+
+  .mobile-quick-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    z-index: 950;
+    padding: 12px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+    border: 1px solid rgba(0, 120, 212, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .mobile-quick-actions .btn {
+    min-height: 46px;
+    justify-content: center;
+    font-size: 14px;
+  }
+
+  body {
+    padding-bottom: 96px;
   }
 
   /* ── Hero ── */
