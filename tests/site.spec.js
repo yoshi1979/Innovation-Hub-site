@@ -471,3 +471,44 @@ test.describe('Responsive interactions', () => {
     await expect(page.locator('#modal-event1')).toBeVisible();
   });
 });
+
+const internalJourneyChecks = [
+  { sourcePage: '/index.html', label: 'hero programs CTA', href: 'programs.html', destinationPage: '/programs.html', expectedText: /Programs/i },
+  { sourcePage: '/index.html', label: 'hero how it works CTA', href: 'about.html', destinationPage: '/about.html', expectedText: /About|Hub/i },
+  { sourcePage: '/index.html', label: 'homepage events CTA', href: 'events.html', destinationPage: '/events.html', expectedText: /Events/i },
+  { sourcePage: '/index.html', label: 'homepage collaboration CTA', href: 'collaborate.html', destinationPage: '/collaborate.html', expectedText: /Collaborate/i },
+  { sourcePage: '/programs.html', label: 'programs apply CTA', href: 'apply.html', destinationPage: '/apply.html', expectedText: /Apply/i },
+  { sourcePage: '/events.html', label: 'events register CTA', href: 'register.html', destinationPage: '/register.html', expectedText: /Register/i },
+  { sourcePage: '/collaborate.html', label: 'collaborate apply CTA', href: 'apply.html', destinationPage: '/apply.html', expectedText: /Apply|Hub/i },
+  { sourcePage: '/about.html', label: 'about contact anchor', href: 'about.html#contact', destinationPage: '/about.html#contact', expectedText: /Contact/i },
+  { sourcePage: '/success.html', label: 'success stories programs CTA', href: 'programs.html', destinationPage: '/programs.html', expectedText: /Programs/i },
+  { sourcePage: '/experts.html', label: 'experts collaborate CTA', href: 'collaborate.html', destinationPage: '/collaborate.html', expectedText: /Collaborate/i },
+  { sourcePage: '/copilot.html', label: 'copilot apply CTA', href: 'apply.html', destinationPage: '/apply.html', expectedText: /Apply|Copilot/i },
+];
+
+test.describe('Exhaustive internal click-through QA', () => {
+  for (const check of internalJourneyChecks) {
+    test(`${check.sourcePage} -> ${check.label}`, async ({ page }) => {
+      await page.goto(check.sourcePage);
+      const sourceHtml = await page.content();
+      expect(sourceHtml).toContain(`href="${check.href}"`);
+      await page.goto(check.destinationPage);
+      await expect(page.locator('body')).toContainText(check.expectedText);
+    });
+  }
+
+  test('homepage nav/footer/internal destination mix is coherent', async ({ page }) => {
+    await page.goto('/index.html');
+    const selectors = [
+      'nav a[href="programs.html"]',
+      'nav a[href="events.html"]',
+      'nav a[href="about.html"]',
+      '.cta-band a[href="apply.html"]',
+      '.cta-band a[href="programs.html"]',
+    ];
+
+    for (const selector of selectors) {
+      await expect(page.locator(selector).first()).toHaveCount(1);
+    }
+  });
+});

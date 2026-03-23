@@ -236,6 +236,41 @@
     }
 
     /* ── Responsive tweaks ──────────────────────────────────── */
+    .hero-stats-inline {
+      position: relative;
+      left: auto;
+      right: auto;
+      bottom: auto;
+      width: 100%;
+      max-width: 1100px;
+      margin: 34px auto 0;
+      padding: 0;
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      align-items: stretch;
+    }
+    .hero-stats-inline .hero-stat {
+      min-height: 120px;
+      justify-content: center;
+      border-right: none;
+      border-bottom: none;
+      box-shadow: 0 16px 36px rgba(3, 22, 49, 0.18);
+      background: rgba(10, 34, 72, 0.46);
+    }
+    .hero-stats-inline .hero-stat-label {
+      margin-top: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-stats-inline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
     @media (max-width: 768px) {
       .azure-journey-grid,
       .exec-sessions-grid {
@@ -260,6 +295,15 @@
       .cta-band-actions .btn {
         width: 100%;
         justify-content: center;
+      }
+      .hero-stats-inline {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 24px;
+      }
+      .hero-stats-inline .hero-stat {
+        min-height: 0;
+        padding: 18px 16px;
       }
     }
     @media (max-width: 480px) {
@@ -352,60 +396,68 @@
         <span class="hero-audience-chip">🤝 Microsoft Partners</span>
         <span class="hero-audience-chip">👔 C-Suite &amp; Executives</span>
       </div>
+
+      <!-- Stat chips bar -->
+      <div class="hero-stats hero-stats-inline">
+        <div class="hero-stat">
+          <span class="hero-stat-num">50+</span>
+          <span class="hero-stat-label">Active Companies</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">$2B+</span>
+          <span class="hero-stat-label">Raised by Alumni</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">200+</span>
+          <span class="hero-stat-label">Microsoft Experts</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">85+</span>
+          <span class="hero-stat-label">Marketplace Listings</span>
+        </div>
+      </div>
     </div>
     <!-- Scroll indicator -->
     <div class="hero-scroll-indicator" aria-hidden="true">
       <div class="hero-scroll-dot"></div>
     </div>
-    <!-- Stat chips bar -->
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <span class="hero-stat-num">50+</span>
-        <span class="hero-stat-label">Active Companies</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-num">$2B+</span>
-        <span class="hero-stat-label">Raised by Alumni</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-num">200+</span>
-        <span class="hero-stat-label">Microsoft Experts</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-num">85+</span>
-        <span class="hero-stat-label">Marketplace Listings</span>
-      </div>
-    </div>
   </section>
 
   <section class="section quick-start-section">
     <div class="container">
-      <div class="section-header text-left fade-in quick-start-header">
-        <div>
-          <p class="section-kicker">Start here</p>
-          <h2 class="section-title">Use the homepage as a hub, not a long read</h2>
-          <p class="section-sub">Pick the topic you need, open the relevant page, and go straight to the detailed content there.</p>
-        </div>
+      <div class="section-header fade-in">
+        <p class="section-kicker">Homepage focus</p>
+        <h2 class="section-title">Three things the homepage should help you do</h2>
+        <p class="section-sub">Explore programs, discover events, and understand how the hub works. Everything else should support those three journeys.</p>
       </div>
-      <div class="quick-start-grid">
-        <a href="programs.html" class="quick-start-card fade-in">
-          <span class="quick-start-step">01</span>
-          <h3>Browse programs</h3>
-          <p>See tracks, filters, and full program details on a dedicated page.</p>
-          <span class="quick-start-link">Open programs →</span>
-        </a>
-        <a href="events.html" class="quick-start-card fade-in">
-          <span class="quick-start-step">02</span>
-          <h3>Find events</h3>
-          <p>Go directly to workshops, summits, office hours, and registration flows.</p>
-          <span class="quick-start-link">Open events →</span>
-        </a>
-        <a href="apply.html" class="quick-start-card fade-in quick-start-card-primary">
-          <span class="quick-start-step">03</span>
-          <h3>Apply to the Hub</h3>
-          <p>Submit an intake form and let the team route you to the right track.</p>
-          <span class="quick-start-link">Start application →</span>
-        </a>
+      <div class="cards-grid cards-grid-3">
+        <div class="card value-card">
+          <div class="card-icon">🧭</div>
+          <h3 class="card-title">Explore Programs</h3>
+          <p class="card-text">Browse tracks by stage, see what each program includes, and go deeper into the full programs page.</p>
+          <div class="card-actions">
+            <a href="programs.html" class="btn btn-primary">Explore Programs</a>
+            <a href="apply.html" class="btn btn-outline">Apply Now</a>
+          </div>
+        </div>
+        <div class="card value-card">
+          <div class="card-icon">📅</div>
+          <h3 class="card-title">Events</h3>
+          <p class="card-text">See upcoming events, open details, and register for the workshops, summits, and office hours that fit.</p>
+          <div class="card-actions">
+            <a href="events.html" class="btn btn-primary">See Events</a>
+            <a href="register.html" class="btn btn-outline">Register</a>
+          </div>
+        </div>
+        <div class="card value-card">
+          <div class="card-icon">🏛️</div>
+          <h3 class="card-title">How the Hub Works</h3>
+          <p class="card-text">Understand the operating model, who the hub is for, how teams collaborate, and what happens after you engage.</p>
+          <div class="card-actions">
+            <a href="about.html" class="btn btn-primary">See How It Works</a>
+            <a href="collaborate.html" class="btn btn-outline">Collaboration Model</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -413,57 +465,26 @@
   <section class="section value-props section-alt">
     <div class="container">
       <div class="section-header fade-in">
-        <h2 class="section-title">Explore the Hub by topic</h2>
-        <p class="section-sub">These are the main areas people usually want. Each card opens the full page instead of forcing more homepage scrolling.</p>
+        <h2 class="section-title">Explore Programs</h2>
+        <p class="section-sub">Start with the programs page if you want the real menu: tracks, filters, benefits, and stage fit.</p>
       </div>
       <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=300&fit=crop&crop=center" alt="Microsoft collaboration session" class="section-image-banner" loading="lazy">
-      <div class="cards-grid cards-grid-4">
-        <a href="programs.html" class="card value-card" style="text-decoration:none; display:block;">
-          <div class="card-icon">🧭</div>
-          <h3 class="card-title">Programs</h3>
-          <p class="card-text">See all tracks, filter by company stage, and open detailed program cards.</p>
-        </a>
-        <a href="events.html" class="card value-card" style="text-decoration:none; display:block;">
-          <div class="card-icon">📅</div>
-          <h3 class="card-title">Events</h3>
-          <p class="card-text">Go straight to workshops, conferences, office hours, labs, and registration.</p>
-        </a>
-        <a href="experts.html" class="card value-card" style="text-decoration:none; display:block;">
-          <div class="card-icon">🧠</div>
-          <h3 class="card-title">Experts</h3>
-          <p class="card-text">Meet the people behind architecture, AI, GTM, partner growth, and advisory.</p>
-        </a>
-        <a href="collaborate.html" class="card value-card" style="text-decoration:none; display:block;">
-          <div class="card-icon">🤝</div>
-          <h3 class="card-title">Collaborate</h3>
-          <p class="card-text">Understand how Microsoft teams, partners, and companies work together through the hub.</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section programs-section">
-    <div class="container">
-      <div class="section-header fade-in">
-        <h2 class="section-title">Choose your path</h2>
-        <p class="section-sub">The homepage gives the summary. Each path opens the page with the full breakdown.</p>
-      </div>
-      <div class="cards-grid cards-grid-4">
+      <div class="cards-grid cards-grid-3">
         <div class="card program-card">
           <div class="program-card-header">
             <div class="card-icon">🌱</div>
             <span class="badge badge-green">Founders</span>
           </div>
           <h3 class="card-title">Seed to Series B</h3>
-          <p class="card-desc">For startups building on Azure and shaping early product-market fit.</p>
+          <p class="card-desc">Early-stage support focused on Azure setup, AI acceleration, and founder-friendly guidance.</p>
           <ul class="benefit-list">
             <li>Credits and landing zone setup</li>
             <li>Architecture and AI guidance</li>
             <li>Founder-focused programs</li>
           </ul>
           <div class="card-actions">
-            <a href="programs.html" class="btn btn-sm btn-outline">View Programs</a>
-            <a href="apply.html" class="btn btn-sm btn-primary">Apply</a>
+            <a href="programs.html" class="btn btn-sm btn-primary">Explore Programs</a>
+            <a href="apply.html" class="btn btn-sm btn-outline">Apply</a>
           </div>
         </div>
         <div class="card program-card">
@@ -472,15 +493,15 @@
             <span class="badge badge-blue">Scaleups</span>
           </div>
           <h3 class="card-title">Series C/D</h3>
-          <p class="card-desc">For companies moving from product traction into enterprise GTM and co-sell.</p>
+          <p class="card-desc">Growth-stage support for GTM, Marketplace, executive access, and scaling on Azure.</p>
           <ul class="benefit-list">
             <li>Marketplace and co-sell motion</li>
             <li>Executive and field intros</li>
             <li>Scaling architecture support</li>
           </ul>
           <div class="card-actions">
-            <a href="programs.html" class="btn btn-sm btn-outline">View Programs</a>
-            <a href="apply.html" class="btn btn-sm btn-primary">Apply</a>
+            <a href="programs.html" class="btn btn-sm btn-primary">Explore Programs</a>
+            <a href="apply.html" class="btn btn-sm btn-outline">Apply</a>
           </div>
         </div>
         <div class="card program-card">
@@ -489,32 +510,59 @@
             <span class="badge badge-navy">ISVs</span>
           </div>
           <h3 class="card-title">Mature ISVs</h3>
-          <p class="card-desc">For established software companies modernizing SaaS, AI, and Marketplace presence.</p>
+          <p class="card-desc">Modernize SaaS, ship AI faster, and strengthen Marketplace and commercial readiness.</p>
           <ul class="benefit-list">
             <li>Modernization programs</li>
             <li>GitHub Copilot and AI tracks</li>
             <li>Enterprise packaging and GTM</li>
           </ul>
           <div class="card-actions">
-            <a href="programs.html" class="btn btn-sm btn-outline">View Programs</a>
-            <a href="apply.html" class="btn btn-sm btn-primary">Apply</a>
+            <a href="programs.html" class="btn btn-sm btn-primary">Explore Programs</a>
+            <a href="copilot.html" class="btn btn-sm btn-outline">See AI Track</a>
           </div>
         </div>
-        <div class="card program-card">
-          <div class="program-card-header">
-            <div class="card-icon">👔</div>
-            <span class="badge badge-purple">Leaders</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section programs-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title">Events</h2>
+        <p class="section-sub">The events page should be the place to browse what is coming up, open details, and register quickly.</p>
+      </div>
+      <div class="cards-grid cards-grid-3">
+        <div class="card event-card">
+          <div class="event-body">
+            <span class="event-badge">Featured format</span>
+            <h3 class="event-title">Workshops &amp; office hours</h3>
+            <p class="event-desc">Hands-on sessions for architecture, AI productization, Marketplace readiness, and founder support.</p>
+            <div class="card-actions">
+              <a href="events.html" class="btn btn-sm btn-primary">See Events</a>
+              <a href="register.html" class="btn btn-sm btn-outline">Register</a>
+            </div>
           </div>
-          <h3 class="card-title">Executives &amp; Partners</h3>
-          <p class="card-desc">For leaders exploring co-product, commercial collaboration, pricing, and strategic access.</p>
-          <ul class="benefit-list">
-            <li>Executive briefings</li>
-            <li>Pricing and monetization labs</li>
-            <li>Partner and collaboration flows</li>
-          </ul>
-          <div class="card-actions">
-            <a href="collaborate.html" class="btn btn-sm btn-outline">See Collaboration</a>
-            <a href="about.html" class="btn btn-sm btn-primary">Learn More</a>
+        </div>
+        <div class="card event-card">
+          <div class="event-body">
+            <span class="event-badge">Featured format</span>
+            <h3 class="event-title">Summits &amp; briefings</h3>
+            <p class="event-desc">Higher-level sessions for leadership teams, partners, and executive conversations around growth and strategy.</p>
+            <div class="card-actions">
+              <a href="events.html" class="btn btn-sm btn-primary">Open Event Calendar</a>
+              <a href="about.html" class="btn btn-sm btn-outline">See Hub Context</a>
+            </div>
+          </div>
+        </div>
+        <div class="card event-card">
+          <div class="event-body">
+            <span class="event-badge">Featured format</span>
+            <h3 class="event-title">Fast path to registration</h3>
+            <p class="event-desc">Go from event discovery to a registration flow without getting stuck in homepage content.</p>
+            <div class="card-actions">
+              <a href="register.html" class="btn btn-sm btn-primary">Register Now</a>
+              <a href="events.html" class="btn btn-sm btn-outline">Browse All Events</a>
+            </div>
           </div>
         </div>
       </div>
@@ -551,34 +599,29 @@
   <section class="section experts-strip">
     <div class="container">
       <div class="section-header fade-in">
-        <h2 class="section-title">Meet a few of the people behind the Hub</h2>
-        <p class="section-sub">If you want the full team and roles, open the experts page.</p>
+        <h2 class="section-title">How the Hub Works</h2>
+        <p class="section-sub">The homepage should explain the model clearly, then point visitors to the full About and Collaborate pages.</p>
       </div>
-      <div class="experts-row">
-        <div class="expert-card">
-          <div class="expert-avatar">
-            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop&crop=faces" alt="Maya Levi" loading="lazy">
-          </div>
-          <div class="expert-name">Maya Levi</div>
-          <div class="expert-role">Hub Director</div>
+      <div class="azure-journey-grid">
+        <div class="azure-journey-card">
+          <span class="azure-journey-step">1</span>
+          <h3>Start from the right entry point</h3>
+          <p>Visitors should begin with programs, events, or the operating model depending on what they need right now.</p>
         </div>
-        <div class="expert-card">
-          <div class="expert-avatar">
-            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&h=200&fit=crop&crop=faces" alt="Ron Katz" loading="lazy">
-          </div>
-          <div class="expert-name">Ron Katz</div>
-          <div class="expert-role">Azure Solutions Architect</div>
+        <div class="azure-journey-card">
+          <span class="azure-journey-step">2</span>
+          <h3>Get routed to the right track</h3>
+          <p>The hub matches companies to the most relevant path, experts, and next actions instead of making people self-diagnose everything alone.</p>
         </div>
-        <div class="expert-card">
-          <div class="expert-avatar">
-            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=faces" alt="Dr. Avi Shapiro" loading="lazy">
-          </div>
-          <div class="expert-name">Dr. Avi Shapiro</div>
-          <div class="expert-role">AI Lead</div>
+        <div class="azure-journey-card">
+          <span class="azure-journey-step">3</span>
+          <h3>Go deeper on the right page</h3>
+          <p>Detailed information belongs on the inner pages so the homepage stays clear, focused, and action-oriented.</p>
         </div>
       </div>
       <div class="experts-cta">
-        <a href="experts.html" class="btn btn-primary">Open Experts Page →</a>
+        <a href="about.html" class="btn btn-primary">See How the Hub Works</a>
+        <a href="collaborate.html" class="btn btn-secondary">Explore Collaboration</a>
       </div>
     </div>
   </section>
@@ -586,34 +629,34 @@
   <section class="section testimonials-section">
     <div class="container">
       <div class="section-header fade-in">
-        <h2 class="section-title">What each page helps you do</h2>
-        <p class="section-sub">A clearer site map, in plain language.</p>
+        <h2 class="section-title">What each pillar is supposed to do</h2>
+        <p class="section-sub">A clearer site map in plain language, centered around the three homepage priorities.</p>
       </div>
       <div class="cards-grid cards-grid-3">
         <div class="card testimonial-card">
-          <p class="testimonial-quote">Programs gives the full menu: tracks, filters, detailed cards, and fit by stage — so visitors can compare options without guessing.</p>
+          <p class="testimonial-quote">Programs should help visitors compare tracks, understand fit by stage, and move toward the right application path.</p>
           <div class="testimonial-author">
             <div class="testimonial-info">
-              <strong>Programs</strong>
-              <span>Tracks, fit, and details</span>
+              <strong>Explore Programs</strong>
+              <span>Tracks, fit, and next steps</span>
             </div>
           </div>
         </div>
         <div class="card testimonial-card">
-          <p class="testimonial-quote">Events is where visitors can browse formats, open event details, and register. It should feel like a calendar destination, not hidden homepage content.</p>
+          <p class="testimonial-quote">Events should make discovery and registration feel fast. It should behave like a destination, not a hidden section buried in homepage content.</p>
           <div class="testimonial-author">
             <div class="testimonial-info">
               <strong>Events</strong>
-              <span>Formats, dates, and registration</span>
+              <span>Formats, details, and registration</span>
             </div>
           </div>
         </div>
         <div class="card testimonial-card">
-          <p class="testimonial-quote">Experts, Collaborate, Success Stories, and About each have a clear job. The homepage should point to them, not duplicate their entire content.</p>
+          <p class="testimonial-quote">How the Hub Works should explain the operating model clearly so visitors understand who it is for, how Microsoft engages, and where to go next.</p>
           <div class="testimonial-author">
             <div class="testimonial-info">
-              <strong>Hub Pages</strong>
-              <span>Focused destinations, not one giant scroll</span>
+              <strong>How the Hub Works</strong>
+              <span>Model, context, and routing</span>
             </div>
           </div>
         </div>
