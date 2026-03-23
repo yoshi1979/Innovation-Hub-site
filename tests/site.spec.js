@@ -1,6 +1,14 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
 
+async function openMobileNavIfNeeded(page) {
+  const toggle = page.locator('.nav-toggle');
+  if (await toggle.isVisible().catch(() => false)) {
+    await toggle.click();
+    await expect(page.locator('.nav-links')).toHaveClass(/open/);
+  }
+}
+
 // ──────────────────────────────────────────────
 // HOME PAGE (index.html)
 // ──────────────────────────────────────────────
@@ -13,16 +21,18 @@ test.describe('Home Page', () => {
   test('hero section is visible with CTA buttons', async ({ page }) => {
     await page.goto('/index.html');
     await expect(page.locator('.hero-title')).toBeVisible();
-    await expect(page.locator('a[href="apply.html"]').first()).toBeVisible();
-    await expect(page.locator('a[href="programs.html"]').first()).toBeVisible();
+    await expect(page.locator('.hero-actions a[href="apply.html"]').first()).toBeVisible();
+    await expect(page.locator('.hero-actions a[href="programs.html"]').first()).toBeVisible();
   });
 
   test('navigation links are present', async ({ page }) => {
     await page.goto('/index.html');
-    await expect(page.locator('a[href="programs.html"]').first()).toBeVisible();
-    await expect(page.locator('a[href="events.html"]').first()).toBeVisible();
-    await expect(page.locator('a[href="about.html"]').first()).toBeVisible();
-    await expect(page.locator('a[href="apply.html"]').first()).toBeVisible();
+    await openMobileNavIfNeeded(page);
+    const nav = page.locator('nav');
+    await expect(nav.locator('a[href="programs.html"]').first()).toBeVisible();
+    await expect(nav.locator('a[href="events.html"]').first()).toBeVisible();
+    await expect(nav.locator('a[href="about.html"]').first()).toBeVisible();
+    await expect(nav.locator('a[href="apply.html"]').first()).toBeVisible();
   });
 
   test('section-image-banner is present', async ({ page }) => {
@@ -341,6 +351,7 @@ test.describe('Register Page', () => {
 test.describe('Navigation', () => {
   test('Programs nav link navigates correctly', async ({ page }) => {
     await page.goto('/index.html');
+    await openMobileNavIfNeeded(page);
     await page.locator('nav a[href="programs.html"]').click();
     await expect(page).toHaveURL(/programs\.html/);
     await expect(page).toHaveTitle(/Programs/);
@@ -348,6 +359,7 @@ test.describe('Navigation', () => {
 
   test('Events nav link navigates correctly', async ({ page }) => {
     await page.goto('/index.html');
+    await openMobileNavIfNeeded(page);
     await page.locator('nav a[href="events.html"]').click();
     await expect(page).toHaveURL(/events\.html/);
     await expect(page).toHaveTitle(/Events/);
@@ -355,6 +367,7 @@ test.describe('Navigation', () => {
 
   test('About nav link navigates correctly', async ({ page }) => {
     await page.goto('/index.html');
+    await openMobileNavIfNeeded(page);
     await page.locator('nav a[href="about.html"]').click();
     await expect(page).toHaveURL(/about\.html/);
     await expect(page).toHaveTitle(/About/);
@@ -368,6 +381,7 @@ test.describe('Navigation', () => {
 
   test('Apply Now CTA navigates correctly', async ({ page }) => {
     await page.goto('/index.html');
+    await openMobileNavIfNeeded(page);
     await page.locator('nav a.nav-cta[href="apply.html"]').click();
     await expect(page).toHaveURL(/apply\.html/);
   });
@@ -399,4 +413,61 @@ test.describe('Image Accessibility', () => {
       }
     });
   }
+});
+
+// ──────────────────────────────────────────────
+// RESPONSIVE QA: key pages work on mobile + desktop
+// ──────────────────────────────────────────────
+const responsivePages = [
+  '/index.html',
+  '/about.html',
+  '/programs.html',
+  '/events.html',
+  '/experts.html',
+  '/collaborate.html',
+  '/apply.html',
+  '/register.html',
+  '/nominate.html',
+  '/copilot.html',
+  '/success.html',
+];
+
+for (const pagePath of responsivePages) {
+  test(`responsive smoke: ${pagePath} has visible main content and no horizontal overflow`, async ({ page }) => {
+    await page.goto(pagePath);
+    await expect(page.locator('main, body')).toBeVisible();
+
+    const metrics = await page.evaluate(() => ({
+      docClient: document.documentElement.clientWidth,
+      docScroll: document.documentElement.scrollWidth,
+      bodyClient: document.body.clientWidth,
+      bodyScroll: document.body.scrollWidth,
+    }));
+
+    expect(
+      Math.max(metrics.docScroll - metrics.docClient, metrics.bodyScroll - metrics.bodyClient),
+      `${pagePath} has horizontal overflow`
+    ).toBeLessThanOrEqual(1);
+  });
+}
+
+test.describe('Responsive interactions', () => {
+  test('mobile nav opens and closes on core pages', async ({ page, browserName }) => {
+    test.skip(browserName === 'chromium', 'Covered by desktop nav tests already; focus this on mobile projects.');
+
+    for (const pagePath of ['/index.html', '/programs.html', '/events.html']) {
+      await page.goto(pagePath);
+      const toggle = page.locator('.nav-toggle');
+      await expect(toggle).toBeVisible();
+      await toggle.click();
+      await expect(page.locator('.nav-links')).toHaveClass(/open/);
+    }
+  });
+
+  test('event details modal remains visible on mobile', async ({ page }) => {
+    await page.goto('/events.html');
+    const detailsBtn = page.locator('button[data-modal="modal-event1"]').first();
+    await detailsBtn.click();
+    await expect(page.locator('#modal-event1')).toBeVisible();
+  });
 });
